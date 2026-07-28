@@ -122,10 +122,12 @@ def play_badge(pkg, campaign):
             '&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3D' + campaign +
             '" rel="noopener"><img src="' + PLAY_BADGE_IMG + '" alt="Get it on Google Play"></a>')
 
+APPLE_PROVIDER_TOKEN = "129172097"  # account-wide, from App Analytics campaign link generator
+
 def ios_badge(app_id, campaign):
-    # NOTE: add pt=<provider token from App Store Connect> for campaign reporting in App Analytics.
     return ('<a class="badge-appstore" href="https://apps.apple.com/app/id' + app_id +
-            '?ct=calc_' + campaign + '" rel="noopener"><img src="' + APPSTORE_BADGE_IMG +
+            '?pt=' + APPLE_PROVIDER_TOKEN + '&amp;ct=calc_' + campaign +
+            '&amp;mt=8" rel="noopener"><img src="' + APPSTORE_BADGE_IMG +
             '" alt="Download on the App Store"></a>')
 
 def bakelog_block(campaign):
