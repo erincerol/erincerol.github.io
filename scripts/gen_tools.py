@@ -696,11 +696,11 @@ for p in PAGES:
 # ---------------------------------------------------------------- tools index
 
 GROUPS = [
-    ("Baking", "The Bake Log", ["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator"]),
-    ("Coffee", "Kohii", ["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
-    ("Wine", "Cellar Book", ["wine-drink-window-calculator"]),
-    ("Plants", "Leaflet", ["plant-watering-calculator"]),
-    ("Consumer rights", "Warranty Box", ["uk-return-rights-checker"]),
+    ("Baking", "The Bake Log", "#A4552F", ["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator"]),
+    ("Coffee", "Kohii", "#8F5E1B", ["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
+    ("Wine", "Cellar Book", "#722F37", ["wine-drink-window-calculator"]),
+    ("Plants", "Leaflet", "#2E7D32", ["plant-watering-calculator"]),
+    ("Consumer rights", "Warranty Box", "#2F6E9E", ["uk-return-rights-checker"]),
 ]
 
 DESCS = {
@@ -716,8 +716,9 @@ DESCS = {
 }
 
 groups_html = ""
-for gname, app, slugs in GROUPS:
-    groups_html += '<section class="group">\n<h2>' + gname + ' <span class="app">&middot; from ' + app + '</span></h2>\n<ul>\n'
+for gname, app, accent, slugs in GROUPS:
+    groups_html += ('<section class="group" style="--acc:' + accent + '">\n<h2><span class="dot"></span>' +
+                    gname + ' <span class="app">from ' + app + '</span></h2>\n<ul>\n')
     for s in slugs:
         groups_html += ('<li><a href="/tools/' + s + '/"><strong>' + TOOL_TITLES[s] + '</strong>'
                         '<span>' + DESCS[s] + '</span></a></li>\n')
@@ -748,14 +749,15 @@ h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;color:#111;margin-
 .crumb{font-size:.9rem;color:#888;margin-bottom:24px}
 .crumb a{color:#888;text-decoration:none}
 .crumb a:hover{color:#0066cc}
-h2{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:#111;margin:30px 0 12px}
-h2 .app{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:.85rem;color:#999;font-weight:400}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:#111;margin:34px 0 12px;display:flex;align-items:baseline;gap:9px}
+h2 .dot{width:11px;height:11px;border-radius:4px;background:var(--acc);flex:none;align-self:center}
+h2 .app{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:.82rem;color:#9a948e;font-weight:400;letter-spacing:.01em}
 ul{list-style:none;padding:0;margin:0}
 li{margin-bottom:10px}
-li a{display:block;padding:14px 16px;background:#fff;border:1px solid #e5e5e5;border-radius:10px;text-decoration:none;color:#333}
-li a:hover{border-color:#0066cc}
-li a strong{display:block;color:#0066cc}
-li a span{font-size:.9rem;color:#777}
+li a{display:block;padding:13px 18px 12px;background:#fff;border:1px solid #e8e5e0;border-left:4px solid var(--acc);border-radius:10px;text-decoration:none;color:#333;transition:border-color .15s ease,box-shadow .15s ease}
+li a:hover{border-color:var(--acc);box-shadow:0 3px 14px rgba(17,17,17,.07)}
+li a strong{display:block;color:#181614;font-size:1.02rem}
+li a span{font-size:.9rem;color:#7d7871}
 footer{margin-top:50px;font-size:.85rem;color:#888;border-top:1px solid #eee;padding-top:20px}
 footer a{color:#888}
 </style>

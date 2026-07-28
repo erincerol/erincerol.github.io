@@ -23,14 +23,15 @@ h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;color:#111;margin-
 .crumb{font-size:.9rem;color:#888;margin-bottom:24px}
 .crumb a{color:#888;text-decoration:none}
 .crumb a:hover{color:#0066cc}
-h2{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:#111;margin:30px 0 12px}
-h2 .app{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:.85rem;color:#999;font-weight:400}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:#111;margin:34px 0 12px;display:flex;align-items:baseline;gap:9px}
+h2 .dot{width:11px;height:11px;border-radius:4px;background:var(--acc);flex:none;align-self:center}
+h2 .app{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:.82rem;color:#9a948e;font-weight:400;letter-spacing:.01em}
 ul{list-style:none;padding:0;margin:0}
 li{margin-bottom:10px}
-li a{display:block;padding:14px 16px;background:#fff;border:1px solid #e5e5e5;border-radius:10px;text-decoration:none;color:#333}
-li a:hover{border-color:#0066cc}
-li a strong{display:block;color:#0066cc}
-li a span{font-size:.9rem;color:#777}
+li a{display:block;padding:13px 18px 12px;background:#fff;border:1px solid #e8e5e0;border-left:4px solid var(--acc);border-radius:10px;text-decoration:none;color:#333;transition:border-color .15s ease,box-shadow .15s ease}
+li a:hover{border-color:var(--acc);box-shadow:0 3px 14px rgba(17,17,17,.07)}
+li a strong{display:block;color:#181614;font-size:1.02rem}
+li a span{font-size:.9rem;color:#7d7871}
 footer{margin-top:50px;font-size:.85rem;color:#888;border-top:1px solid #eee;padding-top:20px}
 footer a{color:#888}
 </style>
@@ -39,36 +40,36 @@ footer a{color:#888}
 <nav class="crumb"><a href="/">Eri Tech Studio</a> / Free tools</nav>
 <h1>Free Tools &amp; Calculators</h1>
 <p class="subtitle">Small, fast, free calculators from the apps we build. No signup, nothing gated.</p>
-<section class="group">
-<h2>Baking <span class="app">&middot; from The Bake Log</span></h2>
+<section class="group" style="--acc:#A4552F">
+<h2><span class="dot"></span>Baking <span class="app">from The Bake Log</span></h2>
 <ul>
 <li><a href="/tools/sourdough-hydration-calculator/"><strong>Sourdough Hydration Calculator</strong><span>Flour, water and starter in — true hydration % out, or work backwards from a target.</span></a></li>
 <li><a href="/tools/bakers-percentage-calculator/"><strong>Baker's Percentage Calculator</strong><span>Scale any bread formula from flour weight or target dough weight.</span></a></li>
 <li><a href="/tools/starter-feeding-ratio-calculator/"><strong>Starter Feeding Ratio Calculator</strong><span>1:1:1, 1:2:2, 1:5:5 — exact feed amounts and expected peak times.</span></a></li>
 </ul>
 </section>
-<section class="group">
-<h2>Coffee <span class="app">&middot; from Kohii</span></h2>
+<section class="group" style="--acc:#8F5E1B">
+<h2><span class="dot"></span>Coffee <span class="app">from Kohii</span></h2>
 <ul>
 <li><a href="/tools/coffee-ratio-calculator/"><strong>Coffee Ratio Calculator</strong><span>Coffee-to-water ratios for V60, Chemex, AeroPress, French press and more.</span></a></li>
 <li><a href="/tools/espresso-ratio-calculator/"><strong>Espresso Ratio Calculator</strong><span>Dose, yield, ratio — enter any two and solve the third.</span></a></li>
 <li><a href="/tools/coffee-freshness-calculator/"><strong>Coffee Freshness Calculator</strong><span>Roast date in, peak window out — for espresso and filter.</span></a></li>
 </ul>
 </section>
-<section class="group">
-<h2>Wine <span class="app">&middot; from Cellar Book</span></h2>
+<section class="group" style="--acc:#722F37">
+<h2><span class="dot"></span>Wine <span class="app">from Cellar Book</span></h2>
 <ul>
 <li><a href="/tools/wine-drink-window-calculator/"><strong>Wine Drink Window Calculator</strong><span>Style and vintage in — ageing, ready, at peak or fading out.</span></a></li>
 </ul>
 </section>
-<section class="group">
-<h2>Plants <span class="app">&middot; from Leaflet</span></h2>
+<section class="group" style="--acc:#2E7D32">
+<h2><span class="dot"></span>Plants <span class="app">from Leaflet</span></h2>
 <ul>
 <li><a href="/tools/plant-watering-calculator/"><strong>Plant Watering Calculator</strong><span>Watering intervals by species, season and light.</span></a></li>
 </ul>
 </section>
-<section class="group">
-<h2>Consumer rights <span class="app">&middot; from Warranty Box</span></h2>
+<section class="group" style="--acc:#2F6E9E">
+<h2><span class="dot"></span>Consumer rights <span class="app">from Warranty Box</span></h2>
 <ul>
 <li><a href="/tools/uk-return-rights-checker/"><strong>UK Return Rights Checker</strong><span>Which legal return or refund window you're in, from the purchase date.</span></a></li>
 </ul>
