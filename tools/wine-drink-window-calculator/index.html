@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wine Drink Window Calculator | Eri Tech Studio</title>
+<meta name="description" content="Enter a wine style and vintage and get its likely drinking window — still ageing, ready now, at peak, or fading. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/wine-drink-window-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wine Drink Window Calculator">
+<meta property="og:description" content="Enter a wine style and vintage and get its likely drinking window — still ageing, ready now, at peak, or fading. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/wine-drink-window-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/wine-drink-window-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#15171A;--surface:#1E2126;--text:#EDEDED;--muted:#8E97A0;--accent:#D4B595;--line:#2A2E35;--on-accent:#15171A}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Wine Drink Window Calculator</h1>
+<p class="lede">When should you open that bottle? Pick the style, enter the vintage, and see where it sits today.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="row">
+<div class="field"><label for="style">Wine style</label>
+<select id="style">
+<option value="8,25" selected>Barolo / Barbaresco</option>
+<option value="8,30">Bordeaux — classed growth red</option>
+<option value="3,10">Bordeaux — everyday red</option>
+<option value="4,12">Red Burgundy — village / premier cru</option>
+<option value="5,20">Napa Valley Cabernet</option>
+<option value="5,20">Northern Rh&ocirc;ne Syrah</option>
+<option value="8,25">Rioja Gran Reserva</option>
+<option value="5,15">Chianti Classico Riserva</option>
+<option value="3,10">White Burgundy</option>
+<option value="3,20">German Riesling (Kabinett / Sp&auml;tlese)</option>
+<option value="8,20">Vintage Champagne</option>
+<option value="15,40">Vintage Port</option>
+<option value="1,5">Everyday red</option>
+<option value="0,2">Everyday white / ros&eacute;</option>
+</select></div>
+<div class="field"><label for="vintage">Vintage</label><input type="number" id="vintage" value="2019" min="1900" max="2100" inputmode="numeric"></div>
+</div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
+<p class="note">Windows are broad guides for well-made, well-stored examples of each style — producer, vintage quality and storage all shift them.</p>
+</section>
+<section>
+<h2>What a drink window is</h2>
+<p>A drink window is the stretch of years when a wine is likely to show at its best — after harsh youthful tannin and raw oak have softened, and before fruit fades and oxidation takes over. Wines built for ageing follow an arc: tight and primary young, then open and layered through the middle of the window, then gradually drier and more fragile at the end.</p>
+<h2>What sets the window</h2>
+<p>Structure does. Tannin, acidity, sugar and alcohol are preservatives, which is why a Barolo or a classed-growth Bordeaux can improve for two decades while most supermarket reds are at their best within a year or two of release. Sweet and fortified wines stretch furthest of all — vintage Port is often barely ready at fifteen years. Within a style, the producer and the vintage matter enormously: a great year adds years to the window, a weak one shortens it, and a light producer&rsquo;s wine will always drink earlier than a blockbuster&rsquo;s.</p>
+<h2>Using the estimate well</h2>
+<p>Treat the window as a planning tool, not a countdown. If you own several bottles of the same wine, open them across the window — one early, one at the projected peak — and let the wine tell you how it is evolving; that is far more reliable than any table. Storage is the silent variable: these ranges assume a cool, dark, stable spot around 12–14&nbsp;&deg;C. A bottle kept warm ages measurably faster, so shorten the window for anything stored in a kitchen.</p>
+</section>
+<section class="app-block">
+<p><strong>Cellar Book</strong> tracks drink windows on every bottle in your cellar — see what is ageing, ready or fading at a glance, with label photos, tasting notes on the 100-point scale and an offline map of your collection&rsquo;s regions.</p><div class="badges"><span class="soon">Coming soon to the App Store and Google Play</span></div><p class="note">In the meantime, see <a href="/">our other apps</a>.</p>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function calc(){
+var v=parseInt($('vintage').value,10);
+if(isNaN(v)||v<1900||v>2100){$('out').innerHTML='&mdash;';$('outsub').textContent='Enter a vintage year.';return}
+var p=$('style').value.split(','),a=v+ +p[0],b=v+ +p[1];
+var now=new Date().getFullYear();
+$('out').textContent='Drink '+a+' \u2013 '+b;
+var third=(b-a)/3;
+if(now<a){$('outsub').textContent='Still ageing — about '+(a-now)+' more year'+(a-now===1?'':'s')+' before the window opens.'}
+else if(now<=b){
+if(now>=a+third&&now<=b-third){$('outsub').textContent='In its drink window and around its likely peak. A very good time to open one.'}
+else if(now<a+third){$('outsub').textContent='The window has just opened — drinking well now, and should improve further.'}
+else{$('outsub').textContent='In its window but on the later slope — drink sooner rather than later.'}}
+else{$('outsub').textContent='Past its likely window. It may still be enjoyable, but expect faded fruit — open it with modest expectations.'}}
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

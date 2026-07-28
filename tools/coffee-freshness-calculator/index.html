@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coffee Freshness Calculator — Roast Date to Peak Window | Eri Tech Studio</title>
+<meta name="description" content="Enter a roast date and see whether your beans are resting, at their peak, or past it — for espresso and filter. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/coffee-freshness-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Coffee Freshness Calculator">
+<meta property="og:description" content="Enter a roast date and see whether your beans are resting, at their peak, or past it — for espresso and filter. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/coffee-freshness-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/coffee-freshness-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#FAF7F2;--surface:#FFFFFF;--text:#4A2C1A;--muted:#7A6A5A;--accent:#8F5E1B;--line:#E0D5C5;--on-accent:#FFFFFF}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Coffee Freshness Calculator</h1>
+<p class="lede">How long after the roast date is coffee at its best? Enter yours and see where the bag stands.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="row">
+<div class="field"><label for="roast">Roast date</label><input type="date" id="roast"></div>
+<div class="field"><label for="method">Brewing as</label>
+<select id="method">
+<option value="esp" selected>Espresso</option>
+<option value="fil">Filter / pour-over</option>
+</select></div>
+</div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
+<p class="note">Windows assume whole beans in a sealed bag away from heat and light. Ground coffee fades several times faster.</p>
+</section>
+<section>
+<h2>Why coffee needs to rest</h2>
+<p>Roasting fills beans with carbon dioxide, and for the first days after roast that gas escapes faster than water can extract flavour. Brew too early and the bloom is violent, extraction is uneven, and the cup tastes sharp and hollow. This is why &ldquo;fresher is better&rdquo; is only half true: coffee needs a rest before it needs urgency.</p>
+<h2>Espresso and filter age differently</h2>
+<p>Espresso is the fussier method. The pressure of a 9-bar shot amplifies degassing problems, so most roasts want ten days or more of rest before they pull cleanly, and then drink beautifully for roughly four to six weeks. Filter brewing is gentler: beans are usually ready within about five days and stay in their window for around a month. Lighter roasts generally rest longer and fade slower than dark ones, which peak sooner and stale faster — treat the windows here as sensible defaults, not laws.</p>
+<h2>Making beans last</h2>
+<p>Oxygen, heat, light and moisture are the enemies, in that order. Keep beans whole and sealed — a bag with a one-way valve or an airtight container in a cupboard is fine — and grind just before brewing, since ground coffee loses aromatics within minutes rather than weeks. For a supply you cannot drink in time, freezing works far better than its reputation: portion beans into small airtight containers, freeze on arrival, and grind straight from frozen. A bag frozen in its sweet spot effectively pauses there.</p>
+</section>
+<section class="app-block">
+<p>This calculator is built into <strong>Kohii — The Barista Log</strong>, along with brew logging, dial-in history and bean freshness tracking. Offline, no account, one-time unlock.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790972283?ct=calc_coffee_freshness" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.kohii&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dcoffee_freshness" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+var W={esp:{rest:10,peakEnd:45,useEnd:60},fil:{rest:5,peakEnd:30,useEnd:45}};
+function fmt(d){return d.toLocaleDateString(undefined,{day:'numeric',month:'short'})}
+function calc(){
+var v=$('roast').value;if(!v){$('out').innerHTML='&mdash;';$('outsub').textContent='Pick your roast date.';return}
+var w=W[$('method').value];
+var roast=new Date(v+'T00:00:00'),now=new Date();
+var days=Math.floor((now-roast)/86400000);
+var restEnd=new Date(roast.getTime()+w.rest*86400000);
+var peakEnd=new Date(roast.getTime()+w.peakEnd*86400000);
+if(days<0){$('out').textContent='Future roast date';$('outsub').textContent='That date has not happened yet.';return}
+if(days<w.rest){$('out').textContent='Still resting — day '+days;
+$('outsub').textContent='Fresh roasts release CO\u2082 that disrupts extraction. Best from around '+fmt(restEnd)+', in the sweet spot until roughly '+fmt(peakEnd)+'.'}
+else if(days<=w.peakEnd){$('out').textContent='In the sweet spot — day '+days;
+$('outsub').textContent='Degassed and flavourful. Expect the peak to hold until around '+fmt(peakEnd)+'.'}
+else if(days<=w.useEnd){$('out').textContent='Past peak — day '+days;
+$('outsub').textContent='Still perfectly drinkable, but aromatics are fading. Grind fine-tuning can claw some back.'}
+else{$('out').textContent='Likely stale — day '+days;
+$('outsub').textContent='Flavour will be flat and papery. Fine for milk drinks; buy fresher for anything black.'}}
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plant Watering Calculator — How Often to Water | Eri Tech Studio</title>
+<meta name="description" content="How often to water a Monstera, Pothos, snake plant and more — interval estimates by species, season and light. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/plant-watering-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Plant Watering Calculator">
+<meta property="og:description" content="How often to water a Monstera, Pothos, snake plant and more — interval estimates by species, season and light. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/plant-watering-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/plant-watering-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#0D1F0F;--surface:#142B16;--text:#F1F8F1;--muted:#8FAF8F;--accent:#4CAF50;--line:#1E3320;--on-accent:#0D1F0F}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Plant Watering Calculator</h1>
+<p class="lede">A starting interval for your plant, adjusted for the season and the light it actually gets.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="field"><label for="species">Plant</label>
+<select id="species">
+<option value="7,10" selected>Monstera deliciosa</option>
+<option value="7,10">Pothos</option>
+<option value="14,21">Snake plant (Sansevieria)</option>
+<option value="14,21">ZZ plant</option>
+<option value="7,10">Fiddle leaf fig</option>
+<option value="7,10">Pilea peperomioides</option>
+<option value="5,7">Alocasia</option>
+<option value="5,7">Calathea / prayer plant</option>
+<option value="5,7">Peace lily</option>
+<option value="7,10">Spider plant</option>
+<option value="14,28">Succulents &amp; cacti</option>
+<option value="3,5">Ferns</option>
+</select></div>
+<div class="row">
+<div class="field"><label for="season">Season</label>
+<select id="season">
+<option value="1" selected>Spring / summer (growing)</option>
+<option value="1.3">Autumn</option>
+<option value="1.6">Winter (dormant)</option>
+</select></div>
+<div class="field"><label for="light">Light</label>
+<select id="light">
+<option value="0.8">Bright, near a window</option>
+<option value="1" selected>Medium, a few metres in</option>
+<option value="1.3">Low light</option>
+</select></div>
+</div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
+<p class="note">Always confirm with the soil: water when the top 2–5&nbsp;cm is dry, whatever the calendar says.</p>
+</section>
+<section>
+<h2>Why there is no fixed schedule</h2>
+<p>&ldquo;Water once a week&rdquo; is the most common houseplant advice and the most common cause of dead houseplants. A plant&rsquo;s thirst depends on how much light it gets, how warm and dry the room is, the size and material of the pot, and how fast it is growing — the same Monstera might want water every six days in a bright July window and every three weeks in a dim December corner. An interval is only ever a starting point.</p>
+<h2>Reading the signals</h2>
+<p>The soil is the real schedule. Push a finger 2–5&nbsp;cm into the pot: for most tropical foliage plants, water when that depth is dry; for succulents, cacti, snake plants and ZZ plants, wait until the pot is dry throughout. Lifting the pot works too — a dry pot is startlingly light. When you do water, water thoroughly until it runs from the drainage holes, then empty the saucer. Frequent little sips keep the surface wet and the roots thirsty.</p>
+<h2>Overwatering kills more than drought</h2>
+<p>Most houseplants tolerate going a little too dry: leaves droop, you water, they recover. Constantly wet soil is different — it suffocates roots and invites rot, which is usually fatal by the time it shows. Yellowing lower leaves on damp soil mean water less, not more. In autumn and winter, growth slows and drying takes far longer, so stretch every interval; almost everything on this list wants a drier, calmer off-season than its summer routine.</p>
+</section>
+<section class="app-block">
+<p><strong>Leaflet</strong> keeps watering and feeding schedules for every plant you own, with a photo timeline so you can watch a year of growth in one scroll. No subscription, no AI gimmicks.</p><div class="badges"><span class="soon">Coming soon to the App Store and Google Play</span></div><p class="note">In the meantime, see <a href="/">our other apps</a>.</p>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function calc(){
+var p=$('species').value.split(','),s=parseFloat($('season').value),l=parseFloat($('light').value);
+var lo=Math.round(p[0]*s*l),hi=Math.round(p[1]*s*l);
+if(lo<1)lo=1;if(hi<=lo)hi=lo+1;
+$('out').textContent='Every '+lo+'\u2013'+hi+' days';
+$('outsub').textContent='A starting point, not a rule — check the soil before each watering and let the top few centimetres dry out first.'}
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coffee to Water Ratio Calculator | Eri Tech Studio</title>
+<meta name="description" content="Work out coffee-to-water ratios for V60, Chemex, AeroPress, French press, moka pot, cold brew and espresso. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/coffee-ratio-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Coffee Ratio Calculator">
+<meta property="og:description" content="Work out coffee-to-water ratios for V60, Chemex, AeroPress, French press, moka pot, cold brew and espresso. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/coffee-ratio-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/coffee-ratio-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#FAF7F2;--surface:#FFFFFF;--text:#4A2C1A;--muted:#7A6A5A;--accent:#8F5E1B;--line:#E0D5C5;--on-accent:#FFFFFF}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Coffee Ratio Calculator</h1>
+<p class="lede">Pick a brew method, enter your coffee or your water, and get the other side of the ratio.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="row">
+<div class="field"><label for="method">Brew method</label>
+<select id="method">
+<option value="16" selected>V60 / pour-over (1:16)</option>
+<option value="16">Chemex (1:16)</option>
+<option value="15">AeroPress (1:15)</option>
+<option value="15">French press (1:15)</option>
+<option value="10">Moka pot (1:10)</option>
+<option value="8">Cold brew concentrate (1:8)</option>
+<option value="2">Espresso (1:2)</option>
+</select></div>
+<div class="field"><label for="ratio">Ratio — 1 :</label><input type="number" id="ratio" value="16" min="1" step="0.5" inputmode="decimal"></div>
+</div>
+<div class="seg" id="mode">
+<button class="on" data-m="c2w" type="button">Coffee &rarr; water</button>
+<button data-m="w2c" type="button">Water &rarr; coffee</button>
+</div>
+<div class="field" id="f-coffee"><label for="coffee">Coffee (g)</label><input type="number" id="coffee" value="20" min="0" step="0.1" inputmode="decimal"></div>
+<div class="field" id="f-water" hidden><label for="water">Water (g / ml)</label><input type="number" id="water" value="320" min="0" inputmode="decimal"></div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
+<p class="note">Grams and millilitres of water are interchangeable — a scale is far more accurate than a jug either way.</p>
+</section>
+<section>
+<h2>What a brew ratio means</h2>
+<p>A ratio of 1:16 means one gram of ground coffee for every sixteen grams of water — 20&nbsp;g of coffee to 320&nbsp;g of water. It is the single most useful number in brewing, because it fixes strength before you touch grind size or technique. Two people using the same ratio, water and beans will make recognisably similar cups; two people guessing with scoops will not.</p>
+<h2>Why methods differ</h2>
+<p>Percolation methods like V60 and Chemex run comfortably at 1:15 to 1:17 — the classic filter-strength cup. Immersion methods such as French press and AeroPress are often brewed slightly tighter, around 1:14 to 1:15, because some water stays trapped in the bed. A moka pot at roughly 1:10 lands between filter and espresso, cold brew concentrate at 1:8 is made to be diluted, and espresso at 1:2 is its own world — see the <a href="/tools/espresso-ratio-calculator/">espresso ratio calculator</a> for dose and yield.</p>
+<h2>Adjusting to taste</h2>
+<p>Move the ratio for strength, the grind for extraction. If the cup tastes weak and thin, tighten the ratio (1:15 instead of 1:16); if it is muddy and heavy, loosen it. If it tastes sour, grind finer or brew hotter; bitter, coarser or cooler. Change one variable at a time, keep the rest fixed, and taste after each change — that is dialling in, and it works faster than any amount of theory.</p>
+</section>
+<section class="app-block">
+<p>This calculator is built into <strong>Kohii — The Barista Log</strong>, along with brew logging, dial-in history and bean freshness tracking. Offline, no account, one-time unlock.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790972283?ct=calc_coffee_ratio" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.kohii&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dcoffee_ratio" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+var mode='c2w';
+$('method').addEventListener('change',function(){$('ratio').value=$('method').value});
+function calc(){
+var r=num('ratio');if(r<=0)r=1;
+if(mode==='c2w'){var c=num('coffee');
+$('out').textContent=Math.round(c*r)+' g water';
+$('outsub').textContent=c+' g coffee at 1:'+r+' &rarr; '+Math.round(c*r)+' g water.';$('outsub').innerHTML=$('outsub').textContent.replace('&rarr;','\u2192')}
+else{var w=num('water');
+$('out').textContent=(Math.round(w/r*10)/10)+' g coffee';
+$('outsub').textContent=w+' g water at 1:'+r+' \u2192 '+(Math.round(w/r*10)/10)+' g coffee.'}}
+document.querySelectorAll('#mode button').forEach(function(b){b.addEventListener('click',function(){
+mode=b.dataset.m;
+document.querySelectorAll('#mode button').forEach(function(x){x.classList.toggle('on',x===b)});
+$('f-coffee').hidden=(mode!=='c2w');$('f-water').hidden=(mode==='c2w');calc()})});
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

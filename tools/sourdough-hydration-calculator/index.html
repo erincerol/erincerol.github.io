@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sourdough Hydration Calculator | Eri Tech Studio</title>
+<meta name="description" content="Work out your dough's hydration percentage from flour, water and starter — or work backwards from a target hydration. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/sourdough-hydration-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sourdough Hydration Calculator">
+<meta property="og:description" content="Work out your dough's hydration percentage from flour, water and starter — or work backwards from a target hydration. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/sourdough-hydration-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/sourdough-hydration-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#FDFBF7;--surface:#FFFFFF;--text:#2C2523;--muted:#7A716B;--accent:#A4552F;--line:#E5E0D8;--on-accent:#FFFFFF}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Sourdough Hydration Calculator</h1>
+<p class="lede">Flour, water and starter in — true hydration out. Or set a target and get the water to add.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="seg" id="mode">
+<button class="on" data-m="hyd" type="button">Find hydration %</button>
+<button data-m="water" type="button">Find water needed</button>
+</div>
+<div class="row">
+<div class="field"><label for="flour">Flour (g)</label><input type="number" id="flour" value="500" min="0" inputmode="decimal"></div>
+<div class="field" id="f-water"><label for="water">Water (g)</label><input type="number" id="water" value="350" min="0" inputmode="decimal"></div>
+<div class="field" id="f-target" hidden><label for="target">Target hydration (%)</label><input type="number" id="target" value="70" min="1" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="starter">Starter (g) — optional</label><input type="number" id="starter" value="100" min="0" inputmode="decimal"></div>
+<div class="field"><label for="sh">Starter hydration (%)</label><input type="number" id="sh" value="100" min="1" inputmode="decimal"></div>
+</div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
+<p class="note">Starter counts toward the totals: a 100% starter is half flour, half water by weight.</p>
+</section>
+<section>
+<h2>What is dough hydration?</h2>
+<p>Hydration is the weight of water in a dough expressed as a percentage of the weight of flour. Mix 500&nbsp;g of flour with 350&nbsp;g of water and you have a 70% hydration dough. Bakers use this convention — baker&rsquo;s percentages, where flour is always 100% — because it makes recipes scalable: the ratio describes the dough no matter how big the batch is.</p>
+<h2>Why the starter changes the number</h2>
+<p>A sourdough starter is itself made of flour and water, so it has to be counted. A starter kept at 100% hydration is half flour and half water by weight: add 100&nbsp;g of it to your dough and you have really added 50&nbsp;g of flour and 50&nbsp;g of water. Ignore that and your &ldquo;70% dough&rdquo; can be several points wetter or drier than you think — which is exactly why two bakers following the same recipe sometimes end up with very different doughs. This calculator folds the starter into the totals for you.</p>
+<h2>What hydration should I aim for?</h2>
+<p>There is no single right answer, but the ranges are well established. Around 60–68% gives a firm, forgiving dough that is easy to shape — the best place to learn. 70–75% is the classic sourdough range, balancing an open crumb with manageable handling. Above 78% the dough turns slack and sticky and rewards experience with coil folds and gentle shaping.</p>
+<p>Flour matters as much as the number: wholegrain and strong bread flours absorb far more water than plain white flour, so an 80% wholemeal dough can feel drier than a 72% white one. Treat the percentage as a starting point, adjust by feel, and keep notes on what each flour can take.</p>
+</section>
+<section class="app-block">
+<p>This calculator is built into <strong>The Bake Log</strong>, along with starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790971986?ct=calc_sourdough_hydration" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.thebakelog&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dsourdough_hydration" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+var mode='hyd';
+function band(h){
+if(h<60)return 'Stiff dough — bagel and pretzel territory.';
+if(h<68)return 'Moderate — easy to handle, a good place to start.';
+if(h<75)return 'Classic sourdough range — balanced structure and an open crumb.';
+if(h<85)return 'High hydration — slack dough, very open crumb, trickier shaping.';
+return 'Very high hydration — ciabatta-style, needs confident handling.'}
+function calc(){
+var f=num('flour'),st=num('starter'),sh=num('sh');
+var sf=st*100/(100+sh),sw=st*sh/(100+sh);
+if(mode==='hyd'){
+var w=num('water'),tf=f+sf,tw=w+sw;
+if(tf<=0){$('out').innerHTML='&mdash;';$('outsub').textContent='';return}
+var h=tw/tf*100;
+$('out').textContent=h.toFixed(1)+'% hydration';
+$('outsub').textContent=band(h)+' Total flour '+Math.round(tf)+' g, total water '+Math.round(tw)+' g.'
+}else{
+var t=num('target'),w2=t/100*(f+sf)-sw;if(w2<0)w2=0;
+$('out').textContent=Math.round(w2)+' g water';
+$('outsub').textContent='Add '+Math.round(w2)+' g water to '+Math.round(f)+' g flour'+(st>0?' and '+Math.round(st)+' g starter':'')+' for '+t+'% overall hydration.'}}
+document.querySelectorAll('#mode button').forEach(function(b){b.addEventListener('click',function(){
+mode=b.dataset.m;
+document.querySelectorAll('#mode button').forEach(function(x){x.classList.toggle('on',x===b)});
+$('f-water').hidden=(mode!=='hyd');$('f-target').hidden=(mode==='hyd');calc()})});
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

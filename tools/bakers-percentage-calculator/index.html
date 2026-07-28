@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baker's Percentage Calculator | Eri Tech Studio</title>
+<meta name="description" content="Scale any bread recipe with baker's percentages — enter flour or target dough weight and get exact gram amounts for water, salt and levain. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/bakers-percentage-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Baker's Percentage Calculator">
+<meta property="og:description" content="Scale any bread recipe with baker's percentages — enter flour or target dough weight and get exact gram amounts for water, salt and levain. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/bakers-percentage-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/bakers-percentage-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#FDFBF7;--surface:#FFFFFF;--text:#2C2523;--muted:#7A716B;--accent:#A4552F;--line:#E5E0D8;--on-accent:#FFFFFF}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Baker&rsquo;s Percentage Calculator</h1>
+<p class="lede">Scale any bread formula. Start from your flour, or from the dough weight you want to end up with.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="seg" id="mode">
+<button class="on" data-m="flour" type="button">From flour weight</button>
+<button data-m="dough" type="button">From dough weight</button>
+</div>
+<div class="field" id="f-flour"><label for="flour">Flour (g)</label><input type="number" id="flour" value="500" min="0" inputmode="decimal"></div>
+<div class="field" id="f-dough" hidden><label for="dough">Target dough weight (g)</label><input type="number" id="dough" value="960" min="0" inputmode="decimal"></div>
+<div class="row">
+<div class="field"><label for="wp">Water (%)</label><input type="number" id="wp" value="70" min="0" inputmode="decimal"></div>
+<div class="field"><label for="sp">Salt (%)</label><input type="number" id="sp" value="2" min="0" step="0.1" inputmode="decimal"></div>
+<div class="field"><label for="lp">Levain (%)</label><input type="number" id="lp" value="20" min="0" inputmode="decimal"></div>
+</div>
+<div class="result"><table id="tbl"></table></div>
+<p class="note">Levain here means ripe starter added to the final mix, counted as a percentage of the flour weight.</p>
+</section>
+<section>
+<h2>How baker&rsquo;s percentages work</h2>
+<p>In a bread formula every ingredient is written as a percentage of the total flour weight, with flour itself fixed at 100%. A classic sourdough might read: flour 100%, water 70%, salt 2%, levain 20%. The percentages describe the dough itself, independent of batch size — which is what makes them so useful. Double the flour and every other gram amount doubles with it, and any two recipes can be compared at a glance.</p>
+<h2>Scaling up and down</h2>
+<p>The most common real-world use is working backwards from a target. Your banneton takes roughly a 950&nbsp;g loaf, so how much flour do you start with? Divide the target dough weight by the sum of the percentages (here 1.92) and you get the flour weight; everything else follows. This calculator does both directions — give it flour and it builds the formula down the page, give it a dough weight and it solves for the flour first.</p>
+<h2>Sensible ranges</h2>
+<p>Salt almost always sits at 1.8–2.2% — below that bread tastes flat, above 2.5% fermentation slows noticeably. Levain typically runs 15–25% of the flour: more levain ferments faster and tips the flavour toward sour, less gives you a longer, more forgiving timeline. Water is the variable bakers argue about; see the <a href="/tools/sourdough-hydration-calculator/">hydration calculator</a> for what the percentage actually means for handling and crumb.</p>
+<p>One caution when comparing formulas: some recipes count the flour and water inside the levain toward the totals, and some do not. It rarely changes the bread much, but it explains why two &ldquo;75% hydration&rdquo; recipes can behave differently.</p>
+</section>
+<section class="app-block">
+<p>This calculator is built into <strong>The Bake Log</strong>, along with starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790971986?ct=calc_bakers_percentage" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.thebakelog&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dbakers_percentage" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+var mode='flour';
+function calc(){
+var wp=num('wp'),sp=num('sp'),lp=num('lp'),sum=(100+wp+sp+lp)/100,f;
+if(mode==='flour'){f=num('flour')}else{f=sum>0?num('dough')/sum:0}
+var w=f*wp/100,s=f*sp/100,l=f*lp/100,total=f+w+s+l;
+$('tbl').innerHTML='<tr><td>Flour (100%)</td><td>'+Math.round(f)+' g</td></tr>'+
+'<tr><td>Water ('+wp+'%)</td><td>'+Math.round(w)+' g</td></tr>'+
+'<tr><td>Salt ('+sp+'%)</td><td>'+(Math.round(s*10)/10)+' g</td></tr>'+
+'<tr><td>Levain ('+lp+'%)</td><td>'+Math.round(l)+' g</td></tr>'+
+'<tr><td>Total dough</td><td>'+Math.round(total)+' g</td></tr>'}
+document.querySelectorAll('#mode button').forEach(function(b){b.addEventListener('click',function(){
+mode=b.dataset.m;
+document.querySelectorAll('#mode button').forEach(function(x){x.classList.toggle('on',x===b)});
+$('f-flour').hidden=(mode!=='flour');$('f-dough').hidden=(mode==='flour');calc()})});
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

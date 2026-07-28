@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sourdough Starter Feeding Ratio Calculator | Eri Tech Studio</title>
+<meta name="description" content="Work out flour and water amounts for any sourdough starter feeding ratio — 1:1:1, 1:2:2, 1:5:5 or your own — with expected peak times. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/starter-feeding-ratio-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Starter Feeding Ratio Calculator">
+<meta property="og:description" content="Work out flour and water amounts for any sourdough starter feeding ratio — 1:1:1, 1:2:2, 1:5:5 or your own — with expected peak times. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/starter-feeding-ratio-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/starter-feeding-ratio-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#FDFBF7;--surface:#FFFFFF;--text:#2C2523;--muted:#7A716B;--accent:#A4552F;--line:#E5E0D8;--on-accent:#FFFFFF}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Starter Feeding Ratio Calculator</h1>
+<p class="lede">Pick a ratio, enter how much starter you&rsquo;re keeping, and get the flour and water to feed it.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="row">
+<div class="field"><label for="ratio">Feeding ratio (starter : flour : water)</label>
+<select id="ratio">
+<option value="1,1,1">1 : 1 : 1</option>
+<option value="1,2,2" selected>1 : 2 : 2</option>
+<option value="1,5,5">1 : 5 : 5</option>
+<option value="1,10,10">1 : 10 : 10</option>
+<option value="custom">Custom&hellip;</option>
+</select></div>
+<div class="field"><label for="keep">Starter you&rsquo;re keeping (g)</label><input type="number" id="keep" value="20" min="0" inputmode="decimal"></div>
+</div>
+<div class="row" id="customrow" hidden>
+<div class="field"><label for="ca">Starter part</label><input type="number" id="ca" value="1" min="1" inputmode="decimal"></div>
+<div class="field"><label for="cb">Flour part</label><input type="number" id="cb" value="3" min="0" inputmode="decimal"></div>
+<div class="field"><label for="cc">Water part</label><input type="number" id="cc" value="3" min="0" inputmode="decimal"></div>
+</div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
+<p class="note">Peak estimates assume a healthy starter at roughly 22–24&nbsp;&deg;C room temperature. Cooler kitchens run slower.</p>
+</section>
+<section>
+<h2>What the ratio means</h2>
+<p>A feeding ratio is written starter&nbsp;:&nbsp;flour&nbsp;:&nbsp;water, by weight. Feeding at 1:2:2 means that for every gram of starter you keep, you add two grams of flour and two of water — so 20&nbsp;g of starter gets 40&nbsp;g of flour and 40&nbsp;g of water, making 100&nbsp;g. All the ratios here keep the starter at 100% hydration; only the amount of fresh food changes.</p>
+<h2>Choosing a ratio</h2>
+<p>The ratio is really a timer. A small feed like 1:1:1 gives the culture little fresh food, so it peaks fast — typically four to six hours — and turns sour quickly afterwards. Bigger feeds dilute the culture and take longer to peak: 1:2:2 lands around six to eight hours, 1:5:5 around eight to twelve, and 1:10:10 can hold overnight and beyond. Pick the ratio that makes your starter peak when you actually need it, rather than fighting your schedule.</p>
+<h2>Reading the peak</h2>
+<p>A ripe starter has domed or just begun to flatten, smells pleasantly tangy rather than harsh, and is full of bubbles through the body of the culture, not just on top. Temperature moves everything: at 26&nbsp;&deg;C a 1:5:5 feed can behave like a 1:2:2 at 20&nbsp;&deg;C. If your kitchen runs cold, use a smaller ratio or find a warmer spot; if your starter races past its peak before you wake up, feed it more heavily.</p>
+<p>Whatever ratio you settle on, consistency beats cleverness — the same feed at the same times teaches you exactly what &ldquo;ready&rdquo; looks like for your jar.</p>
+</section>
+<section class="app-block">
+<p>This calculator is built into <strong>The Bake Log</strong>, along with starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790971986?ct=calc_starter_feeding" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.thebakelog&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dstarter_feeding" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+function peak(mult){
+if(mult<=1)return '4–6 hours';
+if(mult<=2)return '6–8 hours';
+if(mult<=5)return '8–12 hours';
+return '12–16 hours'}
+function calc(){
+var sel=$('ratio').value,a,b,c;
+$('customrow').hidden=(sel!=='custom');
+if(sel==='custom'){a=num('ca')||1;b=num('cb');c=num('cc')}
+else{var p=sel.split(',');a=+p[0];b=+p[1];c=+p[2]}
+var k=num('keep'),fl=k*b/a,w=k*c/a,total=k+fl+w;
+$('out').textContent=Math.round(fl)+' g flour + '+Math.round(w)+' g water';
+$('outsub').textContent='Feed '+Math.round(k)+' g starter to make '+Math.round(total)+' g total. Expected peak: about '+peak(b/a)+'.'}
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

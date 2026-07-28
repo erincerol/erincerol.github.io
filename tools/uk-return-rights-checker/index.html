@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK Return Rights Checker — Refunds, Returns & Faulty Goods | Eri Tech Studio</title>
+<meta name="description" content="Check your UK rights to return or get a refund — the 14-day online cooling-off period and the Consumer Rights Act windows for faulty goods. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/uk-return-rights-checker/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="UK Return Rights Checker">
+<meta property="og:description" content="Check your UK rights to return or get a refund — the 14-day online cooling-off period and the Consumer Rights Act windows for faulty goods. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/uk-return-rights-checker/">
+<meta property="og:image" content="https://eritech.studio/assets/og/uk-return-rights-checker.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#10161D;--surface:#18202A;--text:#E8EDF2;--muted:#8A97A6;--accent:#5FA8D3;--line:#232E3B;--on-accent:#10161D}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>UK Return Rights Checker</h1>
+<p class="lede">Enter when and where you bought, and see which legal window you&rsquo;re in right now.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="row">
+<div class="field"><label for="bought">Purchase / delivery date</label><input type="date" id="bought"></div>
+<div class="field"><label for="channel">Bought</label>
+<select id="channel">
+<option value="online" selected>Online / at a distance</option>
+<option value="store">In store</option>
+</select></div>
+</div>
+<div class="field"><label for="reason">Why are you returning it?</label>
+<select id="reason">
+<option value="mind" selected>Changed my mind</option>
+<option value="fault">It&rsquo;s faulty / not as described</option>
+</select></div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
+<p class="note">General information for England, Wales and Northern Ireland (Scotland differs slightly on final time limits) — not legal advice. Some goods, e.g. perishables and personalised items, are excluded from the cooling-off right.</p>
+</section>
+<section>
+<h2>Two different laws, two different clocks</h2>
+<p>UK return rights come from two places, and mixing them up is the most common mistake. If you simply changed your mind, the <strong>Consumer Contracts Regulations 2013</strong> apply — but only to online, phone and mail-order purchases. You get 14 days from delivery to cancel for any reason, then 14 more to return the goods. Buy the same item in a shop and no such right exists at all: in-store returns of unwanted goods are pure store policy, which is why keeping the receipt matters.</p>
+<h2>Faulty goods are much stronger ground</h2>
+<p>The <strong>Consumer Rights Act 2015</strong> says goods must be of satisfactory quality, fit for purpose and as described — bought anywhere. In the first 30 days you can reject a faulty item outright for a full refund. From 30 days to six months, the retailer gets one chance at a repair or replacement, and crucially the law presumes the fault was there when you bought it. After six months you can still claim for up to six years, but the burden of proof flips to you.</p>
+<h2>Practicalities that decide cases</h2>
+<p>Your contract is always with the retailer, not the manufacturer — do not let a shop redirect you to a warranty line to escape its legal obligations. A manufacturer&rsquo;s warranty is a bonus on top of these rights, never a replacement for them. And every route — rejection, repair, warranty claim — depends on proving when and where you bought the thing, which is exactly the paperwork that vanishes when you need it most. Keep receipts, keep serial numbers, and note the dates.</p>
+</section>
+<section class="app-block">
+<p><strong>Warranty Box</strong> keeps every receipt, warranty and return deadline in one place and reminds you before a window closes. Offline, no account.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790972644?ct=calc_uk_returns" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.warrantybox&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Duk_returns" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function fmt(d){return d.toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'})}
+function calc(){
+var v=$('bought').value;
+if(!v){$('out').innerHTML='&mdash;';$('outsub').textContent='Pick your purchase or delivery date.';return}
+var d=new Date(v+'T00:00:00'),now=new Date();
+var days=Math.floor((now-d)/86400000);
+if(days<0){$('out').textContent='Future date';$('outsub').textContent='That date has not happened yet.';return}
+var ch=$('channel').value,re=$('reason').value;
+if(re==='mind'){
+if(ch==='online'){
+var dl=new Date(d.getTime()+14*86400000);
+if(days<=14){$('out').textContent='You can still cancel';
+$('outsub').textContent='Under the Consumer Contracts Regulations you have 14 days from delivery to tell the seller you are cancelling — until '+fmt(dl)+' — and then 14 more days to send the goods back. Day '+days+' of 14.'}
+else{$('out').textContent='Cooling-off period over';
+$('outsub').textContent='The 14-day cancellation right ended on '+fmt(dl)+'. You are now relying on the store&rsquo;s own returns policy — many allow 28+ days as goodwill.'}}
+else{$('out').textContent='No automatic right';
+$('outsub').textContent='For in-store purchases there is no legal right to return unwanted goods. Check the store&rsquo;s returns policy — most offer one voluntarily, so a receipt and original condition are your best friends.'}}
+else{
+if(days<=30){$('out').textContent='Short-term right to reject — day '+days+' of 30';
+$('outsub').textContent='Under the Consumer Rights Act 2015 you can reject faulty goods within 30 days for a full refund. Contact the retailer (not the manufacturer) now.'}
+else if(days<=182){$('out').textContent='Repair or replacement window';
+$('outsub').textContent='Within 6 months of purchase the retailer must repair or replace faulty goods, and the law assumes the fault existed at purchase — it is on them to prove otherwise. If one repair fails, you can claim a refund (possibly partly reduced for use).'}
+else{$('out').textContent='Late-stage claim';
+$('outsub').textContent='You can still pursue a remedy for up to 6 years from purchase (5 years from discovery in Scotland), but the burden of proof now sits with you — you may need evidence the fault was inherent, such as an independent report.'}}}
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>
