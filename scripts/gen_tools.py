@@ -142,18 +142,19 @@ def kohii_block(campaign):
             '<div class="badges">' + ios_badge("6790972283", campaign) +
             play_badge("com.eritech.kohii", campaign) + '</div>')
 
-def cellar_block():
-    return ('<p><strong>Cellar Book</strong> tracks drink windows on every bottle in your cellar — see what is '
-            'ageing, ready or fading at a glance, with label photos, tasting notes on the 100-point scale and an '
-            'offline map of your collection&rsquo;s regions.</p>'
-            '<div class="badges"><span class="soon">Coming soon to the App Store and Google Play</span></div>'
-            '<p class="note">In the meantime, see <a href="/">our other apps</a>.</p>')
+def cellar_block(campaign):
+    return ('<p>This calculator is built into <strong>Cellar Book</strong>, which tracks drink windows on every '
+            'bottle in your cellar — see what is ageing, ready or fading at a glance, with label photos, tasting '
+            'notes on the 100-point scale and an offline map of your collection&rsquo;s regions.</p>'
+            '<div class="badges">' + ios_badge("6796370046", campaign) +
+            play_badge("com.eritech.cellarbook", campaign) + '</div>')
 
-def leaflet_block():
-    return ('<p><strong>Leaflet</strong> keeps watering and feeding schedules for every plant you own, with a '
-            'photo timeline so you can watch a year of growth in one scroll. No subscription, no AI gimmicks.</p>'
-            '<div class="badges"><span class="soon">Coming soon to the App Store and Google Play</span></div>'
-            '<p class="note">In the meantime, see <a href="/">our other apps</a>.</p>')
+def leaflet_block(campaign):
+    return ('<p>This calculator is built into <strong>Leaflet</strong>, which keeps watering and feeding schedules '
+            'for every plant you own, with a photo timeline so you can watch a year of growth in one scroll. '
+            'No subscription, no AI gimmicks.</p>'
+            '<div class="badges">' + ios_badge("6796375617", campaign) +
+            play_badge("com.eritech.leaflet", campaign) + '</div>')
 
 def warranty_block(campaign):
     return ('<p><strong>Warranty Box</strong> keeps every receipt, warranty and return deadline in one place and '
@@ -539,7 +540,7 @@ else{$('outsub').textContent='Past its likely window. It may still be enjoyable,
 <h2>Using the estimate well</h2>
 <p>Treat the window as a planning tool, not a countdown. If you own several bottles of the same wine, open them across the window — one early, one at the projected peak — and let the wine tell you how it is evolving; that is far more reliable than any table. Storage is the silent variable: these ranges assume a cool, dark, stable spot around 12–14&nbsp;&deg;C. A bottle kept warm ages measurably faster, so shorten the window for anything stored in a kitchen.</p>
 </section>""",
-    app_block=cellar_block(),
+    app_block=cellar_block("wine_drink_window"),
 ))
 
 PAGES.append(dict(
@@ -596,7 +597,7 @@ $('outsub').textContent='A starting point, not a rule — check the soil before 
 <h2>Overwatering kills more than drought</h2>
 <p>Most houseplants tolerate going a little too dry: leaves droop, you water, they recover. Constantly wet soil is different — it suffocates roots and invites rot, which is usually fatal by the time it shows. Yellowing lower leaves on damp soil mean water less, not more. In autumn and winter, growth slows and drying takes far longer, so stretch every interval; almost everything on this list wants a drier, calmer off-season than its summer routine.</p>
 </section>""",
-    app_block=leaflet_block(),
+    app_block=leaflet_block("plant_watering"),
 ))
 
 PAGES.append(dict(
