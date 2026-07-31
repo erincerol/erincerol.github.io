@@ -13,9 +13,9 @@ PALETTES = {
     "cellar":    dict(bg="#15171A", surface="#1E2126", text="#EDEDED", muted="#8E97A0", accent="#D4B595", line="#2A2E35", on="#15171A"),
     "leaflet":   dict(bg="#0D1F0F", surface="#142B16", text="#F1F8F1", muted="#8FAF8F", accent="#4CAF50", line="#1E3320", on="#0D1F0F"),
     "warranty":  dict(bg="#10161D", surface="#18202A", text="#E8EDF2", muted="#8A97A6", accent="#5FA8D3", line="#232E3B", on="#10161D"),
-    # Trip Binder: Paper/Kraft/Ink Navy/Stamp Red per ASSETS_BRIEF §2. `muted` is Faded Ink
+    # Travel Binder: Paper/Kraft/Ink Navy/Stamp Red per ASSETS_BRIEF §2. `muted` is Faded Ink
     # darkened (#8A8273 -> #6F6857) to clear WCAG AA on Paper; app tokens are unaffected.
-    "tripbinder": dict(bg="#F7F3EB", surface="#EDE3D2", text="#22314A", muted="#6F6857", accent="#C2442D", line="#D9CDB8", on="#F7F3EB"),
+    "travelbinder": dict(bg="#F7F3EB", surface="#EDE3D2", text="#22314A", muted="#6F6857", accent="#C2442D", line="#D9CDB8", on="#F7F3EB"),
 }
 
 TEMPLATE = """<!DOCTYPE html>
@@ -159,8 +159,8 @@ def leaflet_block(campaign):
             '<div class="badges">' + ios_badge("6796375617", campaign) +
             play_badge("com.eritech.leaflet", campaign) + '</div>')
 
-def tripbinder_block():
-    return ('<p>This tool comes from <strong>The Trip Binder</strong> — a fully offline travel binder for flights, '
+def travelbinder_block():
+    return ('<p>This tool comes from <strong>The Travel Binder</strong> — a fully offline binder for flights, '
             'hotels, bookings, documents, packing and checklists, with the whole trip on one map. '
             'No account, no cloud, no AI.</p>'
             '<div class="badges"><span class="soon">Coming soon to the App Store and Google Play</span></div>'
@@ -671,7 +671,7 @@ $('outsub').textContent='You can still pursue a remedy for up to 6 years from pu
 
 PAGES.append(dict(
     slug="packing-list-generator",
-    palette="tripbinder",
+    palette="travelbinder",
     tab_title="Packing List Generator | Eri Tech Studio",
     og_title="Packing List Generator",
     meta_desc="Generate a packing list from your trip length, climate and style — with quantities worked out for you. Free, no signup.",
@@ -757,12 +757,12 @@ $('outsub').textContent=nights+' nights, '+c.label+' weather, '+(laundry?'laundr
 <h2>The part people actually forget</h2>
 <p>It is rarely clothing. It is the plug adapter, the second payment card kept somewhere separate from the first, prescriptions in their original labelled packaging for border checks, and offline copies of every booking &mdash; because the one moment you cannot rely on having signal or battery is the moment you land. Screenshot or download your confirmations before you leave, and keep them somewhere that works in airplane mode.</p>
 </section>""",
-    app_block=tripbinder_block(),
+    app_block=travelbinder_block(),
 ))
 
 PAGES.append(dict(
     slug="japan-trip-cost-calculator",
-    palette="tripbinder",
+    palette="travelbinder",
     tab_title="Japan Trip Cost Calculator &mdash; Daily Budget Estimator | Eri Tech Studio",
     og_title="Japan Trip Cost Calculator",
     meta_desc="Estimate what a trip to Japan costs — accommodation, food, transport, JR Pass and flights, broken down per day and per person. Free, no signup.",
@@ -827,7 +827,7 @@ $('outsub').textContent='About \\u00a3'+Math.round(total/people/rate).toLocaleSt
 <h2>Using the number</h2>
 <p>Treat the daily rate as your planning anchor and the total as a target to test against. If the figure comes out higher than you would like, accommodation is almost always the most effective lever &mdash; moving from mid-range hotels to business hotels changes the total far more than eating more cheaply ever will, and business hotels in Japan are clean, well-located and perfectly pleasant.</p>
 </section>""",
-    app_block=tripbinder_block(),
+    app_block=travelbinder_block(),
 ))
 
 # ---------------------------------------------------------------- build pages
@@ -874,7 +874,7 @@ GROUPS = [
     ("Coffee", "Kohii", "#8F5E1B", ["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
     ("Wine", "Cellar Book", "#722F37", ["wine-drink-window-calculator"]),
     ("Plants", "Leaflet", "#2E7D32", ["plant-watering-calculator"]),
-    ("Travel", "The Trip Binder", "#22314A", ["packing-list-generator", "japan-trip-cost-calculator"]),
+    ("Travel", "The Travel Binder", "#22314A", ["packing-list-generator", "japan-trip-cost-calculator"]),
     ("Consumer rights", "Warranty Box", "#2F6E9E", ["uk-return-rights-checker"]),
 ]
 
@@ -966,7 +966,7 @@ urls = [DOMAIN + "/", DOMAIN + "/tools/"]
 urls += [DOMAIN + "/tools/" + p["slug"] + "/" for p in PAGES]
 urls += [DOMAIN + "/privacy-policies/" + n for n in
          ["kohii.html", "the-bake-log.html", "warranty-box.html", "cellarbook.html", "leaflet.html",
-          "trip-binder.html"]]
+          "travel-binder.html"]]
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for u in urls:
     sm += "  <url><loc>" + u + "</loc></url>\n"
