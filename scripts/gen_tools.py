@@ -965,7 +965,8 @@ print("wrote robots.txt")
 urls = [DOMAIN + "/", DOMAIN + "/tools/"]
 urls += [DOMAIN + "/tools/" + p["slug"] + "/" for p in PAGES]
 urls += [DOMAIN + "/privacy-policies/" + n for n in
-         ["kohii.html", "the-bake-log.html", "warranty-box.html", "cellarbook.html", "leaflet.html"]]
+         ["kohii.html", "the-bake-log.html", "warranty-box.html", "cellarbook.html", "leaflet.html",
+          "trip-binder.html"]]
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for u in urls:
     sm += "  <url><loc>" + u + "</loc></url>\n"
