@@ -13,6 +13,9 @@ PALETTES = {
     "cellar":    dict(bg="#15171A", surface="#1E2126", text="#EDEDED", muted="#8E97A0", accent="#D4B595", line="#2A2E35", on="#15171A"),
     "leaflet":   dict(bg="#0D1F0F", surface="#142B16", text="#F1F8F1", muted="#8FAF8F", accent="#4CAF50", line="#1E3320", on="#0D1F0F"),
     "warranty":  dict(bg="#10161D", surface="#18202A", text="#E8EDF2", muted="#8A97A6", accent="#5FA8D3", line="#232E3B", on="#10161D"),
+    # Trip Binder: Paper/Kraft/Ink Navy/Stamp Red per ASSETS_BRIEF §2. `muted` is Faded Ink
+    # darkened (#8A8273 -> #6F6857) to clear WCAG AA on Paper; app tokens are unaffected.
+    "tripbinder": dict(bg="#F7F3EB", surface="#EDE3D2", text="#22314A", muted="#6F6857", accent="#C2442D", line="#D9CDB8", on="#F7F3EB"),
 }
 
 TEMPLATE = """<!DOCTYPE html>
@@ -76,7 +79,7 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a{color:var(--muted)}
-</style>
+@@EXTRA_CSS@@</style>
 </head>
 <body>
 <nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
@@ -155,6 +158,13 @@ def leaflet_block(campaign):
             'No subscription, no AI gimmicks.</p>'
             '<div class="badges">' + ios_badge("6796375617", campaign) +
             play_badge("com.eritech.leaflet", campaign) + '</div>')
+
+def tripbinder_block():
+    return ('<p>This tool comes from <strong>The Trip Binder</strong> — a fully offline travel binder for flights, '
+            'hotels, bookings, documents, packing and checklists, with the whole trip on one map. '
+            'No account, no cloud, no AI.</p>'
+            '<div class="badges"><span class="soon">Coming soon to the App Store and Google Play</span></div>'
+            '<p class="note">In the meantime, see <a href="/">our other apps</a>.</p>')
 
 def warranty_block(campaign):
     return ('<p><strong>Warranty Box</strong> keeps every receipt, warranty and return deadline in one place and '
@@ -659,6 +669,167 @@ $('outsub').textContent='You can still pursue a remedy for up to 6 years from pu
     app_block=warranty_block("uk_returns"),
 ))
 
+PAGES.append(dict(
+    slug="packing-list-generator",
+    palette="tripbinder",
+    tab_title="Packing List Generator | Eri Tech Studio",
+    og_title="Packing List Generator",
+    meta_desc="Generate a packing list from your trip length, climate and style — with quantities worked out for you. Free, no signup.",
+    h1="Packing List Generator",
+    lede="Trip length, climate and style in &mdash; a categorised list with actual quantities out.",
+    extra_css=""".plist{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin-top:16px}
+.plist h4{margin:0 0 5px;font-family:Georgia,"Times New Roman",serif;font-size:.95rem;color:var(--accent)}
+.plist ul{list-style:none;padding:0;margin:0}
+.plist li{font-size:.88rem;padding:2px 0 2px 16px;position:relative;line-height:1.5}
+.plist li:before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border:1px solid var(--muted);border-radius:2px}
+@media(max-width:540px){.plist{grid-template-columns:1fr}}
+""",
+    calc_html="""<div class="row">
+<div class="field"><label for="nights">Trip length (nights)</label><input type="number" id="nights" value="14" min="1" max="90" inputmode="numeric"></div>
+<div class="field"><label for="climate">Climate at destination</label>
+<select id="climate">
+<option value="freezing">Freezing &mdash; below 0&deg;C</option>
+<option value="cold" selected>Cold &mdash; 0&ndash;10&deg;C (Japan in December)</option>
+<option value="mild">Mild &mdash; 10&ndash;18&deg;C</option>
+<option value="warm">Warm &mdash; 18&ndash;26&deg;C</option>
+<option value="hot">Hot and humid &mdash; above 26&deg;C</option>
+</select></div>
+</div>
+<div class="row">
+<div class="field"><label for="style">Trip style</label>
+<select id="style">
+<option value="city" selected>City / sightseeing</option>
+<option value="outdoors">Hiking / outdoors</option>
+<option value="beach">Beach</option>
+<option value="business">Business</option>
+</select></div>
+<div class="field"><label for="laundry">Laundry access</label>
+<select id="laundry"><option value="yes" selected>Yes &mdash; hotel or coin laundry</option><option value="no">No</option></select></div>
+<div class="field"><label for="bag">Luggage</label>
+<select id="bag"><option value="checked" selected>Checked bag</option><option value="carry">Carry-on only</option></select></div>
+</div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div>
+<div class="plist" id="list"></div></div>
+<p class="note">Quantities assume you re-wear outer layers and wash base layers. It is a starting list, not a rule.</p>""",
+    calc_js="""function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+var CLIMATE={
+freezing:{label:'freezing',layers:['Thermal base layers &times;2','Insulated coat','Fleece or mid layer','Wool hat, gloves and scarf','Thick socks &times;3','Waterproof boots']},
+cold:{label:'cold',layers:['Warm coat','Jumper or fleece &times;2','Thermal top &times;1','Hat and gloves','Scarf','Water-resistant shoes']},
+mild:{label:'mild',layers:['Light jacket','Jumper &times;1','Packable rain shell','Comfortable walking shoes']},
+warm:{label:'warm',layers:['Light overshirt or cardigan','Packable rain shell','Sunglasses','Sun hat']},
+hot:{label:'hot and humid',layers:['Linen overshirt','Packable rain shell','Sunglasses','Sun hat','Quick-dry towel']}};
+var STYLE={
+city:['Day bag or small backpack','Walking shoes, already worn in','Compact umbrella','Portable battery'],
+outdoors:['Hiking boots','Daypack 20&ndash;30L','Water bottle','Blister plasters','Head torch','Dry bag'],
+beach:['Swimwear &times;2','Quick-dry towel','Flip flops','Reef-safe sun cream','After-sun'],
+business:['Suit or smart outfit','Dress shoes','Laptop and charger','Wrinkle spray or travel steamer']};
+function calc(){
+var nights=Math.max(1,Math.round(num('nights')));
+var c=CLIMATE[$('climate').value],st=$('style').value;
+var laundry=$('laundry').value==='yes',carry=$('bag').value==='carry';
+var wear=laundry?Math.min(nights,7):Math.min(nights,14);
+var socks=Math.min(wear+1,15),tops=Math.max(2,Math.min(wear,10)),bottoms=Math.max(1,Math.min(Math.ceil(wear/4),4));
+if(carry){tops=Math.min(tops,6);bottoms=Math.min(bottoms,2);socks=Math.min(socks,8)}
+var sleep=nights>7?2:1;
+var groups=[
+['Clothing',['Underwear &times;'+socks,'Socks &times;'+socks,'Tops &times;'+tops,'Trousers or skirts &times;'+bottoms,'Sleepwear &times;'+sleep]],
+['Layers and outerwear',c.layers],
+['Toiletries',['Toothbrush and paste','Deodorant','Shampoo and shower gel'+(carry?' (&le;100 ml)':''),'Razor','Prescriptions in original packaging','Painkillers and plasters']],
+['Tech',['Phone and charger','Plug adapter for the destination','Portable battery','Headphones','Spare cable']],
+['Documents and money',['Passport, 6+ months validity','Visa or entry registration if required','Travel insurance details','Two cards, carried separately','Some local cash','Offline copies of every booking']],
+['For this trip',STYLE[st]]];
+var total=0,html='';
+groups.forEach(function(g){total+=g[1].length;
+html+='<div><h4>'+g[0]+'</h4><ul>';
+g[1].forEach(function(i){html+='<li>'+i+'</li>'});
+html+='</ul></div>'});
+$('list').innerHTML=html;
+$('out').textContent=total+' items to pack';
+$('outsub').textContent=nights+' nights, '+c.label+' weather, '+(laundry?'laundry available':'no laundry')+(carry?', carry-on only.':'.')}""",
+    explainer="""<section>
+<h2>Why quantities matter more than the list</h2>
+<p>Most packing lists tell you to bring socks. The useful question is how many, and the honest answer depends on one thing above all others: whether you can wash anything. With access to a hotel or coin laundry, almost nobody needs more than about a week of clothing regardless of how long the trip is &mdash; a three-week trip and a seven-day trip pack identically. Without laundry, the count really does scale with the nights, and that is where suitcases get heavy.</p>
+<h2>Layers beat garments</h2>
+<p>For anything cooler than about 18&nbsp;&deg;C, what keeps you comfortable is the number of layers rather than the thickness of any single item. A thermal base, a jumper and a windproof coat cover a much wider temperature range than one heavy parka, and they pack smaller. Japan in December is the classic case: daytime Tokyo sits around 10&nbsp;&deg;C, but you will alternate between cold streets and aggressively heated trains, shops and restaurants all day. Being able to shed a layer matters more than the coat being warm.</p>
+<h2>Carry-on only changes the maths</h2>
+<p>Cabin-only travel is less about ruthless minimalism than about two specific constraints: liquids must fit the 100&nbsp;ml rule, and your bulkiest items &mdash; boots, coat &mdash; get worn onto the plane rather than packed. Once those are handled, a week of clothing fits comfortably in a 40&nbsp;L bag, and laundry covers the rest of any trip length.</p>
+<h2>The part people actually forget</h2>
+<p>It is rarely clothing. It is the plug adapter, the second payment card kept somewhere separate from the first, prescriptions in their original labelled packaging for border checks, and offline copies of every booking &mdash; because the one moment you cannot rely on having signal or battery is the moment you land. Screenshot or download your confirmations before you leave, and keep them somewhere that works in airplane mode.</p>
+</section>""",
+    app_block=tripbinder_block(),
+))
+
+PAGES.append(dict(
+    slug="japan-trip-cost-calculator",
+    palette="tripbinder",
+    tab_title="Japan Trip Cost Calculator &mdash; Daily Budget Estimator | Eri Tech Studio",
+    og_title="Japan Trip Cost Calculator",
+    meta_desc="Estimate what a trip to Japan costs — accommodation, food, transport, JR Pass and flights, broken down per day and per person. Free, no signup.",
+    h1="Japan Trip Cost Calculator",
+    lede="What does two weeks in Japan actually cost? Set your length and style for a line-by-line estimate.",
+    extra_css=""".result td:nth-child(2),.result td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.result td:nth-child(2){color:var(--muted);padding-right:16px}
+.result td:first-child{padding-right:12px}
+.result .sub{margin-top:12px}
+""",
+    calc_html="""<div class="row">
+<div class="field"><label for="nights">Nights in Japan</label><input type="number" id="nights" value="14" min="1" max="90" inputmode="numeric"></div>
+<div class="field"><label for="people">Travellers</label><input type="number" id="people" value="2" min="1" max="6" inputmode="numeric"></div>
+</div>
+<div class="field"><label for="style">Travel style</label>
+<select id="style">
+<option value="budget">Budget &mdash; hostels and business hotels, convenience stores and cheap eats</option>
+<option value="mid" selected>Mid-range &mdash; three-star hotels, restaurants, the occasional taxi</option>
+<option value="comfort">Comfort &mdash; four-star hotels and ryokan, sit-down dining</option>
+</select></div>
+<div class="row">
+<div class="field"><label for="pass">JR Pass, per person</label>
+<select id="pass">
+<option value="0" selected>None &mdash; pay per journey</option>
+<option value="50000">7-day ordinary</option>
+<option value="80000">14-day ordinary</option>
+<option value="100000">21-day ordinary</option>
+</select></div>
+<div class="field"><label for="flight">Return flights each (&pound;)</label><input type="number" id="flight" value="750" min="0" inputmode="numeric"></div>
+<div class="field"><label for="rate">Rate (&yen; per &pound;)</label><input type="number" id="rate" value="190" min="1" inputmode="decimal"></div>
+</div>
+<div class="result"><table id="tbl"></table><div class="sub" id="outsub"></div></div>
+<p class="note">Planning estimates, not quotes. The exchange-rate field is editable &mdash; check today&rsquo;s rate before you rely on the pound figures.</p>""",
+    calc_js="""function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+var STYLE={budget:{stay:7000,food:3000,local:800,act:1000},
+mid:{stay:15000,food:6500,local:1200,act:2200},
+comfort:{stay:32000,food:13000,local:1800,act:4000}};
+function calc(){
+var nights=Math.max(1,Math.round(num('nights'))),people=Math.max(1,Math.round(num('people')));
+var s=STYLE[$('style').value],rate=num('rate')||190;
+var days=nights+1,rooms=Math.ceil(people/2);
+var stay=s.stay*rooms*nights,food=s.food*people*days,local=s.local*people*days,act=s.act*people*days;
+var pass=num('pass')*people,flights=num('flight')*people*rate;
+var total=stay+food+local+act+pass+flights;
+function row(l,y){return '<tr><td>'+l+'</td><td>&yen;'+Math.round(y).toLocaleString()+'</td><td>&pound;'+Math.round(y/rate).toLocaleString()+'</td></tr>'}
+var h=row('Accommodation &mdash; '+rooms+(rooms===1?' room':' rooms')+' &times; '+nights+' nights',stay)+
+row('Food and drink',food)+row('Local transport',local)+row('Activities and entry fees',act);
+if(pass>0)h+=row('JR Pass &times;'+people,pass);
+if(flights>0)h+=row('Return flights &times;'+people,flights);
+h+=row('Total',total);
+$('tbl').innerHTML=h;
+var onTheGround=total-flights;
+$('outsub').textContent='About \\u00a3'+Math.round(total/people/rate).toLocaleString()+' per person all in, or \\u00a3'+Math.round(onTheGround/people/days/rate).toLocaleString()+' per person per day once you are there.'}""",
+    explainer="""<section>
+<h2>Where the money actually goes</h2>
+<p>Japan has a reputation for being eye-wateringly expensive that the daily numbers do not really support. Food in particular is a bargain relative to western Europe: a bowl of ramen or a convenience-store breakfast costs a fraction of the London equivalent, and even a good sit-down dinner rarely matches a comparable meal at home. What does cost money is accommodation, which typically accounts for close to half of on-the-ground spending, and long-distance rail. Those two lines are where your travel style shows up; the rest moves surprisingly little between budget and comfort trips.</p>
+<h2>The JR Pass is no longer automatic</h2>
+<p>For years the advice was simple &mdash; buy the Japan Rail Pass, always. The October 2023 price rise changed that, taking the seven-day ordinary pass to &yen;50,000. It now only pays for itself if you are covering serious distance: as a rough test, a Tokyo&ndash;Kyoto return alone runs roughly &yen;28,000, so a pass makes sense on a Tokyo&ndash;Kyoto&ndash;Hiroshima-style itinerary and rarely does if you are basing yourself in one or two cities. Price your actual planned journeys individually before buying, rather than assuming. Regional passes are often the better answer.</p>
+<h2>What this estimate leaves out</h2>
+<p>Shopping, which in Japan has a way of expanding to fill whatever space you leave it. Also travel insurance, any domestic flights, and one-off splurges such as a kaiseki dinner or a night in a high-end ryokan &mdash; a single ryokan stay with dinner and breakfast can equal three ordinary hotel nights. Budget those separately rather than trying to average them into a daily figure.</p>
+<h2>Using the number</h2>
+<p>Treat the daily rate as your planning anchor and the total as a target to test against. If the figure comes out higher than you would like, accommodation is almost always the most effective lever &mdash; moving from mid-range hotels to business hotels changes the total far more than eating more cheaply ever will, and business hotels in Japan are clean, well-located and perfectly pleasant.</p>
+</section>""",
+    app_block=tripbinder_block(),
+))
+
 # ---------------------------------------------------------------- build pages
 
 TOOL_TITLES = {p["slug"]: p["og_title"] for p in PAGES}
@@ -684,7 +855,7 @@ def build_page(p):
         ("@@H1@@", p["h1"]), ("@@LEDE@@", p["lede"]),
         ("@@CALC_HTML@@", p["calc_html"]), ("@@EXPLAINER@@", p["explainer"]),
         ("@@APP_BLOCK@@", p["app_block"]), ("@@RELATED@@", related_list(p["slug"])),
-        ("@@CALC_JS@@", p["calc_js"]),
+        ("@@CALC_JS@@", p["calc_js"]), ("@@EXTRA_CSS@@", p.get("extra_css", "")),
     ]:
         html = html.replace(k, v)
     out_dir = os.path.join(REPO, "tools", p["slug"])
@@ -703,6 +874,7 @@ GROUPS = [
     ("Coffee", "Kohii", "#8F5E1B", ["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
     ("Wine", "Cellar Book", "#722F37", ["wine-drink-window-calculator"]),
     ("Plants", "Leaflet", "#2E7D32", ["plant-watering-calculator"]),
+    ("Travel", "The Trip Binder", "#22314A", ["packing-list-generator", "japan-trip-cost-calculator"]),
     ("Consumer rights", "Warranty Box", "#2F6E9E", ["uk-return-rights-checker"]),
 ]
 
@@ -716,6 +888,8 @@ DESCS = {
     "wine-drink-window-calculator": "Style and vintage in — ageing, ready, at peak or fading out.",
     "plant-watering-calculator": "Watering intervals by species, season and light.",
     "uk-return-rights-checker": "Which legal return or refund window you're in, from the purchase date.",
+    "packing-list-generator": "Trip length, climate and style in — a categorised list with quantities out.",
+    "japan-trip-cost-calculator": "Nights and travel style in — a line-by-line budget, per person and per day.",
 }
 
 groups_html = ""
@@ -733,11 +907,11 @@ tools_index = """<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Free Tools &amp; Calculators | Eri Tech Studio</title>
-<meta name="description" content="Free calculators for baking, coffee, wine, plants and UK consumer rights — built by Eri Tech Studio. No signup, no ads on the tools.">
+<meta name="description" content="Free calculators for baking, coffee, wine, plants, travel and UK consumer rights — built by Eri Tech Studio. No signup, no ads on the tools.">
 <link rel="canonical" href="@@DOMAIN@@/tools/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Free Tools &amp; Calculators — Eri Tech Studio">
-<meta property="og:description" content="Free calculators for baking, coffee, wine, plants and UK consumer rights. No signup.">
+<meta property="og:description" content="Free calculators for baking, coffee, wine, plants, travel and UK consumer rights. No signup.">
 <meta property="og:url" content="@@DOMAIN@@/tools/">
 <meta property="og:image" content="@@DOMAIN@@/assets/og/tools.png">
 <meta name="twitter:card" content="summary_large_image">

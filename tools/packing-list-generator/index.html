@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Packing List Generator | Eri Tech Studio</title>
+<meta name="description" content="Generate a packing list from your trip length, climate and style — with quantities worked out for you. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/packing-list-generator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Packing List Generator">
+<meta property="og:description" content="Generate a packing list from your trip length, climate and style — with quantities worked out for you. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/packing-list-generator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/packing-list-generator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#F7F3EB;--surface:#EDE3D2;--text:#22314A;--muted:#6F6857;--accent:#C2442D;--line:#D9CDB8;--on-accent:#F7F3EB}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+.plist{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin-top:16px}
+.plist h4{margin:0 0 5px;font-family:Georgia,"Times New Roman",serif;font-size:.95rem;color:var(--accent)}
+.plist ul{list-style:none;padding:0;margin:0}
+.plist li{font-size:.88rem;padding:2px 0 2px 16px;position:relative;line-height:1.5}
+.plist li:before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border:1px solid var(--muted);border-radius:2px}
+@media(max-width:540px){.plist{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Packing List Generator</h1>
+<p class="lede">Trip length, climate and style in &mdash; a categorised list with actual quantities out.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="row">
+<div class="field"><label for="nights">Trip length (nights)</label><input type="number" id="nights" value="14" min="1" max="90" inputmode="numeric"></div>
+<div class="field"><label for="climate">Climate at destination</label>
+<select id="climate">
+<option value="freezing">Freezing &mdash; below 0&deg;C</option>
+<option value="cold" selected>Cold &mdash; 0&ndash;10&deg;C (Japan in December)</option>
+<option value="mild">Mild &mdash; 10&ndash;18&deg;C</option>
+<option value="warm">Warm &mdash; 18&ndash;26&deg;C</option>
+<option value="hot">Hot and humid &mdash; above 26&deg;C</option>
+</select></div>
+</div>
+<div class="row">
+<div class="field"><label for="style">Trip style</label>
+<select id="style">
+<option value="city" selected>City / sightseeing</option>
+<option value="outdoors">Hiking / outdoors</option>
+<option value="beach">Beach</option>
+<option value="business">Business</option>
+</select></div>
+<div class="field"><label for="laundry">Laundry access</label>
+<select id="laundry"><option value="yes" selected>Yes &mdash; hotel or coin laundry</option><option value="no">No</option></select></div>
+<div class="field"><label for="bag">Luggage</label>
+<select id="bag"><option value="checked" selected>Checked bag</option><option value="carry">Carry-on only</option></select></div>
+</div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div>
+<div class="plist" id="list"></div></div>
+<p class="note">Quantities assume you re-wear outer layers and wash base layers. It is a starting list, not a rule.</p>
+</section>
+<section>
+<h2>Why quantities matter more than the list</h2>
+<p>Most packing lists tell you to bring socks. The useful question is how many, and the honest answer depends on one thing above all others: whether you can wash anything. With access to a hotel or coin laundry, almost nobody needs more than about a week of clothing regardless of how long the trip is &mdash; a three-week trip and a seven-day trip pack identically. Without laundry, the count really does scale with the nights, and that is where suitcases get heavy.</p>
+<h2>Layers beat garments</h2>
+<p>For anything cooler than about 18&nbsp;&deg;C, what keeps you comfortable is the number of layers rather than the thickness of any single item. A thermal base, a jumper and a windproof coat cover a much wider temperature range than one heavy parka, and they pack smaller. Japan in December is the classic case: daytime Tokyo sits around 10&nbsp;&deg;C, but you will alternate between cold streets and aggressively heated trains, shops and restaurants all day. Being able to shed a layer matters more than the coat being warm.</p>
+<h2>Carry-on only changes the maths</h2>
+<p>Cabin-only travel is less about ruthless minimalism than about two specific constraints: liquids must fit the 100&nbsp;ml rule, and your bulkiest items &mdash; boots, coat &mdash; get worn onto the plane rather than packed. Once those are handled, a week of clothing fits comfortably in a 40&nbsp;L bag, and laundry covers the rest of any trip length.</p>
+<h2>The part people actually forget</h2>
+<p>It is rarely clothing. It is the plug adapter, the second payment card kept somewhere separate from the first, prescriptions in their original labelled packaging for border checks, and offline copies of every booking &mdash; because the one moment you cannot rely on having signal or battery is the moment you land. Screenshot or download your confirmations before you leave, and keep them somewhere that works in airplane mode.</p>
+</section>
+<section class="app-block">
+<p>This tool comes from <strong>The Trip Binder</strong> — a fully offline travel binder for flights, hotels, bookings, documents, packing and checklists, with the whole trip on one map. No account, no cloud, no AI.</p><div class="badges"><span class="soon">Coming soon to the App Store and Google Play</span></div><p class="note">In the meantime, see <a href="/">our other apps</a>.</p>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+<li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+var CLIMATE={
+freezing:{label:'freezing',layers:['Thermal base layers &times;2','Insulated coat','Fleece or mid layer','Wool hat, gloves and scarf','Thick socks &times;3','Waterproof boots']},
+cold:{label:'cold',layers:['Warm coat','Jumper or fleece &times;2','Thermal top &times;1','Hat and gloves','Scarf','Water-resistant shoes']},
+mild:{label:'mild',layers:['Light jacket','Jumper &times;1','Packable rain shell','Comfortable walking shoes']},
+warm:{label:'warm',layers:['Light overshirt or cardigan','Packable rain shell','Sunglasses','Sun hat']},
+hot:{label:'hot and humid',layers:['Linen overshirt','Packable rain shell','Sunglasses','Sun hat','Quick-dry towel']}};
+var STYLE={
+city:['Day bag or small backpack','Walking shoes, already worn in','Compact umbrella','Portable battery'],
+outdoors:['Hiking boots','Daypack 20&ndash;30L','Water bottle','Blister plasters','Head torch','Dry bag'],
+beach:['Swimwear &times;2','Quick-dry towel','Flip flops','Reef-safe sun cream','After-sun'],
+business:['Suit or smart outfit','Dress shoes','Laptop and charger','Wrinkle spray or travel steamer']};
+function calc(){
+var nights=Math.max(1,Math.round(num('nights')));
+var c=CLIMATE[$('climate').value],st=$('style').value;
+var laundry=$('laundry').value==='yes',carry=$('bag').value==='carry';
+var wear=laundry?Math.min(nights,7):Math.min(nights,14);
+var socks=Math.min(wear+1,15),tops=Math.max(2,Math.min(wear,10)),bottoms=Math.max(1,Math.min(Math.ceil(wear/4),4));
+if(carry){tops=Math.min(tops,6);bottoms=Math.min(bottoms,2);socks=Math.min(socks,8)}
+var sleep=nights>7?2:1;
+var groups=[
+['Clothing',['Underwear &times;'+socks,'Socks &times;'+socks,'Tops &times;'+tops,'Trousers or skirts &times;'+bottoms,'Sleepwear &times;'+sleep]],
+['Layers and outerwear',c.layers],
+['Toiletries',['Toothbrush and paste','Deodorant','Shampoo and shower gel'+(carry?' (&le;100 ml)':''),'Razor','Prescriptions in original packaging','Painkillers and plasters']],
+['Tech',['Phone and charger','Plug adapter for the destination','Portable battery','Headphones','Spare cable']],
+['Documents and money',['Passport, 6+ months validity','Visa or entry registration if required','Travel insurance details','Two cards, carried separately','Some local cash','Offline copies of every booking']],
+['For this trip',STYLE[st]]];
+var total=0,html='';
+groups.forEach(function(g){total+=g[1].length;
+html+='<div><h4>'+g[0]+'</h4><ul>';
+g[1].forEach(function(i){html+='<li>'+i+'</li>'});
+html+='</ul></div>'});
+$('list').innerHTML=html;
+$('out').textContent=total+' items to pack';
+$('outsub').textContent=nights+' nights, '+c.label+' weather, '+(laundry?'laundry available':'no laundry')+(carry?', carry-on only.':'.')}
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Japan Trip Cost Calculator &mdash; Daily Budget Estimator | Eri Tech Studio</title>
+<meta name="description" content="Estimate what a trip to Japan costs — accommodation, food, transport, JR Pass and flights, broken down per day and per person. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/japan-trip-cost-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Japan Trip Cost Calculator">
+<meta property="og:description" content="Estimate what a trip to Japan costs — accommodation, food, transport, JR Pass and flights, broken down per day and per person. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/japan-trip-cost-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/japan-trip-cost-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#F7F3EB;--surface:#EDE3D2;--text:#22314A;--muted:#6F6857;--accent:#C2442D;--line:#D9CDB8;--on-accent:#F7F3EB}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+.result td:nth-child(2),.result td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.result td:nth-child(2){color:var(--muted);padding-right:16px}
+.result td:first-child{padding-right:12px}
+.result .sub{margin-top:12px}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Japan Trip Cost Calculator</h1>
+<p class="lede">What does two weeks in Japan actually cost? Set your length and style for a line-by-line estimate.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="row">
+<div class="field"><label for="nights">Nights in Japan</label><input type="number" id="nights" value="14" min="1" max="90" inputmode="numeric"></div>
+<div class="field"><label for="people">Travellers</label><input type="number" id="people" value="2" min="1" max="6" inputmode="numeric"></div>
+</div>
+<div class="field"><label for="style">Travel style</label>
+<select id="style">
+<option value="budget">Budget &mdash; hostels and business hotels, convenience stores and cheap eats</option>
+<option value="mid" selected>Mid-range &mdash; three-star hotels, restaurants, the occasional taxi</option>
+<option value="comfort">Comfort &mdash; four-star hotels and ryokan, sit-down dining</option>
+</select></div>
+<div class="row">
+<div class="field"><label for="pass">JR Pass, per person</label>
+<select id="pass">
+<option value="0" selected>None &mdash; pay per journey</option>
+<option value="50000">7-day ordinary</option>
+<option value="80000">14-day ordinary</option>
+<option value="100000">21-day ordinary</option>
+</select></div>
+<div class="field"><label for="flight">Return flights each (&pound;)</label><input type="number" id="flight" value="750" min="0" inputmode="numeric"></div>
+<div class="field"><label for="rate">Rate (&yen; per &pound;)</label><input type="number" id="rate" value="190" min="1" inputmode="decimal"></div>
+</div>
+<div class="result"><table id="tbl"></table><div class="sub" id="outsub"></div></div>
+<p class="note">Planning estimates, not quotes. The exchange-rate field is editable &mdash; check today&rsquo;s rate before you rely on the pound figures.</p>
+</section>
+<section>
+<h2>Where the money actually goes</h2>
+<p>Japan has a reputation for being eye-wateringly expensive that the daily numbers do not really support. Food in particular is a bargain relative to western Europe: a bowl of ramen or a convenience-store breakfast costs a fraction of the London equivalent, and even a good sit-down dinner rarely matches a comparable meal at home. What does cost money is accommodation, which typically accounts for close to half of on-the-ground spending, and long-distance rail. Those two lines are where your travel style shows up; the rest moves surprisingly little between budget and comfort trips.</p>
+<h2>The JR Pass is no longer automatic</h2>
+<p>For years the advice was simple &mdash; buy the Japan Rail Pass, always. The October 2023 price rise changed that, taking the seven-day ordinary pass to &yen;50,000. It now only pays for itself if you are covering serious distance: as a rough test, a Tokyo&ndash;Kyoto return alone runs roughly &yen;28,000, so a pass makes sense on a Tokyo&ndash;Kyoto&ndash;Hiroshima-style itinerary and rarely does if you are basing yourself in one or two cities. Price your actual planned journeys individually before buying, rather than assuming. Regional passes are often the better answer.</p>
+<h2>What this estimate leaves out</h2>
+<p>Shopping, which in Japan has a way of expanding to fill whatever space you leave it. Also travel insurance, any domestic flights, and one-off splurges such as a kaiseki dinner or a night in a high-end ryokan &mdash; a single ryokan stay with dinner and breakfast can equal three ordinary hotel nights. Budget those separately rather than trying to average them into a daily figure.</p>
+<h2>Using the number</h2>
+<p>Treat the daily rate as your planning anchor and the total as a target to test against. If the figure comes out higher than you would like, accommodation is almost always the most effective lever &mdash; moving from mid-range hotels to business hotels changes the total far more than eating more cheaply ever will, and business hotels in Japan are clean, well-located and perfectly pleasant.</p>
+</section>
+<section class="app-block">
+<p>This tool comes from <strong>The Trip Binder</strong> — a fully offline travel binder for flights, hotels, bookings, documents, packing and checklists, with the whole trip on one map. No account, no cloud, no AI.</p><div class="badges"><span class="soon">Coming soon to the App Store and Google Play</span></div><p class="note">In the meantime, see <a href="/">our other apps</a>.</p>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+<li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+var STYLE={budget:{stay:7000,food:3000,local:800,act:1000},
+mid:{stay:15000,food:6500,local:1200,act:2200},
+comfort:{stay:32000,food:13000,local:1800,act:4000}};
+function calc(){
+var nights=Math.max(1,Math.round(num('nights'))),people=Math.max(1,Math.round(num('people')));
+var s=STYLE[$('style').value],rate=num('rate')||190;
+var days=nights+1,rooms=Math.ceil(people/2);
+var stay=s.stay*rooms*nights,food=s.food*people*days,local=s.local*people*days,act=s.act*people*days;
+var pass=num('pass')*people,flights=num('flight')*people*rate;
+var total=stay+food+local+act+pass+flights;
+function row(l,y){return '<tr><td>'+l+'</td><td>&yen;'+Math.round(y).toLocaleString()+'</td><td>&pound;'+Math.round(y/rate).toLocaleString()+'</td></tr>'}
+var h=row('Accommodation &mdash; '+rooms+(rooms===1?' room':' rooms')+' &times; '+nights+' nights',stay)+
+row('Food and drink',food)+row('Local transport',local)+row('Activities and entry fees',act);
+if(pass>0)h+=row('JR Pass &times;'+people,pass);
+if(flights>0)h+=row('Return flights &times;'+people,flights);
+h+=row('Total',total);
+$('tbl').innerHTML=h;
+var onTheGround=total-flights;
+$('outsub').textContent='About \u00a3'+Math.round(total/people/rate).toLocaleString()+' per person all in, or \u00a3'+Math.round(onTheGround/people/days/rate).toLocaleString()+' per person per day once you are there.'}
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>
