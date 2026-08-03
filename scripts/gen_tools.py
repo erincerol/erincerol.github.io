@@ -159,12 +159,12 @@ def leaflet_block(campaign):
             '<div class="badges">' + ios_badge("6796375617", campaign) +
             play_badge("com.eritech.leaflet", campaign) + '</div>')
 
-def travelbinder_block():
+def travelbinder_block(campaign):
     return ('<p>This tool comes from <strong>The Travel Binder</strong> — a fully offline binder for flights, '
             'hotels, bookings, documents, packing and checklists, with the whole trip on one map. '
             'No account, no cloud, no AI.</p>'
-            '<div class="badges"><span class="soon">Coming soon to the App Store and Google Play</span></div>'
-            '<p class="note">In the meantime, see <a href="/">our other apps</a>.</p>')
+            '<div class="badges">' + ios_badge("6797601401", campaign) +
+            play_badge("com.eritech.travelbinder", campaign) + '</div>')
 
 def warranty_block(campaign):
     return ('<p><strong>Warranty Box</strong> keeps every receipt, warranty and return deadline in one place and '
@@ -757,7 +757,7 @@ $('outsub').textContent=nights+' nights, '+c.label+' weather, '+(laundry?'laundr
 <h2>The part people actually forget</h2>
 <p>It is rarely clothing. It is the plug adapter, the second payment card kept somewhere separate from the first, prescriptions in their original labelled packaging for border checks, and offline copies of every booking &mdash; because the one moment you cannot rely on having signal or battery is the moment you land. Screenshot or download your confirmations before you leave, and keep them somewhere that works in airplane mode.</p>
 </section>""",
-    app_block=travelbinder_block(),
+    app_block=travelbinder_block("packing_list"),
 ))
 
 PAGES.append(dict(
@@ -827,7 +827,7 @@ $('outsub').textContent='About \\u00a3'+Math.round(total/people/rate).toLocaleSt
 <h2>Using the number</h2>
 <p>Treat the daily rate as your planning anchor and the total as a target to test against. If the figure comes out higher than you would like, accommodation is almost always the most effective lever &mdash; moving from mid-range hotels to business hotels changes the total far more than eating more cheaply ever will, and business hotels in Japan are clean, well-located and perfectly pleasant.</p>
 </section>""",
-    app_block=travelbinder_block(),
+    app_block=travelbinder_block("japan_trip_cost"),
 ))
 
 # ---------------------------------------------------------------- build pages
