@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Signature | Eri Tech Studio</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#3B342C;background:#FAF7F2;max-width:680px;margin:40px auto;padding:0 20px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:1.7rem;color:#1F1A15;margin-bottom:4px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;color:#1F1A15;margin:34px 0 10px}
+.sub{color:#8A8074;margin-top:0;margin-bottom:28px;font-size:.95rem}
+.stage{background:#FFFDFA;border:1px solid #E9E3D9;border-radius:10px;padding:22px}
+.bar{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
+button{font:inherit;font-size:.9rem;font-weight:600;padding:9px 16px;border-radius:8px;border:0;background:#A4552F;color:#FAF7F2;cursor:pointer}
+button:hover{background:#8E4726}
+.msg{font-size:.85rem;color:#6F6857}
+ol{padding-left:20px;font-size:.92rem;color:#6F6857}
+li{margin-bottom:6px}
+code{background:#F1ECE3;padding:1px 5px;border-radius:4px;font-size:.85em}
+textarea{width:100%;height:150px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;padding:12px;border:1px solid #E9E3D9;border-radius:8px;background:#FFFDFA;color:#3B342C;resize:vertical}
+footer{margin-top:44px;padding-top:18px;border-top:1px solid #E9E3D9;color:#998F83;font-size:.85rem}
+footer a{color:#998F83}
+</style>
+</head>
+<body>
+
+<h1>Email signature</h1>
+<p class="sub">Click copy, then paste into your mail client. Nothing here is an image, so it renders even when a client blocks remote content.</p>
+
+<h2>Full</h2>
+<div class="stage">
+<div id="sig-full">
+<table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;color:#3B342C;">
+<tr>
+<td style="padding:2px 0 2px 14px;border-left:3px solid #A4552F;">
+<div style="font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#1F1A15;">Erinc Erol</div>
+<div style="font-size:12px;color:#998F83;padding-top:1px;">Eri Tech Studio &middot; Independent mobile app development</div>
+<div style="font-size:12px;color:#6F6857;padding-top:10px;">Kohii &middot; The Bake Log &middot; Warranty Box &middot; Cellar Book &middot; Leaflet &middot; The Travel Binder</div>
+<div style="font-size:12px;padding-top:10px;">
+<a href="https://eritech.studio/?utm_source=email&amp;utm_medium=signature" style="color:#A4552F;text-decoration:none;">eritech.studio</a>
+<span style="color:#CFC6B9;">&nbsp;&middot;&nbsp;</span>
+<a href="https://eritech.studio/tools/?utm_source=email&amp;utm_medium=signature" style="color:#A4552F;text-decoration:none;">Free tools &amp; calculators</a>
+<span style="color:#CFC6B9;">&nbsp;&middot;&nbsp;</span>
+<a href="mailto:admin@eritech.studio" style="color:#A4552F;text-decoration:none;">admin@eritech.studio</a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="bar"><button onclick="copySig('sig-full')">Copy full signature</button><span class="msg" id="msg-sig-full"></span></div>
+</div>
+
+<h2>Compact</h2>
+<div class="stage">
+<div id="sig-compact">
+<table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;color:#3B342C;">
+<tr>
+<td style="padding:2px 0 2px 14px;border-left:3px solid #A4552F;">
+<div style="font-size:13px;color:#1F1A15;"><strong>Erinc Erol</strong> <span style="color:#998F83;">&middot; Eri Tech Studio</span></div>
+<div style="font-size:12px;padding-top:3px;">
+<a href="https://eritech.studio/?utm_source=email&amp;utm_medium=signature" style="color:#A4552F;text-decoration:none;">eritech.studio</a>
+<span style="color:#CFC6B9;">&nbsp;&middot;&nbsp;</span>
+<a href="mailto:admin@eritech.studio" style="color:#A4552F;text-decoration:none;">admin@eritech.studio</a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="bar"><button onclick="copySig('sig-compact')">Copy compact signature</button><span class="msg" id="msg-sig-compact"></span></div>
+</div>
+
+<h2>How to install it</h2>
+<ol>
+<li><strong>Gmail:</strong> Settings (gear) &rarr; See all settings &rarr; General &rarr; Signature &rarr; Create new &rarr; paste.</li>
+<li><strong>Apple Mail:</strong> Settings &rarr; Signatures &rarr; <code>+</code> &rarr; paste. Untick &ldquo;Always match my default message font&rdquo; or the styling is stripped.</li>
+<li><strong>Outlook:</strong> Settings &rarr; Mail &rarr; Compose and reply &rarr; paste into the signature box.</li>
+<li><strong>iOS Mail:</strong> paste into Settings &rarr; Apps &rarr; Mail &rarr; Signature. iOS keeps links but flattens some styling.</li>
+</ol>
+
+<h2>Plain text</h2>
+<p class="sub" style="margin-bottom:12px">For clients that refuse HTML.</p>
+<textarea readonly id="plain">Erinc Erol
+Eri Tech Studio - Independent mobile app development
+
+Kohii - The Bake Log - Warranty Box - Cellar Book - Leaflet - The Travel Binder
+
+eritech.studio | admin@eritech.studio</textarea>
+
+<footer>
+<p>Internal page &mdash; not linked from the site and excluded from search. <a href="/">Eri Tech Studio</a></p>
+</footer>
+
+<script>
+function copySig(id){
+  var el = document.getElementById(id);
+  var msg = document.getElementById('msg-' + id);
+  var html = el.innerHTML;
+  var text = el.innerText.replace(/\n{3,}/g, '\n\n').trim();
+  function fallback(){
+    var r = document.createRange();
+    r.selectNodeContents(el);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    msg.textContent = ok ? 'Copied.' : 'Selected above — press Cmd/Ctrl+C to copy.';
+  }
+  if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+    navigator.clipboard.write([new ClipboardItem({
+      'text/html': new Blob([html], {type: 'text/html'}),
+      'text/plain': new Blob([text], {type: 'text/plain'})
+    })]).then(function(){ msg.textContent = 'Copied — now paste into your mail client.'; }, fallback);
+  } else {
+    fallback();
+  }
+}
+</script>
+
+</body>
+</html>
