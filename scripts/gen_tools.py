@@ -32,7 +32,8 @@ TEMPLATE = """<!DOCTYPE html>
 <meta property="og:url" content="@@DOMAIN@@/tools/@@SLUG@@/">
 <meta property="og:image" content="@@DOMAIN@@/assets/og/@@SLUG@@.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 @@CF@@
 <style>
@@ -41,14 +42,14 @@ TEMPLATE = """<!DOCTYPE html>
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
 main{max-width:680px;margin:0 auto;padding:0 20px 40px}
 .crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
-.crumb a{color:var(--muted);text-decoration:none}
+.crumb a,a:visited{color:var(--muted);text-decoration:none}
 .crumb a:hover{color:var(--accent)}
 .crumb span{margin:0 8px}
 h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
 .lede{color:var(--muted);margin:0 0 28px}
 h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
 p{margin:0 0 14px}
-a{color:var(--accent)}
+a,a:visited{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
 .calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
@@ -75,11 +76,17 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
 .more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
 @media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
-.more-tools a{text-decoration:none}
+.more-tools a,a:visited{text-decoration:none}
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-footer a{color:var(--muted)}
+footer a,a:visited{color:var(--muted)}
 @@EXTRA_CSS@@</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"@@DOMAIN@@/"},
+{"@type":"ListItem","position":2,"name":"Free tools","item":"@@DOMAIN@@/tools/"},
+{"@type":"ListItem","position":3,"name":"@@OG_TITLE@@","item":"@@DOMAIN@@/tools/@@SLUG@@/"}]}
+</script>
 </head>
 <body>
 <nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
@@ -915,7 +922,8 @@ tools_index = """<!DOCTYPE html>
 <meta property="og:url" content="@@DOMAIN@@/tools/">
 <meta property="og:image" content="@@DOMAIN@@/assets/og/tools.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 @@CF@@
 <style>
@@ -924,19 +932,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Ar
 h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;color:#1F1A15;margin-bottom:5px}
 .subtitle{color:#8A8074;margin-top:0;margin-bottom:34px}
 .crumb{font-size:.9rem;color:#998F83;margin-bottom:24px}
-.crumb a{color:#998F83;text-decoration:none}
-.crumb a:hover{color:#A4552F}
+.crumb a,a:visited{color:#998F83;text-decoration:none}
+.crumb a:hover{color:#7A3B24}
 h2{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:#1F1A15;margin:34px 0 12px;display:flex;align-items:baseline;gap:9px}
 h2 .dot{width:11px;height:11px;border-radius:4px;background:var(--acc);flex:none;align-self:center}
 h2 .app{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:.82rem;color:#9a948e;font-weight:400;letter-spacing:.01em}
 ul{list-style:none;padding:0;margin:0}
 li{margin-bottom:10px}
-li a{display:block;padding:13px 18px 12px;background:#FFFDFA;border:1px solid #E9E3D9;border-left:4px solid var(--acc);border-radius:10px;text-decoration:none;color:#3B342C;transition:border-color .15s ease,box-shadow .15s ease}
+li a,a:visited{display:block;padding:13px 18px 12px;background:#FFFDFA;border:1px solid #E9E3D9;border-left:4px solid var(--acc);border-radius:10px;text-decoration:none;color:#3B342C;transition:border-color .15s ease,box-shadow .15s ease}
 li a:hover{border-color:var(--acc);box-shadow:0 3px 14px rgba(60,45,30,.08)}
 li a strong{display:block;color:#1F1A15;font-size:1.02rem}
 li a span{font-size:.9rem;color:#8A8074}
 footer{margin-top:50px;font-size:.85rem;color:#998F83;border-top:1px solid #E9E3D9;padding-top:20px}
-footer a{color:#998F83}
+footer a,a:visited{color:#998F83}
 </style>
 </head>
 <body>
@@ -1007,6 +1015,6 @@ def og_image(fname, title, pal):
 
 for p in PAGES:
     og_image(p["slug"] + ".png", p["og_title"], PALETTES[p["palette"]])
-og_image("tools.png", "Free Tools & Calculators", dict(bg="#FAF7F2", accent="#A4552F", text="#1F1A15", muted="#998F83"))
+og_image("tools.png", "Free Tools & Calculators", dict(bg="#FAF7F2", accent="#7A3B24", text="#1F1A15", muted="#998F83"))
 
 print("done")

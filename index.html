@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eri Tech Studio</title>
+    <title>Eri Tech Studio — Private, Offline Apps for iOS and Android</title>
     <link rel="canonical" href="https://eritech.studio/">
     <meta name="description" content="Eri Tech Studio builds clean, purposeful utility apps for iOS and Android — Kohii, The Bake Log, Warranty Box, Cellar Book, Leaflet and The Travel Binder.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eri Tech Studio">
+    <meta property="og:description" content="Private logbooks for the things you care about. Offline, no account, one-time purchase.">
+    <meta property="og:url" content="https://eritech.studio/">
+    <meta property="og:image" content="https://eritech.studio/assets/brand/og-default.png">
+    <meta property="og:site_name" content="Eri Tech Studio">
+    <meta property="og:locale" content="en_GB">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#FAF7F2">
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
         body {
@@ -35,6 +45,15 @@
             margin-top: 0;
             margin-bottom: 30px;
         }
+        .logo {
+            margin: 0 0 8px;
+            line-height: 0;
+        }
+        .logo img {
+            width: 272px;
+            height: auto;
+            max-width: 100%;
+        }
         .section {
             margin-bottom: 30px;
         }
@@ -44,22 +63,26 @@
         li {
             margin-bottom: 10px;
         }
-        a {
-            color: #A4552F;
-            text-decoration: none;
+        a, a:visited {
+            color: #7A3B24;
+            text-decoration: underline;
+            text-decoration-color: rgba(122,59,36,.45);
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
         }
         a:hover {
-            text-decoration: underline;
+            text-decoration-color: #7A3B24;
+            text-decoration-thickness: 2px;
         }
         footer {
             margin-top: 50px;
             font-size: 0.85rem;
-            color: #998F83;
+            color: #6F6857;
             border-top: 1px solid #E9E3D9;
             padding-top: 20px;
         }
-        footer a {
-            color: #998F83;
+        footer a, a:visited {
+            color: #6F6857;
         }
         .store-badges {
             display: flex;
@@ -72,11 +95,112 @@
         .badge-appstore img { height: 52px; }
         .badge-play img { height: 78px; margin: -13px; }
     </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://eritech.studio/#organization",
+      "name": "Eri Tech Studio",
+      "legalName": "Eri Tech LTD",
+      "url": "https://eritech.studio/",
+      "logo": "https://eritech.studio/assets/brand/logo-mark.png",
+      "image": "https://eritech.studio/assets/brand/og-default.png",
+      "email": "admin@eritech.studio",
+      "description": "Independent studio building private, fully offline logbook apps for iOS and Android. No account, no cloud, one-time purchase.",
+      "sameAs": [
+        "https://apps.apple.com/us/developer/eri-tech-ltd/id6790971988",
+        "https://play.google.com/store/apps/developer?id=Eri+Tech"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://eritech.studio/#website",
+      "url": "https://eritech.studio/",
+      "name": "Eri Tech Studio",
+      "publisher": { "@id": "https://eritech.studio/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Kohii",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "A coffee and espresso companion for logging brew recipes, tracking extraction parameters and dialling in the perfect cup.",
+      "publisher": { "@id": "https://eritech.studio/#organization" },
+      "sameAs": [
+        "https://apps.apple.com/app/id6790972283",
+        "https://play.google.com/store/apps/details?id=com.eritech.kohii"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "The Bake Log",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "A sourdough companion for tracking starters, hydration, fermentation times and bake logs.",
+      "publisher": { "@id": "https://eritech.studio/#organization" },
+      "sameAs": [
+        "https://apps.apple.com/app/id6790971986",
+        "https://play.google.com/store/apps/details?id=com.eritech.thebakelog"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Warranty Box",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "A digital vault for product warranties, receipts and expiry reminders.",
+      "publisher": { "@id": "https://eritech.studio/#organization" },
+      "sameAs": [
+        "https://apps.apple.com/app/id6790972644",
+        "https://play.google.com/store/apps/details?id=com.eritech.warrantybox"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Cellar Book",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "A wine cellar companion tracking drink windows, label photos and tasting notes.",
+      "publisher": { "@id": "https://eritech.studio/#organization" },
+      "sameAs": [
+        "https://apps.apple.com/app/id6796370046",
+        "https://play.google.com/store/apps/details?id=com.eritech.cellarbook"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Leaflet",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "A plant care tracker with watering schedules, care reminders and a growth photo timeline.",
+      "publisher": { "@id": "https://eritech.studio/#organization" },
+      "sameAs": [
+        "https://apps.apple.com/app/id6796375617",
+        "https://play.google.com/store/apps/details?id=com.eritech.leaflet"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "The Travel Binder",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "A fully offline travel binder for flights, hotels, bookings, documents, packing and checklists.",
+      "publisher": { "@id": "https://eritech.studio/#organization" },
+      "sameAs": [
+        "https://apps.apple.com/app/id6797601401",
+        "https://play.google.com/store/apps/details?id=com.eritech.travelbinder"
+      ]
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
     <header>
-        <h1>Eri Tech Studio</h1>
+        <h1 class="logo"><img src="/assets/brand/logo-horizontal.svg" alt="Eri Tech Studio" width="272" height="60"></h1>
         <p class="subtitle">Independent Mobile App Development</p>
     </header>
 
