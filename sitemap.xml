@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://eritech.studio/</loc></url>
+  <url><loc>https://eritech.studio/apps/</loc></url>
   <url><loc>https://eritech.studio/tools/</loc></url>
+  <url><loc>https://eritech.studio/apps/kohii/</loc></url>
+  <url><loc>https://eritech.studio/apps/the-bake-log/</loc></url>
+  <url><loc>https://eritech.studio/apps/warranty-box/</loc></url>
+  <url><loc>https://eritech.studio/apps/cellar-book/</loc></url>
+  <url><loc>https://eritech.studio/apps/leaflet/</loc></url>
+  <url><loc>https://eritech.studio/apps/travel-binder/</loc></url>
   <url><loc>https://eritech.studio/tools/sourdough-hydration-calculator/</loc></url>
   <url><loc>https://eritech.studio/tools/bakers-percentage-calculator/</loc></url>
   <url><loc>https://eritech.studio/tools/starter-feeding-ratio-calculator/</loc></url>

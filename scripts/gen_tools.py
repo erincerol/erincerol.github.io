@@ -1,22 +1,9 @@
 #!/usr/bin/env python3
 """Generate eritech.studio /tools/ calculator pages, OG images, robots.txt and sitemap.xml."""
-import os
-
-REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOMAIN = "https://eritech.studio"
-
-CF_SNIPPET = """<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->"""
-
-PALETTES = {
-    "bakelog":   dict(bg="#FDFBF7", surface="#FFFFFF", text="#2C2523", muted="#7A716B", accent="#A4552F", line="#E5E0D8", on="#FFFFFF"),
-    "kohii":     dict(bg="#FAF7F2", surface="#FFFFFF", text="#4A2C1A", muted="#7A6A5A", accent="#8F5E1B", line="#E0D5C5", on="#FFFFFF"),
-    "cellar":    dict(bg="#15171A", surface="#1E2126", text="#EDEDED", muted="#8E97A0", accent="#D4B595", line="#2A2E35", on="#15171A"),
-    "leaflet":   dict(bg="#0D1F0F", surface="#142B16", text="#F1F8F1", muted="#8FAF8F", accent="#4CAF50", line="#1E3320", on="#0D1F0F"),
-    "warranty":  dict(bg="#10161D", surface="#18202A", text="#E8EDF2", muted="#8A97A6", accent="#5FA8D3", line="#232E3B", on="#10161D"),
-    # Travel Binder: Paper/Kraft/Ink Navy/Stamp Red per ASSETS_BRIEF §2. `muted` is Faded Ink
-    # darkened (#8A8273 -> #6F6857) to clear WCAG AA on Paper; app tokens are unaffected.
-    "travelbinder": dict(bg="#F7F3EB", surface="#EDE3D2", text="#22314A", muted="#6F6857", accent="#C2442D", line="#D9CDB8", on="#F7F3EB"),
-}
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS,
+                   play_badge, ios_badge, og_image)
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -124,57 +111,41 @@ calc();
 
 # ---------------------------------------------------------------- app blocks
 
-APPSTORE_BADGE_IMG = "https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us"
-PLAY_BADGE_IMG = "https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-
-def play_badge(pkg, campaign):
-    return ('<a class="badge-play" href="https://play.google.com/store/apps/details?id=' + pkg +
-            '&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3D' + campaign +
-            '" rel="noopener"><img src="' + PLAY_BADGE_IMG + '" alt="Get it on Google Play"></a>')
-
-APPLE_PROVIDER_TOKEN = "129172097"  # account-wide, from App Analytics campaign link generator
-
-def ios_badge(app_id, campaign):
-    return ('<a class="badge-appstore" href="https://apps.apple.com/app/id' + app_id +
-            '?pt=' + APPLE_PROVIDER_TOKEN + '&amp;ct=calc_' + campaign +
-            '&amp;mt=8" rel="noopener"><img src="' + APPSTORE_BADGE_IMG +
-            '" alt="Download on the App Store"></a>')
-
 def bakelog_block(campaign):
-    return ('<p>This calculator is built into <strong>The Bake Log</strong>, along with starter feeding reminders, '
+    return ('<p>This calculator is built into <strong><a href="/apps/the-bake-log/">The Bake Log</a></strong>, along with starter feeding reminders, '
             'guided bake timelines and a full bake journal. Offline, no account, free to start.</p>'
             '<div class="badges">' + ios_badge("6790971986", campaign) +
             play_badge("com.eritech.thebakelog", campaign) + '</div>')
 
 def kohii_block(campaign):
-    return ('<p>This calculator is built into <strong>Kohii — The Barista Log</strong>, along with brew logging, '
+    return ('<p>This calculator is built into <strong><a href="/apps/kohii/">Kohii — The Barista Log</a></strong>, along with brew logging, '
             'dial-in history and bean freshness tracking. Offline, no account, one-time unlock.</p>'
             '<div class="badges">' + ios_badge("6790972283", campaign) +
             play_badge("com.eritech.kohii", campaign) + '</div>')
 
 def cellar_block(campaign):
-    return ('<p>This calculator is built into <strong>Cellar Book</strong>, which tracks drink windows on every '
+    return ('<p>This calculator is built into <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>, which tracks drink windows on every '
             'bottle in your cellar — see what is ageing, ready or fading at a glance, with label photos, tasting '
             'notes on the 100-point scale and an offline map of your collection&rsquo;s regions.</p>'
             '<div class="badges">' + ios_badge("6796370046", campaign) +
             play_badge("com.eritech.cellarbook", campaign) + '</div>')
 
 def leaflet_block(campaign):
-    return ('<p>This calculator is built into <strong>Leaflet</strong>, which keeps watering and feeding schedules '
+    return ('<p>This calculator is built into <strong><a href="/apps/leaflet/">Leaflet</a></strong>, which keeps watering and feeding schedules '
             'for every plant you own, with a photo timeline so you can watch a year of growth in one scroll. '
             'No subscription, no AI gimmicks.</p>'
             '<div class="badges">' + ios_badge("6796375617", campaign) +
             play_badge("com.eritech.leaflet", campaign) + '</div>')
 
 def travelbinder_block(campaign):
-    return ('<p>This tool comes from <strong>The Travel Binder</strong> — a fully offline binder for flights, '
+    return ('<p>This tool comes from <strong><a href="/apps/travel-binder/">The Travel Binder</a></strong> — a fully offline binder for flights, '
             'hotels, bookings, documents, packing and checklists, with the whole trip on one map. '
             'No account, no cloud, no AI.</p>'
             '<div class="badges">' + ios_badge("6797601401", campaign) +
             play_badge("com.eritech.travelbinder", campaign) + '</div>')
 
 def warranty_block(campaign):
-    return ('<p><strong>Warranty Box</strong> keeps every receipt, warranty and return deadline in one place and '
+    return ('<p><strong><a href="/apps/warranty-box/">Warranty Box</a></strong> keeps every receipt, warranty and return deadline in one place and '
             'reminds you before a window closes. Offline, no account.</p>'
             '<div class="badges">' + ios_badge("6790972644", campaign) +
             play_badge("com.eritech.warrantybox", campaign) + '</div>')
@@ -970,7 +941,8 @@ with open(os.path.join(REPO, "robots.txt"), "w") as f:
     f.write("User-agent: *\nAllow: /\nSitemap: " + DOMAIN + "/sitemap.xml\n")
 print("wrote robots.txt")
 
-urls = [DOMAIN + "/", DOMAIN + "/tools/"]
+urls = [DOMAIN + "/", DOMAIN + "/apps/", DOMAIN + "/tools/"]
+urls += [DOMAIN + "/apps/" + a["slug"] + "/" for a in APPS]
 urls += [DOMAIN + "/tools/" + p["slug"] + "/" for p in PAGES]
 urls += [DOMAIN + "/privacy-policies/" + n for n in
          ["kohii.html", "the-bake-log.html", "warranty-box.html", "cellarbook.html", "leaflet.html",
@@ -984,34 +956,6 @@ with open(os.path.join(REPO, "sitemap.xml"), "w") as f:
 print("wrote sitemap.xml (" + str(len(urls)) + " urls)")
 
 # ---------------------------------------------------------------- OG images
-
-from PIL import Image, ImageDraw, ImageFont
-
-OG_DIR = os.path.join(REPO, "assets", "og")
-os.makedirs(OG_DIR, exist_ok=True)
-TITLE_FONT = ImageFont.truetype("/System/Library/Fonts/Supplemental/Georgia Bold.ttf", 78)
-SUB_FONT = ImageFont.truetype("/System/Library/Fonts/Supplemental/Georgia.ttf", 34)
-
-def og_image(fname, title, pal):
-    img = Image.new("RGB", (1200, 630), pal["bg"])
-    d = ImageDraw.Draw(img)
-    d.rectangle([0, 0, 22, 630], fill=pal["accent"])
-    # wrap title
-    words, lines, cur = title.split(), [], ""
-    for w in words:
-        t = (cur + " " + w).strip()
-        if d.textlength(t, font=TITLE_FONT) > 1010:
-            lines.append(cur); cur = w
-        else:
-            cur = t
-    lines.append(cur)
-    y = 315 - (len(lines) * 96) // 2 - 40
-    for ln in lines:
-        d.text((90, y), ln, font=TITLE_FONT, fill=pal["text"])
-        y += 96
-    d.text((90, 520), "Free tool  ·  eritech.studio/tools", font=SUB_FONT, fill=pal["muted"])
-    img.save(os.path.join(OG_DIR, fname), "PNG")
-    print("wrote assets/og/" + fname)
 
 for p in PAGES:
     og_image(p["slug"] + ".png", p["og_title"], PALETTES[p["palette"]])

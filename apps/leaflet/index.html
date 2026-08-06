@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaflet — Plant Care, Watering Reminder & Journal App | Eri Tech Studio</title>
+<meta name="description" content="Leaflet is an offline plant care app with watering reminders, feeding schedules and a growth photo timeline for every houseplant. No AI identification, no subscription, no account.">
+<link rel="canonical" href="https://eritech.studio/apps/leaflet/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Eri Tech Studio">
+<meta property="og:title" content="Leaflet">
+<meta property="og:description" content="Leaflet is an offline plant care app with watering reminders, feeding schedules and a growth photo timeline for every houseplant. No AI identification, no subscription, no account.">
+<meta property="og:url" content="https://eritech.studio/apps/leaflet/">
+<meta property="og:image" content="https://eritech.studio/assets/og/app-leaflet.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#0D1F0F;--surface:#142B16;--text:#F1F8F1;--muted:#8FAF8F;--accent:#4CAF50;--line:#1E3320;--on-accent:#0D1F0F}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a,.crumb a:visited{color:var(--muted);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2.1rem;line-height:1.2;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 26px;font-size:1.05rem}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a,a:visited{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 8px}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin:26px 0}
+.feat ul{margin:0;padding-left:20px}
+.feat li{margin-bottom:9px}
+.feat li:last-child{margin-bottom:0}
+.tools{list-style:none;padding:0;margin:0}
+.tools li{margin-bottom:9px}
+.tools a{display:block;padding:12px 16px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;text-decoration:none}
+.tools a:hover{border-color:var(--accent)}
+.tools strong{display:block;color:var(--text)}
+.tools span{font-size:.9rem;color:var(--muted)}
+.note{font-size:.88rem;color:var(--muted)}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a,footer a:visited{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"SoftwareApplication","name":"Leaflet","applicationCategory":"LifestyleApplication",
+ "operatingSystem":"iOS, Android","description":"Leaflet is an offline plant care app with watering reminders, feeding schedules and a growth photo timeline for every houseplant. No AI identification, no subscription, no account.",
+ "url":"https://eritech.studio/apps/leaflet/",
+ "publisher":{"@type":"Organization","name":"Eri Tech Studio","url":"https://eritech.studio/"},
+ "sameAs":["https://apps.apple.com/app/id6796375617","https://play.google.com/store/apps/details?id=com.eritech.leaflet"]},
+{"@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
+{"@type":"ListItem","position":2,"name":"Apps","item":"https://eritech.studio/apps/"},
+{"@type":"ListItem","position":3,"name":"Leaflet","item":"https://eritech.studio/apps/leaflet/"}]}]}
+</script>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/apps/">Apps</a></nav>
+<main>
+<h1>Leaflet &mdash; plant care that remembers</h1>
+<p class="lede">Watering and feeding schedules that actually remind you, and a photo timeline showing a year of growth in one scroll.</p>
+<div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6796375617?pt=129172097&amp;ct=app_leaflet&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.leaflet&amp;referrer=utm_source%3Dsite%26utm_medium%3Dapp_page%26utm_campaign%3Dleaflet" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+<p class="note">Free to download &middot; one-time unlock &middot; no subscription</p>
+<p>Houseplants rarely die of neglect in one dramatic moment. They die of a schedule that drifted. Leaflet is a care journal for people who already know what their plants are and want to keep them alive.</p>
+<div class="feat">
+<h2 style="margin-top:0">What it does</h2>
+<ul>
+<li>Watering and feeding schedules per plant, with reminders that fire</li>
+<li>A photo timeline per plant — a year of growth in one scroll</li>
+<li>Care history, repotting dates and adoption dates kept per plant</li>
+<li>A needs-care-today view so nothing gets quietly forgotten</li>
+<li>No AI identification and no subscription — fully offline</li>
+</ul>
+</div>
+<h2>&ldquo;Water once a week&rdquo; kills more plants than forgetting</h2>
+<p>It is the most repeated houseplant advice and the least useful, because thirst is not a property of the plant alone. It depends on light, on how warm and dry the room is, on pot size and material, and on whether the plant is growing or dormant. The same Monstera might want water every six days in a bright July window and every three weeks in a dim December corner. A fixed weekly schedule is therefore wrong for most of the year, and it is wrong in the dangerous direction &mdash; toward soil that never dries.</p>
+<p>Overwatering is what actually does the damage. Most houseplants tolerate going too dry: they droop, you water, they recover. Constantly wet soil suffocates roots and invites rot, which is usually fatal by the time it is visible above the surface. There is a free <a href="/tools/plant-watering-calculator/">plant watering calculator</a> here that gives a starting interval by species, season and light &mdash; a starting point to check against the soil, not a rule.</p>
+<h2>Growth is invisible day to day</h2>
+<p>The other thing a journal gives you is proof that anything is happening. Plants move too slowly to notice, so a difficult year of adjusting light and watering can feel like no progress at all &mdash; until you put two photos side by side eleven months apart. That is also, in practice, the most shared thing anyone does with a plant app.</p>
+<h2>No AI, deliberately</h2>
+<p>Leaflet does not identify plants from a photo. It is built for people who already know what they own and want a record rather than a guess, which is also why there is no subscription and nothing to log into.</p>
+<h2>Free tools on this theme</h2>
+<ul class="tools">
+<li><a href="/tools/plant-watering-calculator/"><strong>Plant Watering Calculator</strong><span>Watering intervals by species, season and light.</span></a></li>
+</ul>
+<h2>Privacy</h2>
+<p>Leaflet stores everything on your device. There is no account, no server and no cloud sync, and nothing you enter is transmitted anywhere. Read the full <a href="/privacy-policies/leaflet.html">privacy policy</a>.</p>
+</main>
+<footer>
+<p><a href="/">Eri Tech Studio</a> &middot; <a href="/apps/">All apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+</body>
+</html>
