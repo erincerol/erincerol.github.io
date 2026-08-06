@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wine Cellar Value Calculator — Value Your Collection | Eri Tech Studio</title>
+<meta name="description" content="Estimate what your wine collection is worth by tier, for insurance or planning. Free, no signup, nothing stored.">
+<link rel="canonical" href="https://eritech.studio/tools/wine-cellar-value-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wine Cellar Value Calculator">
+<meta property="og:description" content="Estimate what your wine collection is worth by tier, for insurance or planning. Free, no signup, nothing stored.">
+<meta property="og:url" content="https://eritech.studio/tools/wine-cellar-value-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/wine-cellar-value-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#15171A;--surface:#1E2126;--text:#EDEDED;--muted:#8E97A0;--accent:#D4B595;--line:#2A2E35;--on-accent:#15171A}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a,a:visited{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a,a:visited{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a,a:visited{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a,a:visited{color:var(--muted)}
+.result td:nth-child(2),.result td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.result td:nth-child(2){color:var(--muted);padding-right:16px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
+{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
+{"@type":"ListItem","position":3,"name":"Wine Cellar Value Calculator","item":"https://eritech.studio/tools/wine-cellar-value-calculator/"}]}
+</script>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Wine Cellar Value Calculator</h1>
+<p class="lede">What is actually sitting in the rack? Count by tier and get a total, an average, and a replacement figure.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="field"><label for="cur">Currency</label>
+<select id="cur"><option value="&pound;" selected>&pound; GBP</option><option value="$">$ USD</option><option value="&euro;">&euro; EUR</option></select></div>
+<div class="row">
+<div class="field"><label for="c1">Everyday bottles</label><input type="number" id="c1" value="24" min="0" inputmode="numeric"></div>
+<div class="field"><label for="p1">Average each</label><input type="number" id="p1" value="12" min="0" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="c2">Good bottles</label><input type="number" id="c2" value="18" min="0" inputmode="numeric"></div>
+<div class="field"><label for="p2">Average each</label><input type="number" id="p2" value="30" min="0" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="c3">Fine wine</label><input type="number" id="c3" value="8" min="0" inputmode="numeric"></div>
+<div class="field"><label for="p3">Average each</label><input type="number" id="p3" value="80" min="0" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="c4">Cellar-worthy / investment</label><input type="number" id="c4" value="4" min="0" inputmode="numeric"></div>
+<div class="field"><label for="p4">Average each</label><input type="number" id="p4" value="250" min="0" inputmode="decimal"></div>
+</div>
+<div class="result"><table id="tbl"></table><div class="sub" id="outsub"></div></div>
+<p class="note">Nothing you type is sent anywhere or stored &mdash; the sum happens in your browser.</p>
+</section>
+<section>
+<h2>Why put a number on a cellar</h2>
+<p>Most people who collect wine seriously have no idea what the rack is worth, and the usual moment of discovery is a bad one &mdash; a flood, a failed cooling unit, a house move, or an insurer asking for a figure after something has already gone wrong. Standard home contents policies frequently cap any single item, and some exclude alcohol above a threshold entirely, so a cellar that quietly grew past five figures may be substantially uninsured without anyone deciding that.</p>
+<h2>Purchase price is not replacement cost</h2>
+<p>The figure that matters for insurance is what it would cost to buy the collection again today, which for anything mature is usually well above what you paid. A Bordeaux bought on release for £40 and drunk fifteen years later might cost £120 to replace, if it is still available at all &mdash; and for sought-after vintages, availability is the real constraint rather than price. Valuing by tier, as above, gets you far closer than totting up old receipts.</p>
+<h2>Value and readiness are different questions</h2>
+<p>A cellar has two clocks running: what a bottle is worth, and whether it is ready. They diverge more than people expect. Fine wine generally appreciates while it is still ageing, plateaus around its drinking window, then falls away as the risk of being past it grows &mdash; which means the financially optimal moment to sell often arrives before the best moment to drink. Deciding which of those you care about, bottle by bottle, is most of what cellar management actually is. The <a href="/tools/wine-drink-window-calculator/">drink window calculator</a> handles the other clock.</p>
+<h2>Treat this as a planning figure</h2>
+<p>Tier averages give you an order of magnitude, not a valuation. For probate, a formal insurance schedule or a sale, you want a merchant valuation or auction estimates against actual bottles and vintages. What this is good for is the question most collectors cannot answer at all: roughly what is in there, and is it more than you assumed.</p>
+</section>
+<section class="app-block">
+<p>This calculator is built into <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>, which tracks drink windows on every bottle in your cellar — see what is ageing, ready or fading at a glance, with label photos, tasting notes on the 100-point scale and an offline map of your collection&rsquo;s regions.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6796370046?pt=129172097&amp;ct=calc_cellar_value&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.cellarbook&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dcellar_value" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+<li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
+<li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
+<li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+function calc(){
+var cur=$('cur').value;
+var rows=[['Everyday',num('c1'),num('p1')],['Good',num('c2'),num('p2')],
+['Fine wine',num('c3'),num('p3')],['Cellar-worthy',num('c4'),num('p4')]];
+var bottles=0,total=0,h='';
+rows.forEach(function(r){var v=r[1]*r[2];bottles+=r[1];total+=v;
+if(r[1]>0)h+='<tr><td>'+r[0]+'</td><td>'+r[1]+' bottles</td><td>'+cur+Math.round(v).toLocaleString()+'</td></tr>'});
+h+='<tr><td>Total</td><td>'+bottles+' bottles</td><td>'+cur+Math.round(total).toLocaleString()+'</td></tr>';
+$('tbl').innerHTML=h;
+$('outsub').innerHTML=bottles>0?('Average '+cur+(total/bottles).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})+' a bottle. '+
+(total>10000?'Above a typical home-contents single-item limit — worth telling your insurer.':'Keep a copy of this figure with your insurance documents.')):'Enter some bottles above.'}
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

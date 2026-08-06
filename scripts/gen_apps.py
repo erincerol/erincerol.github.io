@@ -25,6 +25,7 @@ TEMPLATE = """<!DOCTYPE html>
 <meta property="og:url" content="@@DOMAIN@@/apps/@@SLUG@@/">
 <meta property="og:image" content="@@DOMAIN@@/assets/og/app-@@SLUG@@.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=@@APPID@@, app-argument=@@DOMAIN@@/apps/@@SLUG@@/">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -108,6 +109,8 @@ TOOL_META = {
     "sourdough-hydration-calculator": ("Sourdough Hydration Calculator", "Flour, water and starter in — true hydration % out."),
     "bakers-percentage-calculator": ("Baker's Percentage Calculator", "Scale any bread formula from flour or dough weight."),
     "starter-feeding-ratio-calculator": ("Starter Feeding Ratio Calculator", "1:1:1, 1:2:2, 1:5:5 — feed amounts and peak times."),
+    "dough-temperature-calculator": ("Dough Temperature Calculator", "Hit a target dough temperature via the water."),
+    "wine-cellar-value-calculator": ("Wine Cellar Value Calculator", "Count by tier — total, average, replacement figure."),
     "coffee-ratio-calculator": ("Coffee Ratio Calculator", "Coffee-to-water ratios for every brew method."),
     "espresso-ratio-calculator": ("Espresso Ratio Calculator", "Dose, yield, ratio — enter any two, solve the third."),
     "coffee-freshness-calculator": ("Coffee Freshness Calculator", "Roast date in, peak drinking window out."),
@@ -291,6 +294,7 @@ index = """<!DOCTYPE html>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 @@CF@@
+@@ITEMLIST@@
 <style>
 *{box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#3B342C;max-width:680px;margin:40px auto;padding:0 20px;background:#FAF7F2}
@@ -321,6 +325,11 @@ footer a,footer a:visited{color:#6F6857;text-decoration:underline;text-underline
 </body>
 </html>
 """
-index = index.replace("@@DOMAIN@@", DOMAIN).replace("@@CF@@", CF_SNIPPET).replace("@@ROWS@@", rows)
+apps_itemlist = ('<script type="application/ld+json">\n'
+    '{"@context":"https://schema.org","@type":"ItemList","name":"Eri Tech Studio apps","itemListElement":['
+    + ",".join('{"@type":"ListItem","position":%d,"name":"%s","url":"%s/apps/%s/"}' % (i + 1, a["name"], DOMAIN, a["slug"])
+               for i, a in enumerate(APPS)) + ']}\n</script>')
+index = (index.replace("@@DOMAIN@@", DOMAIN).replace("@@CF@@", CF_SNIPPET)
+         .replace("@@ROWS@@", rows).replace("@@ITEMLIST@@", apps_itemlist))
 open(os.path.join(REPO, "apps", "index.html"), "w").write(index)
 print("wrote apps/index.html")

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dough Temperature Calculator — Desired Dough Temperature | Eri Tech Studio</title>
+<meta name="description" content="Work out the water temperature you need to hit your desired dough temperature, from flour and room temperature. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/dough-temperature-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dough Temperature Calculator">
+<meta property="og:description" content="Work out the water temperature you need to hit your desired dough temperature, from flour and room temperature. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/dough-temperature-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/dough-temperature-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#FDFBF7;--surface:#FFFFFF;--text:#2C2523;--muted:#7A716B;--accent:#A4552F;--line:#E5E0D8;--on-accent:#FFFFFF}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a,a:visited{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a,a:visited{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a,a:visited{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a,a:visited{color:var(--muted)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
+{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
+{"@type":"ListItem","position":3,"name":"Dough Temperature Calculator","item":"https://eritech.studio/tools/dough-temperature-calculator/"}]}
+</script>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Dough Temperature Calculator</h1>
+<p class="lede">The one number that decides how fast your dough ferments &mdash; and the water temperature that gets you there.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="seg" id="unit">
+<button class="on" data-u="C" type="button">&deg;C</button>
+<button data-u="F" type="button">&deg;F</button>
+</div>
+<div class="row">
+<div class="field"><label for="ddt">Desired dough temperature</label><input type="number" id="ddt" value="25" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="flour">Flour temperature</label><input type="number" id="flour" value="20" step="0.5" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="room">Room temperature</label><input type="number" id="room" value="20" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="friction">Friction factor</label><input type="number" id="friction" value="2" step="0.5" inputmode="decimal"></div>
+</div>
+<div class="field"><label for="uselev">Using a levain or preferment?</label>
+<select id="uselev"><option value="yes" selected>Yes &mdash; include its temperature</option><option value="no">No &mdash; straight dough</option></select></div>
+<div class="field" id="f-lev"><label for="lev">Levain / preferment temperature</label><input type="number" id="lev" value="21" step="0.5" inputmode="decimal"></div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
+<p class="note">Friction factor is the heat your mixing adds: roughly 1&ndash;2&thinsp;&deg;C by hand, 3&ndash;5&thinsp;&deg;C in a stand mixer, more in a spiral mixer.</p>
+</section>
+<section>
+<h2>Why bakers control dough temperature</h2>
+<p>Fermentation is a chemistry reaction, and like every chemistry reaction it runs faster when it is warm. A dough finishing its mix at 27&thinsp;&deg;C will complete bulk fermentation dramatically sooner than the same dough at 22&thinsp;&deg;C &mdash; often by hours. This is why the same recipe behaves like a different recipe in July and January, and why &ldquo;bulk for four hours&rdquo; is close to meaningless as an instruction on its own.</p>
+<p>Desired dough temperature, or DDT, is how bakeries make timings repeatable. You pick the temperature you want the dough to be when mixing finishes, then adjust the one ingredient whose temperature you can easily change &mdash; the water &mdash; to land there. Most sourdough sits happily between 24 and 26&thinsp;&deg;C; enriched doughs are often kept cooler to protect the butter.</p>
+<h2>The formula</h2>
+<p>For a straight dough, multiply your target by three, then subtract the flour temperature, the room temperature and the friction factor. If you are adding a levain or preferment, multiply by four instead and subtract its temperature too &mdash; the multiplier simply counts how many temperature sources are in the mix.</p>
+<p>The friction factor is the heat that mixing itself adds. Hand mixing contributes very little, roughly 1&ndash;2&thinsp;&deg;C. A stand mixer adds noticeably more, around 3&ndash;5&thinsp;&deg;C depending on how long you run it, and a spiral mixer more again. It is worth measuring your own once: mix a batch, record every temperature, and rearrange the formula to solve for friction. That single number then makes every future bake predictable.</p>
+<h2>When the answer looks absurd</h2>
+<p>A cold kitchen in winter can produce a required water temperature above 40&thinsp;&deg;C, and that is a genuine signal rather than an error &mdash; but be careful, because water much beyond 50&thinsp;&deg;C starts damaging yeast on contact. The better fix is usually to warm the flour instead, or to accept a lower target and simply let the bulk run longer. Conversely, in a hot kitchen the calculator will ask for fridge-cold or even iced water, which is exactly what summer baking requires.</p>
+</section>
+<section class="app-block">
+<p>This calculator is built into <strong><a href="/apps/the-bake-log/">The Bake Log</a></strong>, along with starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790971986?pt=129172097&amp;ct=calc_dough_temperature&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.thebakelog&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Ddough_temperature" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+<li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
+<li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
+<li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+var unit='C';
+function calc(){
+var lev=$('uselev').value==='yes';
+$('f-lev').hidden=!lev;
+var mult=lev?4:3;
+var sum=num('flour')+num('room')+num('friction')+(lev?num('lev'):0);
+var water=num('ddt')*mult-sum;
+var w=Math.round(water*10)/10;
+$('out').textContent=w+'°'+unit+' water';
+var lo=unit==='C'?0:32, hi=unit==='C'?60:140;
+var warn='';
+if(w<lo)warn=' That is below freezing — your flour or room is too cold to hit this target; warm the flour or lower the target.';
+else if(w>hi)warn=' That is hot enough to damage yeast — lower the target or cool the room instead.';
+$('outsub').textContent='Mix at this water temperature to land near '+num('ddt')+'°'+unit+'. Formula: '+mult+' × target − (flour + room + friction'+(lev?' + levain':'')+').'+warn}
+document.querySelectorAll('#unit button').forEach(function(b){b.addEventListener('click',function(){
+var toF=b.dataset.u==='F'&&unit==='C', toC=b.dataset.u==='C'&&unit==='F';
+if(toF||toC){['ddt','flour','room','lev'].forEach(function(id){
+var v=num(id);$(id).value=toF?Math.round(v*9/5+32):Math.round((v-32)*5/9)});
+$('friction').value=toF?Math.round(num('friction')*9/5):Math.round(num('friction')*5/9)}
+unit=b.dataset.u;
+document.querySelectorAll('#unit button').forEach(function(x){x.classList.toggle('on',x===b)});calc()})});
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

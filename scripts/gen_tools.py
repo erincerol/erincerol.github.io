@@ -808,6 +808,125 @@ $('outsub').textContent='About \\u00a3'+Math.round(total/people/rate).toLocaleSt
     app_block=travelbinder_block("japan_trip_cost"),
 ))
 
+
+PAGES.append(dict(
+    slug="dough-temperature-calculator",
+    palette="bakelog",
+    tab_title="Dough Temperature Calculator — Desired Dough Temperature | Eri Tech Studio",
+    og_title="Dough Temperature Calculator",
+    meta_desc="Work out the water temperature you need to hit your desired dough temperature, from flour and room temperature. Free, no signup.",
+    h1="Dough Temperature Calculator",
+    lede="The one number that decides how fast your dough ferments &mdash; and the water temperature that gets you there.",
+    calc_html="""<div class="seg" id="unit">
+<button class="on" data-u="C" type="button">&deg;C</button>
+<button data-u="F" type="button">&deg;F</button>
+</div>
+<div class="row">
+<div class="field"><label for="ddt">Desired dough temperature</label><input type="number" id="ddt" value="25" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="flour">Flour temperature</label><input type="number" id="flour" value="20" step="0.5" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="room">Room temperature</label><input type="number" id="room" value="20" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="friction">Friction factor</label><input type="number" id="friction" value="2" step="0.5" inputmode="decimal"></div>
+</div>
+<div class="field"><label for="uselev">Using a levain or preferment?</label>
+<select id="uselev"><option value="yes" selected>Yes &mdash; include its temperature</option><option value="no">No &mdash; straight dough</option></select></div>
+<div class="field" id="f-lev"><label for="lev">Levain / preferment temperature</label><input type="number" id="lev" value="21" step="0.5" inputmode="decimal"></div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
+<p class="note">Friction factor is the heat your mixing adds: roughly 1&ndash;2&thinsp;&deg;C by hand, 3&ndash;5&thinsp;&deg;C in a stand mixer, more in a spiral mixer.</p>""",
+    calc_js="""function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+var unit='C';
+function calc(){
+var lev=$('uselev').value==='yes';
+$('f-lev').hidden=!lev;
+var mult=lev?4:3;
+var sum=num('flour')+num('room')+num('friction')+(lev?num('lev'):0);
+var water=num('ddt')*mult-sum;
+var w=Math.round(water*10)/10;
+$('out').textContent=w+'\u00b0'+unit+' water';
+var lo=unit==='C'?0:32, hi=unit==='C'?60:140;
+var warn='';
+if(w<lo)warn=' That is below freezing \u2014 your flour or room is too cold to hit this target; warm the flour or lower the target.';
+else if(w>hi)warn=' That is hot enough to damage yeast \u2014 lower the target or cool the room instead.';
+$('outsub').textContent='Mix at this water temperature to land near '+num('ddt')+'\u00b0'+unit+'. Formula: '+mult+' \u00d7 target \u2212 (flour + room + friction'+(lev?' + levain':'')+').'+warn}
+document.querySelectorAll('#unit button').forEach(function(b){b.addEventListener('click',function(){
+var toF=b.dataset.u==='F'&&unit==='C', toC=b.dataset.u==='C'&&unit==='F';
+if(toF||toC){['ddt','flour','room','lev'].forEach(function(id){
+var v=num(id);$(id).value=toF?Math.round(v*9/5+32):Math.round((v-32)*5/9)});
+$('friction').value=toF?Math.round(num('friction')*9/5):Math.round(num('friction')*5/9)}
+unit=b.dataset.u;
+document.querySelectorAll('#unit button').forEach(function(x){x.classList.toggle('on',x===b)});calc()})});""",
+    explainer="""<section>
+<h2>Why bakers control dough temperature</h2>
+<p>Fermentation is a chemistry reaction, and like every chemistry reaction it runs faster when it is warm. A dough finishing its mix at 27&thinsp;&deg;C will complete bulk fermentation dramatically sooner than the same dough at 22&thinsp;&deg;C &mdash; often by hours. This is why the same recipe behaves like a different recipe in July and January, and why &ldquo;bulk for four hours&rdquo; is close to meaningless as an instruction on its own.</p>
+<p>Desired dough temperature, or DDT, is how bakeries make timings repeatable. You pick the temperature you want the dough to be when mixing finishes, then adjust the one ingredient whose temperature you can easily change &mdash; the water &mdash; to land there. Most sourdough sits happily between 24 and 26&thinsp;&deg;C; enriched doughs are often kept cooler to protect the butter.</p>
+<h2>The formula</h2>
+<p>For a straight dough, multiply your target by three, then subtract the flour temperature, the room temperature and the friction factor. If you are adding a levain or preferment, multiply by four instead and subtract its temperature too &mdash; the multiplier simply counts how many temperature sources are in the mix.</p>
+<p>The friction factor is the heat that mixing itself adds. Hand mixing contributes very little, roughly 1&ndash;2&thinsp;&deg;C. A stand mixer adds noticeably more, around 3&ndash;5&thinsp;&deg;C depending on how long you run it, and a spiral mixer more again. It is worth measuring your own once: mix a batch, record every temperature, and rearrange the formula to solve for friction. That single number then makes every future bake predictable.</p>
+<h2>When the answer looks absurd</h2>
+<p>A cold kitchen in winter can produce a required water temperature above 40&thinsp;&deg;C, and that is a genuine signal rather than an error &mdash; but be careful, because water much beyond 50&thinsp;&deg;C starts damaging yeast on contact. The better fix is usually to warm the flour instead, or to accept a lower target and simply let the bulk run longer. Conversely, in a hot kitchen the calculator will ask for fridge-cold or even iced water, which is exactly what summer baking requires.</p>
+</section>""",
+    app_block=bakelog_block("dough_temperature"),
+))
+
+PAGES.append(dict(
+    slug="wine-cellar-value-calculator",
+    palette="cellar",
+    tab_title="Wine Cellar Value Calculator — Value Your Collection | Eri Tech Studio",
+    og_title="Wine Cellar Value Calculator",
+    meta_desc="Estimate what your wine collection is worth by tier, for insurance or planning. Free, no signup, nothing stored.",
+    h1="Wine Cellar Value Calculator",
+    lede="What is actually sitting in the rack? Count by tier and get a total, an average, and a replacement figure.",
+    extra_css=""".result td:nth-child(2),.result td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.result td:nth-child(2){color:var(--muted);padding-right:16px}
+""",
+    calc_html="""<div class="field"><label for="cur">Currency</label>
+<select id="cur"><option value="&pound;" selected>&pound; GBP</option><option value="$">$ USD</option><option value="&euro;">&euro; EUR</option></select></div>
+<div class="row">
+<div class="field"><label for="c1">Everyday bottles</label><input type="number" id="c1" value="24" min="0" inputmode="numeric"></div>
+<div class="field"><label for="p1">Average each</label><input type="number" id="p1" value="12" min="0" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="c2">Good bottles</label><input type="number" id="c2" value="18" min="0" inputmode="numeric"></div>
+<div class="field"><label for="p2">Average each</label><input type="number" id="p2" value="30" min="0" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="c3">Fine wine</label><input type="number" id="c3" value="8" min="0" inputmode="numeric"></div>
+<div class="field"><label for="p3">Average each</label><input type="number" id="p3" value="80" min="0" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="c4">Cellar-worthy / investment</label><input type="number" id="c4" value="4" min="0" inputmode="numeric"></div>
+<div class="field"><label for="p4">Average each</label><input type="number" id="p4" value="250" min="0" inputmode="decimal"></div>
+</div>
+<div class="result"><table id="tbl"></table><div class="sub" id="outsub"></div></div>
+<p class="note">Nothing you type is sent anywhere or stored &mdash; the sum happens in your browser.</p>""",
+    calc_js="""function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+function calc(){
+var cur=$('cur').value;
+var rows=[['Everyday',num('c1'),num('p1')],['Good',num('c2'),num('p2')],
+['Fine wine',num('c3'),num('p3')],['Cellar-worthy',num('c4'),num('p4')]];
+var bottles=0,total=0,h='';
+rows.forEach(function(r){var v=r[1]*r[2];bottles+=r[1];total+=v;
+if(r[1]>0)h+='<tr><td>'+r[0]+'</td><td>'+r[1]+' bottles</td><td>'+cur+Math.round(v).toLocaleString()+'</td></tr>'});
+h+='<tr><td>Total</td><td>'+bottles+' bottles</td><td>'+cur+Math.round(total).toLocaleString()+'</td></tr>';
+$('tbl').innerHTML=h;
+$('outsub').innerHTML=bottles>0?('Average '+cur+(total/bottles).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})+' a bottle. '+
+(total>10000?'Above a typical home-contents single-item limit \u2014 worth telling your insurer.':'Keep a copy of this figure with your insurance documents.')):'Enter some bottles above.'}""",
+    explainer="""<section>
+<h2>Why put a number on a cellar</h2>
+<p>Most people who collect wine seriously have no idea what the rack is worth, and the usual moment of discovery is a bad one &mdash; a flood, a failed cooling unit, a house move, or an insurer asking for a figure after something has already gone wrong. Standard home contents policies frequently cap any single item, and some exclude alcohol above a threshold entirely, so a cellar that quietly grew past five figures may be substantially uninsured without anyone deciding that.</p>
+<h2>Purchase price is not replacement cost</h2>
+<p>The figure that matters for insurance is what it would cost to buy the collection again today, which for anything mature is usually well above what you paid. A Bordeaux bought on release for £40 and drunk fifteen years later might cost £120 to replace, if it is still available at all &mdash; and for sought-after vintages, availability is the real constraint rather than price. Valuing by tier, as above, gets you far closer than totting up old receipts.</p>
+<h2>Value and readiness are different questions</h2>
+<p>A cellar has two clocks running: what a bottle is worth, and whether it is ready. They diverge more than people expect. Fine wine generally appreciates while it is still ageing, plateaus around its drinking window, then falls away as the risk of being past it grows &mdash; which means the financially optimal moment to sell often arrives before the best moment to drink. Deciding which of those you care about, bottle by bottle, is most of what cellar management actually is. The <a href="/tools/wine-drink-window-calculator/">drink window calculator</a> handles the other clock.</p>
+<h2>Treat this as a planning figure</h2>
+<p>Tier averages give you an order of magnitude, not a valuation. For probate, a formal insurance schedule or a sale, you want a merchant valuation or auction estimates against actual bottles and vintages. What this is good for is the question most collectors cannot answer at all: roughly what is in there, and is it more than you assumed.</p>
+</section>""",
+    app_block=cellar_block("cellar_value"),
+))
+
 # ---------------------------------------------------------------- build pages
 
 TOOL_TITLES = {p["slug"]: p["og_title"] for p in PAGES}
@@ -848,9 +967,9 @@ for p in PAGES:
 # ---------------------------------------------------------------- tools index
 
 GROUPS = [
-    ("Baking", "The Bake Log", "#A4552F", ["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator"]),
+    ("Baking", "The Bake Log", "#A4552F", ["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator"]),
     ("Coffee", "Kohii", "#8F5E1B", ["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
-    ("Wine", "Cellar Book", "#722F37", ["wine-drink-window-calculator"]),
+    ("Wine", "Cellar Book", "#722F37", ["wine-drink-window-calculator", "wine-cellar-value-calculator"]),
     ("Plants", "Leaflet", "#2E7D32", ["plant-watering-calculator"]),
     ("Travel", "The Travel Binder", "#22314A", ["packing-list-generator", "japan-trip-cost-calculator"]),
     ("Consumer rights", "Warranty Box", "#2F6E9E", ["uk-return-rights-checker"]),
@@ -866,6 +985,8 @@ DESCS = {
     "wine-drink-window-calculator": "Style and vintage in — ageing, ready, at peak or fading out.",
     "plant-watering-calculator": "Watering intervals by species, season and light.",
     "uk-return-rights-checker": "Which legal return or refund window you're in, from the purchase date.",
+    "dough-temperature-calculator": "Hit a target dough temperature — the water temp you need, from flour and room.",
+    "wine-cellar-value-calculator": "Count by tier — total value, average per bottle, replacement figure.",
     "packing-list-generator": "Trip length, climate and style in — a categorised list with quantities out.",
     "japan-trip-cost-calculator": "Nights and travel style in — a line-by-line budget, per person and per day.",
 }
@@ -897,6 +1018,7 @@ tools_index = """<!DOCTYPE html>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 @@CF@@
+@@ITEMLIST@@
 <style>
 *{box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#3B342C;max-width:680px;margin:40px auto;padding:0 20px;background-color:#FAF7F2}
@@ -929,7 +1051,13 @@ footer a,a:visited{color:#998F83}
 </body>
 </html>
 """
-tools_index = tools_index.replace("@@DOMAIN@@", DOMAIN).replace("@@CF@@", CF_SNIPPET).replace("@@GROUPS@@", groups_html)
+itemlist = ('<script type="application/ld+json">\n'
+            '{"@context":"https://schema.org","@type":"ItemList","name":"Free tools and calculators",'
+            '"itemListElement":[' + ",".join(
+    '{"@type":"ListItem","position":%d,"name":"%s","url":"%s/tools/%s/"}' % (i + 1, TOOL_TITLES[s2], DOMAIN, s2)
+    for i, s2 in enumerate([x for _, _, _, sl in GROUPS for x in sl])) + ']}\n</script>')
+tools_index = (tools_index.replace("@@DOMAIN@@", DOMAIN).replace("@@CF@@", CF_SNIPPET)
+               .replace("@@GROUPS@@", groups_html).replace("@@ITEMLIST@@", itemlist))
 os.makedirs(os.path.join(REPO, "tools"), exist_ok=True)
 with open(os.path.join(REPO, "tools", "index.html"), "w") as f:
     f.write(tools_index)
@@ -947,9 +1075,10 @@ urls += [DOMAIN + "/tools/" + p["slug"] + "/" for p in PAGES]
 urls += [DOMAIN + "/privacy-policies/" + n for n in
          ["kohii.html", "the-bake-log.html", "warranty-box.html", "cellarbook.html", "leaflet.html",
           "travel-binder.html"]]
+LASTMOD = os.environ.get("SITEMAP_DATE", "2026-08-06")
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for u in urls:
-    sm += "  <url><loc>" + u + "</loc></url>\n"
+    sm += "  <url><loc>" + u + "</loc><lastmod>" + LASTMOD + "</lastmod></url>\n"
 sm += "</urlset>\n"
 with open(os.path.join(REPO, "sitemap.xml"), "w") as f:
     f.write(sm)
