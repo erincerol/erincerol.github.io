@@ -77,13 +77,32 @@ footer a,a:visited{color:#998F83}
 <div class="bar"><button onclick="copySig('sig-compact')">Copy compact signature</button><span class="msg" id="msg-sig-compact"></span></div>
 </div>
 
+<h2>Mobile</h2>
+<p class="sub" style="margin-bottom:12px">Phone signatures append to every reply in a thread, so this one is deliberately two lines. Mail apps strip most styling anyway.</p>
+<div class="stage">
+<div id="sig-mobile">
+<table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;color:#3B342C;">
+<tr>
+<td style="padding:2px 0 2px 12px;border-left:3px solid #7A3B24;">
+<div style="font-size:13px;color:#1F1A15;"><strong>Erinc Erol</strong> <span style="color:#6F6857;">&middot; Eri Tech Studio</span></div>
+<div style="font-size:12px;padding-top:2px;"><a href="https://eritech.studio/?utm_source=email&amp;utm_medium=signature_mobile" style="color:#7A3B24;">eritech.studio</a></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="bar"><button onclick="copySig('sig-mobile')">Copy mobile signature</button><span class="msg" id="msg-sig-mobile"></span></div>
+</div>
+
 <h2>How to install it</h2>
 <ol>
 <li><strong>Gmail:</strong> Settings (gear) &rarr; See all settings &rarr; General &rarr; Signature &rarr; Create new &rarr; paste.</li>
 <li><strong>Apple Mail:</strong> Settings &rarr; Signatures &rarr; <code>+</code> &rarr; paste. Untick &ldquo;Always match my default message font&rdquo; or the styling is stripped.</li>
 <li><strong>Outlook:</strong> Settings &rarr; Mail &rarr; Compose and reply &rarr; paste into the signature box.</li>
-<li><strong>iOS Mail:</strong> paste into Settings &rarr; Apps &rarr; Mail &rarr; Signature. iOS keeps links but flattens some styling.</li>
+<li><strong>iOS Mail:</strong> copy the <em>mobile</em> version above in Safari, then paste into Settings &rarr; Apps &rarr; Mail &rarr; Signature. The field looks like plain text but does accept a rich paste &mdash; links and bold survive, colours and the rule usually do not. Long-press &rarr; Paste rather than typing.</li>
+<li><strong>Gmail app (iOS and Android):</strong> the app keeps a <em>separate</em> signature from Gmail on the web, under Settings &rarr; your account &rarr; Mobile Signature, and that field is plain text only &mdash; no links, no styling. Two options: paste the plain-text block below, or <strong>clear the mobile signature entirely</strong>, which in current versions makes the app fall back to your web signature. The fallback is worth testing by sending yourself one from the phone, because it has changed between releases.</li>
+<li><strong>Outlook mobile:</strong> plain text only, no fallback. Use the plain-text block.</li>
 </ol>
+<p class="sub">Worth knowing: no mobile mail app reliably renders a full HTML signature with images. Rather than fight it, the mobile version above is short by design &mdash; on a phone the signature repeats on every reply, and a six-app list plus two badges under each one reads as noise.</p>
 
 <h2>Plain text</h2>
 <p class="sub" style="margin-bottom:12px">For clients that refuse HTML.</p>
@@ -96,6 +115,11 @@ App Store:   https://apps.apple.com/us/developer/eri-tech-ltd/id6790971988
 Google Play: https://play.google.com/store/apps/developer?id=Eri+Tech
 
 eritech.studio | admin@eritech.studio</textarea>
+
+<h2>Plain text &mdash; mobile</h2>
+<p class="sub" style="margin-bottom:12px">For the Gmail app's Mobile Signature field and Outlook mobile.</p>
+<textarea readonly id="plain-mobile" style="height:70px">Erinc Erol · Eri Tech Studio
+eritech.studio</textarea>
 
 <footer>
 <p>Internal page &mdash; not linked from the site and excluded from search. <a href="/">Eri Tech Studio</a></p>
