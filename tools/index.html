@@ -34,6 +34,9 @@ ul{list-style:none;padding:0;margin:0}
 li{margin-bottom:10px}
 li a,a:visited{display:block;padding:13px 18px 12px;background:#FFFDFA;border:1px solid #E9E3D9;border-left:4px solid var(--acc);border-radius:10px;text-decoration:none;color:#3B342C;transition:border-color .15s ease,box-shadow .15s ease}
 li a:hover{border-color:var(--acc);box-shadow:0 3px 14px rgba(60,45,30,.08)}
+li a{position:relative;padding-right:40px}
+li a::after{content:"";position:absolute;right:17px;top:50%;width:7px;height:7px;border-right:2px solid var(--acc);border-bottom:2px solid var(--acc);transform:translateY(-50%) rotate(-45deg);opacity:.55;transition:transform .15s ease,opacity .15s ease}
+li a:hover::after{transform:translate(4px,-50%) rotate(-45deg);opacity:1}
 li a strong{display:block;color:#1F1A15;font-size:1.02rem}
 li a span{font-size:.9rem;color:#8A8074}
 footer{margin-top:50px;font-size:.85rem;color:#998F83;border-top:1px solid #E9E3D9;padding-top:20px}
