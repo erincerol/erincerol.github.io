@@ -157,7 +157,7 @@ PAGES = []
 PAGES.append(dict(
     slug="sourdough-hydration-calculator",
     palette="bakelog",
-    tab_title="Sourdough Hydration Calculator | Eri Tech Studio",
+    tab_title="Sourdough Hydration Calculator — With Starter Included | Eri Tech Studio",
     og_title="Sourdough Hydration Calculator",
     meta_desc="Work out your dough's hydration percentage from flour, water and starter — or work backwards from a target hydration. Free, no signup.",
     h1="Sourdough Hydration Calculator",
@@ -218,7 +218,7 @@ $('f-water').hidden=(mode!=='hyd');$('f-target').hidden=(mode==='hyd');calc()})}
 PAGES.append(dict(
     slug="bakers-percentage-calculator",
     palette="bakelog",
-    tab_title="Baker's Percentage Calculator | Eri Tech Studio",
+    tab_title="Baker's Percentage Calculator — Scale Any Bread Recipe | Eri Tech Studio",
     og_title="Baker's Percentage Calculator",
     meta_desc="Scale any bread recipe with baker's percentages — enter flour or target dough weight and get exact gram amounts for water, salt and levain. Free, no signup.",
     h1="Baker&rsquo;s Percentage Calculator",
@@ -320,7 +320,7 @@ $('outsub').textContent='Feed '+Math.round(k)+' g starter to make '+Math.round(t
 PAGES.append(dict(
     slug="coffee-ratio-calculator",
     palette="kohii",
-    tab_title="Coffee to Water Ratio Calculator | Eri Tech Studio",
+    tab_title="Coffee to Water Ratio Calculator — V60, AeroPress & More | Eri Tech Studio",
     og_title="Coffee Ratio Calculator",
     meta_desc="Work out coffee-to-water ratios for V60, Chemex, AeroPress, French press, moka pot, cold brew and espresso. Free, no signup.",
     h1="Coffee Ratio Calculator",
@@ -479,7 +479,7 @@ $('outsub').textContent='Flavour will be flat and papery. Fine for milk drinks; 
 PAGES.append(dict(
     slug="wine-drink-window-calculator",
     palette="cellar",
-    tab_title="Wine Drink Window Calculator | Eri Tech Studio",
+    tab_title="Wine Drink Window Calculator — When to Drink It | Eri Tech Studio",
     og_title="Wine Drink Window Calculator",
     meta_desc="Enter a wine style and vintage and get its likely drinking window — still ageing, ready now, at peak, or fading. Free, no signup.",
     h1="Wine Drink Window Calculator",
@@ -650,7 +650,7 @@ $('outsub').textContent='You can still pursue a remedy for up to 6 years from pu
 PAGES.append(dict(
     slug="packing-list-generator",
     palette="travelbinder",
-    tab_title="Packing List Generator | Eri Tech Studio",
+    tab_title="Packing List Generator — By Trip Length and Climate | Eri Tech Studio",
     og_title="Packing List Generator",
     meta_desc="Generate a packing list from your trip length, climate and style — with quantities worked out for you. Free, no signup.",
     h1="Packing List Generator",
@@ -741,7 +741,7 @@ $('outsub').textContent=nights+' nights, '+c.label+' weather, '+(laundry?'laundr
 PAGES.append(dict(
     slug="japan-trip-cost-calculator",
     palette="travelbinder",
-    tab_title="Japan Trip Cost Calculator &mdash; Daily Budget Estimator | Eri Tech Studio",
+    tab_title="Japan Trip Cost Calculator — 1 or 2 Week Budget | Eri Tech Studio",
     og_title="Japan Trip Cost Calculator",
     meta_desc="Estimate what a trip to Japan costs — accommodation, food, transport, JR Pass and flights, broken down per day and per person. Free, no signup.",
     h1="Japan Trip Cost Calculator",
