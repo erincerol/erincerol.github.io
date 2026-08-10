@@ -1080,11 +1080,11 @@ for p in PAGES:
 # ---------------------------------------------------------------- tools index
 
 GROUPS = [
+    ("Travel", "The Travel Binder", ACCENT_BY_APP["The Travel Binder"], ["packing-list-generator", "japan-trip-cost-calculator"]),
     ("Baking", "The Bake Log", ACCENT_BY_APP["The Bake Log"], ["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator", "pizza-dough-calculator"]),
     ("Coffee", "Kohii", ACCENT_BY_APP["Kohii"], ["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
     ("Wine", "Cellar Book", ACCENT_BY_APP["Cellar Book"], ["wine-drink-window-calculator", "wine-cellar-value-calculator"]),
     ("Plants", "Leaflet", ACCENT_BY_APP["Leaflet"], ["plant-watering-calculator"]),
-    ("Travel", "The Travel Binder", ACCENT_BY_APP["The Travel Binder"], ["packing-list-generator", "japan-trip-cost-calculator"]),
     ("Consumer rights", "Warranty Box", ACCENT_BY_APP["Warranty Box"], ["uk-return-rights-checker"]),
 ]
 
