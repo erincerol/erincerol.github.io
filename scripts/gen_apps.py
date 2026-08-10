@@ -109,6 +109,7 @@ TOOL_META = {
     "sourdough-hydration-calculator": ("Sourdough Hydration Calculator", "Flour, water and starter in — true hydration % out."),
     "bakers-percentage-calculator": ("Baker's Percentage Calculator", "Scale any bread formula from flour or dough weight."),
     "starter-feeding-ratio-calculator": ("Starter Feeding Ratio Calculator", "1:1:1, 1:2:2, 1:5:5 — feed amounts and peak times."),
+    "pizza-dough-calculator": ("Pizza Dough Calculator", "Neapolitan, New York, Roman or Detroit — exact weights."),
     "dough-temperature-calculator": ("Dough Temperature Calculator", "Hit a target dough temperature via the water."),
     "wine-cellar-value-calculator": ("Wine Cellar Value Calculator", "Count by tier — total, average, replacement figure."),
     "coffee-ratio-calculator": ("Coffee Ratio Calculator", "Coffee-to-water ratios for every brew method."),

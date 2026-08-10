@@ -927,6 +927,98 @@ $('outsub').innerHTML=bottles>0?('Average '+cur+(total/bottles).toLocaleString(u
     app_block=cellar_block("cellar_value"),
 ))
 
+
+PAGES.append(dict(
+    slug="pizza-dough-calculator",
+    palette="bakelog",
+    tab_title="Pizza Dough Calculator — Neapolitan, New York & Pan | Eri Tech Studio",
+    og_title="Pizza Dough Calculator",
+    meta_desc="Work out flour, water, salt, oil and yeast for any number of pizza dough balls — Neapolitan, New York, Roman pan or Detroit. Free, no signup.",
+    h1="Pizza Dough Calculator",
+    lede="Pick a style, say how many bases you want, and get the exact weights &mdash; scaled to your dough balls, not someone else&rsquo;s recipe.",
+    extra_css=""".result td:nth-child(2){text-align:right;color:var(--muted);padding-right:16px;font-variant-numeric:tabular-nums}
+.result td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+""",
+    calc_html="""<div class="field"><label for="style">Style</label>
+<select id="style">
+<option value="62,2.8,0,0,260" selected>Neapolitan &mdash; soft, fast, wood-fired or steel</option>
+<option value="63,2,2.5,1.5,300">New York &mdash; foldable slice, oil and a little sugar</option>
+<option value="75,2.2,2,0,500">Roman pan (teglia) &mdash; wet, airy, tray-baked</option>
+<option value="70,2,3,0,450">Detroit &mdash; thick, crisp-bottomed pan</option>
+</select></div>
+<div class="row">
+<div class="field"><label for="balls">Dough balls</label><input type="number" id="balls" value="4" min="1" max="60" inputmode="numeric"></div>
+<div class="field"><label for="ballw">Weight each (g)</label><input type="number" id="ballw" value="260" min="50" inputmode="numeric"></div>
+</div>
+<div class="row">
+<div class="field"><label for="hyd">Hydration (%)</label><input type="number" id="hyd" value="62" min="45" max="100" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="salt">Salt (%)</label><input type="number" id="salt" value="2.8" min="0" max="6" step="0.1" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="oil">Oil (%)</label><input type="number" id="oil" value="0" min="0" max="12" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="sugar">Sugar (%)</label><input type="number" id="sugar" value="0" min="0" max="8" step="0.5" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="ferm">Fermentation</label>
+<select id="ferm">
+<option value="0.4">Same day, room temperature</option>
+<option value="0.15" selected>24 hours cold</option>
+<option value="0.08">48 hours cold</option>
+<option value="0.05">72 hours cold</option>
+</select></div>
+<div class="field"><label for="ytype">Yeast</label>
+<select id="ytype">
+<option value="1" selected>Instant dry</option>
+<option value="1.25">Active dry</option>
+<option value="3">Fresh</option>
+</select></div>
+</div>
+<div class="result"><table id="tbl"></table><div class="sub" id="outsub"></div></div>
+<p class="note">Percentages are baker&rsquo;s percentages &mdash; every ingredient relative to flour, which is always 100%. Change the style and the four fields below it reset; edit them afterwards to taste.</p>""",
+    calc_js="""function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+function size(g){
+if(g<230)return 'about a 9\u201310 inch base';
+if(g<270)return 'about a 10\u201311 inch base';
+if(g<310)return 'about a 12 inch base';
+if(g<360)return 'about a 13\u201314 inch base';
+return 'a tray or deep-pan portion'}
+$('style').addEventListener('change',function(){
+var p=$('style').value.split(',');
+$('hyd').value=p[0];$('salt').value=p[1];$('oil').value=p[2];$('sugar').value=p[3];$('ballw').value=p[4];calc()});
+function calc(){
+var balls=Math.max(1,Math.round(num('balls'))),bw=num('ballw');
+var hyd=num('hyd'),salt=num('salt'),oil=num('oil'),sugar=num('sugar');
+var yeast=num('ferm')*parseFloat($('ytype').value);
+var total=balls*bw;
+var pct=100+hyd+salt+oil+sugar+yeast;
+var flour=total/(pct/100);
+function g(p){return flour*p/100}
+function row(label,p,grams,dp){
+var v=dp?Math.round(grams*10)/10:Math.round(grams);
+return '<tr><td>'+label+'</td><td>'+p+'%</td><td>'+v.toLocaleString()+' g</td></tr>'}
+var h=row('Flour',100,flour)+row('Water',hyd,g(hyd))+row('Salt',salt,g(salt),1);
+if(oil>0)h+=row('Oil',oil,g(oil),1);
+if(sugar>0)h+=row('Sugar',sugar,g(sugar),1);
+h+=row('Yeast',Math.round(yeast*1000)/1000,g(yeast),1);
+h+='<tr><td>Total dough</td><td></td><td>'+Math.round(total).toLocaleString()+' g</td></tr>';
+$('tbl').innerHTML=h;
+$('outsub').textContent=balls+' \u00d7 '+Math.round(bw)+' g \u2014 '+size(bw)+' each, at '+hyd+'% hydration.'}""",
+    explainer="""<section>
+<h2>Why pizza recipes are written as percentages</h2>
+<p>Every serious pizza formula is expressed in baker&rsquo;s percentages: flour is always 100%, and everything else is stated relative to it. A dough at 62% hydration, 2.8% salt has 620&nbsp;g of water and 28&nbsp;g of salt for every kilo of flour. It reads oddly at first and then becomes the only sensible way to write a recipe, because it separates the *character* of the dough from the *quantity* you happen to be making.</p>
+<p>That matters here more than in most baking, because pizza is portioned before it is baked. You do not want &ldquo;a batch&rdquo; &mdash; you want six balls of 260&nbsp;g. Working backwards from the finished ball weight to the flour is exactly the sum this calculator does, and it is fiddly by hand because the percentages have to be divided out of the total rather than multiplied into it.</p>
+<h2>Hydration is what separates the styles</h2>
+<p>Neapolitan sits around 58&ndash;65%. It is a fast, hot bake &mdash; 60 to 90 seconds in a wood oven &mdash; and a wetter dough would not set before the top burned. New York runs slightly higher and adds oil and a touch of sugar, which softens the crumb and helps it brown in a cooler deck oven; the oil is also what makes a slice foldable rather than crisp.</p>
+<p>Roman pan pizza, teglia, goes to 75&ndash;80% and sometimes beyond. That much water gives the huge irregular holes and the light, shattering base, at the cost of a dough that cannot be shaped by hand in the usual way &mdash; it is stretched into an oiled tray instead. Detroit sits between the two, with enough oil in the pan to effectively fry the bottom.</p>
+<h2>Cold fermentation needs far less yeast</h2>
+<p>The yeast quantity here changes sharply with your plan, and that surprises people. A same-day dough at room temperature wants roughly 0.4% instant yeast; a 72-hour cold ferment wants nearer 0.05% &mdash; around an eighth. Use the same-day quantity for a three-day dough and it will over-proof in the fridge, going slack, sour and gassy before you bake it.</p>
+<p>Time is doing the work in place of yeast, and it is doing it better: a long cold ferment develops flavour through slow enzymatic breakdown that a fast rise never reaches. If you take one thing from this page, make it that &mdash; less yeast and more time is almost always the upgrade.</p>
+<p>Baking bread as well as pizza? The <a href="/tools/sourdough-hydration-calculator/">hydration calculator</a> and the <a href="/tools/dough-temperature-calculator/">dough temperature calculator</a> cover the same ground for sourdough.</p>
+</section>""",
+    app_block=bakelog_block("pizza_dough"),
+))
+
 # ---------------------------------------------------------------- build pages
 
 TOOL_TITLES = {p["slug"]: p["og_title"] for p in PAGES}
@@ -967,7 +1059,7 @@ for p in PAGES:
 # ---------------------------------------------------------------- tools index
 
 GROUPS = [
-    ("Baking", "The Bake Log", "#A4552F", ["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator"]),
+    ("Baking", "The Bake Log", "#A4552F", ["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator", "pizza-dough-calculator"]),
     ("Coffee", "Kohii", "#8F5E1B", ["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
     ("Wine", "Cellar Book", "#722F37", ["wine-drink-window-calculator", "wine-cellar-value-calculator"]),
     ("Plants", "Leaflet", "#2E7D32", ["plant-watering-calculator"]),
@@ -985,6 +1077,7 @@ DESCS = {
     "wine-drink-window-calculator": "Style and vintage in — ageing, ready, at peak or fading out.",
     "plant-watering-calculator": "Watering intervals by species, season and light.",
     "uk-return-rights-checker": "Which legal return or refund window you're in, from the purchase date.",
+    "pizza-dough-calculator": "Style and ball count in — flour, water, salt, oil and yeast out.",
     "dough-temperature-calculator": "Hit a target dough temperature — the water temp you need, from flour and room.",
     "wine-cellar-value-calculator": "Count by tier — total value, average per bottle, replacement figure.",
     "packing-list-generator": "Trip length, climate and style in — a categorised list with quantities out.",

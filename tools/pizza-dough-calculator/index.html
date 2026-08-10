@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pizza Dough Calculator — Neapolitan, New York & Pan | Eri Tech Studio</title>
+<meta name="description" content="Work out flour, water, salt, oil and yeast for any number of pizza dough balls — Neapolitan, New York, Roman pan or Detroit. Free, no signup.">
+<link rel="canonical" href="https://eritech.studio/tools/pizza-dough-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pizza Dough Calculator">
+<meta property="og:description" content="Work out flour, water, salt, oil and yeast for any number of pizza dough balls — Neapolitan, New York, Roman pan or Detroit. Free, no signup.">
+<meta property="og:url" content="https://eritech.studio/tools/pizza-dough-calculator/">
+<meta property="og:image" content="https://eritech.studio/assets/og/pizza-dough-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#FDFBF7;--surface:#FFFFFF;--text:#2C2523;--muted:#7A716B;--accent:#A4552F;--line:#E5E0D8;--on-accent:#FFFFFF}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+main{max-width:680px;margin:0 auto;padding:0 20px 40px}
+.crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
+.crumb a,a:visited{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.crumb span{margin:0 8px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
+.lede{color:var(--muted);margin:0 0 28px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:34px 0 10px}
+p{margin:0 0 14px}
+a,a:visited{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-size:1rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+.seg{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{flex:1;min-width:130px;padding:10px 12px;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.result{margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.result .big{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;line-height:1.25}
+.result .sub{color:var(--muted);font-size:.92rem;margin-top:6px}
+.result table{border-collapse:collapse;width:100%}
+.result td{padding:5px 0;border-bottom:1px solid var(--line)}
+.result tr:last-child td{border-bottom:none;font-weight:700}
+.result td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted);margin-top:12px;margin-bottom:0}
+.app-block{margin-top:36px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.app-block p{margin:0 0 14px}
+.badges{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.badges a img{display:block}
+.badge-appstore img{height:52px}
+.badge-play img{height:78px;margin:-13px}
+.badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
+.more-tools a,a:visited{text-decoration:none}
+.more-tools a:hover{text-decoration:underline}
+footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a,a:visited{color:var(--muted)}
+.result td:nth-child(2){text-align:right;color:var(--muted);padding-right:16px;font-variant-numeric:tabular-nums}
+.result td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
+{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
+{"@type":"ListItem","position":3,"name":"Pizza Dough Calculator","item":"https://eritech.studio/tools/pizza-dough-calculator/"}]}
+</script>
+</head>
+<body>
+<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<main>
+<header>
+<h1>Pizza Dough Calculator</h1>
+<p class="lede">Pick a style, say how many bases you want, and get the exact weights &mdash; scaled to your dough balls, not someone else&rsquo;s recipe.</p>
+</header>
+<section class="calc" aria-label="Calculator">
+<div class="field"><label for="style">Style</label>
+<select id="style">
+<option value="62,2.8,0,0,260" selected>Neapolitan &mdash; soft, fast, wood-fired or steel</option>
+<option value="63,2,2.5,1.5,300">New York &mdash; foldable slice, oil and a little sugar</option>
+<option value="75,2.2,2,0,500">Roman pan (teglia) &mdash; wet, airy, tray-baked</option>
+<option value="70,2,3,0,450">Detroit &mdash; thick, crisp-bottomed pan</option>
+</select></div>
+<div class="row">
+<div class="field"><label for="balls">Dough balls</label><input type="number" id="balls" value="4" min="1" max="60" inputmode="numeric"></div>
+<div class="field"><label for="ballw">Weight each (g)</label><input type="number" id="ballw" value="260" min="50" inputmode="numeric"></div>
+</div>
+<div class="row">
+<div class="field"><label for="hyd">Hydration (%)</label><input type="number" id="hyd" value="62" min="45" max="100" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="salt">Salt (%)</label><input type="number" id="salt" value="2.8" min="0" max="6" step="0.1" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="oil">Oil (%)</label><input type="number" id="oil" value="0" min="0" max="12" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="sugar">Sugar (%)</label><input type="number" id="sugar" value="0" min="0" max="8" step="0.5" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div class="field"><label for="ferm">Fermentation</label>
+<select id="ferm">
+<option value="0.4">Same day, room temperature</option>
+<option value="0.15" selected>24 hours cold</option>
+<option value="0.08">48 hours cold</option>
+<option value="0.05">72 hours cold</option>
+</select></div>
+<div class="field"><label for="ytype">Yeast</label>
+<select id="ytype">
+<option value="1" selected>Instant dry</option>
+<option value="1.25">Active dry</option>
+<option value="3">Fresh</option>
+</select></div>
+</div>
+<div class="result"><table id="tbl"></table><div class="sub" id="outsub"></div></div>
+<p class="note">Percentages are baker&rsquo;s percentages &mdash; every ingredient relative to flour, which is always 100%. Change the style and the four fields below it reset; edit them afterwards to taste.</p>
+</section>
+<section>
+<h2>Why pizza recipes are written as percentages</h2>
+<p>Every serious pizza formula is expressed in baker&rsquo;s percentages: flour is always 100%, and everything else is stated relative to it. A dough at 62% hydration, 2.8% salt has 620&nbsp;g of water and 28&nbsp;g of salt for every kilo of flour. It reads oddly at first and then becomes the only sensible way to write a recipe, because it separates the *character* of the dough from the *quantity* you happen to be making.</p>
+<p>That matters here more than in most baking, because pizza is portioned before it is baked. You do not want &ldquo;a batch&rdquo; &mdash; you want six balls of 260&nbsp;g. Working backwards from the finished ball weight to the flour is exactly the sum this calculator does, and it is fiddly by hand because the percentages have to be divided out of the total rather than multiplied into it.</p>
+<h2>Hydration is what separates the styles</h2>
+<p>Neapolitan sits around 58&ndash;65%. It is a fast, hot bake &mdash; 60 to 90 seconds in a wood oven &mdash; and a wetter dough would not set before the top burned. New York runs slightly higher and adds oil and a touch of sugar, which softens the crumb and helps it brown in a cooler deck oven; the oil is also what makes a slice foldable rather than crisp.</p>
+<p>Roman pan pizza, teglia, goes to 75&ndash;80% and sometimes beyond. That much water gives the huge irregular holes and the light, shattering base, at the cost of a dough that cannot be shaped by hand in the usual way &mdash; it is stretched into an oiled tray instead. Detroit sits between the two, with enough oil in the pan to effectively fry the bottom.</p>
+<h2>Cold fermentation needs far less yeast</h2>
+<p>The yeast quantity here changes sharply with your plan, and that surprises people. A same-day dough at room temperature wants roughly 0.4% instant yeast; a 72-hour cold ferment wants nearer 0.05% &mdash; around an eighth. Use the same-day quantity for a three-day dough and it will over-proof in the fridge, going slack, sour and gassy before you bake it.</p>
+<p>Time is doing the work in place of yeast, and it is doing it better: a long cold ferment develops flavour through slow enzymatic breakdown that a fast rise never reaches. If you take one thing from this page, make it that &mdash; less yeast and more time is almost always the upgrade.</p>
+<p>Baking bread as well as pizza? The <a href="/tools/sourdough-hydration-calculator/">hydration calculator</a> and the <a href="/tools/dough-temperature-calculator/">dough temperature calculator</a> cover the same ground for sourdough.</p>
+</section>
+<section class="app-block">
+<p>This calculator is built into <strong><a href="/apps/the-bake-log/">The Bake Log</a></strong>, along with starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790971986?pt=129172097&amp;ct=calc_pizza_dough&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.thebakelog&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dpizza_dough" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+</section>
+<section class="more-tools">
+<h2>More free tools</h2>
+<ul>
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
+<li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
+<li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
+<li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
+<li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
+<li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
+<li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a></li>
+<li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+<script>
+function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+function size(g){
+if(g<230)return 'about a 9–10 inch base';
+if(g<270)return 'about a 10–11 inch base';
+if(g<310)return 'about a 12 inch base';
+if(g<360)return 'about a 13–14 inch base';
+return 'a tray or deep-pan portion'}
+$('style').addEventListener('change',function(){
+var p=$('style').value.split(',');
+$('hyd').value=p[0];$('salt').value=p[1];$('oil').value=p[2];$('sugar').value=p[3];$('ballw').value=p[4];calc()});
+function calc(){
+var balls=Math.max(1,Math.round(num('balls'))),bw=num('ballw');
+var hyd=num('hyd'),salt=num('salt'),oil=num('oil'),sugar=num('sugar');
+var yeast=num('ferm')*parseFloat($('ytype').value);
+var total=balls*bw;
+var pct=100+hyd+salt+oil+sugar+yeast;
+var flour=total/(pct/100);
+function g(p){return flour*p/100}
+function row(label,p,grams,dp){
+var v=dp?Math.round(grams*10)/10:Math.round(grams);
+return '<tr><td>'+label+'</td><td>'+p+'%</td><td>'+v.toLocaleString()+' g</td></tr>'}
+var h=row('Flour',100,flour)+row('Water',hyd,g(hyd))+row('Salt',salt,g(salt),1);
+if(oil>0)h+=row('Oil',oil,g(oil),1);
+if(sugar>0)h+=row('Sugar',sugar,g(sugar),1);
+h+=row('Yeast',Math.round(yeast*1000)/1000,g(yeast),1);
+h+='<tr><td>Total dough</td><td></td><td>'+Math.round(total).toLocaleString()+' g</td></tr>';
+$('tbl').innerHTML=h;
+$('outsub').textContent=balls+' × '+Math.round(bw)+' g — '+size(bw)+' each, at '+hyd+'% hydration.'}
+document.querySelectorAll('.calc input,.calc select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+calc();
+</script>
+</body>
+</html>

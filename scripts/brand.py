@@ -79,7 +79,7 @@ APPS = [
          tools=["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
     dict(slug="the-bake-log", name="The Bake Log", full="The Bake Log: Sourdough Baker", palette="bakelog",
          app_id="6790971986", pkg="com.eritech.thebakelog", privacy="the-bake-log.html",
-         tools=["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator"]),
+         tools=["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator", "pizza-dough-calculator"]),
     dict(slug="warranty-box", name="Warranty Box", full="Warranty Box — Track Expiry", palette="warranty",
          app_id="6790972644", pkg="com.eritech.warrantybox", privacy="warranty-box.html",
          tools=["uk-return-rights-checker"]),
