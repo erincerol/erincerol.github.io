@@ -273,8 +273,8 @@ for app in APPS:
 # ---------------------------------------------------------------- /apps/ index
 
 rows = "\n".join(
-    '<li><a href="/apps/%s/"><strong>%s</strong><span>%s</span></a></li>' % (
-        a["slug"], a["name"], CONTENT[a["slug"]]["lede"]) for a in APPS)
+    '<li style="--acc:%s"><a href="/apps/%s/"><strong>%s</strong><span>%s</span></a></li>' % (
+        a["web_accent"], a["slug"], a["name"], CONTENT[a["slug"]]["lede"]) for a in APPS)
 
 index = """<!DOCTYPE html>
 <html lang="en">
@@ -305,8 +305,8 @@ h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;color:#1F1A15;marg
 .crumb a,.crumb a:visited{color:#6F6857;text-decoration:underline;text-underline-offset:2px}
 ul{list-style:none;padding:0;margin:0}
 li{margin-bottom:11px}
-li a,li a:visited{display:block;padding:14px 18px;background:#FFFDFA;border:1px solid #E9E3D9;border-left:4px solid #7A3B24;border-radius:10px;text-decoration:none;color:#3B342C}
-li a:hover{border-color:#7A3B24;box-shadow:0 3px 14px rgba(60,45,30,.08)}
+li a,li a:visited{display:block;padding:14px 18px;background:#FFFDFA;border:1px solid #E9E3D9;border-left:4px solid var(--acc,#7A3B24);border-radius:10px;text-decoration:none;color:#3B342C}
+li a:hover{border-color:var(--acc,#7A3B24);box-shadow:0 3px 14px rgba(60,45,30,.08)}
 li a strong{display:block;color:#1F1A15;font-size:1.05rem;font-family:Georgia,serif}
 li a span{font-size:.92rem;color:#6F6857}
 footer{margin-top:44px;padding-top:20px;border-top:1px solid #E9E3D9;color:#6F6857;font-size:.85rem}

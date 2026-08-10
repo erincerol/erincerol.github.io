@@ -73,23 +73,27 @@ def og_image(fname, title, pal, kicker="Free tool  ·  eritech.studio/tools"):
 # ---------------------------------------------------------------- the apps
 
 # Single source of truth for app identity, used by both generators and the sitemap.
+# `web_accent` is the app's colour as used on cream site chrome (index cards, group
+# markers) — darker than some in-app accents so it holds contrast on #FAF7F2.
 APPS = [
-    dict(slug="kohii", name="Kohii", full="Kohii — The Barista Log", palette="kohii",
+    dict(slug="kohii", web_accent="#8F5E1B", name="Kohii", full="Kohii — The Barista Log", palette="kohii",
          app_id="6790972283", pkg="com.eritech.kohii", privacy="kohii.html",
          tools=["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
-    dict(slug="the-bake-log", name="The Bake Log", full="The Bake Log: Sourdough Baker", palette="bakelog",
+    dict(slug="the-bake-log", web_accent="#A4552F", name="The Bake Log", full="The Bake Log: Sourdough Baker", palette="bakelog",
          app_id="6790971986", pkg="com.eritech.thebakelog", privacy="the-bake-log.html",
          tools=["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator", "pizza-dough-calculator"]),
-    dict(slug="warranty-box", name="Warranty Box", full="Warranty Box — Track Expiry", palette="warranty",
+    dict(slug="warranty-box", web_accent="#2F6E9E", name="Warranty Box", full="Warranty Box — Track Expiry", palette="warranty",
          app_id="6790972644", pkg="com.eritech.warrantybox", privacy="warranty-box.html",
          tools=["uk-return-rights-checker"]),
-    dict(slug="cellar-book", name="Cellar Book", full="Cellar Book: Wine Cellar Log", palette="cellar",
+    dict(slug="cellar-book", web_accent="#722F37", name="Cellar Book", full="Cellar Book: Wine Cellar Log", palette="cellar",
          app_id="6796370046", pkg="com.eritech.cellarbook", privacy="cellarbook.html",
          tools=["wine-drink-window-calculator", "wine-cellar-value-calculator"]),
-    dict(slug="leaflet", name="Leaflet", full="Leaflet: Plant Care & Watering", palette="leaflet",
+    dict(slug="leaflet", web_accent="#2E7D32", name="Leaflet", full="Leaflet: Plant Care & Watering", palette="leaflet",
          app_id="6796375617", pkg="com.eritech.leaflet", privacy="leaflet.html",
          tools=["plant-watering-calculator"]),
-    dict(slug="travel-binder", name="The Travel Binder", full="The Travel Binder: Trip Planner", palette="travelbinder",
+    dict(slug="travel-binder", web_accent="#22314A", name="The Travel Binder", full="The Travel Binder: Trip Planner", palette="travelbinder",
          app_id="6797601401", pkg="com.eritech.travelbinder", privacy="travel-binder.html",
          tools=["packing-list-generator", "japan-trip-cost-calculator"]),
 ]
+
+ACCENT_BY_APP = {a["name"]: a["web_accent"] for a in APPS}

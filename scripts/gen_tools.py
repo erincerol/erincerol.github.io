@@ -2,7 +2,7 @@
 """Generate eritech.studio /tools/ calculator pages, OG images, robots.txt and sitemap.xml."""
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS,
+from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS, ACCENT_BY_APP,
                    play_badge, ios_badge, og_image)
 
 TEMPLATE = """<!DOCTYPE html>
@@ -1080,12 +1080,12 @@ for p in PAGES:
 # ---------------------------------------------------------------- tools index
 
 GROUPS = [
-    ("Baking", "The Bake Log", "#A4552F", ["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator", "pizza-dough-calculator"]),
-    ("Coffee", "Kohii", "#8F5E1B", ["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
-    ("Wine", "Cellar Book", "#722F37", ["wine-drink-window-calculator", "wine-cellar-value-calculator"]),
-    ("Plants", "Leaflet", "#2E7D32", ["plant-watering-calculator"]),
-    ("Travel", "The Travel Binder", "#22314A", ["packing-list-generator", "japan-trip-cost-calculator"]),
-    ("Consumer rights", "Warranty Box", "#2F6E9E", ["uk-return-rights-checker"]),
+    ("Baking", "The Bake Log", ACCENT_BY_APP["The Bake Log"], ["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator", "pizza-dough-calculator"]),
+    ("Coffee", "Kohii", ACCENT_BY_APP["Kohii"], ["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
+    ("Wine", "Cellar Book", ACCENT_BY_APP["Cellar Book"], ["wine-drink-window-calculator", "wine-cellar-value-calculator"]),
+    ("Plants", "Leaflet", ACCENT_BY_APP["Leaflet"], ["plant-watering-calculator"]),
+    ("Travel", "The Travel Binder", ACCENT_BY_APP["The Travel Binder"], ["packing-list-generator", "japan-trip-cost-calculator"]),
+    ("Consumer rights", "Warranty Box", ACCENT_BY_APP["Warranty Box"], ["uk-return-rights-checker"]),
 ]
 
 DESCS = {
