@@ -1,0 +1,33 @@
+{
+  "sections": [
+    {
+      "heading": "Data Collection",
+      "body": "The Bake Log is fully offline and stores all your data locally on your device. We do not collect, transmit, or store your personal data on any servers."
+    },
+    {
+      "heading": "What Data Is Stored",
+      "body": "Your recipes, bake sessions, and starter logs are stored in a local SQLite database on your device. This data never leaves your phone."
+    },
+    {
+      "heading": "Analytics & Crash Reporting",
+      "body": "Firebase Crashlytics may collect anonymized crash reports to help us improve app stability. No personal data is included in these reports."
+    },
+    {
+      "heading": "Ads",
+      "body": "Google AdMob may collect limited data for ad targeting on the free tier. Upgrade to Premium to remove all ads."
+    },
+    {
+      "heading": "In-App Purchases",
+      "body": "Purchases are processed through Google Play (Android) or Apple App Store (iOS). We do not handle payment data directly."
+    },
+    {
+      "heading": "Your Rights",
+      "body": "All your data is yours. You can export or delete it anytime by uninstalling the app. We have no central record of your data."
+    },
+    {
+      "heading": "Contact",
+      "body": "For questions or concerns, contact: admin@eritech.studio"
+    }
+  ],
+  "updated": "2026-08-10"
+}
