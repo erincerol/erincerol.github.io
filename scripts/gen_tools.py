@@ -931,9 +931,9 @@ $('outsub').innerHTML=bottles>0?('Average '+cur+(total/bottles).toLocaleString(u
 PAGES.append(dict(
     slug="pizza-dough-calculator",
     palette="bakelog",
-    tab_title="Pizza Dough Calculator — Neapolitan, New York & Pan | Eri Tech Studio",
+    tab_title="Pizza Dough Calculator — Yeast or Sourdough, Any Style | Eri Tech Studio",
     og_title="Pizza Dough Calculator",
-    meta_desc="Work out flour, water, salt, oil and yeast for any number of pizza dough balls — Neapolitan, New York, Roman pan or Detroit. Free, no signup.",
+    meta_desc="Work out flour, water, salt, oil and leavening for any number of pizza dough balls — with commercial yeast or a sourdough starter. Neapolitan, New York, Roman pan or Detroit. Free, no signup.",
     h1="Pizza Dough Calculator",
     lede="Pick a style, say how many bases you want, and get the exact weights &mdash; scaled to your dough balls, not someone else&rsquo;s recipe.",
     extra_css=""".result td:nth-child(2){text-align:right;color:var(--muted);padding-right:16px;font-variant-numeric:tabular-nums}
@@ -958,7 +958,13 @@ PAGES.append(dict(
 <div class="field"><label for="oil">Oil (%)</label><input type="number" id="oil" value="0" min="0" max="12" step="0.5" inputmode="decimal"></div>
 <div class="field"><label for="sugar">Sugar (%)</label><input type="number" id="sugar" value="0" min="0" max="8" step="0.5" inputmode="decimal"></div>
 </div>
-<div class="row">
+<div class="field"><label for="leav">Leavening</label>
+<select id="leav"><option value="yeast" selected>Commercial yeast</option><option value="sd">Sourdough starter</option></select></div>
+<div class="row" id="r-sd" hidden>
+<div class="field"><label for="sp">Starter (% of total flour)</label><input type="number" id="sp" value="15" min="1" max="50" step="1" inputmode="decimal"></div>
+<div class="field"><label for="sh">Starter hydration (%)</label><input type="number" id="sh" value="100" min="50" max="200" step="5" inputmode="decimal"></div>
+</div>
+<div class="row" id="r-yeast">
 <div class="field"><label for="ferm">Fermentation</label>
 <select id="ferm">
 <option value="0.4">Same day, room temperature</option>
@@ -986,24 +992,36 @@ return 'a tray or deep-pan portion'}
 $('style').addEventListener('change',function(){
 var p=$('style').value.split(',');
 $('hyd').value=p[0];$('salt').value=p[1];$('oil').value=p[2];$('sugar').value=p[3];$('ballw').value=p[4];calc()});
-function calc(){
-var balls=Math.max(1,Math.round(num('balls'))),bw=num('ballw');
-var hyd=num('hyd'),salt=num('salt'),oil=num('oil'),sugar=num('sugar');
-var yeast=num('ferm')*parseFloat($('ytype').value);
-var total=balls*bw;
-var pct=100+hyd+salt+oil+sugar+yeast;
-var flour=total/(pct/100);
-function g(p){return flour*p/100}
 function row(label,p,grams,dp){
 var v=dp?Math.round(grams*10)/10:Math.round(grams);
-return '<tr><td>'+label+'</td><td>'+p+'%</td><td>'+v.toLocaleString()+' g</td></tr>'}
-var h=row('Flour',100,flour)+row('Water',hyd,g(hyd))+row('Salt',salt,g(salt),1);
-if(oil>0)h+=row('Oil',oil,g(oil),1);
-if(sugar>0)h+=row('Sugar',sugar,g(sugar),1);
-h+=row('Yeast',Math.round(yeast*1000)/1000,g(yeast),1);
+return '<tr><td>'+label+'</td><td>'+(p===''?'':p+'%')+'</td><td>'+v.toLocaleString()+' g</td></tr>'}
+function calc(){
+var sd=$('leav').value==='sd';
+$('r-sd').hidden=!sd; $('r-yeast').hidden=sd;
+var balls=Math.max(1,Math.round(num('balls'))),bw=num('ballw');
+var hyd=num('hyd'),salt=num('salt'),oil=num('oil'),sugar=num('sugar');
+var total=balls*bw,h='',note='';
+if(sd){
+var Ft=total/(1+(hyd+salt+oil+sugar)/100);
+var Wt=Ft*hyd/100;
+var st=Ft*num('sp')/100, shy=num('sh')||100;
+var sf=st*100/(100+shy), sw=st*shy/(100+shy);
+h=row('Flour (to add)','',Ft-sf)+row('Water (to add)','',Wt-sw)+
+row('Starter',Math.round(num('sp')*10)/10,st,1)+row('Salt',salt,Ft*salt/100,1);
+if(oil>0)h+=row('Oil',oil,Ft*oil/100,1);
+if(sugar>0)h+=row('Sugar',sugar,Ft*sugar/100,1);
+note=' Your starter brings '+Math.round(sf)+' g flour and '+Math.round(sw)+' g water, already counted.';
+}else{
+var yeast=num('ferm')*parseFloat($('ytype').value);
+var flour=total/((100+hyd+salt+oil+sugar+yeast)/100);
+h=row('Flour',100,flour)+row('Water',hyd,flour*hyd/100)+row('Salt',salt,flour*salt/100,1);
+if(oil>0)h+=row('Oil',oil,flour*oil/100,1);
+if(sugar>0)h+=row('Sugar',sugar,flour*sugar/100,1);
+h+=row('Yeast',Math.round(yeast*1000)/1000,flour*yeast/100,1);
+}
 h+='<tr><td>Total dough</td><td></td><td>'+Math.round(total).toLocaleString()+' g</td></tr>';
 $('tbl').innerHTML=h;
-$('outsub').textContent=balls+' \u00d7 '+Math.round(bw)+' g \u2014 '+size(bw)+' each, at '+hyd+'% hydration.'}""",
+$('outsub').textContent=balls+' × '+Math.round(bw)+' g — '+size(bw)+' each, at '+hyd+'% hydration.'+note}""",
     explainer="""<section>
 <h2>Why pizza recipes are written as percentages</h2>
 <p>Every serious pizza formula is expressed in baker&rsquo;s percentages: flour is always 100%, and everything else is stated relative to it. A dough at 62% hydration, 2.8% salt has 620&nbsp;g of water and 28&nbsp;g of salt for every kilo of flour. It reads oddly at first and then becomes the only sensible way to write a recipe, because it separates the *character* of the dough from the *quantity* you happen to be making.</p>
@@ -1014,6 +1032,9 @@ $('outsub').textContent=balls+' \u00d7 '+Math.round(bw)+' g \u2014 '+size(bw)+' 
 <h2>Cold fermentation needs far less yeast</h2>
 <p>The yeast quantity here changes sharply with your plan, and that surprises people. A same-day dough at room temperature wants roughly 0.4% instant yeast; a 72-hour cold ferment wants nearer 0.05% &mdash; around an eighth. Use the same-day quantity for a three-day dough and it will over-proof in the fridge, going slack, sour and gassy before you bake it.</p>
 <p>Time is doing the work in place of yeast, and it is doing it better: a long cold ferment develops flavour through slow enzymatic breakdown that a fast rise never reaches. If you take one thing from this page, make it that &mdash; less yeast and more time is almost always the upgrade.</p>
+<h2>Making it with sourdough</h2>
+<p>Switch the leavening to a starter and the sums change, because a starter is not just a raising agent &mdash; it is flour and water you have already added. A 100% hydration starter is half of each by weight, so 150&nbsp;g of it brings 75&nbsp;g of flour and 75&nbsp;g of water into the dough. Ignore that and a formula you believe is 62% hydration can land several points off, which is the most common reason a sourdough pizza dough handles differently from the recipe it came from. The calculator subtracts both from what you add.</p>
+<p>Typical amounts run 10&ndash;20% of the total flour. Less starter with a longer, cooler rise gives a milder, more extensible dough &mdash; usually what you want for pizza, since aggressive sourness fights tomato and cheese. Expect timings to lengthen considerably: a dough ready in four hours with commercial yeast may want a full day, and the <a href="/tools/starter-feeding-ratio-calculator/">feeding ratio</a> you used beforehand decides how lively it is when you mix.</p>
 <p>Baking bread as well as pizza? The <a href="/tools/sourdough-hydration-calculator/">hydration calculator</a> and the <a href="/tools/dough-temperature-calculator/">dough temperature calculator</a> cover the same ground for sourdough.</p>
 </section>""",
     app_block=bakelog_block("pizza_dough"),
