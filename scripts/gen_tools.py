@@ -111,28 +111,28 @@ calc();
 
 # ---------------------------------------------------------------- app blocks
 
-def bakelog_block(campaign):
-    return ('<p>This calculator is built into <strong><a href="/apps/the-bake-log/">The Bake Log</a></strong>, along with starter feeding reminders, '
-            'guided bake timelines and a full bake journal. Offline, no account, free to start.</p>'
+def bakelog_block(campaign, built=True):
+    return (("<p>This calculator is built into <strong><a href=\"/apps/the-bake-log/\">The Bake Log</a></strong>, along with " if built else "<p>A free web tool from the makers of <strong><a href=\"/apps/the-bake-log/\">The Bake Log</a></strong> &mdash; ") +
+            'starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p>'
             '<div class="badges">' + ios_badge("6790971986", campaign) +
             play_badge("com.eritech.thebakelog", campaign) + '</div>')
 
-def kohii_block(campaign):
-    return ('<p>This calculator is built into <strong><a href="/apps/kohii/">Kohii — The Barista Log</a></strong>, along with brew logging, '
-            'dial-in history and bean freshness tracking. Offline, no account, one-time unlock.</p>'
+def kohii_block(campaign, built=True):
+    return (("<p>This calculator is built into <strong><a href=\"/apps/kohii/\">Kohii &mdash; The Barista Log</a></strong>, along with " if built else "<p>A free web tool from the makers of <strong><a href=\"/apps/kohii/\">Kohii &mdash; The Barista Log</a></strong> &mdash; ") +
+            'brew logging, dial-in history and bean freshness tracking. Offline, no account, one-time unlock.</p>'
             '<div class="badges">' + ios_badge("6790972283", campaign) +
             play_badge("com.eritech.kohii", campaign) + '</div>')
 
-def cellar_block(campaign):
-    return ('<p>This calculator is built into <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>, which tracks drink windows on every '
-            'bottle in your cellar — see what is ageing, ready or fading at a glance, with label photos, tasting '
+def cellar_block(campaign, built=True):
+    return (("<p>This calculator is built into <strong><a href=\"/apps/cellar-book/\">Cellar Book</a></strong>, which tracks " if built else "<p>A free web tool from the makers of <strong><a href=\"/apps/cellar-book/\">Cellar Book</a></strong>, which tracks ") +
+            'drink windows on every bottle in your cellar — see what is ageing, ready or fading at a glance, with label photos, tasting '
             'notes on the 100-point scale and an offline map of your collection&rsquo;s regions.</p>'
             '<div class="badges">' + ios_badge("6796370046", campaign) +
             play_badge("com.eritech.cellarbook", campaign) + '</div>')
 
-def leaflet_block(campaign):
-    return ('<p>This calculator is built into <strong><a href="/apps/leaflet/">Leaflet</a></strong>, which keeps watering and feeding schedules '
-            'for every plant you own, with a photo timeline so you can watch a year of growth in one scroll. '
+def leaflet_block(campaign, built=True):
+    return (("<p>This calculator is built into <strong><a href=\"/apps/leaflet/\">Leaflet</a></strong>, which keeps " if built else "<p>A free web tool from the makers of <strong><a href=\"/apps/leaflet/\">Leaflet</a></strong>, which keeps ") +
+            'watering and feeding schedules for every plant you own, with a photo timeline so you can watch a year of growth in one scroll. '
             'No subscription, no AI gimmicks.</p>'
             '<div class="badges">' + ios_badge("6796375617", campaign) +
             play_badge("com.eritech.leaflet", campaign) + '</div>')
@@ -212,7 +212,7 @@ $('f-water').hidden=(mode!=='hyd');$('f-target').hidden=(mode==='hyd');calc()})}
 <p>There is no single right answer, but the ranges are well established. Around 60–68% gives a firm, forgiving dough that is easy to shape — the best place to learn. 70–75% is the classic sourdough range, balancing an open crumb with manageable handling. Above 78% the dough turns slack and sticky and rewards experience with coil folds and gentle shaping.</p>
 <p>Flour matters as much as the number: wholegrain and strong bread flours absorb far more water than plain white flour, so an 80% wholemeal dough can feel drier than a 72% white one. Treat the percentage as a starting point, adjust by feel, and keep notes on what each flour can take.</p>
 </section>""",
-    app_block=bakelog_block("sourdough_hydration"),
+    app_block=bakelog_block("sourdough_hydration", built=False),
 ))
 
 PAGES.append(dict(
@@ -261,7 +261,7 @@ $('f-flour').hidden=(mode!=='flour');$('f-dough').hidden=(mode==='flour');calc()
 <p>Salt almost always sits at 1.8–2.2% — below that bread tastes flat, above 2.5% fermentation slows noticeably. Levain typically runs 15–25% of the flour: more levain ferments faster and tips the flavour toward sour, less gives you a longer, more forgiving timeline. Water is the variable bakers argue about; see the <a href="/tools/sourdough-hydration-calculator/">hydration calculator</a> for what the percentage actually means for handling and crumb.</p>
 <p>One caution when comparing formulas: some recipes count the flour and water inside the levain toward the totals, and some do not. It rarely changes the bread much, but it explains why two &ldquo;75% hydration&rdquo; recipes can behave differently.</p>
 </section>""",
-    app_block=bakelog_block("bakers_percentage"),
+    app_block=bakelog_block("bakers_percentage", built=False),
 ))
 
 PAGES.append(dict(
@@ -314,7 +314,7 @@ $('outsub').textContent='Feed '+Math.round(k)+' g starter to make '+Math.round(t
 <p>A ripe starter has domed or just begun to flatten, smells pleasantly tangy rather than harsh, and is full of bubbles through the body of the culture, not just on top. Temperature moves everything: at 26&nbsp;&deg;C a 1:5:5 feed can behave like a 1:2:2 at 20&nbsp;&deg;C. If your kitchen runs cold, use a smaller ratio or find a warmer spot; if your starter races past its peak before you wake up, feed it more heavily.</p>
 <p>Whatever ratio you settle on, consistency beats cleverness — the same feed at the same times teaches you exactly what &ldquo;ready&rdquo; looks like for your jar.</p>
 </section>""",
-    app_block=bakelog_block("starter_feeding"),
+    app_block=bakelog_block("starter_feeding", built=False),
 ))
 
 PAGES.append(dict(
@@ -585,7 +585,7 @@ $('outsub').textContent='A starting point, not a rule — check the soil before 
 <h2>Overwatering kills more than drought</h2>
 <p>Most houseplants tolerate going a little too dry: leaves droop, you water, they recover. Constantly wet soil is different — it suffocates roots and invites rot, which is usually fatal by the time it shows. Yellowing lower leaves on damp soil mean water less, not more. In autumn and winter, growth slows and drying takes far longer, so stretch every interval; almost everything on this list wants a drier, calmer off-season than its summer routine.</p>
 </section>""",
-    app_block=leaflet_block("plant_watering"),
+    app_block=leaflet_block("plant_watering", built=False),
 ))
 
 PAGES.append(dict(
@@ -867,7 +867,7 @@ document.querySelectorAll('#unit button').forEach(function(x){x.classList.toggle
 <h2>When the answer looks absurd</h2>
 <p>A cold kitchen in winter can produce a required water temperature above 40&thinsp;&deg;C, and that is a genuine signal rather than an error &mdash; but be careful, because water much beyond 50&thinsp;&deg;C starts damaging yeast on contact. The better fix is usually to warm the flour instead, or to accept a lower target and simply let the bulk run longer. Conversely, in a hot kitchen the calculator will ask for fridge-cold or even iced water, which is exactly what summer baking requires.</p>
 </section>""",
-    app_block=bakelog_block("dough_temperature"),
+    app_block=bakelog_block("dough_temperature", built=False),
 ))
 
 PAGES.append(dict(
@@ -924,7 +924,7 @@ $('outsub').innerHTML=bottles>0?('Average '+cur+(total/bottles).toLocaleString(u
 <h2>Treat this as a planning figure</h2>
 <p>Tier averages give you an order of magnitude, not a valuation. For probate, a formal insurance schedule or a sale, you want a merchant valuation or auction estimates against actual bottles and vintages. What this is good for is the question most collectors cannot answer at all: roughly what is in there, and is it more than you assumed.</p>
 </section>""",
-    app_block=cellar_block("cellar_value"),
+    app_block=cellar_block("cellar_value", built=False),
 ))
 
 
@@ -1037,7 +1037,7 @@ $('outsub').textContent=balls+' × '+Math.round(bw)+' g — '+size(bw)+' each, a
 <p>Typical amounts run 10&ndash;20% of the total flour. Less starter with a longer, cooler rise gives a milder, more extensible dough &mdash; usually what you want for pizza, since aggressive sourness fights tomato and cheese. Expect timings to lengthen considerably: a dough ready in four hours with commercial yeast may want a full day, and the <a href="/tools/starter-feeding-ratio-calculator/">feeding ratio</a> you used beforehand decides how lively it is when you mix.</p>
 <p>Baking bread as well as pizza? The <a href="/tools/sourdough-hydration-calculator/">hydration calculator</a> and the <a href="/tools/dough-temperature-calculator/">dough temperature calculator</a> cover the same ground for sourdough.</p>
 </section>""",
-    app_block=bakelog_block("pizza_dough"),
+    app_block=bakelog_block("pizza_dough", built=False),
 ))
 
 # ---------------------------------------------------------------- build pages
