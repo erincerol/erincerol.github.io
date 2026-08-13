@@ -2,7 +2,7 @@
   "sections": [
     {
       "heading": "Data Collection & Local Storage",
-      "body": "- **Ads:** The free version of this app uses Google AdMob to display banner ads. AdMob may collect device identifiers and usage data to serve relevant ads.\n- **In-App Purchases:** Premium upgrades are handled natively by your app store. We do not process or store payment information.\n- **Local Storage:** All warranty items, images, and receipts are saved entirely on your device. We do not have servers and do not sync or read your data."
+      "body": "- Ads: The free version of this app uses Google AdMob to display banner ads. AdMob may collect device identifiers and usage data to serve relevant ads.\n- In-App Purchases: Premium upgrades are handled natively by your app store. We do not process or store payment information.\n- Local Storage: All warranty items, images, and receipts are saved entirely on your device. We do not have servers and do not sync or read your data."
     },
     {
       "heading": "Camera & Photo Library Access",
@@ -10,7 +10,7 @@
     },
     {
       "heading": "Crash Reporting",
-      "body": "To ensure a reliable experience, we use automated diagnostic tools.\n- **Crash Reporting:** We use Firebase Crashlytics to monitor app stability. It automatically collects anonymous crash logs to help us fix bugs. No personally identifiable information (PII) or behavioral analytics are collected."
+      "body": "To ensure a reliable experience, we use automated diagnostic tools.\n- Crash Reporting: We use Firebase Crashlytics to monitor app stability. It automatically collects anonymous crash logs to help us fix bugs. No personally identifiable information (PII) or behavioral analytics are collected."
     },
     {
       "heading": "Changes to This Privacy Policy",

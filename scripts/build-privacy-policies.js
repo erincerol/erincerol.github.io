@@ -23,6 +23,7 @@ const APP_MAPPING = {
     accent: "#C2442D",
     pkg: "com.eritech.travelbinder",
     repo: "travel-binder",
+    project: "TravelBinder",
   },
   "the-bake-log.md": {
     slug: "the-bake-log",
@@ -31,6 +32,7 @@ const APP_MAPPING = {
     accent: "#C26D43",
     pkg: "com.eritech.thebakelog",
     repo: "the-bake-log",
+    project: "TheBakeLog",
   },
   "kohii.md": {
     slug: "kohii",
@@ -39,6 +41,7 @@ const APP_MAPPING = {
     accent: "#C8974A",
     pkg: "com.eritech.kohii",
     repo: "kohii",
+    project: "kohii-the-coffee-log",
   },
   "cellar-book.md": {
     slug: "cellar-book",
@@ -48,6 +51,7 @@ const APP_MAPPING = {
     accent: "#D4B595",
     pkg: "com.eritech.cellarbook",
     repo: "cellar-book",
+    project: "CellarBook",
   },
   "leaflet.md": {
     slug: "leaflet",
@@ -57,6 +61,7 @@ const APP_MAPPING = {
     accent: "#4CAF50",
     pkg: "com.eritech.leaflet",
     repo: "leaflet",
+    project: "Leaflet",
   },
   "warranty-box.md": {
     slug: "warranty-box",
@@ -65,6 +70,7 @@ const APP_MAPPING = {
     accent: "#7A3B24",
     pkg: "com.eritech.warrantybox",
     repo: "warranty-box",
+    project: "",
   },
 };
 
@@ -193,11 +199,23 @@ a:hover {
   return html;
 }
 
+// The HTML branch turns markdown into tags; the JSON branch must turn it into PLAIN text, or a
+// MAUI Label renders "**confirmation codes**" with the asterisks showing. Strip the same inline
+// marks the source can carry (bold, italic, links → their text), leaving paragraphs newline-joined.
+function markdownToPlainText(body) {
+  return body
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/__(.*?)__/g, "$1")
+    .replace(/\*(.*?)\*/g, "$1")
+    .replace(/_(.*?)_/g, "$1")
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1 ($2)");
+}
+
 function generatePrivacyJson(sections, updated) {
   return {
     sections: sections.map((s) => ({
-      heading: s.heading,
-      body: s.body,
+      heading: markdownToPlainText(s.heading),
+      body: markdownToPlainText(s.body),
     })),
     updated,
   };
@@ -232,17 +250,32 @@ fs.readdirSync(PRIVACY_SRC)
     fs.writeFileSync(jsonPath, JSON.stringify(json, null, 2));
     console.log(`✅ ${jsonPath}`);
 
-    // Copy JSON to app repo
+    // Copy JSON into the app's MAUI project so it ships inside the binary. The Resources/Raw dir is
+    // under the .csproj — NOT the repo root — and only WarrantyBox keeps its project at the root.
+    // The old code joined the repo root for everyone and mkdir'd the result, so four of six apps
+    // silently grew a Resources/Raw at the wrong level and shipped nothing. `project` is the .csproj
+    // subdirectory (empty for a root-level project), and the directory is required to already
+    // exist: every app has one with the MauiAsset glob, so a missing one is a reliable wrong-path
+    // signal that must fail loudly rather than be created.
     if (mapping.repo) {
       const appRepoPath = path.join(DOCS_ROOT, mapping.repo);
-      const resourcesPath = path.join(appRepoPath, "Resources", "Raw");
-      if (fs.existsSync(appRepoPath)) {
-        fs.mkdirSync(resourcesPath, { recursive: true });
+      const resourcesPath = path.join(
+        appRepoPath,
+        mapping.project || "",
+        "Resources",
+        "Raw"
+      );
+      if (!fs.existsSync(appRepoPath)) {
+        console.warn(`   ⚠️  ${appRepoPath} not found — skipped`);
+      } else if (!fs.existsSync(resourcesPath)) {
+        throw new Error(
+          `${resourcesPath} does not exist. Check the 'project' subdirectory for ${mapping.slug} ` +
+            `— never mkdir it, or the app ships an unpackaged copy at the wrong level.`
+        );
+      } else {
         const appJsonPath = path.join(resourcesPath, "privacy.json");
         fs.writeFileSync(appJsonPath, JSON.stringify(json, null, 2));
         console.log(`   📦 ${appJsonPath}`);
-      } else {
-        console.warn(`   ⚠️  ${appRepoPath} not found`);
       }
     }
   });

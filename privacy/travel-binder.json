@@ -10,7 +10,7 @@
     },
     {
       "heading": "Maps",
-      "body": "Your pins are coordinates saved in your own trip and drawn by the app, so they appear correctly with no connection at all. Background map imagery is different: those tiles come from your device's map provider — Apple Maps on iOS, Google Maps on Android — and fetching them requires a connection to that provider, governed by their privacy policy rather than this one. Your device keeps tiles for areas you have already viewed, which is why a map you looked at while planning still works abroad in airplane mode.\nSearching for a place by name likewise sends that search text to the provider. Typing coordinates directly, or pasting a map link, is handled entirely on your device and sends nothing.\nNeither request carries anything about your trip. The provider sees a map area or a single search term — never your itinerary, your bookings, or your other pins.\nThe Atlas, the route diagram on a finished trip, and every share card are drawn by the app from your own data with no map imagery whatsoever, so nothing you share is ever assembled by, or routed through, a map provider.\nIf you tap *Directions*, a single destination is handed to your own maps app and you leave The Travel Binder entirely. From that point onward that app's privacy policy applies rather than this one.\nThe app does not ask for location permission, does not use your device's location, and does not record your movements."
+      "body": "Your pins are coordinates saved in your own trip and drawn by the app, so they appear correctly with no connection at all. Background map imagery is different: those tiles come from your device's map provider — Apple Maps on iOS, Google Maps on Android — and fetching them requires a connection to that provider, governed by their privacy policy rather than this one. Your device keeps tiles for areas you have already viewed, which is why a map you looked at while planning still works abroad in airplane mode.\nSearching for a place by name likewise sends that search text to the provider. Typing coordinates directly, or pasting a map link, is handled entirely on your device and sends nothing.\nNeither request carries anything about your trip. The provider sees a map area or a single search term — never your itinerary, your bookings, or your other pins.\nThe Atlas, the route diagram on a finished trip, and every share card are drawn by the app from your own data with no map imagery whatsoever, so nothing you share is ever assembled by, or routed through, a map provider.\nIf you tap Directions, a single destination is handed to your own maps app and you leave The Travel Binder entirely. From that point onward that app's privacy policy applies rather than this one.\nThe app does not ask for location permission, does not use your device's location, and does not record your movements."
     },
     {
       "heading": "Reminders",
@@ -18,7 +18,7 @@
     },
     {
       "heading": "Exports and sharing",
-      "body": "Exporting your trip — as PDF, Markdown, JSON, CSV or a trip bundle — produces a file that is handed to whichever app or destination you pick from your device's share sheet. Where that file then goes, and who can read it, is entirely your decision. We never receive a copy.\nShare cards are images you generate and send yourself. Because a booking reference on a public post is a genuine leak, **confirmation codes are replaced with dots on every share card by default**, and costs are left off unless you deliberately switch them on."
+      "body": "Exporting your trip — as PDF, Markdown, JSON, CSV or a trip bundle — produces a file that is handed to whichever app or destination you pick from your device's share sheet. Where that file then goes, and who can read it, is entirely your decision. We never receive a copy.\nShare cards are images you generate and send yourself. Because a booking reference on a public post is a genuine leak, confirmation codes are replaced with dots on every share card by default, and costs are left off unless you deliberately switch them on."
     },
     {
       "heading": "Crash reporting",
@@ -26,7 +26,7 @@
     },
     {
       "heading": "Advertising",
-      "body": "The free version shows a single banner advertisement, and only on the trips list — never inside a trip, and never over your itinerary. It is served by Google AdMob, which may collect device identifiers to serve ads. In regions where consent is required (the EEA, UK and Switzerland) you will be asked for your choices before any ad is requested, and you can change them at any time from Settings → Manage Ad Consent. Buying the one-time unlock removes advertising entirely."
+      "body": "The free version shows a single banner advertisement, served by Google AdMob, which may collect device identifiers to serve ads. It appears on the trips list and across a trip's sections — the timeline, places, packing, checklist and documents — but never over the map. In regions where consent is required (the EEA, UK and Switzerland) you will be asked for your choices before any ad is requested, and you can change them at any time from Settings → Privacy options. Buying the one-time unlock removes advertising entirely."
     },
     {
       "heading": "Purchases",
@@ -45,5 +45,5 @@
       "body": "Questions about this policy are welcome at admin@eritech.studio."
     }
   ],
-  "updated": "2026-08-10"
+  "updated": "2026-08-13"
 }

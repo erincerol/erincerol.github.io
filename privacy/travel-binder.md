@@ -1,6 +1,6 @@
 ---
 app: The Travel Binder
-updated: 2026-08-10
+updated: 2026-08-13
 ---
 
 ## Your trip stays on your phone
@@ -43,7 +43,7 @@ We do not use any analytics SDK and do not track how you use the app.
 
 ## Advertising
 
-The free version shows a single banner advertisement, and only on the trips list — never inside a trip, and never over your itinerary. It is served by Google AdMob, which may collect device identifiers to serve ads. In regions where consent is required (the EEA, UK and Switzerland) you will be asked for your choices before any ad is requested, and you can change them at any time from Settings → Manage Ad Consent. Buying the one-time unlock removes advertising entirely.
+The free version shows a single banner advertisement, served by Google AdMob, which may collect device identifiers to serve ads. It appears on the trips list and across a trip's sections — the timeline, places, packing, checklist and documents — but never over the map. In regions where consent is required (the EEA, UK and Switzerland) you will be asked for your choices before any ad is requested, and you can change them at any time from Settings → Privacy options. Buying the one-time unlock removes advertising entirely.
 
 ## Purchases
 
