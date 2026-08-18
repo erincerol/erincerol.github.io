@@ -1,13 +1,13 @@
 ---
 app: Leaflet
-updated: 2026-08-10
+updated: 2026-08-18
 ---
 
 At Eri Tech Studios, we take your privacy seriously. Leaflet is a fully offline plant care tracker designed to keep your plant journal completely private. This policy explains what is stored on your device and the limited third-party services the app uses.
 
 ## Data Collection
 
-Leaflet is fully offline and stores all your data locally on your device. We do not collect, transmit, or store your personal data on any servers. There is no account, login, or cloud sync.
+Your plant journal is fully offline and stored only on your device. We do not collect, transmit, or store it on any servers, and there is no account, login, or cloud sync. The one exception is advertising on the free tier, which is handled by Google AdMob and described under Ads below; Premium removes it.
 
 ## What Data Is Stored
 
@@ -31,7 +31,9 @@ Firebase Crashlytics may collect anonymized crash reports to help us improve app
 
 ## Ads
 
-Google AdMob may collect limited data for ad serving on the free tier. In regions where consent is required (such as the EEA, UK, and Switzerland), you will be asked before any ads are requested and can change your choice at any time from the app's Settings. Upgrade to Premium to remove all ads.
+The free tier shows ads from Google AdMob. To do that, AdMob collects your device's advertising identifier, approximate (coarse) location, and ad interaction data, and shares it with Google's advertising partners to select and measure the ads you see, including personalised ads. This is the only information Leaflet sends off your device — your plants, photos, notes and care history never leave it.
+You are asked first. On iOS the system tracking prompt appears; if you choose Ask App Not to Track, you still see ads but they are not personalised. In the EEA, the UK and Switzerland a consent form appears before any ad is requested. You can change the ad consent choice at any time from the app's Settings, and the iOS tracking choice under Settings, Privacy & Security, Tracking.
+Upgrade to Premium to remove all ads, and with them this collection entirely.
 
 ## In-App Purchases
 
