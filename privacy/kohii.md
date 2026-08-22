@@ -1,13 +1,13 @@
 ---
 app: Kohii
-updated: 2026-08-10
+updated: 2026-08-22
 ---
 
 At Eri Tech Studios, we take your privacy seriously. Kohii ("The Barista Log") is a fully offline app designed to keep your coffee data completely private. This policy explains what is stored on your device and the limited third-party services the app uses.
 
 ## Data Collection
 
-Kohii is fully offline and stores all your data locally on your device. We do not collect, transmit, or store your personal data on any servers. There is no account, login, or cloud sync.
+Kohii stores all your coffee data locally on your device. There is no account, login, or cloud sync, and your beans, brews, notes, and photos never leave your phone. The only things that ever leave your device are anonymous crash diagnostics and anonymous usage analytics, both described below — neither includes anything you have typed or photographed.
 
 ## What Data Is Stored
 
@@ -21,13 +21,19 @@ If you add a photo to a bean or a brew, the app accesses your camera or photo li
 
 Kohii lets you export your coffee log to a backup file and restore it later. These backup files are created and stored only where you choose to save them on your device. We never receive, access, or transmit them.
 
-## Analytics & Crash Reporting
+## Crash reporting
 
-Firebase Crashlytics may collect anonymized crash reports to help us improve app stability. No personal data is included in these reports. We do not use any analytics SDK that tracks your behavior.
+Kohii uses Firebase Crashlytics to collect anonymous crash diagnostics (device model, OS version, and the technical state of the app at the moment of a crash). No personal information, coffee data, notes, or photos are ever transmitted. Crash reports exist solely so we can fix defects, and are covered under our legitimate interest in keeping the app working.
+
+## Usage analytics
+
+Kohii uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, the app version, your device model, and your coarse region (country level). It never records anything you type or photograph: not a coffee, a brew, a rating, a tasting note, a price, or a bag photo.
+
+In regions where consent is required (EEA, UK, Switzerland), analytics collection follows the choices you make in the ad consent form (Google Consent Mode), which you can change at any time from Settings → Manage Ad Consent.
 
 ## Ads
 
-Google AdMob may collect limited data for ad targeting on the free tier. Upgrade to Premium to remove all ads.
+The free version shows a banner advertisement served by Google AdMob. In regions where consent is required (EEA, UK, Switzerland), you will be asked for your consent choices before ads are requested, and you can change them at any time from Settings → Manage Ad Consent. Upgrade to Premium to remove all ads.
 
 ## In-App Purchases
 

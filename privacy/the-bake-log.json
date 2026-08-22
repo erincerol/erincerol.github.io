@@ -2,15 +2,19 @@
   "sections": [
     {
       "heading": "Data Collection",
-      "body": "The Bake Log is fully offline and stores all your data locally on your device. We do not collect, transmit, or store your personal data on any servers."
+      "body": "Your baking data — recipes, bakes, feedings, starters and photos — is stored only on your device and never leaves it. The app does send anonymous, aggregated usage and crash diagnostics to help us improve it; see the Usage Analytics and Crash Reporting sections below. We keep no account and no central record of your content."
     },
     {
       "heading": "What Data Is Stored",
       "body": "Your recipes, bake sessions, and starter logs are stored in a local SQLite database on your device. This data never leaves your phone."
     },
     {
-      "heading": "Analytics & Crash Reporting",
-      "body": "Firebase Crashlytics may collect anonymized crash reports to help us improve app stability. No personal data is included in these reports."
+      "heading": "Usage Analytics",
+      "body": "The Bake Log uses Google Firebase Analytics to understand how the app is used — which runs by default. We collect anonymous, aggregated interaction events (for example: a bake or feeding saved, a recipe or starter added, a guided bake started, a Baker's Mark earned, a screen opened, or a Premium purchase) plus the app-standard measures Firebase provides. These never include your recipes, notes, photos, or any content you enter — only that an action happened. Advertising personalisation is turned off, so this data is never used to target ads. In the EEA, the UK and Switzerland, analytics collection is governed by Google Consent Mode through the ad consent form shown on first launch; you can revisit that choice anytime via Settings → Manage Ad Consent."
+    },
+    {
+      "heading": "Crash Reporting",
+      "body": "Firebase Crashlytics collects anonymised crash and error diagnostics to help us fix bugs, under legitimate interest and separately from the analytics above. No personal data is included in these reports."
     },
     {
       "heading": "Ads",
@@ -29,5 +33,5 @@
       "body": "For questions or concerns, contact: admin@eritech.studio"
     }
   ],
-  "updated": "2026-08-10"
+  "updated": "2026-08-21"
 }
