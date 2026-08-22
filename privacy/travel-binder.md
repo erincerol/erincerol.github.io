@@ -39,7 +39,11 @@ Share cards are images you generate and send yourself. Because a booking referen
 
 The Travel Binder uses Firebase Crashlytics to collect anonymous crash diagnostics: device model, operating system version, and the technical state of the app at the moment it failed. No personal information, trip data, documents, photos, or coordinates are ever included. Crash reports exist solely so we can find and fix defects.
 
-We do not use any analytics SDK and do not track how you use the app.
+## Usage analytics
+
+The Travel Binder uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, the app version, your device model, and your coarse region (country level). It never records anything you type, attach, or photograph: not a trip, an itinerary entry, a confirmation code, a note, a document, or a cover photo. Where a stamp is earned, only that it was earned is recorded — never which countries it represents.
+
+In the EEA, UK and Switzerland, analytics collection follows the consent choices you make in the ad consent form (Google Consent Mode), which you can change at any time from Settings → Privacy options. Crash reporting, above, is separate and covered under our legitimate interest in keeping the app working.
 
 ## Advertising
 
