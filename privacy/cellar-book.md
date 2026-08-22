@@ -1,11 +1,11 @@
 ---
 app: Cellar Book
-updated: 2026-08-10
+updated: 2026-08-22
 ---
 
 ## Your data stays with you
 
-Cellar Book is a fully local app. Your wine collection, tasting notes, photos, and every other piece of data you enter are stored only on your device. There is no account, no server, and no cloud sync. We cannot see, access, or recover your data.
+Your wine collection, tasting notes, and photographs are stored only on your device. There is no account and no cloud sync, and we never upload them anywhere — we cannot see, access, or recover them. The only things that ever leave your device are anonymous crash diagnostics and anonymous usage analytics, both described below; neither includes anything you have typed or photographed.
 
 ## Backups
 
@@ -14,6 +14,12 @@ When you export a backup, the file is handed to the app or destination you choos
 ## Crash reporting
 
 Cellar Book uses Firebase Crashlytics to collect anonymous crash diagnostics (device model, OS version, and the technical state of the app at the moment of a crash). No personal information, wine data, notes, or photos are ever transmitted. Crash reports exist solely so we can fix defects.
+
+## Usage analytics
+
+Cellar Book uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, the app version, your device model, and your coarse region (country level). It never records anything you type or photograph: not a wine, a tasting note, a score, a price, or a label image.
+
+Crash reporting, above, is separate and covered under our legitimate interest in keeping the app working.
 
 ## Advertising
 
