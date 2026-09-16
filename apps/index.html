@@ -29,9 +29,11 @@ h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;color:#1F1A15;marg
 .crumb a,.crumb a:visited{color:#6F6857;text-decoration:underline;text-underline-offset:2px}
 ul{list-style:none;padding:0;margin:0}
 li{margin-bottom:11px}
-li a,li a:visited{display:block;padding:14px 18px;background:#FFFDFA;border:1px solid #E9E3D9;border-left:4px solid var(--acc,#7A3B24);border-radius:10px;text-decoration:none;color:#3B342C}
+li a,li a:visited{display:flex;align-items:center;gap:14px;padding:14px 18px;background:#FFFDFA;border:1px solid #E9E3D9;border-left:4px solid var(--acc,#7A3B24);border-radius:10px;text-decoration:none;color:#3B342C}
 li a:hover{border-color:var(--acc,#7A3B24);box-shadow:0 3px 14px rgba(60,45,30,.08)}
 li a{position:relative;padding-right:40px}
+.app-icon{flex:none;width:52px;height:52px;border-radius:12px;box-shadow:0 0 0 1px rgba(31,26,21,.08)}
+.app-text{min-width:0}
 li a::after{content:"";position:absolute;right:17px;top:50%;width:7px;height:7px;border-right:2px solid var(--acc,#7A3B24);border-bottom:2px solid var(--acc,#7A3B24);transform:translateY(-50%) rotate(-45deg);opacity:.55;transition:transform .15s ease,opacity .15s ease}
 li a:hover::after{transform:translate(4px,-50%) rotate(-45deg);opacity:1}
 li a strong{display:block;color:#1F1A15;font-size:1.05rem;font-family:Georgia,serif}
@@ -45,12 +47,12 @@ footer a,footer a:visited{color:#6F6857;text-decoration:underline;text-underline
 <h1>Our Apps</h1>
 <p class="subtitle">Six private logbooks for things worth keeping a record of. All fully offline, all one-time purchases.</p>
 <ul>
-<li style="--acc:#22314A"><a href="/apps/travel-binder/"><strong>The Travel Binder</strong><span>Flights, hotels, bookings, documents, packing and a map of the whole trip. Works in airplane mode, in a country with no signal.</span></a></li>
-<li style="--acc:#A4552F"><a href="/apps/the-bake-log/"><strong>The Bake Log</strong><span>A baking journal for sourdough. Starter feedings that actually remind you, guided bakes, and a record of every loaf.</span></a></li>
-<li style="--acc:#8F5E1B"><a href="/apps/kohii/"><strong>Kohii</strong><span>A brew journal for people who dial in. Espresso, pour-over, AeroPress, moka and cold brew, all logged offline.</span></a></li>
-<li style="--acc:#722F37"><a href="/apps/cellar-book/"><strong>Cellar Book</strong><span>What you own, what it is worth waiting for, and what is ready tonight.</span></a></li>
-<li style="--acc:#2E7D32"><a href="/apps/leaflet/"><strong>Leaflet</strong><span>Watering and feeding schedules that actually remind you, and a photo timeline showing a year of growth in one scroll.</span></a></li>
-<li style="--acc:#2F6E9E"><a href="/apps/warranty-box/"><strong>Warranty Box</strong><span>Every receipt, warranty and return deadline in one place, with a reminder before the window closes.</span></a></li>
+<li style="--acc:#22314A"><a href="/apps/travel-binder/"><img class="app-icon" src="/assets/app-icons/travel-binder.png" width="52" height="52" alt="The Travel Binder app icon" loading="lazy"><span class="app-text"><strong>The Travel Binder</strong><span>Flights, hotels, bookings, documents, packing and a map of the whole trip. Works in airplane mode, in a country with no signal.</span></span></a></li>
+<li style="--acc:#A4552F"><a href="/apps/the-bake-log/"><img class="app-icon" src="/assets/app-icons/the-bake-log.png" width="52" height="52" alt="The Bake Log app icon" loading="lazy"><span class="app-text"><strong>The Bake Log</strong><span>A baking journal for sourdough. Starter feedings that actually remind you, guided bakes, and a record of every loaf.</span></span></a></li>
+<li style="--acc:#8F5E1B"><a href="/apps/kohii/"><img class="app-icon" src="/assets/app-icons/kohii.png" width="52" height="52" alt="Kohii app icon" loading="lazy"><span class="app-text"><strong>Kohii</strong><span>A brew journal for people who dial in. Espresso, pour-over, AeroPress, moka and cold brew, all logged offline.</span></span></a></li>
+<li style="--acc:#722F37"><a href="/apps/cellar-book/"><img class="app-icon" src="/assets/app-icons/cellar-book.png" width="52" height="52" alt="Cellar Book app icon" loading="lazy"><span class="app-text"><strong>Cellar Book</strong><span>What you own, what it is worth waiting for, and what is ready tonight.</span></span></a></li>
+<li style="--acc:#2E7D32"><a href="/apps/leaflet/"><img class="app-icon" src="/assets/app-icons/leaflet.png" width="52" height="52" alt="Leaflet app icon" loading="lazy"><span class="app-text"><strong>Leaflet</strong><span>Watering and feeding schedules that actually remind you, and a photo timeline showing a year of growth in one scroll.</span></span></a></li>
+<li style="--acc:#2F6E9E"><a href="/apps/warranty-box/"><img class="app-icon" src="/assets/app-icons/warranty-box.png" width="52" height="52" alt="Warranty Box app icon" loading="lazy"><span class="app-text"><strong>Warranty Box</strong><span>Every receipt, warranty and return deadline in one place, with a reminder before the window closes.</span></span></a></li>
 </ul>
 <footer>
 <p><a href="/">Eri Tech Studio</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
