@@ -70,7 +70,7 @@ const APP_MAPPING = {
     accent: "#7A3B24",
     pkg: "com.eritech.warrantybox",
     repo: "warranty-box",
-    project: "",
+    appJsonPaths: ["ios/App/WarrantyBox/privacy.json", "android/app/src/main/assets/privacy.json"],
   },
 };
 
@@ -225,7 +225,7 @@ function generatePrivacyJson(sections, updated) {
 console.log("📋 Building privacy policies...\n");
 
 fs.readdirSync(PRIVACY_SRC)
-  .filter((f) => f.endsWith(".md"))
+  .filter((f) => f.endsWith(".md") && (process.argv.length < 3 || process.argv.slice(2).includes(f)))
   .forEach((file) => {
     const mapping = APP_MAPPING[file];
     if (!mapping) {
@@ -257,7 +257,17 @@ fs.readdirSync(PRIVACY_SRC)
     // subdirectory (empty for a root-level project), and the directory is required to already
     // exist: every app has one with the MauiAsset glob, so a missing one is a reliable wrong-path
     // signal that must fail loudly rather than be created.
-    if (mapping.repo) {
+    if (mapping.repo && mapping.appJsonPaths) {
+      const appRepoPath = path.join(DOCS_ROOT, mapping.repo);
+      mapping.appJsonPaths.forEach((relative) => {
+        const target = path.join(appRepoPath, relative);
+        if (!fs.existsSync(path.dirname(target))) {
+          throw new Error(`${path.dirname(target)} does not exist for ${mapping.slug} — never mkdir it.`);
+        }
+        fs.writeFileSync(target, JSON.stringify(json, null, 2));
+        console.log(`   📦 ${target}`);
+      });
+    } else if (mapping.repo) {
       const appRepoPath = path.join(DOCS_ROOT, mapping.repo);
       const resourcesPath = path.join(
         appRepoPath,

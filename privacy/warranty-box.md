@@ -1,12 +1,11 @@
 ---
 app: Warranty Box
-updated: 2026-08-22
+updated: 2026-09-24
 ---
 
 ## Data Collection & Local Storage
 
-- **Ads:** The free version of this app uses Google AdMob to display banner ads. AdMob may collect device identifiers and usage data to serve relevant ads.
-- **In-App Purchases:** Premium upgrades are handled natively by your app store. We do not process or store payment information.
+- **In-App Purchases:** Warranty Box Premium — a one-time unlock or a monthly subscription — is processed by the Apple App Store or Google Play. We never see or store your payment details. The app asks your app store whether your purchase or subscription is active so it can unlock Premium, and a subscription is managed or cancelled from your App Store or Google Play account.
 - **Local Storage:** All warranty items, images, and receipts are saved entirely on your device. We do not have servers and do not sync or read your data.
 
 ## Camera & Photo Library Access
@@ -21,9 +20,11 @@ To ensure a reliable experience, we use automated diagnostic tools.
 
 ## Usage Analytics
 
-Warranty Box uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, the app version, your device model, and your coarse region (country level). It never records anything you type or photograph: not a product name, a store, a note, a serial number, a receipt, or a photo.
+Warranty Box uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, whether Premium is active and when a subscription ends or resumes, the app version, your device model, and your coarse region (country level). It never records anything you type or photograph: not a product name, a store, a note, a serial number, a receipt, or a photo.
 
-In regions where consent is required (EEA, UK, Switzerland), analytics and advertising follow the consent choices you make in the in-app consent form, which you can change at any time from the app's Manage Ad Consent option. Purchasing the premium unlock removes advertising entirely.
+## Advertising
+
+Warranty Box 1.2 and later shows no advertisements and contains no advertising software. Earlier versions (1.1 and before) show a banner advertisement in the free version, served by Google AdMob, which may collect device identifiers and usage data to serve relevant ads. In regions where consent is required (EEA, UK, Switzerland), those versions ask for your consent choices before ads are requested, and you can change them at any time from Manage Ad Consent. Purchasing Premium removes advertising entirely.
 
 ## Changes to This Privacy Policy
 
