@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Japan Trip Cost Calculator — 1 or 2 Week Budget | Eri Tech Studio</title>
+<title>Japan Trip Cost Calculator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="Estimate what a trip to Japan costs — accommodation, food, transport, JR Pass and flights, broken down per day and per person. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/japan-trip-cost-calculator/">
 <meta property="og:type" content="website">
@@ -60,20 +60,23 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 .result td:nth-child(2),.result td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .result td:nth-child(2){color:var(--muted);padding-right:16px}
 .result td:first-child{padding-right:12px}
 .result .sub{margin-top:12px}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Japan Trip Cost Calculator","item":"https://eritech.studio/tools/japan-trip-cost-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Japan Trip Cost Calculator", "item": "https://eritech.studio/tools/japan-trip-cost-calculator/"}]}, {"@type": "WebApplication", "name": "Japan Trip Cost Calculator", "url": "https://eritech.studio/tools/japan-trip-cost-calculator/", "description": "Estimate what a trip to Japan costs — accommodation, food, transport, JR Pass and flights, broken down per day and per person. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does a two-week trip to Japan cost?", "acceptedAnswer": {"@type": "Answer", "text": "It depends mostly on where you sleep and how far you travel by train. Using this calculator’s mid-range presets, two people sharing a room for 14 nights come to roughly £4,200 including flights — but that is a planning figure built on assumptions. Replace the flight price and exchange rate with your own, and compare real hotel prices for your dates."}}, {"@type": "Question", "name": "What is a realistic daily budget for Japan?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator shows a per-person daily figure for time on the ground, excluding flights. In the worked example above it comes to about £89 at mid-range. Accommodation moves that number more than anything else, so it is the first line to test against actual prices for your dates and cities."}}, {"@type": "Question", "name": "Should I include a JR Pass?", "acceptedAnswer": {"@type": "Answer", "text": "Only if your itinerary covers serious distance. Add up the individual fares for the journeys you actually plan and compare them with the pass price before selecting it here. For trips based in one or two cities, paying per journey is often cheaper, and a regional pass may suit better than the national one."}}, {"@type": "Question", "name": "What exchange rate does the calculator use?", "acceptedAnswer": {"@type": "Answer", "text": "Whatever you enter. The rate box starts with a placeholder so the page works straight away, but it is not a live rate — check the current rate before trusting the pound figures. The yen totals do not depend on it, except for flights, which are converted from the pound fare you enter."}}, {"@type": "Question", "name": "Why are there more days than nights?", "acceptedAnswer": {"@type": "Answer", "text": "A 14-night trip has 15 days on the ground if you count the day you arrive and the day you leave, and you eat and get around on both. So food, local transport and activities are counted for nights plus one, while accommodation is counted per night."}}, {"@type": "Question", "name": "How does the calculator count hotel rooms?", "acceptedAnswer": {"@type": "Answer", "text": "It assumes two travellers share each room and rounds up, so three people get two rooms. If you are booking a family room, a single, or beds in a hostel dormitory, treat the accommodation line as approximate and adjust your expectations accordingly."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
 <h1>Japan Trip Cost Calculator</h1>
@@ -114,11 +117,46 @@ footer a,a:visited{color:var(--muted)}
 <h2>Using the number</h2>
 <p>Treat the daily rate as your planning anchor and the total as a target to test against. If the figure comes out higher than you would like, accommodation is almost always the most effective lever &mdash; moving from mid-range hotels to business hotels changes the total far more than eating more cheaply ever will, and business hotels in Japan are clean, well-located and perfectly pleasant.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>Each travel style carries a set of daily planning allowances in yen: a room rate per night, and per-person amounts for food and drink, local transport, and activities and entry fees. These are rough planning assumptions, not quotes &mdash; prices change, and the calculator cannot know what you will actually book.</p>
+<p>Rooms are counted as one per two travellers, rounded up, and charged for every night. Food, transport and activities are counted per person for every day on the ground, which is the number of nights plus one, since arrival and departure days both involve spending. A JR Pass, if you choose one, is added per person. Flights are entered in pounds and converted to yen at the rate you give. The total is shown in both currencies, along with a per-person figure and a per-person daily figure that excludes flights.</p>
+<h2>A worked example</h2>
+<p>Two people sharing a room for 14 nights at the mid-range preset, paying per journey rather than buying a JR Pass, with return flights entered at &pound;750 each and the rate field left at its starting value of &yen;190 to the pound:</p>
+<table class="worked">
+<tr><td>Accommodation (1 room &times; 14 nights)</td><td>&yen;210,000</td></tr>
+<tr><td>Food and drink (2 people &times; 15 days)</td><td>&yen;195,000</td></tr>
+<tr><td>Local transport (2 &times; 15 days)</td><td>&yen;36,000</td></tr>
+<tr><td>Activities and entry fees (2 &times; 15 days)</td><td>&yen;66,000</td></tr>
+<tr><td>Return flights (2 &times; &pound;750)</td><td>&yen;285,000</td></tr>
+<tr><td>Total</td><td>&yen;792,000 (about &pound;4,168)</td></tr>
+</table>
+<p>That works out at roughly &pound;2,084 per person all in, or about &pound;89 per person per day once you are there. Every one of those figures rests on the presets and on the rate in the box, so change anything that does not match your trip &mdash; and check the current exchange rate before relying on the pound amounts.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>How much does a two-week trip to Japan cost?</h3>
+<p>It depends mostly on where you sleep and how far you travel by train. Using this calculator&rsquo;s mid-range presets, two people sharing a room for 14 nights come to roughly &pound;4,200 including flights &mdash; but that is a planning figure built on assumptions. Replace the flight price and exchange rate with your own, and compare real hotel prices for your dates.</p>
+<h3>What is a realistic daily budget for Japan?</h3>
+<p>The calculator shows a per-person daily figure for time on the ground, excluding flights. In the worked example above it comes to about &pound;89 at mid-range. Accommodation moves that number more than anything else, so it is the first line to test against actual prices for your dates and cities.</p>
+<h3>Should I include a JR Pass?</h3>
+<p>Only if your itinerary covers serious distance. Add up the individual fares for the journeys you actually plan and compare them with the pass price before selecting it here. For trips based in one or two cities, paying per journey is often cheaper, and a regional pass may suit better than the national one.</p>
+<h3>What exchange rate does the calculator use?</h3>
+<p>Whatever you enter. The rate box starts with a placeholder so the page works straight away, but it is not a live rate &mdash; check the current rate before trusting the pound figures. The yen totals do not depend on it, except for flights, which are converted from the pound fare you enter.</p>
+<h3>Why are there more days than nights?</h3>
+<p>A 14-night trip has 15 days on the ground if you count the day you arrive and the day you leave, and you eat and get around on both. So food, local transport and activities are counted for nights plus one, while accommodation is counted per night.</p>
+<h3>How does the calculator count hotel rooms?</h3>
+<p>It assumes two travellers share each room and rounds up, so three people get two rooms. If you are booking a family room, a single, or beds in a hostel dormitory, treat the accommodation line as approximate and adjust your expectations accordingly.</p>
+</section>
 <section class="app-block">
 <p>This tool comes from <strong><a href="/apps/travel-binder/">The Travel Binder</a></strong> — a fully offline binder for flights, hotels, bookings, documents, packing and checklists, with the whole trip on one map. No account, no cloud, no AI.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6797601401?pt=129172097&amp;ct=calc_japan_trip_cost&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.travelbinder&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Djapan_trip_cost" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More travel tools</h2>
+<ul class="cluster">
+<li><a href="/tools/packing-list-generator/">Packing List Generator</a><span class="d">Trip length, climate and style in — a categorised list with quantities out.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
 <li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
 <li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
@@ -129,7 +167,6 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
 <li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
 <li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
-<li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
 <li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a></li>
 <li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a></li>
 <li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a></li>
@@ -137,7 +174,7 @@ footer a,a:visited{color:var(--muted)}
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

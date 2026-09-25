@@ -4,10 +4,37 @@
 Imported by gen_tools.py (calculators) and gen_apps.py (app landing pages) so the
 palettes, store-link tagging and OG rendering can never drift apart between them.
 """
+import html
+import json
 import os
+import re
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://eritech.studio"
+
+BRAND = "Eritech Studios"
+ORG_ID = DOMAIN + "/#organization"
+ORG_REF = {"@type": "Organization", "@id": ORG_ID, "name": BRAND, "url": DOMAIN + "/"}
+SITE_LASTMOD = "2026-09-25"
+
+PREMIUM_NOTE = "Premium your way: a subscription, or a one-time purchase that&rsquo;s yours forever"
+PREMIUM_OFFER = {"@type": "Offer", "price": "0", "priceCurrency": "GBP",
+                 "description": "Free to download. Premium is available as a subscription or a one-time purchase."}
+
+
+def plain_text(fragment):
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", fragment))).strip()
+
+
+def jsonld_script(data):
+    body = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    return '<script type="application/ld+json">\n' + body + '\n</script>'
+
+
+def breadcrumb(*trail):
+    return {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": name, "item": url}
+        for i, (name, url) in enumerate(trail)]}
 
 CF_SNIPPET = """<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "438cd0e70d5a4d39a4ec168956408116"}'></script><!-- End Cloudflare Web Analytics -->"""
 
@@ -35,9 +62,10 @@ def play_badge(pkg, campaign, medium="calculator"):
             '&amp;referrer=utm_source%3Dsite%26utm_medium%3D' + medium + '%26utm_campaign%3D' + campaign +
             '" rel="noopener"><img src="' + PLAY_BADGE_IMG + '" alt="Get it on Google Play"></a>')
 
-def ios_badge(app_id, campaign, prefix="calc"):
+def ios_badge(app_id, campaign, prefix="calc", ppid=None):
+    cpp = ('ppid=' + ppid + '&amp;') if ppid else ''
     return ('<a class="badge-appstore" href="https://apps.apple.com/app/id' + app_id +
-            '?pt=' + APPLE_PROVIDER_TOKEN + '&amp;ct=' + prefix + '_' + campaign +
+            '?' + cpp + 'pt=' + APPLE_PROVIDER_TOKEN + '&amp;ct=' + prefix + '_' + campaign +
             '&amp;mt=8" rel="noopener"><img src="' + APPSTORE_BADGE_IMG +
             '" alt="Download on the App Store"></a>')
 
@@ -77,22 +105,22 @@ def og_image(fname, title, pal, kicker="Free tool  ·  eritech.studio/tools"):
 # markers) — darker than some in-app accents so it holds contrast on #FAF7F2.
 APPS = [
     dict(slug="travel-binder", web_accent="#22314A", name="The Travel Binder", full="The Travel Binder: Trip Planner", palette="travelbinder",
-         app_id="6797601401", pkg="com.eritech.travelbinder", privacy="travel-binder.html",
+         app_id="6797601401", pkg="com.eritech.travelbinder", privacy="travel-binder.html", category="TravelApplication",
          tools=["packing-list-generator", "japan-trip-cost-calculator"]),
     dict(slug="the-bake-log", web_accent="#A4552F", name="The Bake Log", full="The Bake Log: Sourdough Baker", palette="bakelog",
-         app_id="6790971986", pkg="com.eritech.thebakelog", privacy="the-bake-log.html",
+         app_id="6790971986", pkg="com.eritech.thebakelog", privacy="the-bake-log.html", category="LifestyleApplication",
          tools=["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator", "pizza-dough-calculator"]),
     dict(slug="kohii", web_accent="#8F5E1B", name="Kohii", full="Kohii — The Barista Log", palette="kohii",
-         app_id="6790972283", pkg="com.eritech.kohii", privacy="kohii.html",
+         app_id="6790972283", pkg="com.eritech.kohii", privacy="kohii.html", category="LifestyleApplication",
          tools=["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
     dict(slug="cellar-book", web_accent="#722F37", name="Cellar Book", full="Cellar Book: Wine Cellar Log", palette="cellar",
-         app_id="6796370046", pkg="com.eritech.cellarbook", privacy="cellarbook.html",
+         app_id="6796370046", pkg="com.eritech.cellarbook", privacy="cellar-book.html", category="LifestyleApplication",
          tools=["wine-drink-window-calculator", "wine-cellar-value-calculator"]),
     dict(slug="leaflet", web_accent="#2E7D32", name="Leaflet", full="Leaflet: Plant Care & Watering", palette="leaflet",
-         app_id="6796375617", pkg="com.eritech.leaflet", privacy="leaflet.html",
+         app_id="6796375617", pkg="com.eritech.leaflet", privacy="leaflet.html", category="LifestyleApplication",
          tools=["plant-watering-calculator"]),
     dict(slug="warranty-box", web_accent="#2F6E9E", name="Warranty Box", full="Warranty Box — Track Expiry", palette="warranty",
-         app_id="6790972644", pkg="com.eritech.warrantybox", privacy="warranty-box.html",
+         app_id="6790972644", pkg="com.eritech.warrantybox", privacy="warranty-box.html", category="UtilitiesApplication",
          tools=["uk-return-rights-checker"]),
 ]
 

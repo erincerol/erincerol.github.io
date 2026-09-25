@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sourdough Starter Feeding Ratio Calculator | Eri Tech Studio</title>
+<title>Sourdough Starter Feeding Ratio Calculator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="Work out flour and water amounts for any sourdough starter feeding ratio — 1:1:1, 1:2:2, 1:5:5 or your own — with expected peak times. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/starter-feeding-ratio-calculator/">
 <meta property="og:type" content="website">
@@ -60,19 +60,22 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Starter Feeding Ratio Calculator","item":"https://eritech.studio/tools/starter-feeding-ratio-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Starter Feeding Ratio Calculator", "item": "https://eritech.studio/tools/starter-feeding-ratio-calculator/"}]}, {"@type": "WebApplication", "name": "Starter Feeding Ratio Calculator", "url": "https://eritech.studio/tools/starter-feeding-ratio-calculator/", "description": "Work out flour and water amounts for any sourdough starter feeding ratio — 1:1:1, 1:2:2, 1:5:5 or your own — with expected peak times. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the best sourdough starter feeding ratio?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single best ratio — the right one is whichever peaks when you need it. 1:1:1 peaks fastest, typically in about 4–6 hours at a warm room temperature, while 1:5:5 takes roughly 8–12 and suits an overnight feed. Choose by your schedule, then keep it consistent so you learn what ripe looks like for your jar."}}, {"@type": "Question", "name": "How much flour and water should I feed my starter?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply the starter you keep by each side of the ratio. At 1:1:1, 50 g of starter gets 50 g of flour and 50 g of water. At 1:5:5, 15 g of starter gets 75 g of each. The amount you keep, not the size of your jar, sets the quantities."}}, {"@type": "Question", "name": "What does 1:1:1 mean for a sourdough starter?", "acceptedAnswer": {"@type": "Answer", "text": "Equal weights of starter, flour and water. It is the smallest common feed, so the culture has little fresh food to work through: it rises quickly, peaks within a few hours at a warm room temperature, and turns sour soon afterwards if it is not used."}}, {"@type": "Question", "name": "Why does my starter peak too early or too late?", "acceptedAnswer": {"@type": "Answer", "text": "Temperature is the usual reason. The estimates here assume roughly 22–24 °C; a warmer kitchen speeds everything up and a cooler one slows it down considerably. If your starter peaks before you need it, feed a larger ratio. If it is late, use a smaller ratio or move the jar somewhere warmer."}}, {"@type": "Question", "name": "Do I have to discard starter before feeding?", "acceptedAnswer": {"@type": "Answer", "text": "The ratio is based on how much starter you keep, so discarding is really about keeping feeds small. Keeping 10–20 g and discarding the rest means modest amounts of fresh flour each time. Keep it all, and the flour and water have to grow to match — the jar, and the flour bill, get bigger with every feed."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
-<h1>Starter Feeding Ratio Calculator</h1>
+<h1>Sourdough Starter Feeding Ratio Calculator</h1>
 <p class="lede">Pick a ratio, enter how much starter you&rsquo;re keeping, and get the flour and water to feed it.</p>
 </header>
 <section class="calc" aria-label="Calculator">
@@ -104,14 +107,46 @@ footer a,a:visited{color:var(--muted)}
 <p>A ripe starter has domed or just begun to flatten, smells pleasantly tangy rather than harsh, and is full of bubbles through the body of the culture, not just on top. Temperature moves everything: at 26&nbsp;&deg;C a 1:5:5 feed can behave like a 1:2:2 at 20&nbsp;&deg;C. If your kitchen runs cold, use a smaller ratio or find a warmer spot; if your starter races past its peak before you wake up, feed it more heavily.</p>
 <p>Whatever ratio you settle on, consistency beats cleverness — the same feed at the same times teaches you exactly what &ldquo;ready&rdquo; looks like for your jar.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>A ratio of <em>a</em>&nbsp;:&nbsp;<em>b</em>&nbsp;:&nbsp;<em>c</em> is scaled to the starter you are keeping. The flour to add is the kept starter &times; <em>b</em> &divide; <em>a</em>, and the water is the kept starter &times; <em>c</em> &divide; <em>a</em>. The total is simply the three added together.</p>
+<p>The peak estimate comes from how much fresh flour the culture has to work through, relative to itself &mdash; the flour part divided by the starter part. Up to 1&times; it expects a peak in about 4&ndash;6 hours, up to 2&times; about 6&ndash;8, up to 5&times; about 8&ndash;12, and beyond that 12&ndash;16. Those windows assume a healthy starter at roughly 22&ndash;24&nbsp;&deg;C.</p>
+<h2>A worked example</h2>
+<p>Say you want a ripe starter first thing in the morning and you feed it at ten o&rsquo;clock the night before. An overnight gap calls for a large feed, so choose 1:5:5 and keep 15&nbsp;g of starter.</p>
+<table class="worked">
+<tr><td>Flour (15 &times; 5 &divide; 1)</td><td>75&nbsp;g</td></tr>
+<tr><td>Water (15 &times; 5 &divide; 1)</td><td>75&nbsp;g</td></tr>
+<tr><td>Total in the jar (15 + 75 + 75)</td><td>165&nbsp;g</td></tr>
+<tr><td>Expected peak (flour is 5&times; the starter)</td><td>8&ndash;12 hours</td></tr>
+</table>
+<p>A ten o&rsquo;clock feed should peak somewhere between six and ten the next morning. If your kitchen is cold overnight, expect the later end of that window or beyond; if it is warm, check early.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>What is the best sourdough starter feeding ratio?</h3>
+<p>There is no single best ratio &mdash; the right one is whichever peaks when you need it. 1:1:1 peaks fastest, typically in about 4&ndash;6 hours at a warm room temperature, while 1:5:5 takes roughly 8&ndash;12 and suits an overnight feed. Choose by your schedule, then keep it consistent so you learn what ripe looks like for your jar.</p>
+<h3>How much flour and water should I feed my starter?</h3>
+<p>Multiply the starter you keep by each side of the ratio. At 1:1:1, 50&nbsp;g of starter gets 50&nbsp;g of flour and 50&nbsp;g of water. At 1:5:5, 15&nbsp;g of starter gets 75&nbsp;g of each. The amount you keep, not the size of your jar, sets the quantities.</p>
+<h3>What does 1:1:1 mean for a sourdough starter?</h3>
+<p>Equal weights of starter, flour and water. It is the smallest common feed, so the culture has little fresh food to work through: it rises quickly, peaks within a few hours at a warm room temperature, and turns sour soon afterwards if it is not used.</p>
+<h3>Why does my starter peak too early or too late?</h3>
+<p>Temperature is the usual reason. The estimates here assume roughly 22&ndash;24&nbsp;&deg;C; a warmer kitchen speeds everything up and a cooler one slows it down considerably. If your starter peaks before you need it, feed a larger ratio. If it is late, use a smaller ratio or move the jar somewhere warmer.</p>
+<h3>Do I have to discard starter before feeding?</h3>
+<p>The ratio is based on how much starter you keep, so discarding is really about keeping feeds small. Keeping 10&ndash;20&nbsp;g and discarding the rest means modest amounts of fresh flour each time. Keep it all, and the flour and water have to grow to match &mdash; the jar, and the flour bill, get bigger with every feed.</p>
+</section>
 <section class="app-block">
 <p>A free web tool from the makers of <strong><a href="/apps/the-bake-log/">The Bake Log</a></strong> &mdash; starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790971986?pt=129172097&amp;ct=calc_starter_feeding&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.thebakelog&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dstarter_feeding" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More baking tools</h2>
+<ul class="cluster">
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a><span class="d">Flour, water and starter in — true hydration % out, or work backwards from a target.</span></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a><span class="d">Scale any bread formula from flour weight or target dough weight.</span></li>
+<li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a><span class="d">Hit a target dough temperature — the water temp you need, from flour and room.</span></li>
+<li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a><span class="d">Style and ball count in — flour, water, salt, oil and yeast out.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
-<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
-<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
 <li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
 <li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
 <li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
@@ -120,14 +155,12 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
 <li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
 <li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
-<li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a></li>
 <li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a></li>
-<li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a></li>
 </ul>
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

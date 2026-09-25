@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sourdough Hydration Calculator — With Starter Included | Eri Tech Studio</title>
+<title>Sourdough Hydration Calculator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="Work out your dough's hydration percentage from flour, water and starter — or work backwards from a target hydration. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/sourdough-hydration-calculator/">
 <meta property="og:type" content="website">
@@ -60,16 +60,19 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Sourdough Hydration Calculator","item":"https://eritech.studio/tools/sourdough-hydration-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Sourdough Hydration Calculator", "item": "https://eritech.studio/tools/sourdough-hydration-calculator/"}]}, {"@type": "WebApplication", "name": "Sourdough Hydration Calculator", "url": "https://eritech.studio/tools/sourdough-hydration-calculator/", "description": "Work out your dough's hydration percentage from flour, water and starter — or work backwards from a target hydration. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate sourdough hydration?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the total weight of water by the total weight of flour and multiply by 100 — counting the flour and water inside your starter as well as what you weigh out. A 100% starter is half flour and half water, so 100 g of it adds 50 g of each."}}, {"@type": "Question", "name": "Does the starter count towards hydration?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Starter is flour and water, so leaving it out understates both totals. With a generous amount of starter the difference can be several percentage points, which is enough to change how the dough handles."}}, {"@type": "Question", "name": "What hydration should a beginner use?", "acceptedAnswer": {"@type": "Answer", "text": "Somewhere between 60% and 68% with white bread flour. The dough is firm enough to shape without sticking to everything, and still bakes into a good loaf. Once shaping feels comfortable, move up a few points at a time."}}, {"@type": "Question", "name": "What if my starter is not 100% hydration?", "acceptedAnswer": {"@type": "Answer", "text": "Enter its actual hydration in the starter field. A stiff starter at 50% hydration is two-thirds flour and one-third water, so it adds more flour and less water to the dough than a liquid starter of the same weight. The calculator adjusts both totals for you."}}, {"@type": "Question", "name": "Does water added later, such as with the salt, count?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Hydration describes the finished dough, so any water that ends up in it counts — including water held back and worked in later with the salt. Add it to the water figure before you calculate."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
 <h1>Sourdough Hydration Calculator</h1>
@@ -101,14 +104,47 @@ footer a,a:visited{color:var(--muted)}
 <p>There is no single right answer, but the ranges are well established. Around 60–68% gives a firm, forgiving dough that is easy to shape — the best place to learn. 70–75% is the classic sourdough range, balancing an open crumb with manageable handling. Above 78% the dough turns slack and sticky and rewards experience with coil folds and gentle shaping.</p>
 <p>Flour matters as much as the number: wholegrain and strong bread flours absorb far more water than plain white flour, so an 80% wholemeal dough can feel drier than a 72% white one. Treat the percentage as a starting point, adjust by feel, and keep notes on what each flour can take.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>The calculator first splits your starter into the flour and water it contains. A starter kept at a hydration of <em>h</em>% holds flour equal to its weight &times; 100 &divide; (100 + <em>h</em>), and water equal to its weight &times; <em>h</em> &divide; (100 + <em>h</em>). Those amounts are added to the flour and water you weigh out, and hydration is total water divided by total flour, multiplied by 100.</p>
+<p>Working backwards is the same sum rearranged. To reach a target, the water to add is that percentage of the total flour, minus the water the starter is already carrying.</p>
+<h2>A worked example</h2>
+<p>Take a common formula: 500&nbsp;g of flour, 350&nbsp;g of water and 100&nbsp;g of starter at 100% hydration. On paper, 350 over 500 looks like a 70% dough.</p>
+<table class="worked">
+<tr><td>Flour inside the starter (100 &times; 100 &divide; 200)</td><td>50&nbsp;g</td></tr>
+<tr><td>Water inside the starter (100 &times; 100 &divide; 200)</td><td>50&nbsp;g</td></tr>
+<tr><td>Total flour (500 + 50)</td><td>550&nbsp;g</td></tr>
+<tr><td>Total water (350 + 50)</td><td>400&nbsp;g</td></tr>
+<tr><td>True hydration (400 &divide; 550 &times; 100)</td><td>72.7%</td></tr>
+</table>
+<p>The dough is nearly three points wetter than the recipe suggests. To bring it back to a true 70%, work backwards: 70% of 550&nbsp;g is 385&nbsp;g of water, less the 50&nbsp;g the starter supplies, which leaves 335&nbsp;g to add.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>How do I calculate sourdough hydration?</h3>
+<p>Divide the total weight of water by the total weight of flour and multiply by 100 &mdash; counting the flour and water inside your starter as well as what you weigh out. A 100% starter is half flour and half water, so 100&nbsp;g of it adds 50&nbsp;g of each.</p>
+<h3>Does the starter count towards hydration?</h3>
+<p>Yes. Starter is flour and water, so leaving it out understates both totals. With a generous amount of starter the difference can be several percentage points, which is enough to change how the dough handles.</p>
+<h3>What hydration should a beginner use?</h3>
+<p>Somewhere between 60% and 68% with white bread flour. The dough is firm enough to shape without sticking to everything, and still bakes into a good loaf. Once shaping feels comfortable, move up a few points at a time.</p>
+<h3>What if my starter is not 100% hydration?</h3>
+<p>Enter its actual hydration in the starter field. A stiff starter at 50% hydration is two-thirds flour and one-third water, so it adds more flour and less water to the dough than a liquid starter of the same weight. The calculator adjusts both totals for you.</p>
+<h3>Does water added later, such as with the salt, count?</h3>
+<p>Yes. Hydration describes the finished dough, so any water that ends up in it counts &mdash; including water held back and worked in later with the salt. Add it to the water figure before you calculate.</p>
+</section>
 <section class="app-block">
 <p>A free web tool from the makers of <strong><a href="/apps/the-bake-log/">The Bake Log</a></strong> &mdash; starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790971986?pt=129172097&amp;ct=calc_sourdough_hydration&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.thebakelog&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dsourdough_hydration" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More baking tools</h2>
+<ul class="cluster">
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a><span class="d">Scale any bread formula from flour weight or target dough weight.</span></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a><span class="d">1:1:1, 1:2:2, 1:5:5 — exact feed amounts and expected peak times.</span></li>
+<li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a><span class="d">Hit a target dough temperature — the water temp you need, from flour and room.</span></li>
+<li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a><span class="d">Style and ball count in — flour, water, salt, oil and yeast out.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
-<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
-<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
 <li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
 <li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
 <li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
@@ -117,14 +153,12 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
 <li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
 <li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
-<li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a></li>
 <li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a></li>
-<li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a></li>
 </ul>
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

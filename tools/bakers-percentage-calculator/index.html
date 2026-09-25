@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Baker's Percentage Calculator — Scale Any Bread Recipe | Eri Tech Studio</title>
+<title>Baker's Percentage Calculator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="Scale any bread recipe with baker's percentages — enter flour or target dough weight and get exact gram amounts for water, salt and levain. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/bakers-percentage-calculator/">
 <meta property="og:type" content="website">
@@ -60,16 +60,19 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Baker's Percentage Calculator","item":"https://eritech.studio/tools/bakers-percentage-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Baker's Percentage Calculator", "item": "https://eritech.studio/tools/bakers-percentage-calculator/"}]}, {"@type": "WebApplication", "name": "Baker's Percentage Calculator", "url": "https://eritech.studio/tools/bakers-percentage-calculator/", "description": "Scale any bread recipe with baker's percentages — enter flour or target dough weight and get exact gram amounts for water, salt and levain. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate baker’s percentage?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the weight of each ingredient by the total flour weight and multiply by 100. With 500 g of flour, 350 g of water is 70% and 10 g of salt is 2%. If a recipe uses more than one flour — white and wholemeal, say — add them together first: the combined flour is the 100%, and each flour can then be written as its share of that total."}}, {"@type": "Question", "name": "Why do baker’s percentages add up to more than 100%?", "acceptedAnswer": {"@type": "Answer", "text": "Because flour is fixed at 100% and everything else is measured against it, not against the whole dough. A formula of 70% water, 2% salt and 20% levain adds up to 192%, which simply means the finished dough weighs 1.92 times the flour. That sum is the number to divide by when you work back from a dough weight to the flour you need."}}, {"@type": "Question", "name": "How much flour do I need for a 1 kg loaf?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the formula. Add up the percentages, divide by 100, and divide 1,000 g by the result. For 70% water, 2% salt and 20% levain the divisor is 1.92, which gives about 521 g of flour. A wetter or richer formula has a larger sum, so the same 1 kg of dough needs less flour."}}, {"@type": "Question", "name": "How do I scale a bread recipe up or down?", "acceptedAnswer": {"@type": "Answer", "text": "Convert it to baker’s percentages once, then choose a new flour weight and multiply each percentage by it. Because every ingredient keeps the same relationship to the flour, the dough keeps the same character at any size. Alternatively, work from the dough weight you want — the number of loaves times the weight of each — and let the percentages solve for the flour."}}, {"@type": "Question", "name": "Is levain counted as flour in baker’s percentage?", "acceptedAnswer": {"@type": "Answer", "text": "Formulas differ. In this calculator the levain is a single ingredient, stated as a percentage of the flour you weigh out, and its own flour and water are not added to the flour and water lines. Some bakers work from total flour instead, folding the levain’s flour and water into the figures. To see what that does to the real water percentage, use the hydration calculator."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
 <h1>Baker&rsquo;s Percentage Calculator</h1>
@@ -99,14 +102,49 @@ footer a,a:visited{color:var(--muted)}
 <p>Salt almost always sits at 1.8–2.2% — below that bread tastes flat, above 2.5% fermentation slows noticeably. Levain typically runs 15–25% of the flour: more levain ferments faster and tips the flavour toward sour, less gives you a longer, more forgiving timeline. Water is the variable bakers argue about; see the <a href="/tools/sourdough-hydration-calculator/">hydration calculator</a> for what the percentage actually means for handling and crumb.</p>
 <p>One caution when comparing formulas: some recipes count the flour and water inside the levain toward the totals, and some do not. It rarely changes the bread much, but it explains why two &ldquo;75% hydration&rdquo; recipes can behave differently.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>From a flour weight, the sums are direct. Flour is 100%, and every other line is the flour multiplied by its percentage and divided by 100: 70% water on 500&nbsp;g of flour is 350&nbsp;g. The total dough is the four lines added together.</p>
+<p>From a dough weight, the calculator adds the percentages to the flour&rsquo;s 100 and divides by 100 to get a multiplier &mdash; 1.92 for the default formula. The target weight divided by that multiplier is the flour, and the other lines are worked out from the flour as before. Flour, water, levain and the total are rounded to the nearest gram, and salt to a tenth of a gram, where a single gram is a large share of the quantity. The levain is treated as one ingredient: the flour and water inside it are not added to the flour and water lines.</p>
+<h2>A worked example</h2>
+<p>Say you want a 1&nbsp;kg loaf from the default formula: 70% water, 2% salt and 20% levain.</p>
+<table class="worked">
+<tr><td>Sum of percentages (100 + 70 + 2 + 20)</td><td>192%</td></tr>
+<tr><td>Multiplier (192 &divide; 100)</td><td>1.92</td></tr>
+<tr><td>Flour (1,000 &divide; 1.92)</td><td>521&nbsp;g</td></tr>
+<tr><td>Water (520.8 &times; 70%)</td><td>365&nbsp;g</td></tr>
+<tr><td>Salt (520.8 &times; 2%)</td><td>10.4&nbsp;g</td></tr>
+<tr><td>Levain (520.8 &times; 20%)</td><td>104&nbsp;g</td></tr>
+<tr><td>Total dough</td><td>1,000&nbsp;g</td></tr>
+</table>
+<p>The other lines are calculated from the unrounded flour, 520.8&nbsp;g, so the rounded figures add up to 1,000.4&nbsp;g rather than exactly 1,000 &mdash; a rounding artefact, not an error. If you are doing it by hand, carry the decimal through in the same way. In practice a few grams stay behind on the bowl and the bench, so if the loaf has to reach a set weight, ask for a little more than you need.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>How do I calculate baker&rsquo;s percentage?</h3>
+<p>Divide the weight of each ingredient by the total flour weight and multiply by 100. With 500&nbsp;g of flour, 350&nbsp;g of water is 70% and 10&nbsp;g of salt is 2%. If a recipe uses more than one flour &mdash; white and wholemeal, say &mdash; add them together first: the combined flour is the 100%, and each flour can then be written as its share of that total.</p>
+<h3>Why do baker&rsquo;s percentages add up to more than 100%?</h3>
+<p>Because flour is fixed at 100% and everything else is measured against it, not against the whole dough. A formula of 70% water, 2% salt and 20% levain adds up to 192%, which simply means the finished dough weighs 1.92 times the flour. That sum is the number to divide by when you work back from a dough weight to the flour you need.</p>
+<h3>How much flour do I need for a 1&nbsp;kg loaf?</h3>
+<p>It depends on the formula. Add up the percentages, divide by 100, and divide 1,000&nbsp;g by the result. For 70% water, 2% salt and 20% levain the divisor is 1.92, which gives about 521&nbsp;g of flour. A wetter or richer formula has a larger sum, so the same 1&nbsp;kg of dough needs less flour.</p>
+<h3>How do I scale a bread recipe up or down?</h3>
+<p>Convert it to baker&rsquo;s percentages once, then choose a new flour weight and multiply each percentage by it. Because every ingredient keeps the same relationship to the flour, the dough keeps the same character at any size. Alternatively, work from the dough weight you want &mdash; the number of loaves times the weight of each &mdash; and let the percentages solve for the flour.</p>
+<h3>Is levain counted as flour in baker&rsquo;s percentage?</h3>
+<p>Formulas differ. In this calculator the levain is a single ingredient, stated as a percentage of the flour you weigh out, and its own flour and water are not added to the flour and water lines. Some bakers work from total flour instead, folding the levain&rsquo;s flour and water into the figures. To see what that does to the real water percentage, use the <a href="/tools/sourdough-hydration-calculator/">hydration calculator</a>.</p>
+</section>
 <section class="app-block">
 <p>A free web tool from the makers of <strong><a href="/apps/the-bake-log/">The Bake Log</a></strong> &mdash; starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790971986?pt=129172097&amp;ct=calc_bakers_percentage&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.thebakelog&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dbakers_percentage" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More baking tools</h2>
+<ul class="cluster">
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a><span class="d">Flour, water and starter in — true hydration % out, or work backwards from a target.</span></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a><span class="d">1:1:1, 1:2:2, 1:5:5 — exact feed amounts and expected peak times.</span></li>
+<li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a><span class="d">Hit a target dough temperature — the water temp you need, from flour and room.</span></li>
+<li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a><span class="d">Style and ball count in — flour, water, salt, oil and yeast out.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
-<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
-<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
 <li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
 <li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
 <li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
@@ -115,14 +153,12 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
 <li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
 <li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
-<li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a></li>
 <li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a></li>
-<li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a></li>
 </ul>
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

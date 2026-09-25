@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Packing List Generator — By Trip Length and Climate | Eri Tech Studio</title>
+<title>Packing List Generator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="Generate a packing list from your trip length, climate and style — with quantities worked out for you. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/packing-list-generator/">
 <meta property="og:type" content="website">
@@ -60,6 +60,12 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 .plist{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin-top:16px}
 .plist h4{margin:0 0 5px;font-family:Georgia,"Times New Roman",serif;font-size:.95rem;color:var(--accent)}
 .plist ul{list-style:none;padding:0;margin:0}
@@ -68,14 +74,11 @@ footer a,a:visited{color:var(--muted)}
 @media(max-width:540px){.plist{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Packing List Generator","item":"https://eritech.studio/tools/packing-list-generator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Packing List Generator", "item": "https://eritech.studio/tools/packing-list-generator/"}]}, {"@type": "WebApplication", "name": "Packing List Generator", "url": "https://eritech.studio/tools/packing-list-generator/", "description": "Generate a packing list from your trip length, climate and style — with quantities worked out for you. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What should I pack for a two-week trip?", "acceptedAnswer": {"@type": "Answer", "text": "If you can do laundry, about a week of clothing: for fourteen nights the generator suggests eight each of underwear and socks, seven tops, two pairs of trousers or skirts and two sets of sleepwear, plus layers for the climate. Add the essentials that do not scale with length — passport, two separate cards, prescriptions, adapter — and wash once halfway through."}}, {"@type": "Question", "name": "How many pairs of socks should I pack?", "acceptedAnswer": {"@type": "Answer", "text": "One pair for each day until you can next wash, plus a spare. With laundry access the generator stops at eight pairs however long the trip; without it, the count is one per night plus a spare, up to fifteen. For carry-on only it caps at eight either way. In freezing weather it also adds three pairs of thick socks to the layers."}}, {"@type": "Question", "name": "Should I pack more clothes for a longer trip?", "acceptedAnswer": {"@type": "Answer", "text": "Only if you cannot wash them. With laundry the clothing count is the same from seven nights upwards — a ten-night trip and a thirty-night trip pack the same number of tops and socks. Without laundry the list grows with the nights until fourteen days, then levels off, because beyond a fortnight you will be washing something whatever you planned."}}, {"@type": "Question", "name": "How do I pack for cold weather without overpacking?", "acceptedAnswer": {"@type": "Answer", "text": "Pack layers rather than bulk. For 0–10 °C the generator suggests a warm coat, two jumpers or fleeces, a thermal top, hat, gloves and scarf — pieces that combine for cold streets and come off in heated shops and trains. Wear the coat and heaviest shoes on the journey, so they take no space in the bag."}}, {"@type": "Question", "name": "Can I travel for two weeks with only carry-on luggage?", "acceptedAnswer": {"@type": "Answer", "text": "Usually, provided you can wash clothes along the way. The generator caps a carry-on list at six tops, two pairs of trousers or skirts and eight each of underwear and socks, and marks toiletries as 100 ml or less. Size, weight and liquids allowances vary by airline and airport, so check yours before you pack rather than relying on a general figure."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
 <h1>Packing List Generator</h1>
@@ -118,13 +121,49 @@ footer a,a:visited{color:var(--muted)}
 <h2>Carry-on only changes the maths</h2>
 <p>Cabin-only travel is less about ruthless minimalism than about two specific constraints: liquids must fit the 100&nbsp;ml rule, and your bulkiest items &mdash; boots, coat &mdash; get worn onto the plane rather than packed. Once those are handled, a week of clothing fits comfortably in a 40&nbsp;L bag, and laundry covers the rest of any trip length.</p>
 <h2>The part people actually forget</h2>
-<p>It is rarely clothing. It is the plug adapter, the second payment card kept somewhere separate from the first, prescriptions in their original labelled packaging for border checks, and offline copies of every booking &mdash; because the one moment you cannot rely on having signal or battery is the moment you land. Screenshot or download your confirmations before you leave, and keep them somewhere that works in airplane mode.</p>
+<p>It is rarely clothing. It is the plug adapter, the second payment card kept somewhere separate from the first, prescriptions in their original labelled packaging for border checks, and offline copies of every booking &mdash; because the one moment you cannot rely on having signal or battery is the moment you land. Screenshot or download your confirmations before you leave, and keep them somewhere that works in aeroplane mode.</p>
+</section>
+<section>
+<h2>How it works</h2>
+<p>Everything in the clothing section flows from one figure: the number of days you need to dress for before you can wash. With laundry access that is your number of nights, capped at seven; without it, the cap rises to fourteen. Underwear and socks are one more than that figure, up to 15. Tops are one per day, never fewer than 2 or more than 10. Trousers or skirts are one per four days, rounded up, between 1 and 4. Sleepwear is 2 for trips over seven nights, otherwise 1.</p>
+<p>Carry-on only then caps tops at 6, trousers or skirts at 2 and underwear and socks at 8, and marks toiletries as 100&nbsp;ml or less. The climate picks the layers and outerwear &mdash; thermal base layers, an insulated coat and waterproof boots when freezing; a linen overshirt, sun hat and quick-dry towel when hot and humid. The trip style adds its own short list, such as a 20&ndash;30&nbsp;L daypack and head torch for hiking, or a suit and dress shoes for business. Toiletries, tech and documents are the same for every trip. The headline figure counts lines on the list, not individual garments.</p>
+<h2>A worked example</h2>
+<p>Fourteen nights of city sightseeing in cold weather, with laundry and a checked bag.</p>
+<table class="worked">
+<tr><td>Days of clothing (14 nights, capped at 7)</td><td>7</td></tr>
+<tr><td>Underwear</td><td>&times;8</td></tr>
+<tr><td>Socks</td><td>&times;8</td></tr>
+<tr><td>Tops</td><td>&times;7</td></tr>
+<tr><td>Trousers or skirts</td><td>&times;2</td></tr>
+<tr><td>Sleepwear</td><td>&times;2</td></tr>
+<tr><td>Jumper or fleece</td><td>&times;2</td></tr>
+<tr><td>Thermal top</td><td>&times;1</td></tr>
+<tr><td>Total</td><td>32 items to pack</td></tr>
+</table>
+<p>Take laundry away and the same fortnight needs underwear and socks &times;15, tops &times;10 and trousers or skirts &times;4 &mdash; nearly double the clothing. Keep no laundry but switch to carry-on only, and the caps bring it back to &times;8, &times;6 and &times;2, which in practice means planning to wash in a sink. The headline stays at 32 in all three cases, because only the quantities change.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>What should I pack for a two-week trip?</h3>
+<p>If you can do laundry, about a week of clothing: for fourteen nights the generator suggests eight each of underwear and socks, seven tops, two pairs of trousers or skirts and two sets of sleepwear, plus layers for the climate. Add the essentials that do not scale with length &mdash; passport, two separate cards, prescriptions, adapter &mdash; and wash once halfway through.</p>
+<h3>How many pairs of socks should I pack?</h3>
+<p>One pair for each day until you can next wash, plus a spare. With laundry access the generator stops at eight pairs however long the trip; without it, the count is one per night plus a spare, up to fifteen. For carry-on only it caps at eight either way. In freezing weather it also adds three pairs of thick socks to the layers.</p>
+<h3>Should I pack more clothes for a longer trip?</h3>
+<p>Only if you cannot wash them. With laundry the clothing count is the same from seven nights upwards &mdash; a ten-night trip and a thirty-night trip pack the same number of tops and socks. Without laundry the list grows with the nights until fourteen days, then levels off, because beyond a fortnight you will be washing something whatever you planned.</p>
+<h3>How do I pack for cold weather without overpacking?</h3>
+<p>Pack layers rather than bulk. For 0&ndash;10&nbsp;&deg;C the generator suggests a warm coat, two jumpers or fleeces, a thermal top, hat, gloves and scarf &mdash; pieces that combine for cold streets and come off in heated shops and trains. Wear the coat and heaviest shoes on the journey, so they take no space in the bag.</p>
+<h3>Can I travel for two weeks with only carry-on luggage?</h3>
+<p>Usually, provided you can wash clothes along the way. The generator caps a carry-on list at six tops, two pairs of trousers or skirts and eight each of underwear and socks, and marks toiletries as 100&nbsp;ml or less. Size, weight and liquids allowances vary by airline and airport, so check yours before you pack rather than relying on a general figure.</p>
 </section>
 <section class="app-block">
 <p>This tool comes from <strong><a href="/apps/travel-binder/">The Travel Binder</a></strong> — a fully offline binder for flights, hotels, bookings, documents, packing and checklists, with the whole trip on one map. No account, no cloud, no AI.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6797601401?pt=129172097&amp;ct=calc_packing_list&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.travelbinder&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dpacking_list" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More travel tools</h2>
+<ul class="cluster">
+<li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a><span class="d">Nights and travel style in — a line-by-line budget, per person and per day.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
 <li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
 <li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
@@ -135,7 +174,6 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
 <li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
 <li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
-<li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
 <li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a></li>
 <li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a></li>
 <li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a></li>
@@ -143,7 +181,7 @@ footer a,a:visited{color:var(--muted)}
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

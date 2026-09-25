@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wine Drink Window Calculator — When to Drink It | Eri Tech Studio</title>
+<title>Wine Drink Window Calculator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="Enter a wine style and vintage and get its likely drinking window — still ageing, ready now, at peak, or fading. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/wine-drink-window-calculator/">
 <meta property="og:type" content="website">
@@ -60,16 +60,19 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Wine Drink Window Calculator","item":"https://eritech.studio/tools/wine-drink-window-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Drink Window Calculator", "item": "https://eritech.studio/tools/wine-drink-window-calculator/"}]}, {"@type": "WebApplication", "name": "Wine Drink Window Calculator", "url": "https://eritech.studio/tools/wine-drink-window-calculator/", "description": "Enter a wine style and vintage and get its likely drinking window — still ageing, ready now, at peak, or fading. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When should I drink my wine?", "acceptedAnswer": {"@type": "Answer", "text": "Most wine is made to be enjoyed within a year or two of release, and keeping it longer gains nothing. Only wines with real structure — firm tannin, high acidity, sweetness or fortification — improve with age. For those, the middle of the drink window is the safest bet, while the early years favour fresh fruit and the later years favour softer, more savoury flavours."}}, {"@type": "Question", "name": "How long can you keep a bottle of red wine?", "acceptedAnswer": {"@type": "Answer", "text": "It depends almost entirely on the style. The calculator gives an everyday red one to five years from the vintage and an everyday Bordeaux three to ten, while a classed-growth Bordeaux runs to thirty and vintage Port to forty. Those figures assume a well-made example kept somewhere cool, dark and steady; poorer storage shortens every one of them."}}, {"@type": "Question", "name": "How can I tell if a wine is past its best?", "acceptedAnswer": {"@type": "Answer", "text": "Colour is the first clue: reds fade towards brick and brown at the rim, and whites deepen to gold or amber. On the nose and palate, fresh fruit gives way to dried fruit and nutty, sherry-like notes, and the acidity starts to stand out on its own. A wine in that state is rarely harmful, just flat — taste it before deciding to pour it away."}}, {"@type": "Question", "name": "Is it better to open a wine early or late in its window?", "acceptedAnswer": {"@type": "Answer", "text": "Neither is wrong; it is a matter of taste. Early in the window a wine shows more primary fruit and firmer tannin. Later it trades fruit for secondary flavours such as leather, earth and dried herbs, with a softer texture. If you are unsure which you prefer, the middle third — what the calculator calls the likely peak — balances the two."}}, {"@type": "Question", "name": "How should I store wine I want to age?", "acceptedAnswer": {"@type": "Answer", "text": "Somewhere cool, dark and stable, ideally around 12–14 °C, away from strong light and vibration. Steadiness matters as much as the exact figure, since repeated warming and cooling ages a wine faster. Bottles sealed with cork are traditionally kept on their side so the cork stays in contact with the wine and does not dry out."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
 <h1>Wine Drink Window Calculator</h1>
@@ -107,11 +110,45 @@ footer a,a:visited{color:var(--muted)}
 <h2>Using the estimate well</h2>
 <p>Treat the window as a planning tool, not a countdown. If you own several bottles of the same wine, open them across the window — one early, one at the projected peak — and let the wine tell you how it is evolving; that is far more reliable than any table. Storage is the silent variable: these ranges assume a cool, dark, stable spot around 12–14&nbsp;&deg;C. A bottle kept warm ages measurably faster, so shorten the window for anything stored in a kitchen.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>Each style in the list carries two numbers: how many years after the vintage its window usually opens, and how many years after the vintage it usually closes. Barolo and Barbaresco run from eight to twenty-five years, classed-growth Bordeaux from eight to thirty, red Burgundy from four to twelve, vintage Port from fifteen to forty, and an everyday white or ros&eacute; from the vintage year itself to two years on. Add both offsets to your vintage and you have the window.</p>
+<p>The calculator then sets that window against the current year. Before it opens, you get the number of years still to wait. Inside it, the window is divided into thirds: the first third reads as just opened and still improving, the middle third as around the likely peak, and the final third as the later slope. Once the closing year has passed, the wine is marked as past its likely window.</p>
+<h2>A worked example</h2>
+<p>Take a 2016 Barolo, checked in 2026.</p>
+<table class="worked">
+<tr><td>Style offsets (Barolo / Barbaresco)</td><td>8 to 25 years</td></tr>
+<tr><td>Window (2016 + 8, 2016 + 25)</td><td>Drink 2024 &ndash; 2041</td></tr>
+<tr><td>One third of the window (17 &divide; 3)</td><td>about 5.7 years</td></tr>
+<tr><td>Just opened</td><td>2024&ndash;2029</td></tr>
+<tr><td>Around its likely peak</td><td>2030&ndash;2035</td></tr>
+<tr><td>Later slope</td><td>2036&ndash;2041</td></tr>
+<tr><td>Verdict for 2026</td><td>The window has just opened &mdash; drinking well now, and should improve further.</td></tr>
+</table>
+<p>Two years into a seventeen-year window, the wine is approachable but not yet at its best on these numbers; the middle stretch begins in 2030. The estimate knows nothing about the producer or how the 2016 growing season went in Piedmont, so if you hold several bottles, opening one now is the most reliable way to judge when to open the rest.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>When should I drink my wine?</h3>
+<p>Most wine is made to be enjoyed within a year or two of release, and keeping it longer gains nothing. Only wines with real structure &mdash; firm tannin, high acidity, sweetness or fortification &mdash; improve with age. For those, the middle of the drink window is the safest bet, while the early years favour fresh fruit and the later years favour softer, more savoury flavours.</p>
+<h3>How long can you keep a bottle of red wine?</h3>
+<p>It depends almost entirely on the style. The calculator gives an everyday red one to five years from the vintage and an everyday Bordeaux three to ten, while a classed-growth Bordeaux runs to thirty and vintage Port to forty. Those figures assume a well-made example kept somewhere cool, dark and steady; poorer storage shortens every one of them.</p>
+<h3>How can I tell if a wine is past its best?</h3>
+<p>Colour is the first clue: reds fade towards brick and brown at the rim, and whites deepen to gold or amber. On the nose and palate, fresh fruit gives way to dried fruit and nutty, sherry-like notes, and the acidity starts to stand out on its own. A wine in that state is rarely harmful, just flat &mdash; taste it before deciding to pour it away.</p>
+<h3>Is it better to open a wine early or late in its window?</h3>
+<p>Neither is wrong; it is a matter of taste. Early in the window a wine shows more primary fruit and firmer tannin. Later it trades fruit for secondary flavours such as leather, earth and dried herbs, with a softer texture. If you are unsure which you prefer, the middle third &mdash; what the calculator calls the likely peak &mdash; balances the two.</p>
+<h3>How should I store wine I want to age?</h3>
+<p>Somewhere cool, dark and stable, ideally around 12&ndash;14&nbsp;&deg;C, away from strong light and vibration. Steadiness matters as much as the exact figure, since repeated warming and cooling ages a wine faster. Bottles sealed with cork are traditionally kept on their side so the cork stays in contact with the wine and does not dry out.</p>
+</section>
 <section class="app-block">
-<p>This calculator is built into <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>, which tracks drink windows on every bottle in your cellar — see what is ageing, ready or fading at a glance, with label photos, tasting notes on the 100-point scale and an offline map of your collection&rsquo;s regions.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6796370046?pt=129172097&amp;ct=calc_wine_drink_window&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.cellarbook&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dwine_drink_window" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+<p>This calculator is built into <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>, which tracks drink windows on every bottle in your cellar — see what is ageing, ready or fading at a glance, with label photos, tasting notes on the 100-point scale and an offline map of your collection&rsquo;s regions.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6796370046?ppid=5c62f941-daf9-4164-baa7-f7ab12a6df70&amp;pt=129172097&amp;ct=calc_wine_drink_window&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.cellarbook&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dwine_drink_window" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More wine tools</h2>
+<ul class="cluster">
+<li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a><span class="d">Count by tier — total value, average per bottle, replacement figure.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
 <li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
 <li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
@@ -124,13 +161,12 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
 <li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
 <li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a></li>
-<li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a></li>
 <li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a></li>
 </ul>
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

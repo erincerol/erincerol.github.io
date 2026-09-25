@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plant Watering Calculator — How Often to Water | Eri Tech Studio</title>
+<title>Plant Watering Calculator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="How often to water a Monstera, Pothos, snake plant and more — interval estimates by species, season and light. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/plant-watering-calculator/">
 <meta property="og:type" content="website">
@@ -60,16 +60,19 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Plant Watering Calculator","item":"https://eritech.studio/tools/plant-watering-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Plant Watering Calculator", "item": "https://eritech.studio/tools/plant-watering-calculator/"}]}, {"@type": "WebApplication", "name": "Plant Watering Calculator", "url": "https://eritech.studio/tools/plant-watering-calculator/", "description": "How often to water a Monstera, Pothos, snake plant and more — interval estimates by species, season and light. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How often should I water a Monstera?", "acceptedAnswer": {"@type": "Answer", "text": "As a starting point, every 7–10 days in spring and summer in medium light, every 6–8 days in a bright window, and as little as every 15–21 days in a dim room in winter. The soil has the final say: water when the top 2–5 cm is dry, water thoroughly until it runs from the drainage holes, then empty the saucer."}}, {"@type": "Question", "name": "How often should I water a snake plant?", "acceptedAnswer": {"@type": "Answer", "text": "Less often than almost anything else on the list. The calculator starts at every 14–21 days in the growing season in medium light, stretching to roughly every 29–44 days in winter in low light. Snake plants store water in their leaves and rot easily, so wait until the pot is dry all the way through, not just at the surface."}}, {"@type": "Question", "name": "Should I water houseplants less in winter?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for almost all of them. Shorter days mean slower growth, so the soil takes much longer to dry and the same routine that suited summer leaves roots sitting wet. The exception is a pot close to a radiator, which can dry out faster than you would expect — one more reason to check the soil rather than follow the calendar."}}, {"@type": "Question", "name": "How do I know if I am overwatering a plant?", "acceptedAnswer": {"@type": "Answer", "text": "Yellowing lower leaves while the soil is still damp are the classic sign. Others include a sour or musty smell from the pot, soft or darkening stems at the base, fungus gnats hovering over the surface, and a plant that wilts even though the soil is wet — which usually means the roots are already damaged. Let the pot dry out well before watering again."}}, {"@type": "Question", "name": "Does the pot change how often I need to water?", "acceptedAnswer": {"@type": "Answer", "text": "Considerably, and the calculator does not account for it. Unglazed terracotta is porous and dries faster than plastic or glazed ceramic; a small pot dries faster than a large one; and a pot without drainage holes holds water at the bottom where you cannot see it. Adjust the interval for your own pots and let the soil guide you."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
 <h1>Plant Watering Calculator</h1>
@@ -116,11 +119,41 @@ footer a,a:visited{color:var(--muted)}
 <h2>Overwatering kills more than drought</h2>
 <p>Most houseplants tolerate going a little too dry: leaves droop, you water, they recover. Constantly wet soil is different — it suffocates roots and invites rot, which is usually fatal by the time it shows. Yellowing lower leaves on damp soil mean water less, not more. In autumn and winter, growth slows and drying takes far longer, so stretch every interval; almost everything on this list wants a drier, calmer off-season than its summer routine.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>Each plant starts from a base range in days, meant for the growing season in medium light: 7&ndash;10 days for Monstera, Pothos, fiddle leaf fig, Pilea and spider plant; 5&ndash;7 for Alocasia, Calathea and peace lily; 3&ndash;5 for ferns; 14&ndash;21 for snake plants and ZZ plants; and 14&ndash;28 for succulents and cacti.</p>
+<p>Both ends of that range are then multiplied by a season factor and a light factor. Spring and summer leave the range as it is, autumn stretches it by &times;1.3 and winter by &times;1.6. Bright light near a window shortens it to &times;0.8, medium light leaves it alone, and low light stretches it by &times;1.3 &mdash; a plant in good light grows faster and uses water sooner. Each end is rounded to the nearest whole day, the lower figure never drops below one day, and the upper figure always sits at least a day above the lower.</p>
+<h2>A worked example</h2>
+<p>A Monstera in a dim spot, in the middle of winter.</p>
+<table class="worked">
+<tr><td>Plant</td><td>Monstera deliciosa, 7&ndash;10 days</td></tr>
+<tr><td>Season</td><td>Winter (dormant), &times;1.6</td></tr>
+<tr><td>Light</td><td>Low light, &times;1.3</td></tr>
+<tr><td>Combined factor (1.6 &times; 1.3)</td><td>&times;2.08</td></tr>
+<tr><td>Lower end (7 &times; 2.08 = 14.56)</td><td>15 days</td></tr>
+<tr><td>Upper end (10 &times; 2.08 = 20.8)</td><td>21 days</td></tr>
+<tr><td>Result</td><td>Every 15&ndash;21 days</td></tr>
+</table>
+<p>Move the same plant to a bright window in summer and the range falls to every 6&ndash;8 days &mdash; nearly three times as often. Read the winter figure as the point to start checking rather than the day to water: if the top 2&ndash;5&nbsp;cm of soil is still damp at fifteen days, leave it and check again in a few days.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>How often should I water a Monstera?</h3>
+<p>As a starting point, every 7&ndash;10 days in spring and summer in medium light, every 6&ndash;8 days in a bright window, and as little as every 15&ndash;21 days in a dim room in winter. The soil has the final say: water when the top 2&ndash;5&nbsp;cm is dry, water thoroughly until it runs from the drainage holes, then empty the saucer.</p>
+<h3>How often should I water a snake plant?</h3>
+<p>Less often than almost anything else on the list. The calculator starts at every 14&ndash;21 days in the growing season in medium light, stretching to roughly every 29&ndash;44 days in winter in low light. Snake plants store water in their leaves and rot easily, so wait until the pot is dry all the way through, not just at the surface.</p>
+<h3>Should I water houseplants less in winter?</h3>
+<p>Yes, for almost all of them. Shorter days mean slower growth, so the soil takes much longer to dry and the same routine that suited summer leaves roots sitting wet. The exception is a pot close to a radiator, which can dry out faster than you would expect &mdash; one more reason to check the soil rather than follow the calendar.</p>
+<h3>How do I know if I am overwatering a plant?</h3>
+<p>Yellowing lower leaves while the soil is still damp are the classic sign. Others include a sour or musty smell from the pot, soft or darkening stems at the base, fungus gnats hovering over the surface, and a plant that wilts even though the soil is wet &mdash; which usually means the roots are already damaged. Let the pot dry out well before watering again.</p>
+<h3>Does the pot change how often I need to water?</h3>
+<p>Considerably, and the calculator does not account for it. Unglazed terracotta is porous and dries faster than plastic or glazed ceramic; a small pot dries faster than a large one; and a pot without drainage holes holds water at the bottom where you cannot see it. Adjust the interval for your own pots and let the soil guide you.</p>
+</section>
 <section class="app-block">
-<p>A free web tool from the makers of <strong><a href="/apps/leaflet/">Leaflet</a></strong>, which keeps watering and feeding schedules for every plant you own, with a photo timeline so you can watch a year of growth in one scroll. No subscription, no AI gimmicks.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6796375617?pt=129172097&amp;ct=calc_plant_watering&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.leaflet&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dplant_watering" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+<p>A free web tool from the makers of <strong><a href="/apps/leaflet/">Leaflet</a></strong>, which keeps watering and feeding schedules for every plant you own, with a photo timeline so you can watch a year of growth in one scroll. Offline, with no AI gimmicks.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6796375617?pt=129172097&amp;ct=calc_plant_watering&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.leaflet&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dplant_watering" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>Other free tools</h2>
 <ul>
 <li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
 <li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
@@ -139,7 +172,7 @@ footer a,a:visited{color:var(--muted)}
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

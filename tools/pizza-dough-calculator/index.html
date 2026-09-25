@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pizza Dough Calculator — Yeast or Sourdough, Any Style | Eri Tech Studio</title>
-<meta name="description" content="Work out flour, water, salt, oil and leavening for any number of pizza dough balls — with commercial yeast or a sourdough starter. Neapolitan, New York, Roman pan or Detroit. Free, no signup.">
+<title>Pizza Dough Calculator — Free & Instant | Eritech Studios</title>
+<meta name="description" content="Flour, water, salt, oil and yeast or sourdough starter for any number of pizza dough balls — Neapolitan, New York, Roman pan or Detroit. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/pizza-dough-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pizza Dough Calculator">
-<meta property="og:description" content="Work out flour, water, salt, oil and leavening for any number of pizza dough balls — with commercial yeast or a sourdough starter. Neapolitan, New York, Roman pan or Detroit. Free, no signup.">
+<meta property="og:description" content="Flour, water, salt, oil and yeast or sourdough starter for any number of pizza dough balls — Neapolitan, New York, Roman pan or Detroit. Free, no signup.">
 <meta property="og:url" content="https://eritech.studio/tools/pizza-dough-calculator/">
 <meta property="og:image" content="https://eritech.studio/assets/og/pizza-dough-calculator.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -60,18 +60,21 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 .result td:nth-child(2){text-align:right;color:var(--muted);padding-right:16px;font-variant-numeric:tabular-nums}
 .result td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Pizza Dough Calculator","item":"https://eritech.studio/tools/pizza-dough-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Pizza Dough Calculator", "item": "https://eritech.studio/tools/pizza-dough-calculator/"}]}, {"@type": "WebApplication", "name": "Pizza Dough Calculator", "url": "https://eritech.studio/tools/pizza-dough-calculator/", "description": "Flour, water, salt, oil and yeast or sourdough starter for any number of pizza dough balls — Neapolitan, New York, Roman pan or Detroit. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much flour do I need for one pizza?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the ball weight and the formula. For a 260 g Neapolitan ball at 62% hydration, 2.8% salt and a 24-hour cold ferment, it is about 158 g of flour, with 98 g of water, 4.4 g of salt and 0.2 g of instant yeast. Weighing that little yeast accurately is one reason to make several balls at once."}}, {"@type": "Question", "name": "How heavy should a pizza dough ball be?", "acceptedAnswer": {"@type": "Answer", "text": "The style presets here use 260 g for Neapolitan, 300 g for New York, 450 g for Detroit and 500 g for Roman pan. As a rough guide, a ball of 230–269 g makes about a 10–11 inch base, 270–309 g about 12 inches, and anything from 360 g upwards is better suited to a tray. Thinner or thicker stretching will shift those sizes."}}, {"@type": "Question", "name": "How much yeast do I need for a 48-hour cold ferment?", "acceptedAnswer": {"@type": "Answer", "text": "Very little. The calculator uses 0.08% of the flour weight in instant dry yeast for 48 hours cold — about half the 24-hour figure. For four 260 g Neapolitan balls that is 0.5 g of yeast to 631 g of flour. Too much yeast for a long cold rise is a common cause of dough that turns slack and gassy before bake day."}}, {"@type": "Question", "name": "Can I use fresh or active dry yeast instead of instant?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but the weight changes. The calculator treats active dry yeast as needing 1.25 times the instant amount and fresh yeast three times as much, because fresh yeast is mostly water. Choose the type in the yeast field and the percentage and grams update for you — for the default 24-hour dough, 0.9 g of instant becomes 2.8 g of fresh."}}, {"@type": "Question", "name": "How do I make pizza dough with a sourdough starter?", "acceptedAnswer": {"@type": "Answer", "text": "Choose the sourdough option and set the starter as a percentage of total flour; 15% is the default. The calculator subtracts the flour and water inside the starter from what you add, so hydration stays true. For four 260 g balls at 62% hydration with a 100% starter, that is 94.7 g of starter, 584 g of flour and 344 g of water. Expect a much longer rise than with yeast."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
 <h1>Pizza Dough Calculator</h1>
@@ -136,15 +139,49 @@ footer a,a:visited{color:var(--muted)}
 <p>Typical amounts run 10&ndash;20% of the total flour. Less starter with a longer, cooler rise gives a milder, more extensible dough &mdash; usually what you want for pizza, since aggressive sourness fights tomato and cheese. Expect timings to lengthen considerably: a dough ready in four hours with commercial yeast may want a full day, and the <a href="/tools/starter-feeding-ratio-calculator/">feeding ratio</a> you used beforehand decides how lively it is when you mix.</p>
 <p>Baking bread as well as pizza? The <a href="/tools/sourdough-hydration-calculator/">hydration calculator</a> and the <a href="/tools/dough-temperature-calculator/">dough temperature calculator</a> cover the same ground for sourdough.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>The calculator starts from the dough you want: the number of balls times the weight of each gives the total. With commercial yeast, the yeast percentage comes from your fermentation plan &mdash; 0.4% for a same-day dough, 0.15% for 24&nbsp;hours cold, 0.08% for 48 and 0.05% for 72 &mdash; multiplied by 1 for instant dry yeast, 1.25 for active dry or 3 for fresh. The total dough is divided by the sum of every percentage, flour&rsquo;s 100 included, over 100; that gives the flour, and each other ingredient is its percentage of it. Flour and water are rounded to the gram; salt, oil, sugar and yeast to a tenth of a gram.</p>
+<p>With a sourdough starter, the flour is found the same way without the yeast, and it is the total flour, including what the starter carries. The starter is its percentage of that total, split into flour and water by its hydration, and those amounts are taken off to give the flour and water you actually add.</p>
+<h2>A worked example</h2>
+<p>The default: four Neapolitan balls of 260&nbsp;g at 62% hydration and 2.8% salt, fermented for 24&nbsp;hours in the fridge with instant dry yeast.</p>
+<table class="worked">
+<tr><td>Total dough (4 &times; 260)</td><td>1,040&nbsp;g</td></tr>
+<tr><td>Yeast (0.15% &times; 1 for instant)</td><td>0.15%</td></tr>
+<tr><td>Sum of percentages (100 + 62 + 2.8 + 0.15)</td><td>164.95%</td></tr>
+<tr><td>Flour (1,040 &divide; 1.6495)</td><td>630&nbsp;g</td></tr>
+<tr><td>Water (630.5 &times; 62%)</td><td>391&nbsp;g</td></tr>
+<tr><td>Salt (630.5 &times; 2.8%)</td><td>17.7&nbsp;g</td></tr>
+<tr><td>Yeast (630.5 &times; 0.15%)</td><td>0.9&nbsp;g</td></tr>
+</table>
+<p>Under a gram of yeast for four pizzas is right for a day in the fridge, and too little for a scale that reads in whole grams; one reading to 0.1&nbsp;g is worth having. Switch to fresh yeast and the percentage triples to 0.45%, or 2.8&nbsp;g, with the flour and water each dropping a gram to make room.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>How much flour do I need for one pizza?</h3>
+<p>It depends on the ball weight and the formula. For a 260&nbsp;g Neapolitan ball at 62% hydration, 2.8% salt and a 24-hour cold ferment, it is about 158&nbsp;g of flour, with 98&nbsp;g of water, 4.4&nbsp;g of salt and 0.2&nbsp;g of instant yeast. Weighing that little yeast accurately is one reason to make several balls at once.</p>
+<h3>How heavy should a pizza dough ball be?</h3>
+<p>The style presets here use 260&nbsp;g for Neapolitan, 300&nbsp;g for New York, 450&nbsp;g for Detroit and 500&nbsp;g for Roman pan. As a rough guide, a ball of 230&ndash;269&nbsp;g makes about a 10&ndash;11&nbsp;inch base, 270&ndash;309&nbsp;g about 12&nbsp;inches, and anything from 360&nbsp;g upwards is better suited to a tray. Thinner or thicker stretching will shift those sizes.</p>
+<h3>How much yeast do I need for a 48-hour cold ferment?</h3>
+<p>Very little. The calculator uses 0.08% of the flour weight in instant dry yeast for 48&nbsp;hours cold &mdash; about half the 24-hour figure. For four 260&nbsp;g Neapolitan balls that is 0.5&nbsp;g of yeast to 631&nbsp;g of flour. Too much yeast for a long cold rise is a common cause of dough that turns slack and gassy before bake day.</p>
+<h3>Can I use fresh or active dry yeast instead of instant?</h3>
+<p>Yes, but the weight changes. The calculator treats active dry yeast as needing 1.25 times the instant amount and fresh yeast three times as much, because fresh yeast is mostly water. Choose the type in the yeast field and the percentage and grams update for you &mdash; for the default 24-hour dough, 0.9&nbsp;g of instant becomes 2.8&nbsp;g of fresh.</p>
+<h3>How do I make pizza dough with a sourdough starter?</h3>
+<p>Choose the sourdough option and set the starter as a percentage of total flour; 15% is the default. The calculator subtracts the flour and water inside the starter from what you add, so hydration stays true. For four 260&nbsp;g balls at 62% hydration with a 100% starter, that is 94.7&nbsp;g of starter, 584&nbsp;g of flour and 344&nbsp;g of water. Expect a much longer rise than with yeast.</p>
+</section>
 <section class="app-block">
 <p>A free web tool from the makers of <strong><a href="/apps/the-bake-log/">The Bake Log</a></strong> &mdash; starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790971986?pt=129172097&amp;ct=calc_pizza_dough&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.thebakelog&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dpizza_dough" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More baking tools</h2>
+<ul class="cluster">
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a><span class="d">Flour, water and starter in — true hydration % out, or work backwards from a target.</span></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a><span class="d">Scale any bread formula from flour weight or target dough weight.</span></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a><span class="d">1:1:1, 1:2:2, 1:5:5 — exact feed amounts and expected peak times.</span></li>
+<li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a><span class="d">Hit a target dough temperature — the water temp you need, from flour and room.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
-<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
-<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
-<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
 <li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
 <li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
 <li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
@@ -153,13 +190,12 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
 <li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
 <li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
-<li><a href="/tools/dough-temperature-calculator/">Dough Temperature Calculator</a></li>
 <li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a></li>
 </ul>
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Coffee Freshness Calculator — Roast Date to Peak Window | Eri Tech Studio</title>
+<title>Coffee Freshness Calculator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="Enter a roast date and see whether your beans are resting, at their peak, or past it — for espresso and filter. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/coffee-freshness-calculator/">
 <meta property="og:type" content="website">
@@ -60,16 +60,19 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Coffee Freshness Calculator","item":"https://eritech.studio/tools/coffee-freshness-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Coffee Freshness Calculator", "item": "https://eritech.studio/tools/coffee-freshness-calculator/"}]}, {"@type": "WebApplication", "name": "Coffee Freshness Calculator", "url": "https://eritech.studio/tools/coffee-freshness-calculator/", "description": "Enter a roast date and see whether your beans are resting, at their peak, or past it — for espresso and filter. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long after the roast date is coffee good?", "acceptedAnswer": {"@type": "Answer", "text": "For filter, most beans are at their best from about five days to a month after roasting. Espresso is fussier, and the window used here runs from around day 10 to day 45. After that the coffee stays drinkable for roughly another fortnight, but its aromatics fade steadily. These are sensible defaults for whole beans kept sealed, not hard limits — roast level and storage both move them."}}, {"@type": "Question", "name": "Can coffee be too fresh?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. For the first days after roasting, beans are still releasing a lot of carbon dioxide, and it gets in the way of extraction. Brewed too early, filter coffee blooms hard and espresso pulls unevenly, and both tend to taste sharp and hollow. A few days’ rest for filter, and ten or so for espresso, usually sorts it out without any change to your recipe."}}, {"@type": "Question", "name": "Is old coffee safe to drink?", "acceptedAnswer": {"@type": "Answer", "text": "Stale coffee is a flavour problem rather than a safety one. Kept dry and sealed, roasted beans lose aroma and turn flat and papery long before anything else happens to them. The exception is moisture: beans that have got damp can grow mould, and those belong in the bin. Otherwise, old beans are fine in milk drinks, just disappointing black."}}, {"@type": "Question", "name": "Should I keep coffee in the fridge?", "acceptedAnswer": {"@type": "Answer", "text": "It is better not to. Each time a cold bag comes out into a warm kitchen, moisture condenses on the beans, and coffee readily picks up odours from whatever else is in there. A sealed container in a cool, dark cupboard suits beans you will finish within the window. For anything longer, use the freezer, portioned so you only take out what you need and the rest stays frozen."}}, {"@type": "Question", "name": "What is the difference between a roast date and a best-before date?", "acceptedAnswer": {"@type": "Answer", "text": "A roast date tells you when the beans were roasted, which is what this calculator needs. A best-before date is set by the seller and often falls many months after roasting, so on its own it says little about where the coffee sits in its flavour window. If a bag carries only a best-before date, there is no reliable way to work out its age."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
 <h1>Coffee Freshness Calculator</h1>
@@ -95,17 +98,49 @@ footer a,a:visited{color:var(--muted)}
 <h2>Making beans last</h2>
 <p>Oxygen, heat, light and moisture are the enemies, in that order. Keep beans whole and sealed — a bag with a one-way valve or an airtight container in a cupboard is fine — and grind just before brewing, since ground coffee loses aromatics within minutes rather than weeks. For a supply you cannot drink in time, freezing works far better than its reputation: portion beans into small airtight containers, freeze on arrival, and grind straight from frozen. A bag frozen in its sweet spot effectively pauses there.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>The calculator counts whole days from the roast date to today, rounding down, so the roast date itself is day&nbsp;0 and a bag roasted yesterday counts as day&nbsp;1 all of today. It then places that number in one of four windows that depend on the brewing method.</p>
+<p>For espresso, days 0 to 9 are resting, days 10 to 45 are the sweet spot, days 46 to 60 are past peak, and anything after day 60 is likely stale. Filter runs earlier and shorter: resting to day 4, the sweet spot from day 5 to day 30, past peak to day 45, and likely stale after that. The dates it shows are simply the roast date plus 10 and 45 days for espresso, or plus 5 and 30 for filter.</p>
+<h2>A worked example</h2>
+<p>A bag roasted seven days ago, read for each method:</p>
+<table class="worked">
+<tr><td>Days since roast</td><td>7</td></tr>
+<tr><td>Espresso (resting until day 10, since 7 &lt; 10)</td><td>Still resting &mdash; day 7</td></tr>
+<tr><td>Espresso ready from (roast date + 10 days)</td><td>In 3 days</td></tr>
+<tr><td>Espresso sweet spot ends (roast date + 45 days)</td><td>In 38 days</td></tr>
+<tr><td>Filter (ready from day 5, and 7 &le; 30)</td><td>In the sweet spot &mdash; day 7</td></tr>
+<tr><td>Filter sweet spot ends (roast date + 30 days)</td><td>In 23 days</td></tr>
+</table>
+<p>The same bag can be too young for one method and ready for another. If it is the only coffee in the house, brew it as filter for a few days and move it to the espresso machine from day 10.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>How long after the roast date is coffee good?</h3>
+<p>For filter, most beans are at their best from about five days to a month after roasting. Espresso is fussier, and the window used here runs from around day 10 to day 45. After that the coffee stays drinkable for roughly another fortnight, but its aromatics fade steadily. These are sensible defaults for whole beans kept sealed, not hard limits &mdash; roast level and storage both move them.</p>
+<h3>Can coffee be too fresh?</h3>
+<p>Yes. For the first days after roasting, beans are still releasing a lot of carbon dioxide, and it gets in the way of extraction. Brewed too early, filter coffee blooms hard and espresso pulls unevenly, and both tend to taste sharp and hollow. A few days&rsquo; rest for filter, and ten or so for espresso, usually sorts it out without any change to your recipe.</p>
+<h3>Is old coffee safe to drink?</h3>
+<p>Stale coffee is a flavour problem rather than a safety one. Kept dry and sealed, roasted beans lose aroma and turn flat and papery long before anything else happens to them. The exception is moisture: beans that have got damp can grow mould, and those belong in the bin. Otherwise, old beans are fine in milk drinks, just disappointing black.</p>
+<h3>Should I keep coffee in the fridge?</h3>
+<p>It is better not to. Each time a cold bag comes out into a warm kitchen, moisture condenses on the beans, and coffee readily picks up odours from whatever else is in there. A sealed container in a cool, dark cupboard suits beans you will finish within the window. For anything longer, use the freezer, portioned so you only take out what you need and the rest stays frozen.</p>
+<h3>What is the difference between a roast date and a best-before date?</h3>
+<p>A roast date tells you when the beans were roasted, which is what this calculator needs. A best-before date is set by the seller and often falls many months after roasting, so on its own it says little about where the coffee sits in its flavour window. If a bag carries only a best-before date, there is no reliable way to work out its age.</p>
+</section>
 <section class="app-block">
-<p>This calculator is built into <strong><a href="/apps/kohii/">Kohii &mdash; The Barista Log</a></strong>, along with brew logging, dial-in history and bean freshness tracking. Offline, no account, one-time unlock.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790972283?pt=129172097&amp;ct=calc_coffee_freshness&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.kohii&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dcoffee_freshness" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+<p>This calculator is built into <strong><a href="/apps/kohii/">Kohii &mdash; The Barista Log</a></strong>, along with brew logging, dial-in history and bean freshness tracking. Offline, no account.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790972283?pt=129172097&amp;ct=calc_coffee_freshness&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.kohii&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dcoffee_freshness" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More coffee tools</h2>
+<ul class="cluster">
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a><span class="d">Coffee-to-water ratios for V60, Chemex, AeroPress, French press and more.</span></li>
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a><span class="d">Dose, yield, ratio — enter any two and solve the third.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
 <li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
 <li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
 <li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
-<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
-<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
 <li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
 <li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
 <li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
@@ -118,7 +153,7 @@ footer a,a:visited{color:var(--muted)}
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

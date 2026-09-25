@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dough Temperature Calculator — Desired Dough Temperature | Eri Tech Studio</title>
+<title>Dough Temperature Calculator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="Work out the water temperature you need to hit your desired dough temperature, from flour and room temperature. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/dough-temperature-calculator/">
 <meta property="og:type" content="website">
@@ -60,16 +60,19 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Dough Temperature Calculator","item":"https://eritech.studio/tools/dough-temperature-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Dough Temperature Calculator", "item": "https://eritech.studio/tools/dough-temperature-calculator/"}]}, {"@type": "WebApplication", "name": "Dough Temperature Calculator", "url": "https://eritech.studio/tools/dough-temperature-calculator/", "description": "Work out the water temperature you need to hit your desired dough temperature, from flour and room temperature. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What temperature should my dough be?", "acceptedAnswer": {"@type": "Answer", "text": "Most sourdough is happy between 24 and 26 °C, but the right number depends on how long you want fermentation to take. A warmer target shortens bulk fermentation and a cooler one lengthens it, so choose the one that fits your day. Whatever you pick, check the dough itself with a probe thermometer at the end of mixing, rather than trusting the room."}}, {"@type": "Question", "name": "How do I calculate water temperature for bread dough?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply your desired dough temperature by three, then subtract the flour temperature, the room temperature and the friction factor. For a 25 °C target with flour and room at 20 °C and a friction factor of 2, that is 75 − 42, or 33 °C water. With a levain or preferment, multiply by four and subtract its temperature as well."}}, {"@type": "Question", "name": "What is the friction factor in bread making?", "acceptedAnswer": {"@type": "Answer", "text": "It is the heat that mixing adds to the dough, expressed in degrees. To measure your own, record the flour, room and water temperatures (and the levain’s, if used), mix as normal, then take the dough’s temperature. Multiply that by three — or four with a levain — and subtract the other readings. What remains is your friction factor for that mixer and mixing time."}}, {"@type": "Question", "name": "Can I use the dough temperature formula in Fahrenheit?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, provided every reading is in the same scale. The friction factor is larger in Fahrenheit because it is a temperature rise: each °C of rise is 1.8 °F, so a 2 °C hand-mixing factor becomes about 4 °F. The calculator converts all the fields when you switch units, rounding to whole degrees."}}, {"@type": "Question", "name": "Does the levain temperature matter?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — the four-source formula gives it the same weight as the flour and the room. Enter 5 °C for a levain straight from the fridge in the default example and the required water jumps from 37 °C to 53 °C, past the point where caution is wise. Letting the levain warm up first, or warming the flour, is the gentler fix."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
 <h1>Dough Temperature Calculator</h1>
@@ -104,15 +107,46 @@ footer a,a:visited{color:var(--muted)}
 <h2>When the answer looks absurd</h2>
 <p>A cold kitchen in winter can produce a required water temperature above 40&thinsp;&deg;C, and that is a genuine signal rather than an error &mdash; but be careful, because water much beyond 50&thinsp;&deg;C starts damaging yeast on contact. The better fix is usually to warm the flour instead, or to accept a lower target and simply let the bulk run longer. Conversely, in a hot kitchen the calculator will ask for fridge-cold or even iced water, which is exactly what summer baking requires.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>The calculator multiplies your desired dough temperature by the number of temperature sources in the mix &mdash; three for a straight dough (flour, room and friction), four when a levain or preferment is included &mdash; and subtracts the sum of the temperatures you know. What is left is the temperature the water needs to be. The friction factor goes into that sum as though it were a reading, although it is really the heat added by mixing.</p>
+<p>The answer is rounded to one decimal place. Below 0&nbsp;&deg;C (32&nbsp;&deg;F) the calculator warns that the flour or room is too cold to reach the target; above 60&nbsp;&deg;C (140&nbsp;&deg;F) it warns that the water would be hot enough to damage yeast. Switching between &deg;C and &deg;F converts the temperatures you have entered to whole degrees, and scales the friction factor by 9/5 without the 32-degree offset, because it is a rise in temperature rather than a reading.</p>
+<p>The formula is a rule of thumb. It gives every source equal weight whatever the actual quantities, which is one reason to measure your own friction factor: it absorbs some of that error for the recipe you make most.</p>
+<h2>A worked example</h2>
+<p>Take the default settings: a target of 25&nbsp;&deg;C, flour and room both at 20&nbsp;&deg;C, a hand-mixing friction factor of 2&nbsp;&deg;C, and a levain at 21&nbsp;&deg;C.</p>
+<table class="worked">
+<tr><td>Target &times; four sources (25 &times; 4)</td><td>100</td></tr>
+<tr><td>Known temperatures (20 + 20 + 2 + 21)</td><td>63</td></tr>
+<tr><td>Water temperature (100 &minus; 63)</td><td>37&nbsp;&deg;C</td></tr>
+</table>
+<p>37&nbsp;&deg;C is roughly body temperature &mdash; comfortably warm, and well short of anything that troubles yeast. Leave the levain out and the same kitchen needs 33&nbsp;&deg;C water (25 &times; 3 = 75, less 42). The levain is 4&nbsp;&deg;C cooler than the target, so including it asks the water to make up exactly those 4 degrees.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>What temperature should my dough be?</h3>
+<p>Most sourdough is happy between 24 and 26&nbsp;&deg;C, but the right number depends on how long you want fermentation to take. A warmer target shortens bulk fermentation and a cooler one lengthens it, so choose the one that fits your day. Whatever you pick, check the dough itself with a probe thermometer at the end of mixing, rather than trusting the room.</p>
+<h3>How do I calculate water temperature for bread dough?</h3>
+<p>Multiply your desired dough temperature by three, then subtract the flour temperature, the room temperature and the friction factor. For a 25&nbsp;&deg;C target with flour and room at 20&nbsp;&deg;C and a friction factor of 2, that is 75 &minus; 42, or 33&nbsp;&deg;C water. With a levain or preferment, multiply by four and subtract its temperature as well.</p>
+<h3>What is the friction factor in bread making?</h3>
+<p>It is the heat that mixing adds to the dough, expressed in degrees. To measure your own, record the flour, room and water temperatures (and the levain&rsquo;s, if used), mix as normal, then take the dough&rsquo;s temperature. Multiply that by three &mdash; or four with a levain &mdash; and subtract the other readings. What remains is your friction factor for that mixer and mixing time.</p>
+<h3>Can I use the dough temperature formula in Fahrenheit?</h3>
+<p>Yes, provided every reading is in the same scale. The friction factor is larger in Fahrenheit because it is a temperature rise: each &deg;C of rise is 1.8&nbsp;&deg;F, so a 2&nbsp;&deg;C hand-mixing factor becomes about 4&nbsp;&deg;F. The calculator converts all the fields when you switch units, rounding to whole degrees.</p>
+<h3>Does the levain temperature matter?</h3>
+<p>Yes &mdash; the four-source formula gives it the same weight as the flour and the room. Enter 5&nbsp;&deg;C for a levain straight from the fridge in the default example and the required water jumps from 37&nbsp;&deg;C to 53&nbsp;&deg;C, past the point where caution is wise. Letting the levain warm up first, or warming the flour, is the gentler fix.</p>
+</section>
 <section class="app-block">
 <p>A free web tool from the makers of <strong><a href="/apps/the-bake-log/">The Bake Log</a></strong> &mdash; starter feeding reminders, guided bake timelines and a full bake journal. Offline, no account, free to start.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790971986?pt=129172097&amp;ct=calc_dough_temperature&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.thebakelog&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Ddough_temperature" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More baking tools</h2>
+<ul class="cluster">
+<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a><span class="d">Flour, water and starter in — true hydration % out, or work backwards from a target.</span></li>
+<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a><span class="d">Scale any bread formula from flour weight or target dough weight.</span></li>
+<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a><span class="d">1:1:1, 1:2:2, 1:5:5 — exact feed amounts and expected peak times.</span></li>
+<li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a><span class="d">Style and ball count in — flour, water, salt, oil and yeast out.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
-<li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
-<li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
-<li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
 <li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
 <li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
 <li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
@@ -122,12 +156,11 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/packing-list-generator/">Packing List Generator</a></li>
 <li><a href="/tools/japan-trip-cost-calculator/">Japan Trip Cost Calculator</a></li>
 <li><a href="/tools/wine-cellar-value-calculator/">Wine Cellar Value Calculator</a></li>
-<li><a href="/tools/pizza-dough-calculator/">Pizza Dough Calculator</a></li>
 </ul>
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

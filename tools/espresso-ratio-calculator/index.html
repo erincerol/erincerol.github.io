@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Espresso Ratio Calculator — Dose, Yield & Ratio | Eri Tech Studio</title>
+<title>Espresso Ratio Calculator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="Solve espresso dose, yield or brew ratio from the other two — with ristretto, normale and lungo ranges explained. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/espresso-ratio-calculator/">
 <meta property="og:type" content="website">
@@ -60,16 +60,19 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Espresso Ratio Calculator","item":"https://eritech.studio/tools/espresso-ratio-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Espresso Ratio Calculator", "item": "https://eritech.studio/tools/espresso-ratio-calculator/"}]}, {"@type": "WebApplication", "name": "Espresso Ratio Calculator", "url": "https://eritech.studio/tools/espresso-ratio-calculator/", "description": "Solve espresso dose, yield or brew ratio from the other two — with ristretto, normale and lungo ranges explained. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the best ratio for espresso?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single best, but 1:2 — 18 g in, 36 g out — is the usual starting point and sits in the middle of the normale range. From there, taste decides. Lighter roasts often open up at longer ratios such as 1:2.5, while darker roasts and milk drinks can suit something shorter. Move the ratio in small steps and keep the dose fixed while you do."}}, {"@type": "Question", "name": "What is the difference between a ristretto and a lungo?", "acceptedAnswer": {"@type": "Answer", "text": "With the same dose, it comes down to how much liquid you let through. A ristretto stops early, below about 1:1.5, for a small, syrupy, intense shot. A lungo runs past 1:2.5, for a longer, lighter-bodied cup with more of the coffee extracted. A normale sits between them. They are points on one scale rather than separate drinks, which is why a ratio describes them better than a name."}}, {"@type": "Question", "name": "How long should an espresso shot take?", "acceptedAnswer": {"@type": "Answer", "text": "Around 25 to 32 seconds is a common target for an 18 g in, 36 g out shot. Treat it as a diagnostic rather than a rule. A shot that runs much faster usually wants a finer grind, and one that crawls wants a coarser one — but if a shot outside the window tastes good, it is a good shot, and the clock can be ignored."}}, {"@type": "Question", "name": "Should I measure espresso by weight or by volume?", "acceptedAnswer": {"@type": "Answer", "text": "By weight. Crema is a foam of gas bubbles, so a fresh shot looks bigger than it is and shrinks as it settles, and the amount of crema changes from bean to bean and day to day. A scale under the cup reads the same every time. The yield you weigh includes the crema, and that is fine — it is part of the drink."}}, {"@type": "Question", "name": "How much coffee goes in a double shot?", "acceptedAnswer": {"@type": "Answer", "text": "Commonly around 18 g, but the right dose is the one your basket was designed for, and many baskets have it stamped on them. Too little and the puck sits loose and wet; too much and it presses against the shower screen. Settle on a dose, then leave it alone while you use grind and yield to dial in."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
 <h1>Espresso Ratio Calculator</h1>
@@ -97,17 +100,47 @@ footer a,a:visited{color:var(--muted)}
 <h2>Dialling in</h2>
 <p>Keep the dose fixed to whatever your basket is designed for — changing it moves everything at once. Then use grind to control time and ratio to control style. Sour, sharp, fast shots want a finer grind; bitter, harsh, slow ones want coarser. If a shot is balanced but too intense, lengthen the ratio rather than grinding coarser. And always judge by taste, not by the clock: the timer is a diagnostic, not the goal. Logging each change — dose, yield, time, grind setting — is what turns twenty sink shots into five.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>Choose which number to solve for and the calculator greys that field out and fills it in from the other two. Yield is dose &times; ratio, dose is yield &divide; ratio, and ratio is yield &divide; dose. Dose and yield are shown to a tenth of a gram, the ratio to two decimal places.</p>
+<p>It then names the style from yield &divide; dose. Anything below 1:1.5 is a ristretto, 1:1.5 up to and including 1:2.5 is a normale, and anything longer than 1:2.5 is a lungo.</p>
+<h2>A worked example</h2>
+<p>You dose 18.5&nbsp;g into the basket and stop the shot when the scale under the cup reads 42&nbsp;g.</p>
+<table class="worked">
+<tr><td>Dose</td><td>18.5&nbsp;g</td></tr>
+<tr><td>Yield</td><td>42&nbsp;g</td></tr>
+<tr><td>Ratio (42 &divide; 18.5 = 2.270&hellip;, to two decimals)</td><td>1&nbsp;:&nbsp;2.27</td></tr>
+<tr><td>Style (between 1:1.5 and 1:2.5)</td><td>Normale</td></tr>
+</table>
+<p>A comfortable normale, a little longer than the textbook 1:2. For this dose the lungo line sits at 18.5 &times; 2.5 = 46.25&nbsp;g, so letting the shot run much past 46&nbsp;g changes the label. To hit exactly 1:2 instead, solve for yield: 18.5&nbsp;g in calls for 37&nbsp;g out.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>What is the best ratio for espresso?</h3>
+<p>There is no single best, but 1:2 &mdash; 18&nbsp;g in, 36&nbsp;g out &mdash; is the usual starting point and sits in the middle of the normale range. From there, taste decides. Lighter roasts often open up at longer ratios such as 1:2.5, while darker roasts and milk drinks can suit something shorter. Move the ratio in small steps and keep the dose fixed while you do.</p>
+<h3>What is the difference between a ristretto and a lungo?</h3>
+<p>With the same dose, it comes down to how much liquid you let through. A ristretto stops early, below about 1:1.5, for a small, syrupy, intense shot. A lungo runs past 1:2.5, for a longer, lighter-bodied cup with more of the coffee extracted. A normale sits between them. They are points on one scale rather than separate drinks, which is why a ratio describes them better than a name.</p>
+<h3>How long should an espresso shot take?</h3>
+<p>Around 25 to 32 seconds is a common target for an 18&nbsp;g in, 36&nbsp;g out shot. Treat it as a diagnostic rather than a rule. A shot that runs much faster usually wants a finer grind, and one that crawls wants a coarser one &mdash; but if a shot outside the window tastes good, it is a good shot, and the clock can be ignored.</p>
+<h3>Should I measure espresso by weight or by volume?</h3>
+<p>By weight. Crema is a foam of gas bubbles, so a fresh shot looks bigger than it is and shrinks as it settles, and the amount of crema changes from bean to bean and day to day. A scale under the cup reads the same every time. The yield you weigh includes the crema, and that is fine &mdash; it is part of the drink.</p>
+<h3>How much coffee goes in a double shot?</h3>
+<p>Commonly around 18&nbsp;g, but the right dose is the one your basket was designed for, and many baskets have it stamped on them. Too little and the puck sits loose and wet; too much and it presses against the shower screen. Settle on a dose, then leave it alone while you use grind and yield to dial in.</p>
+</section>
 <section class="app-block">
-<p>This calculator is built into <strong><a href="/apps/kohii/">Kohii &mdash; The Barista Log</a></strong>, along with brew logging, dial-in history and bean freshness tracking. Offline, no account, one-time unlock.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790972283?pt=129172097&amp;ct=calc_espresso_ratio&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.kohii&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Despresso_ratio" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+<p>This calculator is built into <strong><a href="/apps/kohii/">Kohii &mdash; The Barista Log</a></strong>, along with brew logging, dial-in history and bean freshness tracking. Offline, no account.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790972283?pt=129172097&amp;ct=calc_espresso_ratio&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.kohii&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Despresso_ratio" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More coffee tools</h2>
+<ul class="cluster">
+<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a><span class="d">Coffee-to-water ratios for V60, Chemex, AeroPress, French press and more.</span></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a><span class="d">Roast date in, peak window out — for espresso and filter.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
 <li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
 <li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
 <li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
-<li><a href="/tools/coffee-ratio-calculator/">Coffee Ratio Calculator</a></li>
-<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
 <li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
 <li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
 <li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
@@ -120,7 +153,7 @@ footer a,a:visited{color:var(--muted)}
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

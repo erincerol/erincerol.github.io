@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Coffee to Water Ratio Calculator — V60, AeroPress & More | Eri Tech Studio</title>
+<title>Coffee to Water Ratio Calculator — Free & Instant | Eritech Studios</title>
 <meta name="description" content="Work out coffee-to-water ratios for V60, Chemex, AeroPress, French press, moka pot, cold brew and espresso. Free, no signup.">
 <link rel="canonical" href="https://eritech.studio/tools/coffee-ratio-calculator/">
 <meta property="og:type" content="website">
@@ -60,19 +60,22 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a,a:visited{color:var(--muted)}
+.faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
+.worked td{padding:4px 0;border-bottom:1px solid var(--line)}
+.worked{border-collapse:collapse;width:100%;margin:0 0 14px}
+.worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
+.more-tools .d{display:block;color:var(--muted);font-size:.9rem}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Eri Tech Studio","item":"https://eritech.studio/"},
-{"@type":"ListItem","position":2,"name":"Free tools","item":"https://eritech.studio/tools/"},
-{"@type":"ListItem","position":3,"name":"Coffee Ratio Calculator","item":"https://eritech.studio/tools/coffee-ratio-calculator/"}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Coffee Ratio Calculator", "item": "https://eritech.studio/tools/coffee-ratio-calculator/"}]}, {"@type": "WebApplication", "name": "Coffee Ratio Calculator", "url": "https://eritech.studio/tools/coffee-ratio-calculator/", "description": "Work out coffee-to-water ratios for V60, Chemex, AeroPress, French press, moka pot, cold brew and espresso. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the golden ratio for coffee?", "acceptedAnswer": {"@type": "Answer", "text": "Usually a filter ratio somewhere between about 1:15 and 1:18 — roughly 55 to 67 g of coffee per litre of water. It is a range rather than a single number, because beans, roast and personal taste all move it. 1:16 is a sensible middle to start from: brew it, then tighten the ratio if the cup is thin, or loosen it if it is heavy."}}, {"@type": "Question", "name": "How many grams of coffee per cup?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the cup, which is why a ratio is more useful than a scoop. For 250 g of water, 1:16 gives 15.6 g of coffee and 1:15 gives 16.7 g, so somewhere around 15 to 17 g is a good starting point for a mug of filter. For a bigger mug, enter the water you actually pour and let the ratio scale the coffee with it."}}, {"@type": "Question", "name": "Is a 1:16 ratio coffee to water or water to coffee?", "acceptedAnswer": {"@type": "Answer", "text": "Coffee to water: one part coffee to sixteen parts water, by weight. Some recipes write it the other way round as 16:1, and some give a dose per litre instead. To convert, divide 1,000 by the ratio — 1:16 is 62.5 g of coffee per litre — or divide 1,000 by the grams per litre to get back to a ratio."}}, {"@type": "Question", "name": "Does the bloom water count towards the ratio?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. For pour-over, the ratio covers all the water that goes through the coffee, bloom included, so a recipe that blooms with 40 g and then pours to 320 g uses 320 g in total. The cup holds a little less, because the wet grounds keep some back. Espresso is counted differently: its ratio compares the dry dose with the liquid in the cup, not the water that went in."}}, {"@type": "Question", "name": "What ratio should I use for a cafetière?", "acceptedAnswer": {"@type": "Answer", "text": "Around 1:15 is a good starting point, and it is what the French press preset uses. Immersion brewing is often run a little tighter than pour-over, from about 1:14 to 1:15, because some water stays trapped in the grounds. If the cup tastes weak, move towards 1:14 before changing anything else; if it tastes heavy, try 1:16."}}]}]}
 </script>
 </head>
 <body>
-<nav class="crumb"><a href="/">Eri Tech Studio</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a></nav>
 <main>
 <header>
-<h1>Coffee Ratio Calculator</h1>
+<h1>Coffee to Water Ratio Calculator</h1>
 <p class="lede">Pick a brew method, enter your coffee or your water, and get the other side of the ratio.</p>
 </header>
 <section class="calc" aria-label="Calculator">
@@ -106,17 +109,46 @@ footer a,a:visited{color:var(--muted)}
 <h2>Adjusting to taste</h2>
 <p>Move the ratio for strength, the grind for extraction. If the cup tastes weak and thin, tighten the ratio (1:15 instead of 1:16); if it is muddy and heavy, loosen it. If it tastes sour, grind finer or brew hotter; bitter, coarser or cooler. Change one variable at a time, keep the rest fixed, and taste after each change — that is dialling in, and it works faster than any amount of theory.</p>
 </section>
+<section>
+<h2>How it works</h2>
+<p>Choosing a brew method fills in its ratio: 1:16 for V60 and Chemex, 1:15 for AeroPress and French press, 1:10 for a moka pot, 1:8 for cold brew concentrate and 1:2 for espresso. You can type any ratio over the top of it. The calculator then does one of two sums. Going from coffee to water, it multiplies the coffee by the ratio and rounds to the nearest gram. Going from water to coffee, it divides the water by the ratio and rounds to a tenth of a gram. Water in grams and in millilitres is treated as the same thing.</p>
+<h2>A worked example</h2>
+<p>Say you are brewing 500&nbsp;g of water in a cafetière and want to know how much coffee to weigh out.</p>
+<table class="worked">
+<tr><td>Water</td><td>500&nbsp;g</td></tr>
+<tr><td>Ratio (French press preset)</td><td>1:15</td></tr>
+<tr><td>Coffee (500 &divide; 15 = 33.33&hellip;, rounded)</td><td>33.3&nbsp;g</td></tr>
+<tr><td>The same water at 1:16 (500 &divide; 16 = 31.25, rounded)</td><td>31.3&nbsp;g</td></tr>
+</table>
+<p>Two grams sounds like nothing, but moving from 1:16 to 1:15 puts roughly 7% more coffee into the same water, and that is a difference you can taste. It is also why the scale matters more than the exact starting ratio: whichever number you choose, you can repeat it tomorrow and adjust from a known point.</p>
+</section>
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<h3>What is the golden ratio for coffee?</h3>
+<p>Usually a filter ratio somewhere between about 1:15 and 1:18 &mdash; roughly 55 to 67&nbsp;g of coffee per litre of water. It is a range rather than a single number, because beans, roast and personal taste all move it. 1:16 is a sensible middle to start from: brew it, then tighten the ratio if the cup is thin, or loosen it if it is heavy.</p>
+<h3>How many grams of coffee per cup?</h3>
+<p>It depends on the cup, which is why a ratio is more useful than a scoop. For 250&nbsp;g of water, 1:16 gives 15.6&nbsp;g of coffee and 1:15 gives 16.7&nbsp;g, so somewhere around 15 to 17&nbsp;g is a good starting point for a mug of filter. For a bigger mug, enter the water you actually pour and let the ratio scale the coffee with it.</p>
+<h3>Is a 1:16 ratio coffee to water or water to coffee?</h3>
+<p>Coffee to water: one part coffee to sixteen parts water, by weight. Some recipes write it the other way round as 16:1, and some give a dose per litre instead. To convert, divide 1,000 by the ratio &mdash; 1:16 is 62.5&nbsp;g of coffee per litre &mdash; or divide 1,000 by the grams per litre to get back to a ratio.</p>
+<h3>Does the bloom water count towards the ratio?</h3>
+<p>Yes. For pour-over, the ratio covers all the water that goes through the coffee, bloom included, so a recipe that blooms with 40&nbsp;g and then pours to 320&nbsp;g uses 320&nbsp;g in total. The cup holds a little less, because the wet grounds keep some back. Espresso is counted differently: its ratio compares the dry dose with the liquid in the cup, not the water that went in.</p>
+<h3>What ratio should I use for a cafetière?</h3>
+<p>Around 1:15 is a good starting point, and it is what the French press preset uses. Immersion brewing is often run a little tighter than pour-over, from about 1:14 to 1:15, because some water stays trapped in the grounds. If the cup tastes weak, move towards 1:14 before changing anything else; if it tastes heavy, try 1:16.</p>
+</section>
 <section class="app-block">
-<p>This calculator is built into <strong><a href="/apps/kohii/">Kohii &mdash; The Barista Log</a></strong>, along with brew logging, dial-in history and bean freshness tracking. Offline, no account, one-time unlock.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790972283?pt=129172097&amp;ct=calc_coffee_ratio&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.kohii&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dcoffee_ratio" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+<p>This calculator is built into <strong><a href="/apps/kohii/">Kohii &mdash; The Barista Log</a></strong>, along with brew logging, dial-in history and bean freshness tracking. Offline, no account.</p><div class="badges"><a class="badge-appstore" href="https://apps.apple.com/app/id6790972283?pt=129172097&amp;ct=calc_coffee_ratio&amp;mt=8" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.eritech.kohii&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcalculator%26utm_campaign%3Dcoffee_ratio" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
 </section>
 <section class="more-tools">
-<h2>More free tools</h2>
+<h2>More coffee tools</h2>
+<ul class="cluster">
+<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a><span class="d">Dose, yield, ratio — enter any two and solve the third.</span></li>
+<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a><span class="d">Roast date in, peak window out — for espresso and filter.</span></li>
+</ul>
+<h2>Other free tools</h2>
 <ul>
 <li><a href="/tools/sourdough-hydration-calculator/">Sourdough Hydration Calculator</a></li>
 <li><a href="/tools/bakers-percentage-calculator/">Baker's Percentage Calculator</a></li>
 <li><a href="/tools/starter-feeding-ratio-calculator/">Starter Feeding Ratio Calculator</a></li>
-<li><a href="/tools/espresso-ratio-calculator/">Espresso Ratio Calculator</a></li>
-<li><a href="/tools/coffee-freshness-calculator/">Coffee Freshness Calculator</a></li>
 <li><a href="/tools/wine-drink-window-calculator/">Wine Drink Window Calculator</a></li>
 <li><a href="/tools/plant-watering-calculator/">Plant Watering Calculator</a></li>
 <li><a href="/tools/uk-return-rights-checker/">UK Return Rights Checker</a></li>
@@ -129,7 +161,7 @@ footer a,a:visited{color:var(--muted)}
 </section>
 </main>
 <footer>
-<p>&copy; 2026 Eri Tech Studio &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>
