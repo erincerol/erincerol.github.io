@@ -1,6 +1,6 @@
 ---
 app: Cellar Book
-updated: 2026-08-22
+updated: 2026-09-23
 ---
 
 ## Your data stays with you
@@ -23,11 +23,11 @@ Crash reporting, above, is separate and covered under our legitimate interest in
 
 ## Advertising
 
-The free version shows a single banner advertisement served by Google AdMob. In regions where consent is required (EEA, UK, Switzerland), you will be asked for your consent choices before ads are requested, and you can change them at any time from Settings → Manage Ad Consent. Purchasing the premium unlock removes advertising entirely.
+Cellar Book shows no advertisements and contains no advertising software.
 
 ## Purchases
 
-The premium unlock is processed by Google Play or the Apple App Store. We never see your payment details.
+Cellar Book Premium — a one-time unlock or a monthly subscription — is processed by Google Play or the Apple App Store. We never see your payment details. A subscription is managed or cancelled from your Google Play or App Store account.
 
 ## Contact
 

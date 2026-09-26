@@ -3,7 +3,7 @@
  * Build privacy policies from markdown sources.
  * Generates:
  *   1. HTML at /privacy-policies/{slug}.html (for store links)
- *   2. privacy.json in each app repo's Resources/Raw/ (for in-app rendering)
+ *   2. privacy.json at each app repo's appJsonPaths (the copies the native apps bundle)
  */
 
 const fs = require("fs");
@@ -23,7 +23,7 @@ const APP_MAPPING = {
     accent: "#C2442D",
     pkg: "com.eritech.travelbinder",
     repo: "travel-binder",
-    project: "TravelBinder",
+    appJsonPaths: ["ios/App/TravelBinder/Resources/privacy.json", "android/app/src/main/assets/privacy.json"],
   },
   "the-bake-log.md": {
     slug: "the-bake-log",
@@ -32,7 +32,7 @@ const APP_MAPPING = {
     accent: "#C26D43",
     pkg: "com.eritech.thebakelog",
     repo: "the-bake-log",
-    project: "TheBakeLog",
+    appJsonPaths: ["Resources/Raw/privacy.json"],
   },
   "kohii.md": {
     slug: "kohii",
@@ -55,7 +55,7 @@ const APP_MAPPING = {
     accent: "#D4B595",
     pkg: "com.eritech.cellarbook",
     repo: "cellar-book",
-    project: "CellarBook",
+    appJsonPaths: ["ios/App/CellarBook/Resources/privacy.json", "android/app/src/main/assets/privacy.json"],
   },
   "leaflet.md": {
     slug: "leaflet",
@@ -257,13 +257,6 @@ fs.readdirSync(PRIVACY_SRC)
     fs.writeFileSync(jsonPath, JSON.stringify(json, null, 2));
     console.log(`✅ ${jsonPath}`);
 
-    // Copy JSON into the app's MAUI project so it ships inside the binary. The Resources/Raw dir is
-    // under the .csproj — NOT the repo root — and only WarrantyBox keeps its project at the root.
-    // The old code joined the repo root for everyone and mkdir'd the result, so four of six apps
-    // silently grew a Resources/Raw at the wrong level and shipped nothing. `project` is the .csproj
-    // subdirectory (empty for a root-level project), and the directory is required to already
-    // exist: every app has one with the MauiAsset glob, so a missing one is a reliable wrong-path
-    // signal that must fail loudly rather than be created.
     if (mapping.repo && mapping.appJsonPaths) {
       const appRepoPath = path.join(DOCS_ROOT, mapping.repo);
       mapping.appJsonPaths.forEach((relative) => {
@@ -274,26 +267,6 @@ fs.readdirSync(PRIVACY_SRC)
         fs.writeFileSync(target, JSON.stringify(json, null, 2));
         console.log(`   📦 ${target}`);
       });
-    } else if (mapping.repo) {
-      const appRepoPath = path.join(DOCS_ROOT, mapping.repo);
-      const resourcesPath = path.join(
-        appRepoPath,
-        mapping.project || "",
-        "Resources",
-        "Raw"
-      );
-      if (!fs.existsSync(appRepoPath)) {
-        console.warn(`   ⚠️  ${appRepoPath} not found — skipped`);
-      } else if (!fs.existsSync(resourcesPath)) {
-        throw new Error(
-          `${resourcesPath} does not exist. Check the 'project' subdirectory for ${mapping.slug} ` +
-            `— never mkdir it, or the app ships an unpackaged copy at the wrong level.`
-        );
-      } else {
-        const appJsonPath = path.join(resourcesPath, "privacy.json");
-        fs.writeFileSync(appJsonPath, JSON.stringify(json, null, 2));
-        console.log(`   📦 ${appJsonPath}`);
-      }
     }
   });
 
