@@ -10,15 +10,15 @@
     },
     {
       "heading": "Usage Analytics",
-      "body": "The Bake Log uses Google Firebase Analytics to understand how the app is used — which runs by default. We collect anonymous, aggregated interaction events (for example: a bake or feeding saved, a recipe or starter added, a guided bake started, a Baker's Mark earned, a screen opened, or a Premium purchase) plus the app-standard measures Firebase provides. These never include your recipes, notes, photos, or any content you enter — only that an action happened. Advertising personalisation is turned off, so this data is never used to target ads. In the EEA, the UK and Switzerland, analytics collection is governed by Google Consent Mode through the ad consent form shown on first launch; you can revisit that choice anytime via Settings → Manage Ad Consent."
+      "body": "The Bake Log uses Google Firebase Analytics to understand how the app is used — which runs by default. We collect anonymous, aggregated interaction events (for example: a bake or feeding saved, a recipe or starter added, a guided bake started, a Baker's Mark earned, a screen opened, or a Premium purchase) plus the app-standard measures Firebase provides. These never include your recipes, notes, photos, or any content you enter — only that an action happened. Advertising personalisation is turned off, so this data is never used to target ads."
     },
     {
       "heading": "Crash Reporting",
       "body": "Firebase Crashlytics collects anonymised crash and error diagnostics to help us fix bugs, under legitimate interest and separately from the analytics above. No personal data is included in these reports."
     },
     {
-      "heading": "Ads",
-      "body": "Google AdMob may collect limited data for ad targeting on the free tier. Upgrade to Premium to remove all ads."
+      "heading": "Advertising",
+      "body": "The Bake Log 1.2 and later shows no advertisements and contains no advertising software. Earlier versions (1.1 and before) show a banner advertisement in the free version, served by Google AdMob, which may collect device identifiers and usage data to serve relevant ads. In regions where consent is required (EEA, UK, Switzerland), those versions ask for your consent choices before ads are requested, and you can change them at any time from Settings → Manage Ad Consent. Purchasing Premium removes advertising entirely."
     },
     {
       "heading": "In-App Purchases",
@@ -33,5 +33,5 @@
       "body": "For questions or concerns, contact: admin@eritech.studio"
     }
   ],
-  "updated": "2026-08-21"
+  "updated": "2026-09-26"
 }

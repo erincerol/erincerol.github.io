@@ -32,7 +32,10 @@ const APP_MAPPING = {
     accent: "#C26D43",
     pkg: "com.eritech.thebakelog",
     repo: "the-bake-log",
-    appJsonPaths: ["Resources/Raw/privacy.json"],
+    appJsonPaths: [
+      "ios/Modules/SharedUI/Sources/SharedUI/Resources/privacy.json",
+      "android/features/settings/src/main/assets/privacy.json",
+    ],
   },
   "kohii.md": {
     slug: "kohii",
