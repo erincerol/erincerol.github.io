@@ -65,7 +65,10 @@ const APP_MAPPING = {
     accent: "#4CAF50",
     pkg: "com.eritech.leaflet",
     repo: "leaflet",
-    project: "Leaflet",
+    appJsonPaths: [
+      "ios/Modules/SettingsFeature/Sources/SettingsFeature/Resources/privacy.json",
+      "android/app/src/main/assets/privacy.json",
+    ],
   },
   "warranty-box.md": {
     slug: "warranty-box",
