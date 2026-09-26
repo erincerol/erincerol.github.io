@@ -41,7 +41,11 @@ const APP_MAPPING = {
     accent: "#C8974A",
     pkg: "com.eritech.kohii",
     repo: "kohii",
-    project: "kohii-the-coffee-log",
+    appJsonPaths: [
+      "maui/Resources/Raw/privacy.json",
+      "ios/Modules/SettingsFeature/Sources/SettingsFeature/Resources/privacy.json",
+      "android/features/settings/src/main/assets/privacy.json",
+    ],
   },
   "cellar-book.md": {
     slug: "cellar-book",

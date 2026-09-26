@@ -1,6 +1,6 @@
 ---
 app: Kohii
-updated: 2026-08-22
+updated: 2026-09-26
 ---
 
 At Eri Tech Studios, we take your privacy seriously. Kohii ("The Barista Log") is a fully offline app designed to keep your coffee data completely private. This policy explains what is stored on your device and the limited third-party services the app uses.
@@ -27,17 +27,17 @@ Kohii uses Firebase Crashlytics to collect anonymous crash diagnostics (device m
 
 ## Usage analytics
 
-Kohii uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, the app version, your device model, and your coarse region (country level). It never records anything you type or photograph: not a coffee, a brew, a rating, a tasting note, a price, or a bag photo.
+Kohii uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, whether Premium is active and when a subscription ends or resumes, the app version, your device model, and your coarse region (country level). It never records anything you type or photograph: not a coffee, a brew, a rating, a tasting note, a price, or a bag photo.
 
-In regions where consent is required (EEA, UK, Switzerland), analytics collection follows the choices you make in the ad consent form (Google Consent Mode), which you can change at any time from Settings → Manage Ad Consent.
+In Kohii 1.1 and earlier, in regions where consent is required (EEA, UK, Switzerland), analytics collection follows the choices you make in the ad consent form (Google Consent Mode), which you can change at any time from Settings → Manage Ad Consent. Kohii 1.2 and later has no ad consent form, because it shows no advertising.
 
 ## Ads
 
-The free version shows a banner advertisement served by Google AdMob. In regions where consent is required (EEA, UK, Switzerland), you will be asked for your consent choices before ads are requested, and you can change them at any time from Settings → Manage Ad Consent. Upgrade to Premium to remove all ads.
+Kohii 1.2 and later shows no advertisements and contains no advertising software. Earlier versions (1.1 and before) show a banner advertisement in the free version, served by Google AdMob, which may collect device identifiers and usage data to serve relevant ads. In regions where consent is required (EEA, UK, Switzerland), those versions ask for your consent choices before ads are requested, and you can change them at any time from Settings → Manage Ad Consent. Purchasing Premium removes advertising entirely.
 
 ## In-App Purchases
 
-The one-time Premium purchase is processed through Google Play (Android) or the Apple App Store (iOS). We do not handle or store any payment data directly.
+Kohii Premium — a one-time unlock or a monthly subscription — is processed by the Apple App Store (iOS) or Google Play (Android). We never see or store your payment details. The app asks your app store whether your purchase or subscription is active so it can unlock Premium. A subscription renews each month until you cancel it, which you do from your App Store or Google Play account settings; refunds are handled by the store.
 
 ## Your Rights
 
