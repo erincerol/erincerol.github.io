@@ -13,7 +13,7 @@ When you attach a photo or a PDF — a passport scan, an insurance certificate, 
 
 ## Maps
 
-Your pins are coordinates saved in your own trip and drawn by the app, so they appear correctly with no connection at all. Background map imagery is different: those tiles come from your device's map provider — Apple Maps on iOS, Google Maps on Android — and fetching them requires a connection to that provider, governed by their privacy policy rather than this one. Your device keeps tiles for areas you have already viewed, which is why a map you looked at while planning still works abroad in airplane mode.
+Your pins are coordinates saved in your own trip and drawn by the app, so they appear correctly with no connection at all. Background map imagery is different: those tiles come from your device's map provider — Apple Maps on iOS, Google Maps on Android — and fetching them requires a connection to that provider, governed by their privacy policy rather than this one.
 
 Typing coordinates directly, or pasting a full map link, is read on your device and sends nothing. A short map link (maps.app.goo.gl) is opened once, when you add it, to read where it points. For a stay, finding its town from a pasted link asks your phone's built-in map service, which sends that pin's coordinates to Apple or Google. The towns you add to a route are looked up in a list bundled inside the app (town data © GeoNames, used under CC BY 4.0), so choosing a destination sends nothing anywhere.
 
