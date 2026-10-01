@@ -1,6 +1,6 @@
 ---
 app: The Travel Binder
-updated: 2026-08-13
+updated: 2026-10-01
 ---
 
 ## Your trip stays on your phone
@@ -15,9 +15,9 @@ When you attach a photo or a PDF — a passport scan, an insurance certificate, 
 
 Your pins are coordinates saved in your own trip and drawn by the app, so they appear correctly with no connection at all. Background map imagery is different: those tiles come from your device's map provider — Apple Maps on iOS, Google Maps on Android — and fetching them requires a connection to that provider, governed by their privacy policy rather than this one. Your device keeps tiles for areas you have already viewed, which is why a map you looked at while planning still works abroad in airplane mode.
 
-Searching for a place by name likewise sends that search text to the provider. Typing coordinates directly, or pasting a map link, is handled entirely on your device and sends nothing.
+Typing coordinates directly, or pasting a full map link, is read on your device and sends nothing. A short map link (maps.app.goo.gl) is opened once, when you add it, to read where it points. For a stay, finding its town from a pasted link asks your phone's built-in map service, which sends that pin's coordinates to Apple or Google. The towns you add to a route are looked up in a list bundled inside the app (town data © GeoNames, used under CC BY 4.0), so choosing a destination sends nothing anywhere.
 
-Neither request carries anything about your trip. The provider sees a map area or a single search term — never your itinerary, your bookings, or your other pins.
+None of these requests carries your trip. Each one sees a map area, a link or a single pin — never your itinerary, your bookings, or your other pins. Nothing else about your places leaves the device.
 
 The Atlas, the route diagram on a finished trip, and every share card are drawn by the app from your own data with no map imagery whatsoever, so nothing you share is ever assembled by, or routed through, a map provider.
 
