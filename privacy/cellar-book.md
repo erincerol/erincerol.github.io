@@ -19,7 +19,7 @@ Cellar Book uses Firebase Crashlytics to collect anonymous crash diagnostics (de
 
 Cellar Book uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, the app version, your device model, and your coarse region (country level). It never records anything you type or photograph: not a wine, a tasting note, a score, a price, or a label image.
 
-Analytics is never used for advertising: advertising-personalisation signals are switched off, and analytics does not read your advertising identifier. Crash reporting, above, is separate and covered under our legitimate interest in keeping the app working.
+Analytics is never used for advertising: advertising-personalisation signals are switched off. Crash reporting, above, is separate and covered under our legitimate interest in keeping the app working.
 
 ## Advertising
 
