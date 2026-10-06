@@ -45,7 +45,6 @@ const APP_MAPPING = {
     pkg: "com.eritech.kohii",
     repo: "kohii",
     appJsonPaths: [
-      "maui/Resources/Raw/privacy.json",
       "ios/Modules/SettingsFeature/Sources/SettingsFeature/Resources/privacy.json",
       "android/features/settings/src/main/assets/privacy.json",
     ],
