@@ -1,6 +1,6 @@
 ---
 app: The Travel Binder
-updated: 2026-10-01
+updated: 2026-10-06
 ---
 
 ## Your trip stays on your phone
@@ -43,15 +43,21 @@ The Travel Binder uses Firebase Crashlytics to collect anonymous crash diagnosti
 
 The Travel Binder uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, the app version, your device model, and your coarse region (country level). It never records anything you type, attach, or photograph: not a trip, an itinerary entry, a confirmation code, a note, a document, or a cover photo. Where a stamp is earned, only that it was earned is recorded — never which countries it represents.
 
-In the EEA, UK and Switzerland, analytics collection follows the consent choices you make in the ad consent form (Google Consent Mode), which you can change at any time from Settings → Privacy options. Crash reporting, above, is separate and covered under our legitimate interest in keeping the app working.
+Analytics is never used for advertising: advertising-personalisation signals are switched off, and analytics does not read your advertising identifier. Crash reporting, above, is separate and covered under our legitimate interest in keeping the app working.
 
 ## Advertising
 
-The free version shows a single banner advertisement, served by Google AdMob, which may collect device identifiers to serve ads. It appears on the trips list and across a trip's sections — the timeline, places, packing, checklist and documents — but never over the map. In regions where consent is required (the EEA, UK and Switzerland) you will be asked for your choices before any ad is requested, and you can change them at any time from Settings → Privacy options. Buying the one-time unlock removes advertising entirely.
+The free version shows a single banner advertisement. It appears on the trips list and across a trip's sections — the timeline, places, lists and documents — but never over the map, and never as a full-screen ad.
+
+Ads are served through Appodeal, an advertising mediation platform, and the ad networks it works with (including AppLovin, BidMachine, Digital Turbine, InMobi, ironSource, Liftoff, Mintegral, myTarget and Unity Ads). To choose, show and measure ads, they may collect your device's advertising identifier, your coarse location (derived from your IP address), your device type and operating system, and which ads you see and tap. None of your trips, documents, photos or notes is ever shared with them.
+
+Before any ad is requested, you are asked for your consent choices where the law requires it (for example in the EEA, the UK and Switzerland). On iPhone and iPad, Apple's tracking prompt then asks whether ads may use your activity across other companies' apps and websites. If you decline either, ads are still shown, but they are not personalised. You can change your consent choices at any time from Settings → Privacy options, and your tracking choice in your device's Settings. Appodeal's own policy is at https://appodeal.com/privacy-policy.
+
+Premium — the one-time unlock or the monthly subscription — removes advertising entirely: the ad software is not started at all.
 
 ## Purchases
 
-The one-time unlock is processed by Google Play or the Apple App Store. We never see or handle your payment details.
+Premium, whether the one-time unlock or the monthly subscription, is processed by Google Play or the Apple App Store. We never see or handle your payment details. A subscription is managed and cancelled in your store account.
 
 ## Your data, your call
 
