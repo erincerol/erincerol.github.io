@@ -47,7 +47,7 @@ Analytics is never used for advertising: advertising-personalisation signals are
 
 ## Advertising
 
-The free version shows a single banner advertisement. It appears on the trips list and across a trip's sections, and never as a full-screen ad.
+From version 1.2.58, the free version shows a single banner advertisement. It appears on the trips list and across a trip's sections, and never as a full-screen ad. Versions 1.1.31 to 1.2.57 show no advertisements and contain no advertising software. Versions 1.0.30 and earlier showed a banner served by Google AdMob, which may collect device identifiers to serve ads, after asking for consent where the law requires it.
 
 Ads are served through Appodeal, an advertising mediation platform, and the ad networks it works with (including AppLovin, BidMachine, Digital Turbine, InMobi, ironSource, Liftoff, Mintegral, myTarget and Unity Ads). To choose, show and measure ads, they may collect your device's advertising identifier, your coarse location (derived from your IP address), your device type and operating system, and which ads you see and tap. None of your trips, documents, photos or notes is ever shared with them.
 
