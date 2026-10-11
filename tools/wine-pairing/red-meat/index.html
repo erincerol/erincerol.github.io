@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What wine goes with red meat? | Eritech Studios</title>
-<meta name="description" content="For the red meat, a red with weight and some grip. The wine types and grapes that suit red meat, and why they work.">
+<title>What wine goes with steak and red meat? | Eritech Studios</title>
+<meta name="description" content="For the red meat, a red with weight and some grip: Cabernet Sauvignon, Merlot, Syrah and 24 more grapes, with the regions to look for.">
 <link rel="canonical" href="https://eritech.studio/tools/wine-pairing/red-meat/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="What wine goes with red meat?">
-<meta property="og:description" content="For the red meat, a red with weight and some grip. The wine types and grapes that suit red meat, and why they work.">
+<meta property="og:title" content="What wine goes with steak and red meat?">
+<meta property="og:description" content="For the red meat, a red with weight and some grip: Cabernet Sauvignon, Merlot, Syrah and 24 more grapes, with the regions to look for.">
 <meta property="og:url" content="https://eritech.studio/tools/wine-pairing/red-meat/">
 <meta property="og:image" content="https://eritech.studio/assets/og/wine-pairing-red-meat.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
 main{max-width:680px;margin:0 auto;padding:0 20px 40px}
 .crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
-.crumb a,a:visited{color:var(--muted);text-decoration:none}
+.crumb a,.crumb a:visited{color:var(--muted);text-decoration:none}
 .crumb a:hover{color:var(--accent)}
 .crumb span{margin:0 8px}
 h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
@@ -56,46 +56,58 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
 .more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
 @media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
-.more-tools a,a:visited{text-decoration:none}
+.more-tools a,.more-tools a:visited{text-decoration:none}
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-footer a,a:visited{color:var(--muted)}
+footer a,footer a:visited{color:var(--muted)}
 .faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 .worked td{padding:4px 0;border-bottom:1px solid var(--line)}
 .worked{border-collapse:collapse;width:100%;margin:0 0 14px}
 .worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
 .more-tools .d{display:block;color:var(--muted);font-size:.9rem}
-.sheet .sheet-title{font-size:1.1rem;margin:0 0 14px}
+.sheet .sheet-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;margin:0 0 4px}
+.chipbar{position:sticky;top:0;z-index:2;background:var(--surface);margin:0 -22px;padding:10px 22px}
 .chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
-.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem}
+.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem;white-space:nowrap}
 .chips a:hover{border-color:var(--accent)}
 .chips a[aria-current=page],.chips a[aria-current=page]:visited{background:var(--line);border-color:var(--accent);color:var(--accent)}
-.answer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-.answer .opening{color:var(--muted);font-size:.92rem;margin:0 0 2px}
-.answer .whisper{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.65rem;line-height:1.3;margin:0 0 6px}
+@media(max-width:600px){
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -22px;padding:0 22px}
+.chips::-webkit-scrollbar{display:none}
+.chips li{flex:none}
+}
+.answer{margin-top:8px;padding-top:18px;border-top:1px solid var(--line)}
+.answer.in{animation:wp-in .14s ease-out}
+@keyframes wp-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.answer.in{animation:none}}
+.answer .pairing-line{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:normal;color:var(--accent);font-size:1.45rem;line-height:1.3;margin:0 0 6px}
 .answer .prompt{color:var(--muted);margin:0}
-.wines h3{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:20px 0 4px}
-.wines ul{list-style:none;padding:0;margin:0}
-.wines li{padding:6px 0;border-bottom:1px solid var(--line)}
-.wines li:last-child{border-bottom:none}
-.wines .w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem;margin-left:4px}
+.wines h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:22px 0 2px}
 .wines .type-w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);margin:0 0 4px}
-.wines ul.regions{margin-top:2px}
-.wines ul.regions li{border:none;padding:2px 0 0 14px;font-size:.92rem}
+.ledger{list-style:none;padding:0;margin:0}
+.ledger li{padding:10px 0 11px;border-bottom:1px solid var(--line);break-inside:avoid}
+.ledger .g{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;color:var(--text)}
+.ledger .gw{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem}
+.ledger .rg{display:block;font-size:.86rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.ledger .rg b{font-weight:normal;color:var(--text)}
+.ledger .rg i{font-family:Georgia,"Times New Roman",serif}
+@media(min-width:640px){.ledger{columns:2;column-gap:28px}}
+.explainer h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Red meat", "item": "https://eritech.studio/tools/wine-pairing/red-meat/"}]}, {"@type": "WebPage", "name": "What wine goes with red meat?", "url": "https://eritech.studio/tools/wine-pairing/red-meat/", "description": "For the red meat, a red with weight and some grip. The wine types and grapes that suit red meat, and why they work.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Red meat", "item": "https://eritech.studio/tools/wine-pairing/red-meat/"}]}, {"@type": "WebPage", "name": "What wine goes with steak and red meat?", "url": "https://eritech.studio/tools/wine-pairing/red-meat/", "description": "For the red meat, a red with weight and some grip: Cabernet Sauvignon, Merlot, Syrah and 24 more grapes, with the regions to look for.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "inLanguage": "en-GB", "dateModified": "2026-10-11", "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
 </script>
 </head>
 <body>
 <nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a><span>/</span><a href="/tools/wine-pairing/">Wine Pairing Finder</a></nav>
 <main>
 <header>
-<h1>What wine goes with red meat?</h1>
+<h1>What wine goes with steak and red meat?</h1>
 </header>
 <section class="calc sheet" aria-labelledby="sheet-title">
-<h2 class="sheet-title" id="sheet-title">Pair with a dish</h2>
+<p class="sheet-title" id="sheet-title">Pair with a dish</p>
+<div class="chipbar">
 <ul class="chips">
 <li><a href="/tools/wine-pairing/red-meat/" aria-current="page">Red meat</a></li>
 <li><a href="/tools/wine-pairing/lamb/">Lamb</a></li>
@@ -110,73 +122,53 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/wine-pairing/cheese/">Cheese</a></li>
 <li><a href="/tools/wine-pairing/dessert/">Dessert</a></li>
 </ul>
-<div class="answer">
-<p class="opening">For the red meat</p>
-<p class="whisper">a red with weight and some grip</p>
+</div>
+<div class="answer" id="answer" aria-live="polite">
+<h2 class="pairing-line">For the red meat — a red with weight and some grip</h2>
 <div class="wines">
 <h3>Red</h3>
 <p class="type-w">a red with some grip</p>
-<ul>
-<li><strong>Cabernet Sauvignon</strong> <span class="w">a Cabernet with structure and a dark core</span><ul class="regions">
-<li>Bordeaux · Cabernet Sauvignon <span class="w">a left-bank claret with some age</span></li>
-<li>Napa Valley · Cabernet Sauvignon <span class="w">a Napa Cabernet, ripe and plush</span></li>
-</ul></li>
-<li><strong>Merlot</strong> <span class="w">a soft, plush red</span><ul class="regions">
-<li>Bordeaux · Merlot <span class="w">a right-bank claret, soft and plush</span></li>
-</ul></li>
-<li><strong>Syrah</strong> <span class="w">a dark red with pepper in it</span><ul class="regions">
-<li>Côte-Rôtie · Syrah <span class="w">a Côte-Rôtie, smoky and floral</span></li>
-<li>Barossa Valley · Syrah <span class="w">a Barossa Shiraz, big and warm</span></li>
-</ul></li>
-<li><strong>Nebbiolo</strong> <span class="w">a pale red with tannin and rose on it</span><ul class="regions">
-<li>Barolo · Nebbiolo <span class="w">a Barolo, opened early and given air</span></li>
-<li>Barbaresco · Nebbiolo <span class="w">a Barbaresco, finer and sooner</span></li>
-</ul></li>
-<li><strong>Sangiovese</strong> <span class="w">a savoury red with bright acidity</span><ul class="regions">
-<li>Chianti · Sangiovese <span class="w">a Chianti, savoury and bright</span></li>
-<li>Montalcino · Sangiovese <span class="w">a Brunello with some age</span></li>
-</ul></li>
-<li><strong>Tempranillo</strong> <span class="w">a red with oak and some years on it</span><ul class="regions">
-<li>Rioja · Tempranillo <span class="w">a Rioja with some years on it</span></li>
-<li>Ribera del Duero · Tempranillo <span class="w">a Ribera, darker and firmer than Rioja</span></li>
-</ul></li>
-<li><strong>Malbec</strong> <span class="w">a dark, full red</span></li>
-<li><strong>Grenache</strong> <span class="w">a warm red, soft and generous</span><ul class="regions">
-<li>Châteauneuf-du-Pape · Grenache <span class="w">a Châteauneuf, warm and spiced</span></li>
-<li>Priorat · Grenache <span class="w">a Priorat, dark and mineral</span></li>
-</ul></li>
-<li><strong>Cabernet Franc</strong> <span class="w">a leafy red, lighter than its cousin</span></li>
-<li><strong>Mourvedre</strong> <span class="w">a dark, earthy red</span></li>
-<li><strong>Carmenere</strong> <span class="w">a red with a green, peppery edge</span></li>
-<li><strong>Zinfandel</strong> <span class="w">a ripe, generous red</span></li>
-<li><strong>Petit Verdot</strong> <span class="w">a deep, firm red</span></li>
-<li><strong>Petite Sirah</strong> <span class="w">a dense, inky red</span></li>
-<li><strong>Aglianico</strong> <span class="w">a southern red with firm tannin</span></li>
-<li><strong>Nero d'Avola</strong> <span class="w">a sun-warmed red</span></li>
-<li><strong>Montepulciano</strong> <span class="w">a rustic, easy red</span></li>
-<li><strong>Tannat</strong> <span class="w">a red with serious tannin</span></li>
-<li><strong>Touriga Nacional</strong> <span class="w">a dark, floral red</span><ul class="regions">
-<li>Douro · Touriga Nacional <span class="w">a dry Douro red, dark and firm</span></li>
-</ul></li>
-<li><strong>Pinotage</strong> <span class="w">a smoky, dark red</span></li>
-<li><strong>Blaufrankisch</strong> <span class="w">a peppery, mid-weight red</span></li>
-<li><strong>Carignan</strong> <span class="w">a rustic red from old vines</span></li>
-<li><strong>Bobal</strong> <span class="w">a dark, juicy red</span></li>
-<li><strong>Saperavi</strong> <span class="w">a deep, dark red with grip</span></li>
-<li><strong>Bogazkere</strong> <span class="w">a firmly tannic red</span></li>
-<li><strong>Corvina</strong><ul class="regions">
-<li>Valpolicella · Corvina <span class="w">a Veneto red, from light to Amarone-dark</span></li>
-</ul></li>
-<li><strong>Pinot Noir</strong><ul class="regions">
-<li>Côte de Nuits · Pinot Noir <span class="w">a Côte de Nuits red with some depth</span></li>
-</ul></li>
+<ul class="ledger">
+<li><span class="g">Cabernet Sauvignon</span> <span class="gw">a Cabernet with structure and a dark core</span><span class="rg"><b>Bordeaux</b> <i>a left-bank claret with some age</i> · <b>Napa Valley</b> <i>a Napa Cabernet, ripe and plush</i></span></li>
+<li><span class="g">Merlot</span> <span class="gw">a soft, plush red</span><span class="rg"><b>Bordeaux</b> <i>a right-bank claret, soft and plush</i></span></li>
+<li><span class="g">Syrah</span> <span class="gw">a dark red with pepper in it</span><span class="rg"><b>Côte-Rôtie</b> <i>a Côte-Rôtie, smoky and floral</i> · <b>Barossa Valley</b> <i>a Barossa Shiraz, big and warm</i></span></li>
+<li><span class="g">Nebbiolo</span> <span class="gw">a pale red with tannin and rose on it</span><span class="rg"><b>Barolo</b> <i>a Barolo, opened early and given air</i> · <b>Barbaresco</b> <i>a Barbaresco, finer and sooner</i></span></li>
+<li><span class="g">Sangiovese</span> <span class="gw">a savoury red with bright acidity</span><span class="rg"><b>Chianti</b> <i>a Chianti, savoury and bright</i> · <b>Montalcino</b> <i>a Brunello with some age</i></span></li>
+<li><span class="g">Tempranillo</span> <span class="gw">a red with oak and some years on it</span><span class="rg"><b>Rioja</b> <i>a Rioja with some years on it</i> · <b>Ribera del Duero</b> <i>a Ribera, darker and firmer than Rioja</i></span></li>
+<li><span class="g">Malbec</span> <span class="gw">a dark, full red</span></li>
+<li><span class="g">Grenache</span> <span class="gw">a warm red, soft and generous</span><span class="rg"><b>Châteauneuf-du-Pape</b> <i>a Châteauneuf, warm and spiced</i> · <b>Priorat</b> <i>a Priorat, dark and mineral</i></span></li>
+<li><span class="g">Cabernet Franc</span> <span class="gw">a leafy red, lighter than its cousin</span></li>
+<li><span class="g">Mourvedre</span> <span class="gw">a dark, earthy red</span></li>
+<li><span class="g">Carmenere</span> <span class="gw">a red with a green, peppery edge</span></li>
+<li><span class="g">Zinfandel</span> <span class="gw">a ripe, generous red</span></li>
+<li><span class="g">Petit Verdot</span> <span class="gw">a deep, firm red</span></li>
+<li><span class="g">Petite Sirah</span> <span class="gw">a dense, inky red</span></li>
+<li><span class="g">Aglianico</span> <span class="gw">a southern red with firm tannin</span></li>
+<li><span class="g">Nero d'Avola</span> <span class="gw">a sun-warmed red</span></li>
+<li><span class="g">Montepulciano</span> <span class="gw">a rustic, easy red</span></li>
+<li><span class="g">Tannat</span> <span class="gw">a red with serious tannin</span></li>
+<li><span class="g">Touriga Nacional</span> <span class="gw">a dark, floral red</span><span class="rg"><b>Douro</b> <i>a dry Douro red, dark and firm</i></span></li>
+<li><span class="g">Pinotage</span> <span class="gw">a smoky, dark red</span></li>
+<li><span class="g">Blaufrankisch</span> <span class="gw">a peppery, mid-weight red</span></li>
+<li><span class="g">Carignan</span> <span class="gw">a rustic red from old vines</span></li>
+<li><span class="g">Bobal</span> <span class="gw">a dark, juicy red</span></li>
+<li><span class="g">Saperavi</span> <span class="gw">a deep, dark red with grip</span></li>
+<li><span class="g">Bogazkere</span> <span class="gw">a firmly tannic red</span></li>
+<li><span class="g">Corvina</span><span class="rg"><b>Valpolicella</b> <i>a Veneto red, from light to Amarone-dark</i></span></li>
+<li><span class="g">Pinot Noir</span><span class="rg"><b>Côte de Nuits</b> <i>a Côte de Nuits red with some depth</i></span></li>
 </ul>
 </div>
 </div>
 </section>
 <section class="explainer">
-<h2>Why these wines work with red meat</h2>
-<p>Red meat is rich with fat and protein, and that is exactly what tannin is for. The grip you feel on your gums from a young Cabernet Sauvignon, a Malbec or a Tannat comes from compounds that bind to protein; meet them with a steak and they latch onto the meat instead, so the wine tastes rounder and the beef tastes cleaner. Fat works the other way, coating the mouth so the next sip feels softer than the last. That is why the list here leans dark and structured: Syrah with its pepper, Nebbiolo and Aglianico with their firm tannin, a left-bank Bordeaux with some age. Weight matters as much as grip. A charred rib or a slow braise has real flavour, and a light red simply disappears beside it, so you want a wine that holds its own on the palate. Acidity earns its place too, particularly with tomato-based ragùs or anything finished with a pan sauce, which is where Sangiovese and Tempranillo come in. Softer choices such as Merlot or Grenache suit leaner cuts and gentler cooking, where the meat has less fat to tame the tannin. The one thing to steer away from is a big, oaky red with a lean, well-done cut; with nothing to soften it, the tannin turns drying and faintly bitter. Rarer meat, more fat and a heavier hand with the seasoning all call for more structure in the glass.</p>
+<h2>Why these wines work with steak and red meat</h2>
+<p>Red meat is rich with fat and protein, and that is exactly what tannin is for. The grip you feel on your gums from a young Cabernet Sauvignon, a Malbec or a Tannat comes from compounds that bind to protein; meet them with a steak and they latch onto the meat instead, so the wine tastes rounder and the beef tastes cleaner.</p>
+<h3>With steak and a charred rib</h3>
+<p>Fat works the other way, coating the mouth so the next sip feels softer than the last. That is why the list here leans dark and structured: Syrah with its pepper, Nebbiolo and Aglianico with their firm tannin, a left-bank Bordeaux with some age. Weight matters as much as grip. A charred rib has real flavour, and a light red simply disappears beside it, so you want a wine that holds its own on the palate.</p>
+<h3>With a braise, a ragù or a pan sauce</h3>
+<p>Acidity earns its place with tomato-based ragùs or anything finished with a pan sauce, which is where Sangiovese and Tempranillo come in. Softer choices such as Merlot or Grenache suit leaner cuts and gentler cooking, where the meat has less fat to tame the tannin. <a href="/tools/wine-pairing/lamb/">Lamb</a> and <a href="/tools/wine-pairing/game/">game</a> follow the same logic, each with a twist of its own.</p>
+<h3>What to avoid</h3>
+<p>Steer away from a big, oaky red with a lean, well-done cut; with nothing to soften it, the tannin turns drying and faintly bitter. Rarer meat, more fat and a heavier hand with the seasoning all call for more structure in the glass.</p>
 </section>
 <section class="app-block">
 <p>This is the same filter <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>&rsquo;s Tonight screen uses to pick from what you already own.</p>
@@ -196,33 +188,46 @@ footer a,a:visited{color:var(--muted)}
 </footer>
 <script>
 (function(){
-if(!window.fetch||!window.DOMParser||!history.pushState)return;
-var cache={};
-var swapped=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
-function chip(e){return e.target.closest?e.target.closest('.chips a'):null}
-function get(u){
-return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()})
-.catch(function(err){delete cache[u];throw err}))}
+var bar=document.querySelector('.chipbar');
+if(!bar||!window.fetch||!window.DOMParser||!history.pushState)return;
+var PAIR='/tools/wine-pairing/',cache={};
+var heads=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
+var parts=['.crumb','h1','.explainer','.app-block','.more-tools'];
+history.scrollRestoration='manual';
+function link(e){var a=e.target.closest?e.target.closest('a'):null;return a&&a.getAttribute('href').indexOf(PAIR)===0?a:null}
+function get(u){return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()}).catch(function(err){delete cache[u];throw err}))}
+function mark(path){var on=null;bar.querySelectorAll('a').forEach(function(c){if(c.getAttribute('href')===path){c.setAttribute('aria-current','page');on=c}else c.removeAttribute('aria-current')});return on}
+function reveal(c){var ul=c.closest('.chips'),x=c.offsetLeft-ul.offsetLeft;
+if(x<ul.scrollLeft)ul.scrollLeft=x-22;else if(x+c.offsetWidth>ul.scrollLeft+ul.clientWidth)ul.scrollLeft=x+c.offsetWidth-ul.clientWidth+22}
 function swap(doc){
 document.title=doc.title;
-swapped.forEach(function(sel){var a=document.head.querySelector(sel),b=doc.head.querySelector(sel);if(a&&b)a.replaceWith(b)});
-document.querySelector('.crumb').replaceWith(doc.querySelector('.crumb'));
-document.querySelector('main').replaceWith(doc.querySelector('main'))}
-function go(u,push){
+heads.forEach(function(s){var a=document.head.querySelector(s),b=doc.head.querySelector(s);if(a&&b)a.replaceWith(b)});
+parts.forEach(function(s){var a=document.querySelector(s),b=doc.querySelector(s);if(a&&b)a.replaceWith(b)});
+var ans=document.getElementById('answer');
+ans.innerHTML=doc.getElementById('answer').innerHTML;
+ans.classList.remove('in');void ans.offsetWidth;ans.classList.add('in')}
+function go(u,push,y){
+var path=new URL(u,location.href).pathname,c=mark(path);
+if(c)reveal(c);
 get(u).then(function(t){
-swap(new DOMParser().parseFromString(t,'text/html'));
-if(!push)return;
-history.pushState(null,'',u);
-var c=document.querySelector('.chips a[href="'+new URL(u).pathname+'"]');
-if(c)c.focus({preventScroll:true})})
-.catch(function(){location.href=u})}
+var doc=new DOMParser().parseFromString(t,'text/html');
+if(!doc.getElementById('answer'))throw new Error('shape');
+if(push){history.replaceState({y:scrollY},'');history.pushState({y:0},'',u)}
+swap(doc);
+if(push&&c)c.focus({preventScroll:true});
+if(y!=null){scrollTo(0,y);return}
+var top=document.getElementById('answer').getBoundingClientRect().top;
+if(top<bar.offsetHeight)scrollBy(0,top-bar.offsetHeight)})
+.catch(function(){location.assign(u)})}
 document.addEventListener('click',function(e){
-var a=chip(e);
+var a=link(e);
 if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
 e.preventDefault();
 if(a.href!==location.href)go(a.href,true)});
-['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=chip(e);if(a)get(a.href)})});
-window.addEventListener('popstate',function(){go(location.href,false)});
+['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=link(e);if(a)get(a.href)})});
+window.addEventListener('popstate',function(e){go(location.href,false,e.state&&e.state.y||0)});
+var first=bar.querySelector('[aria-current]');
+if(first)reveal(first);
 })();
 </script>
 </body>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What wine goes with something spicy? | Eritech Studios</title>
-<meta name="description" content="For something spicy, a white with a touch of sweetness. The wine types and grapes that suit something spicy, and why they work.">
+<title>What wine goes with spicy food and curry? | Eritech Studios</title>
+<meta name="description" content="For something spicy, a white with a touch of sweetness: Syrah, Malbec, Grenache and 13 more grapes, with the regions to look for.">
 <link rel="canonical" href="https://eritech.studio/tools/wine-pairing/spicy/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="What wine goes with something spicy?">
-<meta property="og:description" content="For something spicy, a white with a touch of sweetness. The wine types and grapes that suit something spicy, and why they work.">
+<meta property="og:title" content="What wine goes with spicy food and curry?">
+<meta property="og:description" content="For something spicy, a white with a touch of sweetness: Syrah, Malbec, Grenache and 13 more grapes, with the regions to look for.">
 <meta property="og:url" content="https://eritech.studio/tools/wine-pairing/spicy/">
 <meta property="og:image" content="https://eritech.studio/assets/og/wine-pairing-spicy.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
 main{max-width:680px;margin:0 auto;padding:0 20px 40px}
 .crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
-.crumb a,a:visited{color:var(--muted);text-decoration:none}
+.crumb a,.crumb a:visited{color:var(--muted);text-decoration:none}
 .crumb a:hover{color:var(--accent)}
 .crumb span{margin:0 8px}
 h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
@@ -56,46 +56,58 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
 .more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
 @media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
-.more-tools a,a:visited{text-decoration:none}
+.more-tools a,.more-tools a:visited{text-decoration:none}
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-footer a,a:visited{color:var(--muted)}
+footer a,footer a:visited{color:var(--muted)}
 .faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 .worked td{padding:4px 0;border-bottom:1px solid var(--line)}
 .worked{border-collapse:collapse;width:100%;margin:0 0 14px}
 .worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
 .more-tools .d{display:block;color:var(--muted);font-size:.9rem}
-.sheet .sheet-title{font-size:1.1rem;margin:0 0 14px}
+.sheet .sheet-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;margin:0 0 4px}
+.chipbar{position:sticky;top:0;z-index:2;background:var(--surface);margin:0 -22px;padding:10px 22px}
 .chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
-.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem}
+.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem;white-space:nowrap}
 .chips a:hover{border-color:var(--accent)}
 .chips a[aria-current=page],.chips a[aria-current=page]:visited{background:var(--line);border-color:var(--accent);color:var(--accent)}
-.answer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-.answer .opening{color:var(--muted);font-size:.92rem;margin:0 0 2px}
-.answer .whisper{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.65rem;line-height:1.3;margin:0 0 6px}
+@media(max-width:600px){
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -22px;padding:0 22px}
+.chips::-webkit-scrollbar{display:none}
+.chips li{flex:none}
+}
+.answer{margin-top:8px;padding-top:18px;border-top:1px solid var(--line)}
+.answer.in{animation:wp-in .14s ease-out}
+@keyframes wp-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.answer.in{animation:none}}
+.answer .pairing-line{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:normal;color:var(--accent);font-size:1.45rem;line-height:1.3;margin:0 0 6px}
 .answer .prompt{color:var(--muted);margin:0}
-.wines h3{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:20px 0 4px}
-.wines ul{list-style:none;padding:0;margin:0}
-.wines li{padding:6px 0;border-bottom:1px solid var(--line)}
-.wines li:last-child{border-bottom:none}
-.wines .w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem;margin-left:4px}
+.wines h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:22px 0 2px}
 .wines .type-w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);margin:0 0 4px}
-.wines ul.regions{margin-top:2px}
-.wines ul.regions li{border:none;padding:2px 0 0 14px;font-size:.92rem}
+.ledger{list-style:none;padding:0;margin:0}
+.ledger li{padding:10px 0 11px;border-bottom:1px solid var(--line);break-inside:avoid}
+.ledger .g{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;color:var(--text)}
+.ledger .gw{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem}
+.ledger .rg{display:block;font-size:.86rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.ledger .rg b{font-weight:normal;color:var(--text)}
+.ledger .rg i{font-family:Georgia,"Times New Roman",serif}
+@media(min-width:640px){.ledger{columns:2;column-gap:28px}}
+.explainer h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Something spicy", "item": "https://eritech.studio/tools/wine-pairing/spicy/"}]}, {"@type": "WebPage", "name": "What wine goes with something spicy?", "url": "https://eritech.studio/tools/wine-pairing/spicy/", "description": "For something spicy, a white with a touch of sweetness. The wine types and grapes that suit something spicy, and why they work.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Something spicy", "item": "https://eritech.studio/tools/wine-pairing/spicy/"}]}, {"@type": "WebPage", "name": "What wine goes with spicy food and curry?", "url": "https://eritech.studio/tools/wine-pairing/spicy/", "description": "For something spicy, a white with a touch of sweetness: Syrah, Malbec, Grenache and 13 more grapes, with the regions to look for.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "inLanguage": "en-GB", "dateModified": "2026-10-11", "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
 </script>
 </head>
 <body>
 <nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a><span>/</span><a href="/tools/wine-pairing/">Wine Pairing Finder</a></nav>
 <main>
 <header>
-<h1>What wine goes with something spicy?</h1>
+<h1>What wine goes with spicy food and curry?</h1>
 </header>
 <section class="calc sheet" aria-labelledby="sheet-title">
-<h2 class="sheet-title" id="sheet-title">Pair with a dish</h2>
+<p class="sheet-title" id="sheet-title">Pair with a dish</p>
+<div class="chipbar">
 <ul class="chips">
 <li><a href="/tools/wine-pairing/red-meat/">Red meat</a></li>
 <li><a href="/tools/wine-pairing/lamb/">Lamb</a></li>
@@ -110,47 +122,44 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/wine-pairing/cheese/">Cheese</a></li>
 <li><a href="/tools/wine-pairing/dessert/">Dessert</a></li>
 </ul>
-<div class="answer">
-<p class="opening">For something spicy</p>
-<p class="whisper">a white with a touch of sweetness</p>
+</div>
+<div class="answer" id="answer" aria-live="polite">
+<h2 class="pairing-line">For something spicy — a white with a touch of sweetness</h2>
 <div class="wines">
 <h3>Red</h3>
-<ul>
-<li><strong>Syrah</strong> <span class="w">a dark red with pepper in it</span><ul class="regions">
-<li>Barossa Valley · Syrah <span class="w">a Barossa Shiraz, big and warm</span></li>
-</ul></li>
-<li><strong>Malbec</strong> <span class="w">a dark, full red</span></li>
-<li><strong>Grenache</strong> <span class="w">a warm red, soft and generous</span><ul class="regions">
-<li>Châteauneuf-du-Pape · Grenache <span class="w">a Châteauneuf, warm and spiced</span></li>
-</ul></li>
-<li><strong>Carmenere</strong> <span class="w">a red with a green, peppery edge</span></li>
-<li><strong>Zinfandel</strong> <span class="w">a ripe, generous red</span></li>
-<li><strong>Nero d'Avola</strong> <span class="w">a sun-warmed red</span></li>
-<li><strong>Pinotage</strong> <span class="w">a smoky, dark red</span></li>
-<li><strong>Carignan</strong> <span class="w">a rustic red from old vines</span></li>
+<ul class="ledger">
+<li><span class="g">Syrah</span> <span class="gw">a dark red with pepper in it</span><span class="rg"><b>Barossa Valley</b> <i>a Barossa Shiraz, big and warm</i></span></li>
+<li><span class="g">Malbec</span> <span class="gw">a dark, full red</span></li>
+<li><span class="g">Grenache</span> <span class="gw">a warm red, soft and generous</span><span class="rg"><b>Châteauneuf-du-Pape</b> <i>a Châteauneuf, warm and spiced</i></span></li>
+<li><span class="g">Carmenere</span> <span class="gw">a red with a green, peppery edge</span></li>
+<li><span class="g">Zinfandel</span> <span class="gw">a ripe, generous red</span></li>
+<li><span class="g">Nero d'Avola</span> <span class="gw">a sun-warmed red</span></li>
+<li><span class="g">Pinotage</span> <span class="gw">a smoky, dark red</span></li>
+<li><span class="g">Carignan</span> <span class="gw">a rustic red from old vines</span></li>
 </ul>
 <h3>White</h3>
-<ul>
-<li><strong>Riesling</strong> <span class="w">a white with acidity and a touch of sweetness</span><ul class="regions">
-<li>Mosel · Riesling <span class="w">a Mosel Riesling, light and off-dry</span></li>
-<li>Alsace · Riesling <span class="w">an Alsace Riesling, dry and steely</span></li>
-</ul></li>
-<li><strong>Viognier</strong> <span class="w">a perfumed, full white</span></li>
-<li><strong>Gewurztraminer</strong> <span class="w">a heady, aromatic white</span></li>
-<li><strong>Furmint</strong> <span class="w">a dry white with real acidity</span></li>
-<li><strong>Torrontes</strong> <span class="w">a floral, dry white</span></li>
-<li><strong>Muscat</strong> <span class="w">a dry, floral white</span></li>
-<li><strong>Malvasia</strong> <span class="w">an aromatic white, dry or not</span></li>
-<li><strong>Sauvignon Blanc</strong><ul class="regions">
-<li>Marlborough · Sauvignon Blanc <span class="w">a Marlborough Sauvignon, loud and green</span></li>
-</ul></li>
+<ul class="ledger">
+<li><span class="g">Riesling</span> <span class="gw">a white with acidity and a touch of sweetness</span><span class="rg"><b>Mosel</b> <i>a Mosel Riesling, light and off-dry</i> · <b>Alsace</b> <i>an Alsace Riesling, dry and steely</i></span></li>
+<li><span class="g">Viognier</span> <span class="gw">a perfumed, full white</span></li>
+<li><span class="g">Gewurztraminer</span> <span class="gw">a heady, aromatic white</span></li>
+<li><span class="g">Furmint</span> <span class="gw">a dry white with real acidity</span></li>
+<li><span class="g">Torrontes</span> <span class="gw">a floral, dry white</span></li>
+<li><span class="g">Muscat</span> <span class="gw">a dry, floral white</span></li>
+<li><span class="g">Malvasia</span> <span class="gw">an aromatic white, dry or not</span></li>
+<li><span class="g">Sauvignon Blanc</span><span class="rg"><b>Marlborough</b> <i>a Marlborough Sauvignon, loud and green</i></span></li>
 </ul>
 </div>
 </div>
 </section>
 <section class="explainer">
-<h2>Why these wines work with something spicy</h2>
-<p>Chilli heat changes the rules. Capsaicin makes alcohol burn hotter and tannin taste harsher, so a big, oaky, high-alcohol red with a curry can feel like pouring fuel on a fire. Sweetness does the opposite: it calms the heat and lets the flavours of the dish come through. That is why the pick here is a white with a touch of sweetness, and why Riesling, especially an off-dry Mosel with its low alcohol and bright acidity, is the classic match for Thai, Sichuan and Indian food. Gewurztraminer brings lychee, rose and ginger that meet aromatic spices on their own terms, and Torrontes, Muscat, Viognier and Malvasia have the perfume to stand up to lemongrass, coriander and lime. Acidity matters as much as sugar; it keeps the wine refreshing against rich coconut sauces. Not everything spicy is hot, though. Smoky, barbecued and warmly spiced dishes, from chilli con carne to harissa lamb, often want a red, and there the trick is ripe fruit and soft tannin: Grenache, a Châteauneuf-du-Pape, Zinfandel, Malbec, Carmenere or Pinotage. A Barossa Shiraz suits smoky, sweet-spiced barbecue. Serve reds slightly cool and keep the alcohol modest where you can. The hotter the dish, the more the glass should lean towards sweetness, freshness and fruit.</p>
+<h2>Why these wines work with spicy food and curry</h2>
+<p>Chilli heat changes the rules. Capsaicin makes alcohol burn hotter and tannin taste harsher, so a big, oaky, high-alcohol red with a curry can feel like pouring fuel on a fire. Sweetness does the opposite: it calms the heat and lets the flavours of the dish come through.</p>
+<h3>With curry, Thai and Sichuan food</h3>
+<p>That is why the pick here is a white with a touch of sweetness, and why Riesling, especially an off-dry Mosel with its low alcohol and bright acidity, is the classic match for Thai, Sichuan and Indian food. Gewürztraminer brings lychee, rose and ginger that meet aromatic spices on their own terms, and Torrontes, Muscat, Viognier and Malvasia have the perfume to stand up to lemongrass, coriander and lime. Acidity matters as much as sugar; it keeps the wine refreshing against rich coconut sauces.</p>
+<h3>With smoky and barbecued dishes</h3>
+<p>Not everything spicy is hot, though. Smoky, barbecued and warmly spiced dishes, from chilli con carne to harissa lamb, often want a red, and there the trick is ripe fruit and soft tannin: Grenache, a Châteauneuf-du-Pape, Zinfandel, Malbec, Carmenere or Pinotage. A Barossa Shiraz suits smoky, sweet-spiced barbecue.</p>
+<h3>When the heat climbs</h3>
+<p>Serve reds slightly cool and keep the alcohol modest where you can. The hotter the dish, the more the glass should lean towards sweetness, freshness and fruit.</p>
 </section>
 <section class="app-block">
 <p>This is the same filter <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>&rsquo;s Tonight screen uses to pick from what you already own.</p>
@@ -170,33 +179,46 @@ footer a,a:visited{color:var(--muted)}
 </footer>
 <script>
 (function(){
-if(!window.fetch||!window.DOMParser||!history.pushState)return;
-var cache={};
-var swapped=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
-function chip(e){return e.target.closest?e.target.closest('.chips a'):null}
-function get(u){
-return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()})
-.catch(function(err){delete cache[u];throw err}))}
+var bar=document.querySelector('.chipbar');
+if(!bar||!window.fetch||!window.DOMParser||!history.pushState)return;
+var PAIR='/tools/wine-pairing/',cache={};
+var heads=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
+var parts=['.crumb','h1','.explainer','.app-block','.more-tools'];
+history.scrollRestoration='manual';
+function link(e){var a=e.target.closest?e.target.closest('a'):null;return a&&a.getAttribute('href').indexOf(PAIR)===0?a:null}
+function get(u){return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()}).catch(function(err){delete cache[u];throw err}))}
+function mark(path){var on=null;bar.querySelectorAll('a').forEach(function(c){if(c.getAttribute('href')===path){c.setAttribute('aria-current','page');on=c}else c.removeAttribute('aria-current')});return on}
+function reveal(c){var ul=c.closest('.chips'),x=c.offsetLeft-ul.offsetLeft;
+if(x<ul.scrollLeft)ul.scrollLeft=x-22;else if(x+c.offsetWidth>ul.scrollLeft+ul.clientWidth)ul.scrollLeft=x+c.offsetWidth-ul.clientWidth+22}
 function swap(doc){
 document.title=doc.title;
-swapped.forEach(function(sel){var a=document.head.querySelector(sel),b=doc.head.querySelector(sel);if(a&&b)a.replaceWith(b)});
-document.querySelector('.crumb').replaceWith(doc.querySelector('.crumb'));
-document.querySelector('main').replaceWith(doc.querySelector('main'))}
-function go(u,push){
+heads.forEach(function(s){var a=document.head.querySelector(s),b=doc.head.querySelector(s);if(a&&b)a.replaceWith(b)});
+parts.forEach(function(s){var a=document.querySelector(s),b=doc.querySelector(s);if(a&&b)a.replaceWith(b)});
+var ans=document.getElementById('answer');
+ans.innerHTML=doc.getElementById('answer').innerHTML;
+ans.classList.remove('in');void ans.offsetWidth;ans.classList.add('in')}
+function go(u,push,y){
+var path=new URL(u,location.href).pathname,c=mark(path);
+if(c)reveal(c);
 get(u).then(function(t){
-swap(new DOMParser().parseFromString(t,'text/html'));
-if(!push)return;
-history.pushState(null,'',u);
-var c=document.querySelector('.chips a[href="'+new URL(u).pathname+'"]');
-if(c)c.focus({preventScroll:true})})
-.catch(function(){location.href=u})}
+var doc=new DOMParser().parseFromString(t,'text/html');
+if(!doc.getElementById('answer'))throw new Error('shape');
+if(push){history.replaceState({y:scrollY},'');history.pushState({y:0},'',u)}
+swap(doc);
+if(push&&c)c.focus({preventScroll:true});
+if(y!=null){scrollTo(0,y);return}
+var top=document.getElementById('answer').getBoundingClientRect().top;
+if(top<bar.offsetHeight)scrollBy(0,top-bar.offsetHeight)})
+.catch(function(){location.assign(u)})}
 document.addEventListener('click',function(e){
-var a=chip(e);
+var a=link(e);
 if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
 e.preventDefault();
 if(a.href!==location.href)go(a.href,true)});
-['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=chip(e);if(a)get(a.href)})});
-window.addEventListener('popstate',function(){go(location.href,false)});
+['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=link(e);if(a)get(a.href)})});
+window.addEventListener('popstate',function(e){go(location.href,false,e.state&&e.state.y||0)});
+var first=bar.querySelector('[aria-current]');
+if(first)reveal(first);
 })();
 </script>
 </body>

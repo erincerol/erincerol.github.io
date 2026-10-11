@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What wine goes with cheese? | Eritech Studios</title>
-<meta name="description" content="For the cheese, a wine with more age than the cheese. The wine types and grapes that suit cheese, and why they work.">
+<meta name="description" content="For the cheese, a wine with more age than the cheese: Cabernet Sauvignon, Pinot Noir, Nebbiolo and 25 more grapes, with the regions to look for.">
 <link rel="canonical" href="https://eritech.studio/tools/wine-pairing/cheese/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="What wine goes with cheese?">
-<meta property="og:description" content="For the cheese, a wine with more age than the cheese. The wine types and grapes that suit cheese, and why they work.">
+<meta property="og:description" content="For the cheese, a wine with more age than the cheese: Cabernet Sauvignon, Pinot Noir, Nebbiolo and 25 more grapes, with the regions to look for.">
 <meta property="og:url" content="https://eritech.studio/tools/wine-pairing/cheese/">
 <meta property="og:image" content="https://eritech.studio/assets/og/wine-pairing-cheese.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
 main{max-width:680px;margin:0 auto;padding:0 20px 40px}
 .crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
-.crumb a,a:visited{color:var(--muted);text-decoration:none}
+.crumb a,.crumb a:visited{color:var(--muted);text-decoration:none}
 .crumb a:hover{color:var(--accent)}
 .crumb span{margin:0 8px}
 h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
@@ -56,36 +56,47 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
 .more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
 @media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
-.more-tools a,a:visited{text-decoration:none}
+.more-tools a,.more-tools a:visited{text-decoration:none}
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-footer a,a:visited{color:var(--muted)}
+footer a,footer a:visited{color:var(--muted)}
 .faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 .worked td{padding:4px 0;border-bottom:1px solid var(--line)}
 .worked{border-collapse:collapse;width:100%;margin:0 0 14px}
 .worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
 .more-tools .d{display:block;color:var(--muted);font-size:.9rem}
-.sheet .sheet-title{font-size:1.1rem;margin:0 0 14px}
+.sheet .sheet-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;margin:0 0 4px}
+.chipbar{position:sticky;top:0;z-index:2;background:var(--surface);margin:0 -22px;padding:10px 22px}
 .chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
-.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem}
+.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem;white-space:nowrap}
 .chips a:hover{border-color:var(--accent)}
 .chips a[aria-current=page],.chips a[aria-current=page]:visited{background:var(--line);border-color:var(--accent);color:var(--accent)}
-.answer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-.answer .opening{color:var(--muted);font-size:.92rem;margin:0 0 2px}
-.answer .whisper{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.65rem;line-height:1.3;margin:0 0 6px}
+@media(max-width:600px){
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -22px;padding:0 22px}
+.chips::-webkit-scrollbar{display:none}
+.chips li{flex:none}
+}
+.answer{margin-top:8px;padding-top:18px;border-top:1px solid var(--line)}
+.answer.in{animation:wp-in .14s ease-out}
+@keyframes wp-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.answer.in{animation:none}}
+.answer .pairing-line{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:normal;color:var(--accent);font-size:1.45rem;line-height:1.3;margin:0 0 6px}
 .answer .prompt{color:var(--muted);margin:0}
-.wines h3{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:20px 0 4px}
-.wines ul{list-style:none;padding:0;margin:0}
-.wines li{padding:6px 0;border-bottom:1px solid var(--line)}
-.wines li:last-child{border-bottom:none}
-.wines .w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem;margin-left:4px}
+.wines h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:22px 0 2px}
 .wines .type-w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);margin:0 0 4px}
-.wines ul.regions{margin-top:2px}
-.wines ul.regions li{border:none;padding:2px 0 0 14px;font-size:.92rem}
+.ledger{list-style:none;padding:0;margin:0}
+.ledger li{padding:10px 0 11px;border-bottom:1px solid var(--line);break-inside:avoid}
+.ledger .g{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;color:var(--text)}
+.ledger .gw{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem}
+.ledger .rg{display:block;font-size:.86rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.ledger .rg b{font-weight:normal;color:var(--text)}
+.ledger .rg i{font-family:Georgia,"Times New Roman",serif}
+@media(min-width:640px){.ledger{columns:2;column-gap:28px}}
+.explainer h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Cheese", "item": "https://eritech.studio/tools/wine-pairing/cheese/"}]}, {"@type": "WebPage", "name": "What wine goes with cheese?", "url": "https://eritech.studio/tools/wine-pairing/cheese/", "description": "For the cheese, a wine with more age than the cheese. The wine types and grapes that suit cheese, and why they work.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Cheese", "item": "https://eritech.studio/tools/wine-pairing/cheese/"}]}, {"@type": "WebPage", "name": "What wine goes with cheese?", "url": "https://eritech.studio/tools/wine-pairing/cheese/", "description": "For the cheese, a wine with more age than the cheese: Cabernet Sauvignon, Pinot Noir, Nebbiolo and 25 more grapes, with the regions to look for.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "inLanguage": "en-GB", "dateModified": "2026-10-11", "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
 </script>
 </head>
 <body>
@@ -95,7 +106,8 @@ footer a,a:visited{color:var(--muted)}
 <h1>What wine goes with cheese?</h1>
 </header>
 <section class="calc sheet" aria-labelledby="sheet-title">
-<h2 class="sheet-title" id="sheet-title">Pair with a dish</h2>
+<p class="sheet-title" id="sheet-title">Pair with a dish</p>
+<div class="chipbar">
 <ul class="chips">
 <li><a href="/tools/wine-pairing/red-meat/">Red meat</a></li>
 <li><a href="/tools/wine-pairing/lamb/">Lamb</a></li>
@@ -110,99 +122,77 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/wine-pairing/cheese/" aria-current="page">Cheese</a></li>
 <li><a href="/tools/wine-pairing/dessert/">Dessert</a></li>
 </ul>
-<div class="answer">
-<p class="opening">For the cheese</p>
-<p class="whisper">a wine with more age than the cheese</p>
+</div>
+<div class="answer" id="answer" aria-live="polite">
+<h2 class="pairing-line">For the cheese — a wine with more age than the cheese</h2>
 <div class="wines">
 <h3>Red</h3>
 <p class="type-w">a red with some grip</p>
-<ul>
-<li><strong>Cabernet Sauvignon</strong> <span class="w">a Cabernet with structure and a dark core</span><ul class="regions">
-<li>Bordeaux · Cabernet Sauvignon <span class="w">a left-bank claret with some age</span></li>
-<li>Napa Valley · Cabernet Sauvignon <span class="w">a Napa Cabernet, ripe and plush</span></li>
-</ul></li>
-<li><strong>Nebbiolo</strong> <span class="w">a pale red with tannin and rose on it</span><ul class="regions">
-<li>Barolo · Nebbiolo <span class="w">a Barolo, opened early and given air</span></li>
-<li>Barbaresco · Nebbiolo <span class="w">a Barbaresco, finer and sooner</span></li>
-</ul></li>
-<li><strong>Sangiovese</strong> <span class="w">a savoury red with bright acidity</span><ul class="regions">
-<li>Chianti · Sangiovese <span class="w">a Chianti, savoury and bright</span></li>
-<li>Montalcino · Sangiovese <span class="w">a Brunello with some age</span></li>
-</ul></li>
-<li><strong>Tempranillo</strong> <span class="w">a red with oak and some years on it</span><ul class="regions">
-<li>Rioja · Tempranillo <span class="w">a Rioja with some years on it</span></li>
-</ul></li>
-<li><strong>Zinfandel</strong> <span class="w">a ripe, generous red</span></li>
-<li><strong>Petit Verdot</strong> <span class="w">a deep, firm red</span></li>
-<li><strong>Petite Sirah</strong> <span class="w">a dense, inky red</span></li>
-<li><strong>Dolcetto</strong> <span class="w">a soft red for drinking young</span></li>
-<li><strong>Aglianico</strong> <span class="w">a southern red with firm tannin</span></li>
-<li><strong>Corvina</strong> <span class="w">a light red with a bitter edge</span><ul class="regions">
-<li>Valpolicella · Corvina <span class="w">a Veneto red, from light to Amarone-dark</span></li>
-</ul></li>
-<li><strong>Gamay</strong> <span class="w">a light, juicy red, lightly chilled</span><ul class="regions">
-<li>Beaujolais · Gamay <span class="w">a Beaujolais, lightly chilled</span></li>
-</ul></li>
-<li><strong>Tannat</strong> <span class="w">a red with serious tannin</span></li>
-<li><strong>Xinomavro</strong> <span class="w">a pale red with tannin and some age</span></li>
-<li><strong>Carignan</strong> <span class="w">a rustic red from old vines</span></li>
-<li><strong>Saperavi</strong> <span class="w">a deep, dark red with grip</span></li>
-<li><strong>Merlot</strong><ul class="regions">
-<li>Bordeaux · Merlot <span class="w">a right-bank claret, soft and plush</span></li>
-</ul></li>
-<li><strong>Pinot Noir</strong><ul class="regions">
-<li>Côte de Nuits · Pinot Noir <span class="w">a Côte de Nuits red with some depth</span></li>
-</ul></li>
+<ul class="ledger">
+<li><span class="g">Cabernet Sauvignon</span> <span class="gw">a Cabernet with structure and a dark core</span><span class="rg"><b>Bordeaux</b> <i>a left-bank claret with some age</i> · <b>Napa Valley</b> <i>a Napa Cabernet, ripe and plush</i></span></li>
+<li><span class="g">Nebbiolo</span> <span class="gw">a pale red with tannin and rose on it</span><span class="rg"><b>Barolo</b> <i>a Barolo, opened early and given air</i> · <b>Barbaresco</b> <i>a Barbaresco, finer and sooner</i></span></li>
+<li><span class="g">Sangiovese</span> <span class="gw">a savoury red with bright acidity</span><span class="rg"><b>Chianti</b> <i>a Chianti, savoury and bright</i> · <b>Montalcino</b> <i>a Brunello with some age</i></span></li>
+<li><span class="g">Tempranillo</span> <span class="gw">a red with oak and some years on it</span><span class="rg"><b>Rioja</b> <i>a Rioja with some years on it</i></span></li>
+<li><span class="g">Zinfandel</span> <span class="gw">a ripe, generous red</span></li>
+<li><span class="g">Petit Verdot</span> <span class="gw">a deep, firm red</span></li>
+<li><span class="g">Petite Sirah</span> <span class="gw">a dense, inky red</span></li>
+<li><span class="g">Dolcetto</span> <span class="gw">a soft red for drinking young</span></li>
+<li><span class="g">Aglianico</span> <span class="gw">a southern red with firm tannin</span></li>
+<li><span class="g">Corvina</span> <span class="gw">a light red with a bitter edge</span><span class="rg"><b>Valpolicella</b> <i>a Veneto red, from light to Amarone-dark</i></span></li>
+<li><span class="g">Gamay</span> <span class="gw">a light, juicy red, lightly chilled</span><span class="rg"><b>Beaujolais</b> <i>a Beaujolais, lightly chilled</i></span></li>
+<li><span class="g">Tannat</span> <span class="gw">a red with serious tannin</span></li>
+<li><span class="g">Xinomavro</span> <span class="gw">a pale red with tannin and some age</span></li>
+<li><span class="g">Carignan</span> <span class="gw">a rustic red from old vines</span></li>
+<li><span class="g">Saperavi</span> <span class="gw">a deep, dark red with grip</span></li>
+<li><span class="g">Merlot</span><span class="rg"><b>Bordeaux</b> <i>a right-bank claret, soft and plush</i></span></li>
+<li><span class="g">Pinot Noir</span><span class="rg"><b>Côte de Nuits</b> <i>a Côte de Nuits red with some depth</i></span></li>
 </ul>
 <h3>White</h3>
-<ul>
-<li><strong>Sauvignon Blanc</strong> <span class="w">a crisp, green-edged white</span><ul class="regions">
-<li>Sancerre · Sauvignon Blanc <span class="w">a Sancerre, flinty and dry</span></li>
-</ul></li>
-<li><strong>Chenin Blanc</strong> <span class="w">a white that can run dry or sweet</span><ul class="regions">
-<li>Vouvray · Chenin Blanc <span class="w">a Vouvray, anywhere from dry to sweet</span></li>
-</ul></li>
-<li><strong>Semillon</strong> <span class="w">a waxy white that ages well</span></li>
-<li><strong>Gewurztraminer</strong> <span class="w">a heady, aromatic white</span></li>
-<li><strong>Verdejo</strong> <span class="w">a crisp, herbal white</span></li>
-<li><strong>Marsanne</strong> <span class="w">a rich, waxy white</span></li>
-<li><strong>Roussanne</strong> <span class="w">a full white with some perfume</span></li>
-<li><strong>Chardonnay</strong><ul class="regions">
-<li>Chablis · Chardonnay <span class="w">a Chablis, lean and stony</span></li>
-<li>Burgundy · Chardonnay <span class="w">a white Burgundy with some weight</span></li>
-</ul></li>
+<ul class="ledger">
+<li><span class="g">Sauvignon Blanc</span> <span class="gw">a crisp, green-edged white</span><span class="rg"><b>Sancerre</b> <i>a Sancerre, flinty and dry</i></span></li>
+<li><span class="g">Chenin Blanc</span> <span class="gw">a white that can run dry or sweet</span><span class="rg"><b>Vouvray</b> <i>a Vouvray, anywhere from dry to sweet</i></span></li>
+<li><span class="g">Semillon</span> <span class="gw">a waxy white that ages well</span></li>
+<li><span class="g">Gewurztraminer</span> <span class="gw">a heady, aromatic white</span></li>
+<li><span class="g">Verdejo</span> <span class="gw">a crisp, herbal white</span></li>
+<li><span class="g">Marsanne</span> <span class="gw">a rich, waxy white</span></li>
+<li><span class="g">Roussanne</span> <span class="gw">a full white with some perfume</span></li>
+<li><span class="g">Chardonnay</span><span class="rg"><b>Chablis</b> <i>a Chablis, lean and stony</i> · <b>Burgundy</b> <i>a white Burgundy with some weight</i></span></li>
 </ul>
 <h3>Sparkling</h3>
 <p class="type-w">something with bubbles in it</p>
-<ul>
-<li><strong>Pinot Noir</strong> <span class="w">a sparkling with a red grape's weight</span></li>
-<li><strong>Champagne</strong> <span class="w">something with bubbles and bread in it</span></li>
+<ul class="ledger">
+<li><span class="g">Pinot Noir</span> <span class="gw">a sparkling with a red grape's weight</span></li>
+<li><span class="g">Champagne</span> <span class="gw">something with bubbles and bread in it</span></li>
 </ul>
 <h3>Dessert</h3>
 <p class="type-w">something sweet, served cold</p>
-<ul>
-<li><strong>Muscat</strong> <span class="w">a sweet, floral glass</span></li>
-<li><strong>Sauternes</strong> <span class="w">a Sauternes, golden and sweet</span></li>
-<li><strong>Tokaj</strong> <span class="w">a Tokaji Aszú, sweet and bright</span></li>
+<ul class="ledger">
+<li><span class="g">Muscat</span> <span class="gw">a sweet, floral glass</span></li>
+<li><span class="g">Sauternes</span> <span class="gw">a Sauternes, golden and sweet</span></li>
+<li><span class="g">Tokaj</span> <span class="gw">a Tokaji Aszú, sweet and bright</span></li>
 </ul>
 <h3>Fortified</h3>
 <p class="type-w">something fortified, a small glass</p>
-<ul>
-<li><strong>Muscat</strong> <span class="w">a dark, sticky fortified</span></li>
-<li><strong>Palomino</strong> <span class="w">a dry sherry, served cold</span></li>
-<li><strong>Pedro Ximenez</strong> <span class="w">a dark, syrupy fortified</span><ul class="regions">
-<li>Jerez · Pedro Ximenez <span class="w">a PX, black and syrupy</span></li>
-</ul></li>
-<li><strong>Jerez</strong> <span class="w">a sherry, from fino to oloroso</span></li>
-<li><strong>Douro</strong> <span class="w">a Port, dark and sweet</span></li>
-<li><strong>Madeira</strong> <span class="w">a Madeira, tangy and long</span></li>
+<ul class="ledger">
+<li><span class="g">Muscat</span> <span class="gw">a dark, sticky fortified</span></li>
+<li><span class="g">Palomino</span> <span class="gw">a dry sherry, served cold</span></li>
+<li><span class="g">Pedro Ximenez</span> <span class="gw">a dark, syrupy fortified</span><span class="rg"><b>Jerez</b> <i>a PX, black and syrupy</i></span></li>
+<li><span class="g">Jerez</span> <span class="gw">a sherry, from fino to oloroso</span></li>
+<li><span class="g">Douro</span> <span class="gw">a Port, dark and sweet</span></li>
+<li><span class="g">Madeira</span> <span class="gw">a Madeira, tangy and long</span></li>
 </ul>
 </div>
 </div>
 </section>
 <section class="explainer">
 <h2>Why these wines work with cheese</h2>
-<p>Cheese and wine are an old partnership, but they are trickier together than tradition suggests. Strong cheese coats the palate with fat and salt and can flatten a delicate wine, while a big, tannic red can taste metallic against a creamy rind. The rule of thumb here is a wine with more age than the cheese: young, fresh cheeses suit young, fresh wines, and mature, nutty cheeses suit wines that have developed savoury depth of their own. A fresh goat&rsquo;s cheese with a Sancerre is the classic case, the acidity in the wine matching the tang of the cheese. Soft, bloomy cheeses such as Brie welcome Champagne, whose bubbles cut through the richness, or a light Beaujolais. Hard, aged cheeses, Comté, Parmesan or a mature Cheddar, stand up to structured reds with some years on them: a Rioja, a Barolo, a Brunello from Montalcino, a mature Bordeaux. Blue cheese is where sweetness comes in, and the old pairings exist for a reason: Sauternes with Roquefort, Port with Stilton, the sugar balancing the salt and the intensity matching the intensity. A Tokaji Aszú, a PX or a Madeira does a similar job. Washed-rind cheeses, pungent and sticky, are easiest with an aromatic white such as Gewurztraminer. On a mixed board, a dry sherry or a sparkling wine is the most forgiving companion.</p>
+<p>Cheese and wine are an old partnership, but they are trickier together than tradition suggests. Strong cheese coats the palate with fat and salt and can flatten a delicate wine, while a big, tannic red can taste metallic against a creamy rind. The rule of thumb here is a wine with more age than the cheese: young, fresh cheeses suit young, fresh wines, and mature, nutty cheeses suit wines that have developed savoury depth of their own.</p>
+<h3>With goat&rsquo;s cheese and Brie</h3>
+<p>A fresh goat&rsquo;s cheese with a Sancerre is the classic case, the acidity in the wine matching the tang of the cheese. Soft, bloomy cheeses such as Brie welcome Champagne, whose bubbles cut through the richness, or a light Beaujolais.</p>
+<h3>With Cheddar, Comté and Parmesan</h3>
+<p>Hard, aged cheeses stand up to structured reds with some years on them: a Rioja, a Barolo, a Brunello from Montalcino, a mature Bordeaux. The <a href="/tools/wine-drink-window-calculator/">drink window calculator</a> will tell you whether yours have had those years.</p>
+<h3>With blue and washed-rind cheeses</h3>
+<p>Blue cheese is where sweetness comes in, and the old pairings exist for a reason: Sauternes with Roquefort, Port with Stilton, the sugar balancing the salt and the intensity matching the intensity. A Tokaji Aszú, a PX or a Madeira does a similar job, and any of them carries on into <a href="/tools/wine-pairing/dessert/">pudding</a>. Washed-rind cheeses, pungent and sticky, are easiest with an aromatic white such as Gewürztraminer. On a mixed board, a dry sherry or a sparkling wine is the most forgiving companion.</p>
 </section>
 <section class="app-block">
 <p>This is the same filter <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>&rsquo;s Tonight screen uses to pick from what you already own.</p>
@@ -222,33 +212,46 @@ footer a,a:visited{color:var(--muted)}
 </footer>
 <script>
 (function(){
-if(!window.fetch||!window.DOMParser||!history.pushState)return;
-var cache={};
-var swapped=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
-function chip(e){return e.target.closest?e.target.closest('.chips a'):null}
-function get(u){
-return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()})
-.catch(function(err){delete cache[u];throw err}))}
+var bar=document.querySelector('.chipbar');
+if(!bar||!window.fetch||!window.DOMParser||!history.pushState)return;
+var PAIR='/tools/wine-pairing/',cache={};
+var heads=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
+var parts=['.crumb','h1','.explainer','.app-block','.more-tools'];
+history.scrollRestoration='manual';
+function link(e){var a=e.target.closest?e.target.closest('a'):null;return a&&a.getAttribute('href').indexOf(PAIR)===0?a:null}
+function get(u){return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()}).catch(function(err){delete cache[u];throw err}))}
+function mark(path){var on=null;bar.querySelectorAll('a').forEach(function(c){if(c.getAttribute('href')===path){c.setAttribute('aria-current','page');on=c}else c.removeAttribute('aria-current')});return on}
+function reveal(c){var ul=c.closest('.chips'),x=c.offsetLeft-ul.offsetLeft;
+if(x<ul.scrollLeft)ul.scrollLeft=x-22;else if(x+c.offsetWidth>ul.scrollLeft+ul.clientWidth)ul.scrollLeft=x+c.offsetWidth-ul.clientWidth+22}
 function swap(doc){
 document.title=doc.title;
-swapped.forEach(function(sel){var a=document.head.querySelector(sel),b=doc.head.querySelector(sel);if(a&&b)a.replaceWith(b)});
-document.querySelector('.crumb').replaceWith(doc.querySelector('.crumb'));
-document.querySelector('main').replaceWith(doc.querySelector('main'))}
-function go(u,push){
+heads.forEach(function(s){var a=document.head.querySelector(s),b=doc.head.querySelector(s);if(a&&b)a.replaceWith(b)});
+parts.forEach(function(s){var a=document.querySelector(s),b=doc.querySelector(s);if(a&&b)a.replaceWith(b)});
+var ans=document.getElementById('answer');
+ans.innerHTML=doc.getElementById('answer').innerHTML;
+ans.classList.remove('in');void ans.offsetWidth;ans.classList.add('in')}
+function go(u,push,y){
+var path=new URL(u,location.href).pathname,c=mark(path);
+if(c)reveal(c);
 get(u).then(function(t){
-swap(new DOMParser().parseFromString(t,'text/html'));
-if(!push)return;
-history.pushState(null,'',u);
-var c=document.querySelector('.chips a[href="'+new URL(u).pathname+'"]');
-if(c)c.focus({preventScroll:true})})
-.catch(function(){location.href=u})}
+var doc=new DOMParser().parseFromString(t,'text/html');
+if(!doc.getElementById('answer'))throw new Error('shape');
+if(push){history.replaceState({y:scrollY},'');history.pushState({y:0},'',u)}
+swap(doc);
+if(push&&c)c.focus({preventScroll:true});
+if(y!=null){scrollTo(0,y);return}
+var top=document.getElementById('answer').getBoundingClientRect().top;
+if(top<bar.offsetHeight)scrollBy(0,top-bar.offsetHeight)})
+.catch(function(){location.assign(u)})}
 document.addEventListener('click',function(e){
-var a=chip(e);
+var a=link(e);
 if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
 e.preventDefault();
 if(a.href!==location.href)go(a.href,true)});
-['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=chip(e);if(a)get(a.href)})});
-window.addEventListener('popstate',function(){go(location.href,false)});
+['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=link(e);if(a)get(a.href)})});
+window.addEventListener('popstate',function(e){go(location.href,false,e.state&&e.state.y||0)});
+var first=bar.querySelector('[aria-current]');
+if(first)reveal(first);
 })();
 </script>
 </body>

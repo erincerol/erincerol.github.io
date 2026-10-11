@@ -7,7 +7,7 @@ import os
 import re
 import subprocess
 
-from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, BRAND, ORG_REF, jsonld_script, breadcrumb,
+from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, BRAND, ORG_REF, SITE_LASTMOD, jsonld_script, breadcrumb,
                    play_badge, ios_badge, og_image)
 
 SOURCE_REPO = "erincerol/cellar-book"
@@ -25,9 +25,27 @@ APP_LINE = ('This is the same filter <strong><a href="/apps/cellar-book/">Cellar
             'Tonight screen uses to pick from what you already own.')
 WINE_TYPES = ["Red", "White", "Rosé", "Sparkling", "Dessert", "Fortified"]
 OG_KICKER = TITLE + "  ·  eritech.studio/tools"
+DRINK_WINDOW = "/tools/wine-drink-window-calculator/"
 
-INDEX_EXPLAINER = (
-    "How wine and food fit together",
+DISH_TERMS = {
+    "red-meat": "steak and red meat",
+    "game": "venison and game",
+    "poultry": "chicken, duck and turkey",
+    "pasta-rice": "pasta, pizza and risotto",
+    "spicy": "spicy food and curry",
+    "dessert": "dessert and chocolate",
+}
+
+
+def to(fid, words):
+    return '<a href="/tools/' + SLUG + '/' + fid + '/">' + words + '</a>'
+
+
+def window(words):
+    return '<a href="' + DRINK_WINDOW + '">' + words + '</a>'
+
+
+INDEX_EXPLAINER = [(None,
     "Matching wine to food is less about rules than about four things you can taste: weight, acidity, tannin "
     "and sweetness. Weight comes first. Light dishes want light wines and rich dishes want fuller ones, so that "
     "neither drowns the other. Acidity is the great refresher; a wine with good acidity cuts through fat and "
@@ -38,225 +56,335 @@ INDEX_EXPLAINER = (
     "above and you will see the wine types and grapes that sit well with it, grouped the way Cellar Book groups "
     "them when it suggests a bottle from your own rack. None of this is a test. A pairing that follows every rule "
     "can still be dull, and a bottle you love will usually be good with whatever you are eating; treat the "
-    "suggestions here as a place to start, not a verdict.")
+    "suggestions here as a place to start, not a verdict.")]
 
 EXPLAINERS = {
-    "red-meat": (
-        "Red meat is rich with fat and protein, and that is exactly what tannin is for. The grip you feel on your "
-        "gums from a young Cabernet Sauvignon, a Malbec or a Tannat comes from compounds that bind to protein; meet "
-        "them with a steak and they latch onto the meat instead, so the wine tastes rounder and the beef tastes "
-        "cleaner. Fat works the other way, coating the mouth so the next sip feels softer than the last. That is why "
-        "the list here leans dark and structured: Syrah with its pepper, Nebbiolo and Aglianico with their firm "
-        "tannin, a left-bank Bordeaux with some age. Weight matters as much as grip. A charred rib or a slow braise "
-        "has real flavour, and a light red simply disappears beside it, so you want a wine that holds its own on "
-        "the palate. Acidity earns its place too, particularly with tomato-based ragùs or anything finished with a "
-        "pan sauce, which is where Sangiovese and Tempranillo come in. Softer choices such as Merlot or Grenache suit "
-        "leaner cuts and gentler cooking, where the meat has less fat to tame the tannin. The one thing to steer away "
-        "from is a big, oaky red with a lean, well-done cut; with nothing to soften it, the tannin turns drying and "
-        "faintly bitter. Rarer meat, more fat and a heavier hand with the seasoning all call for more structure in "
-        "the glass."),
-    "lamb": (
-        "Lamb has a sweetness and a gentle gaminess that young, fiercely tannic reds can trample, which is why the "
-        "pick here is a red with some years on it. Time in bottle softens tannin and draws out savoury, leathery and "
-        "dried-herb notes, and those meet lamb&rsquo;s own flavour halfway. A Rioja that has spent years in barrel "
-        "and bottle is the classic match for a roast leg with rosemary, and a mature left-bank Bordeaux does much the "
-        "same for a rack. Lamb is fattier than it looks, though, especially shoulder and chops, so there is still "
-        "room for structure: Syrah, Mourvedre and Grenache from the south of France, Xinomavro and Agiorgitiko from "
-        "Greece, or Okuzgozu and Bogazkere from Anatolia, where lamb is the everyday meat and the local reds grew up "
-        "beside it. Herbs and garlic push lamb towards wines with a savoury, scrubby edge rather than lush fruit. "
-        "Spiced dishes such as a tagine or kofta suit a warm, generous Grenache or a Châteauneuf-du-Pape, whose "
-        "ripeness meets the spice without fighting it. Slow-cooked shoulder, falling apart after hours in the oven, "
-        "wants less tannin than a pink-roasted rack; the meat is already soft, so the wine can be too. If all you "
-        "have is a young, firm red, open it an hour or two ahead and let the air do some of the work the years would "
-        "have done."),
-    "game": (
-        "Game tastes of where it lived. Venison, pheasant, grouse, pigeon and wild duck carry earthy, iron-rich and "
-        "sometimes slightly high flavours that make bright, fruit-forward wine taste simple and sweet beside them. "
-        "What works is something savoury with a little age: a wine that has moved past primary fruit into forest "
-        "floor, mushroom, leather and dried cherry, so that it echoes the meat rather than shouting over it. Pinot "
-        "Noir is the natural partner for feathered game, and a red Burgundy or a Côte de Nuits with some depth is "
-        "about as good as it gets with roast partridge or duck. Nebbiolo does the same job with more structure; a "
-        "Barolo or Barbaresco given air before dinner has the tannin for venison and the tar-and-roses perfume for "
-        "a rich game pie. Most game is lean, so tannin has little fat to soften it, which is why age matters: "
-        "mellowed tannin will not dry the meat out. Furred game and slow braises can take darker wines such as "
-        "Syrah from Côte-Rôtie, Mourvedre or a Priorat, especially when juniper, red wine or berries are in the "
-        "sauce. Sweet accompaniments such as redcurrant jelly nudge you towards riper fruit, perhaps a Sonoma Pinot. "
-        "Whatever you choose, keep the oak quiet; heavy new oak masks exactly the savoury notes that make the "
-        "pairing work."),
-    "poultry": (
-        "Chicken, turkey and duck are among the most accommodating things you can put on a plate, which is why the "
-        "list for poultry is long and runs from whites to light reds. The meat itself is mild; what decides the "
-        "wine is the cooking and the sauce. A simple roast chicken wants a white with body, a white Burgundy, a "
-        "Chenin Blanc from Vouvray or a waxy Semillon, because its weight matches the crisp skin and the juices "
-        "without overpowering the flesh. Cream and butter sauces push you further that way, and a full Viognier, "
-        "Marsanne or Roussanne holds up beautifully. Go the other direction, with mushrooms, bacon or a red wine "
-        "sauce, and a soft red makes more sense: Pinot Noir, a Beaujolais served lightly chilled, or a Cabernet "
-        "Franc from Chinon. Duck is richer and fattier than other birds and can carry more, a red Burgundy or a "
-        "supple Merlot, while fruit sauces such as orange or cherry favour a red with bright acidity. Turkey at "
-        "Christmas, surrounded by stuffing, sprouts and cranberry, is a case for Pinot Noir or a juicy, low-tannin "
-        "Zweigelt. Spice-rubbed or barbecued chicken suits an off-dry Riesling or a cold rosé. The thing to avoid is "
-        "heavy tannin; lean white meat has little fat to soften it, and a big young red will make the bird taste "
-        "dry."),
-    "pork": (
-        "Pork sits between white meat and red, and it pairs that way: a red without too much tannin, or a rich "
-        "white. The meat is sweet and fairly fatty, especially belly and shoulder, so wines with good acidity cut "
-        "through it and keep each mouthful fresh. Heavy tannin is unnecessary and can taste harsh against that "
-        "sweetness, which is why the reds on this list are the soft and juicy ones: Pinot Noir, Gamay, Barbera, "
-        "Dolcetto, Zweigelt and Blaufrankisch. A roast loin with crackling suits a Beaujolais or a Chinon; a "
-        "slow-cooked shoulder with smoky, sticky flavours can take a riper Zinfandel or Pinotage. On the white side, "
-        "pork&rsquo;s natural partner is fruit, apple and pear above all, and whites that taste of the orchard with "
-        "good acidity feel made for it: Chenin Blanc from Vouvray, a Riesling from the Mosel or Alsace, or a "
-        "peppery Gruner Veltliner. Pork in cream and mustard wants something fuller, Chardonnay or Viognier. "
-        "Sausages and charcuterie lean towards Italian reds such as Barbera or Montepulciano, whose acidity cuts the "
-        "salt and fat. Chinese and Southeast Asian pork dishes, sticky and sweet with a touch of chilli, are where an "
-        "off-dry Riesling or a Gewurztraminer shines, the sweetness in the glass matching the glaze. A dry rosé is "
-        "an easy bridge for anything that comes off the grill."),
-    "fish": (
-        "Fish is delicate and often lean, and the old rule of white wine with fish holds for good reasons. Tannin in "
-        "red wine can react with fish oils and leave a metallic taste, while acidity does what a squeeze of lemon "
-        "does: it lifts the flavour and freshens the palate. So the default is a dry white with freshness, and the "
-        "list here is mostly that: Sauvignon Blanc from Sancerre or Marlborough, Albarino from Rías Baixas, Chablis, "
-        "Assyrtiko, Vermentino, Gruner Veltliner. Match the weight of the wine to the fish and its sauce. Sole, "
-        "plaice and other white fish simply cooked want something light and crisp; a meaty fillet of turbot, hake "
-        "or cod in a butter sauce can take a rounder white Burgundy or a Chenin Blanc from Vouvray. Oily fish such "
-        "as mackerel, sardines and salmon carry more flavour and fat, and they are where light, low-tannin reds "
-        "become possible: Pinot Noir, a pale Etna red from Sicily, Mencia, Cinsault or a lightly chilled Chinon. "
-        "Smoked fish suits an aromatic or off-dry white, Riesling being the obvious choice, and a cold, dry sherry "
-        "is an underrated partner for anything fried. Champagne and other sparkling wines cut through batter and fat "
-        "with ease, and a cold, pale rosé from Provence works wherever you would otherwise reach for a crisp white."),
-    "shellfish": (
-        "Shellfish tastes of the sea, and the wines that suit it best taste as though they were made within sight of "
-        "it: a crisp white with salt in it. Oysters, mussels, clams, prawns and crab are sweet, briny and delicate, "
-        "so you want high acidity, little or no oak and a mineral, almost saline edge. Muscadet is the classic with "
-        "oysters, bone-dry and briny after resting on its lees. Albarino from Rías Baixas, Assyrtiko from Santorini, "
-        "Vermentino and Vinho Verde come from coastlines too, and that salinity shows in the glass. Chablis, lean "
-        "and stony, is the textbook choice for a seafood platter. Sauvignon Blanc from Sancerre or Marlborough suits "
-        "shellfish with herbs, garlic or a sharp dressing. Richer preparations change the picture. Lobster, scallops "
-        "seared in butter or crab in a creamy sauce want more body, a white Burgundy, a Semillon or a perfumed "
-        "Viognier, while a dry, cold sherry is a remarkable match for prawns and anything fried in batter. Sparkling "
-        "wine works across the board because its bubbles and acidity scrub the palate clean between mouthfuls; "
-        "Champagne with oysters is a cliché because it is right. Red wine is the one thing to keep away, since "
-        "tannin and the iodine in shellfish together taste of metal."),
-    "pasta-rice": (
-        "Pasta and rice dishes are mostly about the sauce, and the wines that suit them best are something Italian "
-        "and easy-going. Italian reds grew up alongside tomato, olive oil and hard cheese, so they tend to have high "
-        "acidity and moderate tannin, which is exactly what a tomato sauce needs. Tomato is sharp; a wine with less "
-        "acidity than the sauce will taste flat and flabby beside it. Sangiovese, whether a Chianti or something "
-        "simpler, is the default for a ragù or a pizza, Barbera does the same with softer tannin, and Dolcetto and "
-        "Montepulciano are relaxed, everyday reds that never get in the way. Richer dishes such as lasagne, a slow "
-        "beef ragù or a mushroom risotto can take more structure: Nebbiolo from Barolo or Barbaresco, or a "
-        "Valpolicella. Cream, butter and seafood change the colour of the glass. Carbonara, spaghetti with clams, "
-        "seafood risotto and pasta with pesto all suit a crisp Italian white, Pinot Grigio, Vermentino, Trebbiano "
-        "or Garganega, the grape behind Soave. Rice dishes from around the Mediterranean follow the same logic, with "
-        "Bobal, Xinomavro, Agiorgitiko and Okuzgozu playing the part the Italian reds play at home. Keep it simple; "
-        "this is a family that rewards a wine you can drink by the glass rather than one you have to think about."),
-    "spicy": (
-        "Chilli heat changes the rules. Capsaicin makes alcohol burn hotter and tannin taste harsher, so a big, "
-        "oaky, high-alcohol red with a curry can feel like pouring fuel on a fire. Sweetness does the opposite: it "
-        "calms the heat and lets the flavours of the dish come through. That is why the pick here is a white with a "
-        "touch of sweetness, and why Riesling, especially an off-dry Mosel with its low alcohol and bright acidity, "
-        "is the classic match for Thai, Sichuan and Indian food. Gewurztraminer brings lychee, rose and ginger that "
-        "meet aromatic spices on their own terms, and Torrontes, Muscat, Viognier and Malvasia have the perfume to "
-        "stand up to lemongrass, coriander and lime. Acidity matters as much as sugar; it keeps the wine refreshing "
-        "against rich coconut sauces. Not everything spicy is hot, though. Smoky, barbecued and warmly spiced "
-        "dishes, from chilli con carne to harissa lamb, often want a red, and there the trick is ripe fruit and soft "
-        "tannin: Grenache, a Châteauneuf-du-Pape, Zinfandel, Malbec, Carmenere or Pinotage. A Barossa Shiraz suits "
-        "smoky, sweet-spiced barbecue. Serve reds slightly cool and keep the alcohol modest where you can. The "
-        "hotter the dish, the more the glass should lean towards sweetness, freshness and fruit."),
-    "vegetables": (
-        "Vegetables are harder to match than meat because they vary so much: bitter greens, sweet roots, earthy "
-        "mushrooms, tangy tomatoes. The common thread is freshness, which is why the pick is a bright white or a "
-        "light red. Green vegetables, asparagus, peas, courgettes and soft herbs above all, share flavour compounds "
-        "with Sauvignon Blanc, and a Sancerre or a Marlborough Sauvignon picks up those green notes rather than "
-        "clashing with them. Gruner Veltliner, with its white-pepper edge, is one of the few wines that handles "
-        "asparagus and artichoke gracefully. Salads dressed with vinaigrette need high acidity in the wine, or the "
-        "dressing will make it taste flat; Albarino, Assyrtiko, Verdejo and Vinho Verde are all sharp enough. "
-        "Roasted and grilled vegetables develop sweetness and char, and they welcome a light red: a Beaujolais, a "
-        "Chinon with its leafy edge, Barbera or Cinsault, served a little cool. Mushrooms, lentils and earthier "
-        "dishes can take a warmer Grenache. A dry Provence rosé suits a table of mezze, ratatouille or grilled "
-        "peppers. Vegetable dishes heavy with cheese or cream follow the cheese or the cream rather than the "
-        "vegetable. What rarely works is heavy tannin or heavy oak; with no protein or fat to soften them, both "
-        "taste coarse."),
-    "cheese": (
-        "Cheese and wine are an old partnership, but they are trickier together than tradition suggests. Strong "
-        "cheese coats the palate with fat and salt and can flatten a delicate wine, while a big, tannic red can "
-        "taste metallic against a creamy rind. The rule of thumb here is a wine with more age than the cheese: "
-        "young, fresh cheeses suit young, fresh wines, and mature, nutty cheeses suit wines that have developed "
-        "savoury depth of their own. A fresh goat&rsquo;s cheese with a Sancerre is the classic case, the acidity in "
-        "the wine matching the tang of the cheese. Soft, bloomy cheeses such as Brie welcome Champagne, whose "
-        "bubbles cut through the richness, or a light Beaujolais. Hard, aged cheeses, Comté, Parmesan or a mature "
-        "Cheddar, stand up to structured reds with some years on them: a Rioja, a Barolo, a Brunello from "
-        "Montalcino, a mature Bordeaux. Blue cheese is where sweetness comes in, and the old pairings exist for a "
-        "reason: Sauternes with Roquefort, Port with Stilton, the sugar balancing the salt and the intensity "
-        "matching the intensity. A Tokaji Aszú, a PX or a Madeira does a similar job. Washed-rind cheeses, pungent "
-        "and sticky, are easiest with an aromatic white such as Gewurztraminer. On a mixed board, a dry sherry or a "
-        "sparkling wine is the most forgiving companion."),
-    "dessert": (
-        "The most important rule in dessert pairing is also the simplest: the wine should be something sweeter than "
-        "the pudding. If the dessert is sweeter than the wine, the wine tastes thin, sour and oddly bitter; if the "
-        "wine is sweeter, it tastes rich and balanced, and the dessert seems lighter. That is why the list here is "
-        "short and made up entirely of sweet and fortified wines. Sauternes and Tokaji Aszú, both made from grapes "
-        "concentrated by noble rot, have the honeyed richness and the bright acidity to suit fruit tarts, crème "
-        "brûlée and anything with apricot or almond. Sweet Muscat, floral and grapey, is lovely with fruit puddings "
-        "and lighter, creamy desserts. Chocolate is the hardest thing to pair, because it is bitter and coats the "
-        "mouth, and it needs a wine with real power: a Port from the Douro, a dark, sticky fortified Muscat or a "
-        "Madeira. Sticky toffee pudding, Christmas pudding and anything with dried fruit or caramel meet their match "
-        "in Pedro Ximenez, black and syrupy; some people pour it straight over vanilla ice cream, and it works. "
-        "Serve sweet wines cold and in small glasses. Their intensity means a little goes a long way, and a single "
-        "bottle can see a table of six through pudding."),
+    "red-meat": [
+        (None,
+         "Red meat is rich with fat and protein, and that is exactly what tannin is for. The grip you feel on your "
+         "gums from a young Cabernet Sauvignon, a Malbec or a Tannat comes from compounds that bind to protein; meet "
+         "them with a steak and they latch onto the meat instead, so the wine tastes rounder and the beef tastes "
+         "cleaner."),
+        ("With steak and a charred rib",
+         "Fat works the other way, coating the mouth so the next sip feels softer than the last. That is why the "
+         "list here leans dark and structured: Syrah with its pepper, Nebbiolo and Aglianico with their firm "
+         "tannin, a left-bank Bordeaux with some age. Weight matters as much as grip. A charred rib has real "
+         "flavour, and a light red simply disappears beside it, so you want a wine that holds its own on the "
+         "palate."),
+        ("With a braise, a ragù or a pan sauce",
+         "Acidity earns its place with tomato-based ragùs or anything finished with a pan sauce, which is where "
+         "Sangiovese and Tempranillo come in. Softer choices such as Merlot or Grenache suit leaner cuts and "
+         "gentler cooking, where the meat has less fat to tame the tannin. " + to("lamb", "Lamb") + " and " +
+         to("game", "game") + " follow the same logic, each with a twist of its own."),
+        ("What to avoid",
+         "Steer away from a big, oaky red with a lean, well-done cut; with nothing to soften it, the tannin turns "
+         "drying and faintly bitter. Rarer meat, more fat and a heavier hand with the seasoning all call for more "
+         "structure in the glass."),
+    ],
+    "lamb": [
+        (None,
+         "Lamb has a sweetness and a gentle gaminess that young, fiercely tannic reds can trample, which is why the "
+         "pick here is a red with some years on it. Time in bottle softens tannin and draws out savoury, leathery and "
+         "dried-herb notes, and those meet lamb&rsquo;s own flavour halfway. The " +
+         window("drink window calculator") + " will tell you whether a bottle has had those years yet."),
+        ("With a roast leg or a rack",
+         "A Rioja that has spent years in barrel and bottle is the classic match for a roast leg with rosemary, and "
+         "a mature left-bank Bordeaux does much the same for a rack. Lamb is fattier than it looks, though, "
+         "especially shoulder and chops, so there is still room for structure: Syrah, Mourvedre and Grenache from "
+         "the south of France, Xinomavro and Agiorgitiko from Greece, or Okuzgozu and Bogazkere from Anatolia, where "
+         "lamb is the everyday meat and the local reds grew up beside it."),
+        ("With herbs, garlic and spice",
+         "Herbs and garlic push lamb towards wines with a savoury, scrubby edge rather than lush fruit. Spiced dishes "
+         "such as a tagine or kofta suit a warm, generous Grenache or a Châteauneuf-du-Pape, whose ripeness meets "
+         "the spice without fighting it."),
+        ("With slow-cooked shoulder",
+         "Slow-cooked shoulder, falling apart after hours in the oven, wants less tannin than a pink-roasted rack; "
+         "the meat is already soft, so the wine can be too. If all you have is a young, firm red, open it an hour or "
+         "two ahead and let the air do some of the work the years would have done."),
+    ],
+    "game": [
+        (None,
+         "Game tastes of where it lived. Venison, pheasant, grouse, pigeon and wild duck carry earthy, iron-rich and "
+         "sometimes slightly high flavours that make bright, fruit-forward wine taste simple and sweet beside them. "
+         "What works is something savoury with a little age: a wine that has moved past primary fruit into forest "
+         "floor, mushroom, leather and dried cherry, so that it echoes the meat rather than shouting over it."),
+        ("With pheasant, partridge and duck",
+         "Pinot Noir is the natural partner for feathered game, and a red Burgundy or a Côte de Nuits with some "
+         "depth is about as good as it gets with roast partridge or duck."),
+        ("With venison and game pie",
+         "Nebbiolo does the same job with more structure; a Barolo or Barbaresco given air before dinner has the "
+         "tannin for venison and the tar-and-roses perfume for a rich game pie. Most game is lean, so tannin has "
+         "little fat to soften it, which is why age matters: mellowed tannin will not dry the meat out, and the " +
+         window("drink window calculator") + " will show whether a bottle is there yet. Furred game and slow braises "
+         "can take darker wines such as Syrah from Côte-Rôtie, Mourvedre or a Priorat, especially when juniper, red "
+         "wine or berries are in the sauce."),
+        ("With redcurrant and other sweet sauces",
+         "Sweet accompaniments nudge you towards riper fruit, perhaps a Sonoma Pinot. Whatever you choose, keep the "
+         "oak quiet; heavy new oak masks exactly the savoury notes that make the pairing work. With farmed beef and "
+         "other " + to("red-meat", "red meat") + ", the rules loosen and younger wines come into play."),
+    ],
+    "poultry": [
+        (None,
+         "Chicken, turkey and duck are among the most accommodating things you can put on a plate, which is why the "
+         "list for poultry is long and runs from whites to light reds. The meat itself is mild; what decides the "
+         "wine is the cooking and the sauce."),
+        ("With roast chicken",
+         "A simple roast chicken wants a white with body, a white Burgundy, a Chenin Blanc from Vouvray or a waxy "
+         "Semillon, because its weight matches the crisp skin and the juices without overpowering the flesh. Cream "
+         "and butter sauces push you further that way, and a full Viognier, Marsanne or Roussanne holds up "
+         "beautifully. Go the other direction, with mushrooms, bacon or a red wine sauce, and a soft red makes more "
+         "sense: Pinot Noir, a Beaujolais served lightly chilled, or a Cabernet Franc from Chinon."),
+        ("With duck and turkey",
+         "Duck is richer and fattier than other birds and can carry more, a red Burgundy or a supple Merlot, while "
+         "fruit sauces such as orange or cherry favour a red with bright acidity. Turkey at Christmas, surrounded by "
+         "stuffing, sprouts and cranberry, is a case for Pinot Noir or a juicy, low-tannin Zweigelt."),
+        ("With spice and the barbecue",
+         "Spice-rubbed or barbecued chicken suits an off-dry Riesling or a cold rosé. The thing to avoid is heavy "
+         "tannin; lean white meat has little fat to soften it, and a big young red will make the bird taste dry. " +
+         to("pork", "Pork") + " works much the same way, with a little more room for a red."),
+    ],
+    "pork": [
+        (None,
+         "Pork sits between white meat and red, and it pairs that way: a red without too much tannin, or a rich "
+         "white. The meat is sweet and fairly fatty, especially belly and shoulder, so wines with good acidity cut "
+         "through it and keep each mouthful fresh."),
+        ("With a roast or a slow-cooked shoulder",
+         "Heavy tannin is unnecessary and can taste harsh against that sweetness, which is why the reds on this list "
+         "are the soft and juicy ones: Pinot Noir, Gamay, Barbera, Dolcetto, Zweigelt and Blaufrankisch. A roast "
+         "loin with crackling suits a Beaujolais or a Chinon; a slow-cooked shoulder with smoky, sticky flavours can "
+         "take a riper Zinfandel or Pinotage."),
+        ("With apple, cream and mustard",
+         "On the white side, pork&rsquo;s natural partner is fruit, apple and pear above all, and whites that taste "
+         "of the orchard with good acidity feel made for it: Chenin Blanc from Vouvray, a Riesling from the Mosel or "
+         "Alsace, or a peppery Grüner Veltliner. Pork in cream and mustard wants something fuller, Chardonnay or "
+         "Viognier, much as " + to("poultry", "chicken") + " does."),
+        ("With sausages and sticky glazes",
+         "Sausages and charcuterie lean towards Italian reds such as Barbera or Montepulciano, whose acidity cuts the "
+         "salt and fat. Chinese and Southeast Asian pork dishes, sticky and sweet with a touch of chilli, are where "
+         "an off-dry Riesling or a Gewürztraminer shines, the sweetness in the glass matching the glaze. A dry rosé "
+         "is an easy bridge for anything that comes off the grill."),
+    ],
+    "fish": [
+        (None,
+         "Fish is delicate and often lean, and the old rule of white wine with fish holds for good reasons. Tannin in "
+         "red wine can react with fish oils and leave a metallic taste, while acidity does what a squeeze of lemon "
+         "does: it lifts the flavour and freshens the palate. So the default is a dry white with freshness, and the "
+         "list here is mostly that: Sauvignon Blanc from Sancerre or Marlborough, Albariño from Rías Baixas, "
+         "Chablis, Assyrtiko, Vermentino, Grüner Veltliner."),
+        ("With sole, cod and other white fish",
+         "Match the weight of the wine to the fish and its sauce. Sole, plaice and other white fish simply cooked "
+         "want something light and crisp; a meaty fillet of turbot, hake or cod in a butter sauce can take a rounder "
+         "white Burgundy or a Chenin Blanc from Vouvray."),
+        ("With salmon, mackerel and other oily fish",
+         "Oily fish carry more flavour and fat, and they are where light, low-tannin reds become possible: Pinot "
+         "Noir, a pale Etna red from Sicily, Mencía, Cinsault or a lightly chilled Chinon. Smoked fish suits an "
+         "aromatic or off-dry white, Riesling being the obvious choice."),
+        ("With fried fish",
+         "A cold, dry sherry is an underrated partner for anything fried, and Champagne and other sparkling wines cut "
+         "through batter and fat with ease. A cold, pale rosé from Provence works wherever you would otherwise reach "
+         "for a crisp white, and much the same thinking carries over to " + to("shellfish", "shellfish") + "."),
+    ],
+    "shellfish": [
+        (None,
+         "Shellfish tastes of the sea, and the wines that suit it best taste as though they were made within sight of "
+         "it: a crisp white with salt in it. Oysters, mussels, clams, prawns and crab are sweet, briny and delicate, "
+         "so you want high acidity, little or no oak and a mineral, almost saline edge."),
+        ("With oysters",
+         "Muscadet is the classic with oysters, bone-dry and briny after resting on its lees. Albariño from Rías "
+         "Baixas, Assyrtiko from Santorini, Vermentino and Vinho Verde come from coastlines too, and that salinity "
+         "shows in the glass. Chablis, lean and stony, is the textbook choice for a seafood platter, and Champagne "
+         "with oysters is a cliché because it is right."),
+        ("With prawns, mussels and clams",
+         "Sauvignon Blanc from Sancerre or Marlborough suits shellfish with herbs, garlic or a sharp dressing, and a "
+         "dry, cold sherry is a remarkable match for prawns and anything fried in batter. Sparkling wine works across "
+         "the board because its bubbles and acidity scrub the palate clean between mouthfuls."),
+        ("With lobster, scallops and crab",
+         "Richer preparations change the picture. Lobster, scallops seared in butter or crab in a creamy sauce want "
+         "more body, a white Burgundy, a Semillon or a perfumed Viognier, much as a buttery piece of " +
+         to("fish", "fish") + " does. Red wine is the one thing to keep away, since tannin and the iodine in "
+         "shellfish together taste of metal."),
+    ],
+    "pasta-rice": [
+        (None,
+         "Pasta and rice dishes are mostly about the sauce, and the wines that suit them best are something Italian "
+         "and easy-going. Italian reds grew up alongside tomato, olive oil and hard cheese, so they tend to have high "
+         "acidity and moderate tannin, which is exactly what a tomato sauce needs."),
+        ("With tomato sauces and pizza",
+         "Tomato is sharp; a wine with less acidity than the sauce will taste flat and flabby beside it. Sangiovese, "
+         "whether a Chianti or something simpler, is the default for a ragù or a pizza, Barbera does the same with "
+         "softer tannin, and Dolcetto and Montepulciano are relaxed, everyday reds that never get in the way. Richer "
+         "dishes such as lasagne, a slow beef ragù or a mushroom risotto can take more structure: Nebbiolo from "
+         "Barolo or Barbaresco, or a Valpolicella."),
+        ("With cream, butter and seafood",
+         "Cream, butter and seafood change the colour of the glass. Carbonara, spaghetti with clams, seafood risotto "
+         "and pasta with pesto all suit a crisp Italian white, Pinot Grigio, Vermentino, Trebbiano or Garganega, the "
+         "grape behind Soave. A heavy grating of Parmesan pulls things towards " + to("cheese", "cheese") +
+         ", which suits the same savoury reds."),
+        ("With risotto and other rice dishes",
+         "Rice dishes from around the Mediterranean follow the same logic, with Bobal, Xinomavro, Agiorgitiko and "
+         "Okuzgozu playing the part the Italian reds play at home. Keep it simple; this is a family that rewards a "
+         "wine you can drink by the glass rather than one you have to think about."),
+    ],
+    "spicy": [
+        (None,
+         "Chilli heat changes the rules. Capsaicin makes alcohol burn hotter and tannin taste harsher, so a big, "
+         "oaky, high-alcohol red with a curry can feel like pouring fuel on a fire. Sweetness does the opposite: it "
+         "calms the heat and lets the flavours of the dish come through."),
+        ("With curry, Thai and Sichuan food",
+         "That is why the pick here is a white with a touch of sweetness, and why Riesling, especially an off-dry "
+         "Mosel with its low alcohol and bright acidity, is the classic match for Thai, Sichuan and Indian food. "
+         "Gewürztraminer brings lychee, rose and ginger that meet aromatic spices on their own terms, and Torrontes, "
+         "Muscat, Viognier and Malvasia have the perfume to stand up to lemongrass, coriander and lime. Acidity "
+         "matters as much as sugar; it keeps the wine refreshing against rich coconut sauces."),
+        ("With smoky and barbecued dishes",
+         "Not everything spicy is hot, though. Smoky, barbecued and warmly spiced dishes, from chilli con carne to "
+         "harissa lamb, often want a red, and there the trick is ripe fruit and soft tannin: Grenache, a "
+         "Châteauneuf-du-Pape, Zinfandel, Malbec, Carmenere or Pinotage. A Barossa Shiraz suits smoky, sweet-spiced "
+         "barbecue."),
+        ("When the heat climbs",
+         "Serve reds slightly cool and keep the alcohol modest where you can. The hotter the dish, the more the glass "
+         "should lean towards sweetness, freshness and fruit."),
+    ],
+    "vegetables": [
+        (None,
+         "Vegetables are harder to match than meat because they vary so much: bitter greens, sweet roots, earthy "
+         "mushrooms, tangy tomatoes. The common thread is freshness, which is why the pick is a bright white or a "
+         "light red."),
+        ("With asparagus, peas and green vegetables",
+         "Green vegetables, asparagus, peas, courgettes and soft herbs above all, share flavour compounds with "
+         "Sauvignon Blanc, and a Sancerre or a Marlborough Sauvignon picks up those green notes rather than clashing "
+         "with them. Grüner Veltliner, with its white-pepper edge, is one of the few wines that handles asparagus and "
+         "artichoke gracefully."),
+        ("With salads",
+         "Salads dressed with vinaigrette need high acidity in the wine, or the dressing will make it taste flat; "
+         "Albariño, Assyrtiko, Verdejo and Vinho Verde are all sharp enough."),
+        ("With roasted vegetables and mushrooms",
+         "Roasted and grilled vegetables develop sweetness and char, and they welcome a light red: a Beaujolais, a "
+         "Chinon with its leafy edge, Barbera or Cinsault, served a little cool. Mushrooms, lentils and earthier "
+         "dishes can take a warmer Grenache. A dry Provence rosé suits a table of mezze, ratatouille or grilled "
+         "peppers. Vegetable dishes heavy with cheese or cream follow the " + to("cheese", "cheese") + " or the "
+         "cream rather than the vegetable. What rarely works is heavy tannin or heavy oak; with no protein or fat to "
+         "soften them, both taste coarse."),
+    ],
+    "cheese": [
+        (None,
+         "Cheese and wine are an old partnership, but they are trickier together than tradition suggests. Strong "
+         "cheese coats the palate with fat and salt and can flatten a delicate wine, while a big, tannic red can "
+         "taste metallic against a creamy rind. The rule of thumb here is a wine with more age than the cheese: "
+         "young, fresh cheeses suit young, fresh wines, and mature, nutty cheeses suit wines that have developed "
+         "savoury depth of their own."),
+        ("With goat&rsquo;s cheese and Brie",
+         "A fresh goat&rsquo;s cheese with a Sancerre is the classic case, the acidity in the wine matching the tang "
+         "of the cheese. Soft, bloomy cheeses such as Brie welcome Champagne, whose bubbles cut through the richness, "
+         "or a light Beaujolais."),
+        ("With Cheddar, Comté and Parmesan",
+         "Hard, aged cheeses stand up to structured reds with some years on them: a Rioja, a Barolo, a Brunello from "
+         "Montalcino, a mature Bordeaux. The " + window("drink window calculator") + " will tell you whether yours "
+         "have had those years."),
+        ("With blue and washed-rind cheeses",
+         "Blue cheese is where sweetness comes in, and the old pairings exist for a reason: Sauternes with Roquefort, "
+         "Port with Stilton, the sugar balancing the salt and the intensity matching the intensity. A Tokaji Aszú, a "
+         "PX or a Madeira does a similar job, and any of them carries on into " + to("dessert", "pudding") +
+         ". Washed-rind cheeses, pungent and sticky, are easiest with an aromatic white such as Gewürztraminer. On a "
+         "mixed board, a dry sherry or a sparkling wine is the most forgiving companion."),
+    ],
+    "dessert": [
+        (None,
+         "The most important rule in dessert pairing is also the simplest: the wine should be something sweeter than "
+         "the pudding. If the dessert is sweeter than the wine, the wine tastes thin, sour and oddly bitter; if the "
+         "wine is sweeter, it tastes rich and balanced, and the dessert seems lighter. That is why the list here is "
+         "short and made up entirely of sweet and fortified wines."),
+        ("With fruit tarts and crème brûlée",
+         "Sauternes and Tokaji Aszú, both made from grapes concentrated by noble rot, have the honeyed richness and "
+         "the bright acidity to suit fruit tarts, crème brûlée and anything with apricot or almond. Sweet Muscat, "
+         "floral and grapey, is lovely with fruit puddings and lighter, creamy desserts."),
+        ("With chocolate",
+         "Chocolate is the hardest thing to pair, because it is bitter and coats the mouth, and it needs a wine with "
+         "real power: a Port from the Douro, a dark, sticky fortified Muscat or a Madeira."),
+        ("With sticky toffee and Christmas pudding",
+         "Sticky toffee pudding, Christmas pudding and anything with dried fruit or caramel meet their match in "
+         "Pedro Ximénez, black and syrupy; some people pour it straight over vanilla ice cream, and it works. Serve "
+         "sweet wines cold and in small glasses. Their intensity means a little goes a long way, and a single bottle "
+         "can see a table of six through pudding. The same bottles do fine work with blue " +
+         to("cheese", "cheese") + "."),
+    ],
 }
 
-EXTRA_CSS = """.sheet .sheet-title{font-size:1.1rem;margin:0 0 14px}
+EXTRA_CSS = """.sheet .sheet-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;margin:0 0 4px}
+.chipbar{position:sticky;top:0;z-index:2;background:var(--surface);margin:0 -22px;padding:10px 22px}
 .chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
-.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem}
+.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem;white-space:nowrap}
 .chips a:hover{border-color:var(--accent)}
 .chips a[aria-current=page],.chips a[aria-current=page]:visited{background:var(--line);border-color:var(--accent);color:var(--accent)}
-.answer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-.answer .opening{color:var(--muted);font-size:.92rem;margin:0 0 2px}
-.answer .whisper{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.65rem;line-height:1.3;margin:0 0 6px}
+@media(max-width:600px){
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -22px;padding:0 22px}
+.chips::-webkit-scrollbar{display:none}
+.chips li{flex:none}
+}
+.answer{margin-top:8px;padding-top:18px;border-top:1px solid var(--line)}
+.answer.in{animation:wp-in .14s ease-out}
+@keyframes wp-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.answer.in{animation:none}}
+.answer .pairing-line{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:normal;color:var(--accent);font-size:1.45rem;line-height:1.3;margin:0 0 6px}
 .answer .prompt{color:var(--muted);margin:0}
-.wines h3{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:20px 0 4px}
-.wines ul{list-style:none;padding:0;margin:0}
-.wines li{padding:6px 0;border-bottom:1px solid var(--line)}
-.wines li:last-child{border-bottom:none}
-.wines .w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem;margin-left:4px}
+.wines h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:22px 0 2px}
 .wines .type-w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);margin:0 0 4px}
-.wines ul.regions{margin-top:2px}
-.wines ul.regions li{border:none;padding:2px 0 0 14px;font-size:.92rem}
+.ledger{list-style:none;padding:0;margin:0}
+.ledger li{padding:10px 0 11px;border-bottom:1px solid var(--line);break-inside:avoid}
+.ledger .g{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;color:var(--text)}
+.ledger .gw{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem}
+.ledger .rg{display:block;font-size:.86rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.ledger .rg b{font-weight:normal;color:var(--text)}
+.ledger .rg i{font-family:Georgia,"Times New Roman",serif}
+@media(min-width:640px){.ledger{columns:2;column-gap:28px}}
+.explainer h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 """
 
 SWITCH_JS = """(function(){
-if(!window.fetch||!window.DOMParser||!history.pushState)return;
-var cache={};
-var swapped=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
-function chip(e){return e.target.closest?e.target.closest('.chips a'):null}
-function get(u){
-return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()})
-.catch(function(err){delete cache[u];throw err}))}
+var bar=document.querySelector('.chipbar');
+if(!bar||!window.fetch||!window.DOMParser||!history.pushState)return;
+var PAIR='/tools/wine-pairing/',cache={};
+var heads=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
+var parts=['.crumb','h1','.explainer','.app-block','.more-tools'];
+history.scrollRestoration='manual';
+function link(e){var a=e.target.closest?e.target.closest('a'):null;return a&&a.getAttribute('href').indexOf(PAIR)===0?a:null}
+function get(u){return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()}).catch(function(err){delete cache[u];throw err}))}
+function mark(path){var on=null;bar.querySelectorAll('a').forEach(function(c){if(c.getAttribute('href')===path){c.setAttribute('aria-current','page');on=c}else c.removeAttribute('aria-current')});return on}
+function reveal(c){var ul=c.closest('.chips'),x=c.offsetLeft-ul.offsetLeft;
+if(x<ul.scrollLeft)ul.scrollLeft=x-22;else if(x+c.offsetWidth>ul.scrollLeft+ul.clientWidth)ul.scrollLeft=x+c.offsetWidth-ul.clientWidth+22}
 function swap(doc){
 document.title=doc.title;
-swapped.forEach(function(sel){var a=document.head.querySelector(sel),b=doc.head.querySelector(sel);if(a&&b)a.replaceWith(b)});
-document.querySelector('.crumb').replaceWith(doc.querySelector('.crumb'));
-document.querySelector('main').replaceWith(doc.querySelector('main'))}
-function go(u,push){
+heads.forEach(function(s){var a=document.head.querySelector(s),b=doc.head.querySelector(s);if(a&&b)a.replaceWith(b)});
+parts.forEach(function(s){var a=document.querySelector(s),b=doc.querySelector(s);if(a&&b)a.replaceWith(b)});
+var ans=document.getElementById('answer');
+ans.innerHTML=doc.getElementById('answer').innerHTML;
+ans.classList.remove('in');void ans.offsetWidth;ans.classList.add('in')}
+function go(u,push,y){
+var path=new URL(u,location.href).pathname,c=mark(path);
+if(c)reveal(c);
 get(u).then(function(t){
-swap(new DOMParser().parseFromString(t,'text/html'));
-if(!push)return;
-history.pushState(null,'',u);
-var c=document.querySelector('.chips a[href="'+new URL(u).pathname+'"]');
-if(c)c.focus({preventScroll:true})})
-.catch(function(){location.href=u})}
+var doc=new DOMParser().parseFromString(t,'text/html');
+if(!doc.getElementById('answer'))throw new Error('shape');
+if(push){history.replaceState({y:scrollY},'');history.pushState({y:0},'',u)}
+swap(doc);
+if(push&&c)c.focus({preventScroll:true});
+if(y!=null){scrollTo(0,y);return}
+var top=document.getElementById('answer').getBoundingClientRect().top;
+if(top<bar.offsetHeight)scrollBy(0,top-bar.offsetHeight)})
+.catch(function(){location.assign(u)})}
 document.addEventListener('click',function(e){
-var a=chip(e);
+var a=link(e);
 if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
 e.preventDefault();
 if(a.href!==location.href)go(a.href,true)});
-['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=chip(e);if(a)get(a.href)})});
-window.addEventListener('popstate',function(){go(location.href,false)});
+['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=link(e);if(a)get(a.href)})});
+window.addEventListener('popstate',function(e){go(location.href,false,e.state&&e.state.y||0)});
+var first=bar.querySelector('[aria-current]');
+if(first)reveal(first);
 })();"""
 
 TEMPLATE = """<!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -284,17 +412,19 @@ TEMPLATE = """<!DOCTYPE html>
 <h1>@@H1@@</h1>
 </header>
 <section class="calc sheet" aria-labelledby="sheet-title">
-<h2 class="sheet-title" id="sheet-title">@@SHEET_TITLE@@</h2>
+<p class="sheet-title" id="sheet-title">@@SHEET_TITLE@@</p>
+<div class="chipbar">
 <ul class="chips">
 @@CHIPS@@
 </ul>
-<div class="answer">
+</div>
+<div class="answer" id="answer" aria-live="polite">
 @@ANSWER@@
 </div>
 </section>
 <section class="explainer">
 <h2>@@EXPLAINER_TITLE@@</h2>
-<p>@@EXPLAINER@@</p>
+@@EXPLAINER@@
 </section>
 <section class="app-block">
 @@APP_BLOCK@@
@@ -353,6 +483,8 @@ def validate(data):
     if set(ids) != set(EXPLAINERS) or len(ids) != len(EXPLAINERS):
         raise SystemExit("Families in wine_pairings.json do not match the explainers in gen_pairings.py.\n"
                          "JSON: " + ", ".join(ids) + "\nExplainers: " + ", ".join(EXPLAINERS))
+    if set(DISH_TERMS) - set(ids):
+        raise SystemExit("DISH_TERMS names unknown families: " + str(set(DISH_TERMS) - set(ids)))
     for row in data["rows"]:
         unknown = set(row["fam"]) - set(ids)
         if unknown:
@@ -391,16 +523,22 @@ def wines_for(fid, rows):
     return [(WINE_TYPES[t], g) for t, g in enumerate(groups) if g["why"] or g["grapes"] or g["regions"]]
 
 
-def whisper(why):
-    return ' <span class="w">' + text(why) + '</span>' if why else ""
+def grapes_for(fid, rows):
+    names = []
+    for row in rows:
+        if fid in row["fam"] and row["g"] and row["g"] not in names:
+            names.append(row["g"])
+    return names
 
 
-def region_list(regions):
-    if not regions:
-        return ""
-    return ('<ul class="regions">\n' + "\n".join(
-        '<li>' + text(r["r"] + (" · " + r["g"] if r["g"] else "")) + whisper(r["why"]) + '</li>'
-        for r in regions) + '\n</ul>')
+def ledger_row(name, why, regions=()):
+    out = '<li><span class="g">' + text(name) + '</span>'
+    if why:
+        out += ' <span class="gw">' + text(why) + '</span>'
+    if regions:
+        out += '<span class="rg">' + " · ".join(
+            '<b>' + text(r["r"]) + '</b> <i>' + text(r["why"]) + '</i>' for r in regions) + '</span>'
+    return out + '</li>'
 
 
 def wines_html(fid, rows):
@@ -409,12 +547,15 @@ def wines_html(fid, rows):
         out += '<h3>' + text(label) + '</h3>\n'
         if g["why"]:
             out += '<p class="type-w">' + text(g["why"]) + '</p>\n'
-        items = ['<li><strong>' + text(name) + '</strong>' + whisper(gr["why"]) + region_list(gr["regions"]) + '</li>'
-                 for name, gr in g["grapes"].items()]
-        items += ['<li><strong>' + text(r["r"]) + '</strong>' + whisper(r["why"]) + '</li>' for r in g["regions"]]
+        items = [ledger_row(name, gr["why"], gr["regions"]) for name, gr in g["grapes"].items()]
+        items += [ledger_row(r["r"], r["why"]) for r in g["regions"]]
         if items:
-            out += '<ul>\n' + "\n".join(items) + '\n</ul>\n'
+            out += '<ul class="ledger">\n' + "\n".join(items) + '\n</ul>\n'
     return out + '</div>'
+
+
+def explainer_html(blocks):
+    return "\n".join(('<h3>' + h + '</h3>\n' if h else '') + '<p>' + p + '</p>' for h, p in blocks)
 
 
 def chips_html(families, current):
@@ -425,7 +566,22 @@ def chips_html(families, current):
 
 
 def dish(family):
-    return family["label"].lower().replace("&", "and")
+    return DISH_TERMS.get(family["id"], family["label"].lower().replace("&", "and"))
+
+
+def pairing_line(family):
+    return family["opening"] + " — " + family["why"]
+
+
+def meta_description(family, rows):
+    names = grapes_for(family["id"], rows)
+    if len(names) > 3:
+        grapes = ", ".join(names[:3]) + " and " + str(len(names) - 3) + " more grapes"
+    elif len(names) > 1:
+        grapes = ", ".join(names[:-1]) + " and " + names[-1]
+    else:
+        grapes = "".join(names) or "sweet and fortified wines"
+    return family["opening"] + ", " + family["why"] + ": " + grapes + ", with the regions to look for."
 
 
 def app_block(campaign):
@@ -461,6 +617,7 @@ def build(shared_css, related_html):
     families, rows = data["families"], data["rows"]
     pal = PALETTES["cellar"]
     index_url = page_url()
+    page_meta = {"inLanguage": "en-GB", "dateModified": SITE_LASTMOD, "publisher": ORG_REF}
 
     index_list = ('<h2>Every dish, one page each</h2>\n<ul class="cluster">\n' + "\n".join(
         '<li><a href="/tools/' + SLUG + '/' + f["id"] + '/">' + text(f["label"]) + '</a><span class="d">' +
@@ -470,34 +627,35 @@ def build(shared_css, related_html):
                      "from red meat to pudding. Free, no signup.",
            og=SLUG, crumb="", h1=INDEX_H1, chips=chips_html(families, None),
            answer='<p class="prompt">' + text(SUBLINE) + '</p>',
-           explainer_title=INDEX_EXPLAINER[0], explainer=INDEX_EXPLAINER[1], campaign="wine_pairing",
-           related=index_list + related_html,
+           explainer_title="How wine and food fit together", explainer=explainer_html(INDEX_EXPLAINER),
+           campaign="wine_pairing", related=index_list + related_html,
            jsonld=jsonld_script({"@context": "https://schema.org", "@graph": [
                breadcrumb((BRAND, DOMAIN + "/"), ("Free tools", DOMAIN + "/tools/"), (TITLE, index_url)),
-               {"@type": "WebApplication", "@id": index_url, "name": TITLE, "url": index_url,
-                "description": SUBLINE, "applicationCategory": "LifestyleApplication", "operatingSystem": "Any",
-                "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
-                "publisher": ORG_REF}]}))
-    og_image(SLUG + ".png", TITLE, pal, kicker="Free tool  ·  eritech.studio/tools", sub=SUBLINE)
+               dict({"@type": "WebApplication", "@id": index_url, "name": TITLE, "url": index_url,
+                     "description": SUBLINE, "applicationCategory": "LifestyleApplication", "operatingSystem": "Any",
+                     "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}},
+                    **page_meta)]}))
+    og_image(SLUG + ".png", INDEX_H1.replace("'", "’"), pal, kicker="Free tool  ·  eritech.studio/tools",
+             sub=SUBLINE.replace("'", "’"), bar=False, rule=True)
 
     for f in families:
         url = page_url(f["id"])
         h1 = "What wine goes with " + dish(f) + "?"
-        meta = f["opening"] + ", " + f["why"] + ". The wine types and grapes that suit " + dish(f) + ", and why they work."
+        meta = meta_description(f, rows)
         render(shared_css, pal, url=url, tab_title=h1 + " | " + BRAND, og_title=h1, meta_desc=meta,
                og=SLUG + "-" + f["id"],
                crumb='<span>/</span><a href="/tools/' + SLUG + '/">' + TITLE + '</a>', h1=h1,
                chips=chips_html(families, f["id"]),
-               answer=('<p class="opening">' + text(f["opening"]) + '</p>\n<p class="whisper">' + text(f["why"]) +
-                       '</p>\n' + wines_html(f["id"], rows)),
-               explainer_title="Why these wines work with " + text(dish(f)), explainer=EXPLAINERS[f["id"]],
+               answer='<h2 class="pairing-line">' + text(pairing_line(f)) + '</h2>\n' + wines_html(f["id"], rows),
+               explainer_title="Why these wines work with " + text(dish(f)),
+               explainer=explainer_html(EXPLAINERS[f["id"]]),
                campaign="wine_pairing_" + f["id"], related=related_html,
                jsonld=jsonld_script({"@context": "https://schema.org", "@graph": [
                    breadcrumb((BRAND, DOMAIN + "/"), ("Free tools", DOMAIN + "/tools/"), (TITLE, index_url),
                               (f["label"], url)),
-                   {"@type": "WebPage", "name": h1, "url": url, "description": meta,
-                    "isPartOf": {"@id": index_url}, "publisher": ORG_REF}]}))
-        og_image(SLUG + "-" + f["id"] + ".png", f["label"], pal, kicker=OG_KICKER, sub=f["why"])
+                   dict({"@type": "WebPage", "name": h1, "url": url, "description": meta,
+                         "isPartOf": {"@id": index_url}}, **page_meta)]}))
+        og_image(SLUG + "-" + f["id"] + ".png", h1, pal, kicker=OG_KICKER, sub=pairing_line(f), bar=False, rule=True)
 
     check(families)
     print("wine pairing pages built from " + SOURCE_REPO + "@" + ref)
@@ -506,23 +664,31 @@ def build(shared_css, related_html):
 
 def check(families):
     def read(fid=None):
-        with open(os.path.join(REPO, "tools", SLUG, *( [fid] if fid else []), "index.html"), encoding="utf-8") as f:
+        with open(os.path.join(REPO, "tools", SLUG, *([fid] if fid else []), "index.html"), encoding="utf-8") as f:
             return f.read()
 
     def fail(msg):
         raise SystemExit("wine pairing check failed: " + msg)
 
-    for fid, body in [(None, INDEX_EXPLAINER[1])] + list(EXPLAINERS.items()):
-        words = len(html.unescape(body).split())
+    ids = [f["id"] for f in families]
+    for fid, blocks in [(None, INDEX_EXPLAINER)] + list(EXPLAINERS.items()):
+        body = " ".join(p for _, p in blocks)
+        words = len(html.unescape(re.sub(r"<[^>]+>", "", body)).split())
         if not 150 <= words <= 300 or "!" in body:
             fail((fid or "index") + " explainer has " + str(words) + " words or an exclamation mark")
+        for linked in re.findall(r'href="/tools/' + SLUG + r'/([^/"]+)/"', body):
+            if linked not in ids:
+                fail((fid or "index") + " explainer links to unknown family " + linked)
 
-    expected_chips = ['/tools/' + SLUG + '/' + f["id"] + '/' for f in families]
+    expected_chips = ['/tools/' + SLUG + '/' + fid + '/' for fid in ids]
+
+    def chips_of(page):
+        return page.split('<ul class="chips">')[1].split('</ul>')[0]
+
     index = read()
-    index_chips = index.split('<ul class="chips">')[1].split('</ul>')[0]
-    if re.findall(r'<li><a href="([^"]+)"', index_chips) != expected_chips:
+    if re.findall(r'<li><a href="([^"]+)"', chips_of(index)) != expected_chips:
         fail("index chips")
-    if 'aria-current' in index_chips:
+    if 'aria-current' in chips_of(index):
         fail("index has a selected chip")
     for href in expected_chips:
         if index.count('href="' + href + '"') < 2:
@@ -534,24 +700,28 @@ def check(families):
         page = read(f["id"])
         url = page_url(f["id"])
         h1 = re.search(r"<h1>(.*?)</h1>", page).group(1)
-        if h1 != "What wine goes with " + text(dish(f)) + "?":
+        if h1 != text("What wine goes with " + dish(f) + "?"):
             fail(f["id"] + " h1 " + h1)
+        if '<title>' + h1 + ' | ' + BRAND + '</title>' not in page:
+            fail(f["id"] + " title does not match the h1")
         if '<link rel="canonical" href="' + url + '">' not in page or '<meta property="og:url" content="' + url + '">' not in page:
             fail(f["id"] + " canonical")
-        headline = re.search(r'<p class="whisper">(.*?)</p>', page).group(1)
-        if html.unescape(headline) != f["why"]:
-            fail(f["id"] + " headline is not the family's why")
-        chips = page.split('<ul class="chips">')[1].split('</ul>')[0]
+        line = re.search(r'<h2 class="pairing-line">(.*?)</h2>', page).group(1)
+        if html.unescape(line) != pairing_line(f):
+            fail(f["id"] + " pairing line is not opening — why")
+        chips = chips_of(page)
         if re.findall(r'<li><a href="([^"]+)"', chips) != expected_chips:
             fail(f["id"] + " chip hrefs")
-        if re.findall(r'href="([^"]+)" aria-current="page"', chips) != [expected_chips[[x["id"] for x in families].index(f["id"])]]:
+        if re.findall(r'href="([^"]+)" aria-current="page"', chips) != [expected_chips[ids.index(f["id"])]]:
             fail(f["id"] + " selected chip")
         if ('ct=calc_wine_pairing_' + f["id"] + '&') not in page or ('utm_campaign%3Dwine_pairing_' + f["id"] + '"') not in page:
             fail(f["id"] + " store tags")
         desc = re.search(r'<meta name="description" content="([^"]*)"', page).group(1)
         if len(html.unescape(desc)) >= 155:
-            fail(f["id"] + " meta description is " + str(len(desc)) + " characters")
+            fail(f["id"] + " meta description is " + str(len(html.unescape(desc))) + " characters")
         if '<meta property="og:image" content="' + DOMAIN + '/assets/og/' + SLUG + '-' + f["id"] + '.png">' not in page:
             fail(f["id"] + " og:image")
         if page.count("<script>") != 1 or SWITCH_JS not in page:
             fail(f["id"] + " is missing the chip switcher or carries another inline script")
+        if page.count('aria-live="polite"') != 1:
+            fail(f["id"] + " live region")

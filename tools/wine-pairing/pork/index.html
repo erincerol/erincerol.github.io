@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What wine goes with pork? | Eritech Studios</title>
-<meta name="description" content="For the pork, a red without too much tannin, or a rich white. The wine types and grapes that suit pork, and why they work.">
+<meta name="description" content="For the pork, a red without too much tannin, or a rich white: Merlot, Pinot Noir, Tempranillo and 29 more grapes, with the regions to look for.">
 <link rel="canonical" href="https://eritech.studio/tools/wine-pairing/pork/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="What wine goes with pork?">
-<meta property="og:description" content="For the pork, a red without too much tannin, or a rich white. The wine types and grapes that suit pork, and why they work.">
+<meta property="og:description" content="For the pork, a red without too much tannin, or a rich white: Merlot, Pinot Noir, Tempranillo and 29 more grapes, with the regions to look for.">
 <meta property="og:url" content="https://eritech.studio/tools/wine-pairing/pork/">
 <meta property="og:image" content="https://eritech.studio/assets/og/wine-pairing-pork.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
 main{max-width:680px;margin:0 auto;padding:0 20px 40px}
 .crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
-.crumb a,a:visited{color:var(--muted);text-decoration:none}
+.crumb a,.crumb a:visited{color:var(--muted);text-decoration:none}
 .crumb a:hover{color:var(--accent)}
 .crumb span{margin:0 8px}
 h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
@@ -56,36 +56,47 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
 .more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
 @media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
-.more-tools a,a:visited{text-decoration:none}
+.more-tools a,.more-tools a:visited{text-decoration:none}
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-footer a,a:visited{color:var(--muted)}
+footer a,footer a:visited{color:var(--muted)}
 .faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 .worked td{padding:4px 0;border-bottom:1px solid var(--line)}
 .worked{border-collapse:collapse;width:100%;margin:0 0 14px}
 .worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
 .more-tools .d{display:block;color:var(--muted);font-size:.9rem}
-.sheet .sheet-title{font-size:1.1rem;margin:0 0 14px}
+.sheet .sheet-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;margin:0 0 4px}
+.chipbar{position:sticky;top:0;z-index:2;background:var(--surface);margin:0 -22px;padding:10px 22px}
 .chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
-.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem}
+.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem;white-space:nowrap}
 .chips a:hover{border-color:var(--accent)}
 .chips a[aria-current=page],.chips a[aria-current=page]:visited{background:var(--line);border-color:var(--accent);color:var(--accent)}
-.answer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-.answer .opening{color:var(--muted);font-size:.92rem;margin:0 0 2px}
-.answer .whisper{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.65rem;line-height:1.3;margin:0 0 6px}
+@media(max-width:600px){
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -22px;padding:0 22px}
+.chips::-webkit-scrollbar{display:none}
+.chips li{flex:none}
+}
+.answer{margin-top:8px;padding-top:18px;border-top:1px solid var(--line)}
+.answer.in{animation:wp-in .14s ease-out}
+@keyframes wp-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.answer.in{animation:none}}
+.answer .pairing-line{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:normal;color:var(--accent);font-size:1.45rem;line-height:1.3;margin:0 0 6px}
 .answer .prompt{color:var(--muted);margin:0}
-.wines h3{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:20px 0 4px}
-.wines ul{list-style:none;padding:0;margin:0}
-.wines li{padding:6px 0;border-bottom:1px solid var(--line)}
-.wines li:last-child{border-bottom:none}
-.wines .w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem;margin-left:4px}
+.wines h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:22px 0 2px}
 .wines .type-w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);margin:0 0 4px}
-.wines ul.regions{margin-top:2px}
-.wines ul.regions li{border:none;padding:2px 0 0 14px;font-size:.92rem}
+.ledger{list-style:none;padding:0;margin:0}
+.ledger li{padding:10px 0 11px;border-bottom:1px solid var(--line);break-inside:avoid}
+.ledger .g{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;color:var(--text)}
+.ledger .gw{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem}
+.ledger .rg{display:block;font-size:.86rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.ledger .rg b{font-weight:normal;color:var(--text)}
+.ledger .rg i{font-family:Georgia,"Times New Roman",serif}
+@media(min-width:640px){.ledger{columns:2;column-gap:28px}}
+.explainer h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Pork", "item": "https://eritech.studio/tools/wine-pairing/pork/"}]}, {"@type": "WebPage", "name": "What wine goes with pork?", "url": "https://eritech.studio/tools/wine-pairing/pork/", "description": "For the pork, a red without too much tannin, or a rich white. The wine types and grapes that suit pork, and why they work.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Pork", "item": "https://eritech.studio/tools/wine-pairing/pork/"}]}, {"@type": "WebPage", "name": "What wine goes with pork?", "url": "https://eritech.studio/tools/wine-pairing/pork/", "description": "For the pork, a red without too much tannin, or a rich white: Merlot, Pinot Noir, Tempranillo and 29 more grapes, with the regions to look for.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "inLanguage": "en-GB", "dateModified": "2026-10-11", "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
 </script>
 </head>
 <body>
@@ -95,7 +106,8 @@ footer a,a:visited{color:var(--muted)}
 <h1>What wine goes with pork?</h1>
 </header>
 <section class="calc sheet" aria-labelledby="sheet-title">
-<h2 class="sheet-title" id="sheet-title">Pair with a dish</h2>
+<p class="sheet-title" id="sheet-title">Pair with a dish</p>
+<div class="chipbar">
 <ul class="chips">
 <li><a href="/tools/wine-pairing/red-meat/">Red meat</a></li>
 <li><a href="/tools/wine-pairing/lamb/">Lamb</a></li>
@@ -110,65 +122,47 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/wine-pairing/cheese/">Cheese</a></li>
 <li><a href="/tools/wine-pairing/dessert/">Dessert</a></li>
 </ul>
-<div class="answer">
-<p class="opening">For the pork</p>
-<p class="whisper">a red without too much tannin, or a rich white</p>
+</div>
+<div class="answer" id="answer" aria-live="polite">
+<h2 class="pairing-line">For the pork — a red without too much tannin, or a rich white</h2>
 <div class="wines">
 <h3>Red</h3>
-<ul>
-<li><strong>Merlot</strong> <span class="w">a soft, plush red</span><ul class="regions">
-<li>Bordeaux · Merlot <span class="w">a right-bank claret, soft and plush</span></li>
-</ul></li>
-<li><strong>Pinot Noir</strong> <span class="w">a light red with a fine perfume</span><ul class="regions">
-<li>Burgundy · Pinot Noir <span class="w">a red Burgundy, fine and perfumed</span></li>
-<li>Sonoma · Pinot Noir <span class="w">a Sonoma Pinot, ripe and silky</span></li>
-</ul></li>
-<li><strong>Tempranillo</strong> <span class="w">a red with oak and some years on it</span><ul class="regions">
-<li>Rioja · Tempranillo <span class="w">a Rioja with some years on it</span></li>
-</ul></li>
-<li><strong>Cabernet Franc</strong> <span class="w">a leafy red, lighter than its cousin</span><ul class="regions">
-<li>Chinon · Cabernet Franc <span class="w">a Chinon, leafy and lightly chilled</span></li>
-</ul></li>
-<li><strong>Carmenere</strong> <span class="w">a red with a green, peppery edge</span></li>
-<li><strong>Zinfandel</strong> <span class="w">a ripe, generous red</span></li>
-<li><strong>Barbera</strong> <span class="w">a bright red, low on tannin</span></li>
-<li><strong>Dolcetto</strong> <span class="w">a soft red for drinking young</span></li>
-<li><strong>Nerello Mascalese</strong> <span class="w">a pale volcanic red</span><ul class="regions">
-<li>Sicily · Nerello Mascalese <span class="w">an Etna red, pale and volcanic</span></li>
-</ul></li>
-<li><strong>Montepulciano</strong> <span class="w">a rustic, easy red</span></li>
-<li><strong>Corvina</strong> <span class="w">a light red with a bitter edge</span></li>
-<li><strong>Gamay</strong> <span class="w">a light, juicy red, lightly chilled</span><ul class="regions">
-<li>Beaujolais · Gamay <span class="w">a Beaujolais, lightly chilled</span></li>
-</ul></li>
-<li><strong>Pinotage</strong> <span class="w">a smoky, dark red</span></li>
-<li><strong>Blaufrankisch</strong> <span class="w">a peppery, mid-weight red</span></li>
-<li><strong>Zweigelt</strong> <span class="w">a soft, juicy red</span></li>
-<li><strong>Agiorgitiko</strong> <span class="w">a plush, friendly red</span></li>
-<li><strong>Cinsault</strong> <span class="w">a light, fragrant red</span></li>
-<li><strong>Bobal</strong> <span class="w">a dark, juicy red</span></li>
-<li><strong>Mencia</strong> <span class="w">a cool, mineral red</span></li>
-<li><strong>Kalecik Karasi</strong> <span class="w">a light, fragrant red, lightly chilled</span></li>
+<ul class="ledger">
+<li><span class="g">Merlot</span> <span class="gw">a soft, plush red</span><span class="rg"><b>Bordeaux</b> <i>a right-bank claret, soft and plush</i></span></li>
+<li><span class="g">Pinot Noir</span> <span class="gw">a light red with a fine perfume</span><span class="rg"><b>Burgundy</b> <i>a red Burgundy, fine and perfumed</i> · <b>Sonoma</b> <i>a Sonoma Pinot, ripe and silky</i></span></li>
+<li><span class="g">Tempranillo</span> <span class="gw">a red with oak and some years on it</span><span class="rg"><b>Rioja</b> <i>a Rioja with some years on it</i></span></li>
+<li><span class="g">Cabernet Franc</span> <span class="gw">a leafy red, lighter than its cousin</span><span class="rg"><b>Chinon</b> <i>a Chinon, leafy and lightly chilled</i></span></li>
+<li><span class="g">Carmenere</span> <span class="gw">a red with a green, peppery edge</span></li>
+<li><span class="g">Zinfandel</span> <span class="gw">a ripe, generous red</span></li>
+<li><span class="g">Barbera</span> <span class="gw">a bright red, low on tannin</span></li>
+<li><span class="g">Dolcetto</span> <span class="gw">a soft red for drinking young</span></li>
+<li><span class="g">Nerello Mascalese</span> <span class="gw">a pale volcanic red</span><span class="rg"><b>Sicily</b> <i>an Etna red, pale and volcanic</i></span></li>
+<li><span class="g">Montepulciano</span> <span class="gw">a rustic, easy red</span></li>
+<li><span class="g">Corvina</span> <span class="gw">a light red with a bitter edge</span></li>
+<li><span class="g">Gamay</span> <span class="gw">a light, juicy red, lightly chilled</span><span class="rg"><b>Beaujolais</b> <i>a Beaujolais, lightly chilled</i></span></li>
+<li><span class="g">Pinotage</span> <span class="gw">a smoky, dark red</span></li>
+<li><span class="g">Blaufrankisch</span> <span class="gw">a peppery, mid-weight red</span></li>
+<li><span class="g">Zweigelt</span> <span class="gw">a soft, juicy red</span></li>
+<li><span class="g">Agiorgitiko</span> <span class="gw">a plush, friendly red</span></li>
+<li><span class="g">Cinsault</span> <span class="gw">a light, fragrant red</span></li>
+<li><span class="g">Bobal</span> <span class="gw">a dark, juicy red</span></li>
+<li><span class="g">Mencia</span> <span class="gw">a cool, mineral red</span></li>
+<li><span class="g">Kalecik Karasi</span> <span class="gw">a light, fragrant red, lightly chilled</span></li>
 </ul>
 <h3>White</h3>
-<ul>
-<li><strong>Chardonnay</strong> <span class="w">a white with some weight to it</span></li>
-<li><strong>Riesling</strong> <span class="w">a white with acidity and a touch of sweetness</span><ul class="regions">
-<li>Mosel · Riesling <span class="w">a Mosel Riesling, light and off-dry</span></li>
-<li>Alsace · Riesling <span class="w">an Alsace Riesling, dry and steely</span></li>
-</ul></li>
-<li><strong>Chenin Blanc</strong> <span class="w">a white that can run dry or sweet</span><ul class="regions">
-<li>Vouvray · Chenin Blanc <span class="w">a Vouvray, anywhere from dry to sweet</span></li>
-</ul></li>
-<li><strong>Viognier</strong> <span class="w">a perfumed, full white</span></li>
-<li><strong>Gewurztraminer</strong> <span class="w">a heady, aromatic white</span></li>
-<li><strong>Gruner Veltliner</strong> <span class="w">a peppery, dry white</span></li>
-<li><strong>Marsanne</strong> <span class="w">a rich, waxy white</span></li>
-<li><strong>Roussanne</strong> <span class="w">a full white with some perfume</span></li>
-<li><strong>Silvaner</strong> <span class="w">a quiet, earthy white</span></li>
-<li><strong>Furmint</strong> <span class="w">a dry white with real acidity</span></li>
-<li><strong>Fiano</strong> <span class="w">a textured southern white</span></li>
-<li><strong>Narince</strong> <span class="w">a round, gentle white</span></li>
+<ul class="ledger">
+<li><span class="g">Chardonnay</span> <span class="gw">a white with some weight to it</span></li>
+<li><span class="g">Riesling</span> <span class="gw">a white with acidity and a touch of sweetness</span><span class="rg"><b>Mosel</b> <i>a Mosel Riesling, light and off-dry</i> · <b>Alsace</b> <i>an Alsace Riesling, dry and steely</i></span></li>
+<li><span class="g">Chenin Blanc</span> <span class="gw">a white that can run dry or sweet</span><span class="rg"><b>Vouvray</b> <i>a Vouvray, anywhere from dry to sweet</i></span></li>
+<li><span class="g">Viognier</span> <span class="gw">a perfumed, full white</span></li>
+<li><span class="g">Gewurztraminer</span> <span class="gw">a heady, aromatic white</span></li>
+<li><span class="g">Gruner Veltliner</span> <span class="gw">a peppery, dry white</span></li>
+<li><span class="g">Marsanne</span> <span class="gw">a rich, waxy white</span></li>
+<li><span class="g">Roussanne</span> <span class="gw">a full white with some perfume</span></li>
+<li><span class="g">Silvaner</span> <span class="gw">a quiet, earthy white</span></li>
+<li><span class="g">Furmint</span> <span class="gw">a dry white with real acidity</span></li>
+<li><span class="g">Fiano</span> <span class="gw">a textured southern white</span></li>
+<li><span class="g">Narince</span> <span class="gw">a round, gentle white</span></li>
 </ul>
 <h3>Rosé</h3>
 <p class="type-w">a dry rosé, cold and easy</p>
@@ -177,7 +171,13 @@ footer a,a:visited{color:var(--muted)}
 </section>
 <section class="explainer">
 <h2>Why these wines work with pork</h2>
-<p>Pork sits between white meat and red, and it pairs that way: a red without too much tannin, or a rich white. The meat is sweet and fairly fatty, especially belly and shoulder, so wines with good acidity cut through it and keep each mouthful fresh. Heavy tannin is unnecessary and can taste harsh against that sweetness, which is why the reds on this list are the soft and juicy ones: Pinot Noir, Gamay, Barbera, Dolcetto, Zweigelt and Blaufrankisch. A roast loin with crackling suits a Beaujolais or a Chinon; a slow-cooked shoulder with smoky, sticky flavours can take a riper Zinfandel or Pinotage. On the white side, pork&rsquo;s natural partner is fruit, apple and pear above all, and whites that taste of the orchard with good acidity feel made for it: Chenin Blanc from Vouvray, a Riesling from the Mosel or Alsace, or a peppery Gruner Veltliner. Pork in cream and mustard wants something fuller, Chardonnay or Viognier. Sausages and charcuterie lean towards Italian reds such as Barbera or Montepulciano, whose acidity cuts the salt and fat. Chinese and Southeast Asian pork dishes, sticky and sweet with a touch of chilli, are where an off-dry Riesling or a Gewurztraminer shines, the sweetness in the glass matching the glaze. A dry rosé is an easy bridge for anything that comes off the grill.</p>
+<p>Pork sits between white meat and red, and it pairs that way: a red without too much tannin, or a rich white. The meat is sweet and fairly fatty, especially belly and shoulder, so wines with good acidity cut through it and keep each mouthful fresh.</p>
+<h3>With a roast or a slow-cooked shoulder</h3>
+<p>Heavy tannin is unnecessary and can taste harsh against that sweetness, which is why the reds on this list are the soft and juicy ones: Pinot Noir, Gamay, Barbera, Dolcetto, Zweigelt and Blaufrankisch. A roast loin with crackling suits a Beaujolais or a Chinon; a slow-cooked shoulder with smoky, sticky flavours can take a riper Zinfandel or Pinotage.</p>
+<h3>With apple, cream and mustard</h3>
+<p>On the white side, pork&rsquo;s natural partner is fruit, apple and pear above all, and whites that taste of the orchard with good acidity feel made for it: Chenin Blanc from Vouvray, a Riesling from the Mosel or Alsace, or a peppery Grüner Veltliner. Pork in cream and mustard wants something fuller, Chardonnay or Viognier, much as <a href="/tools/wine-pairing/poultry/">chicken</a> does.</p>
+<h3>With sausages and sticky glazes</h3>
+<p>Sausages and charcuterie lean towards Italian reds such as Barbera or Montepulciano, whose acidity cuts the salt and fat. Chinese and Southeast Asian pork dishes, sticky and sweet with a touch of chilli, are where an off-dry Riesling or a Gewürztraminer shines, the sweetness in the glass matching the glaze. A dry rosé is an easy bridge for anything that comes off the grill.</p>
 </section>
 <section class="app-block">
 <p>This is the same filter <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>&rsquo;s Tonight screen uses to pick from what you already own.</p>
@@ -197,33 +197,46 @@ footer a,a:visited{color:var(--muted)}
 </footer>
 <script>
 (function(){
-if(!window.fetch||!window.DOMParser||!history.pushState)return;
-var cache={};
-var swapped=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
-function chip(e){return e.target.closest?e.target.closest('.chips a'):null}
-function get(u){
-return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()})
-.catch(function(err){delete cache[u];throw err}))}
+var bar=document.querySelector('.chipbar');
+if(!bar||!window.fetch||!window.DOMParser||!history.pushState)return;
+var PAIR='/tools/wine-pairing/',cache={};
+var heads=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
+var parts=['.crumb','h1','.explainer','.app-block','.more-tools'];
+history.scrollRestoration='manual';
+function link(e){var a=e.target.closest?e.target.closest('a'):null;return a&&a.getAttribute('href').indexOf(PAIR)===0?a:null}
+function get(u){return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()}).catch(function(err){delete cache[u];throw err}))}
+function mark(path){var on=null;bar.querySelectorAll('a').forEach(function(c){if(c.getAttribute('href')===path){c.setAttribute('aria-current','page');on=c}else c.removeAttribute('aria-current')});return on}
+function reveal(c){var ul=c.closest('.chips'),x=c.offsetLeft-ul.offsetLeft;
+if(x<ul.scrollLeft)ul.scrollLeft=x-22;else if(x+c.offsetWidth>ul.scrollLeft+ul.clientWidth)ul.scrollLeft=x+c.offsetWidth-ul.clientWidth+22}
 function swap(doc){
 document.title=doc.title;
-swapped.forEach(function(sel){var a=document.head.querySelector(sel),b=doc.head.querySelector(sel);if(a&&b)a.replaceWith(b)});
-document.querySelector('.crumb').replaceWith(doc.querySelector('.crumb'));
-document.querySelector('main').replaceWith(doc.querySelector('main'))}
-function go(u,push){
+heads.forEach(function(s){var a=document.head.querySelector(s),b=doc.head.querySelector(s);if(a&&b)a.replaceWith(b)});
+parts.forEach(function(s){var a=document.querySelector(s),b=doc.querySelector(s);if(a&&b)a.replaceWith(b)});
+var ans=document.getElementById('answer');
+ans.innerHTML=doc.getElementById('answer').innerHTML;
+ans.classList.remove('in');void ans.offsetWidth;ans.classList.add('in')}
+function go(u,push,y){
+var path=new URL(u,location.href).pathname,c=mark(path);
+if(c)reveal(c);
 get(u).then(function(t){
-swap(new DOMParser().parseFromString(t,'text/html'));
-if(!push)return;
-history.pushState(null,'',u);
-var c=document.querySelector('.chips a[href="'+new URL(u).pathname+'"]');
-if(c)c.focus({preventScroll:true})})
-.catch(function(){location.href=u})}
+var doc=new DOMParser().parseFromString(t,'text/html');
+if(!doc.getElementById('answer'))throw new Error('shape');
+if(push){history.replaceState({y:scrollY},'');history.pushState({y:0},'',u)}
+swap(doc);
+if(push&&c)c.focus({preventScroll:true});
+if(y!=null){scrollTo(0,y);return}
+var top=document.getElementById('answer').getBoundingClientRect().top;
+if(top<bar.offsetHeight)scrollBy(0,top-bar.offsetHeight)})
+.catch(function(){location.assign(u)})}
 document.addEventListener('click',function(e){
-var a=chip(e);
+var a=link(e);
 if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
 e.preventDefault();
 if(a.href!==location.href)go(a.href,true)});
-['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=chip(e);if(a)get(a.href)})});
-window.addEventListener('popstate',function(){go(location.href,false)});
+['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=link(e);if(a)get(a.href)})});
+window.addEventListener('popstate',function(e){go(location.href,false,e.state&&e.state.y||0)});
+var first=bar.querySelector('[aria-current]');
+if(first)reveal(first);
 })();
 </script>
 </body>

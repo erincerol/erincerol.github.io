@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What wine goes with shellfish? | Eritech Studios</title>
-<meta name="description" content="For the shellfish, a crisp white with salt in it. The wine types and grapes that suit shellfish, and why they work.">
+<meta name="description" content="For the shellfish, a crisp white with salt in it: Pinot Noir, Chardonnay, Sauvignon Blanc and 12 more grapes, with the regions to look for.">
 <link rel="canonical" href="https://eritech.studio/tools/wine-pairing/shellfish/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="What wine goes with shellfish?">
-<meta property="og:description" content="For the shellfish, a crisp white with salt in it. The wine types and grapes that suit shellfish, and why they work.">
+<meta property="og:description" content="For the shellfish, a crisp white with salt in it: Pinot Noir, Chardonnay, Sauvignon Blanc and 12 more grapes, with the regions to look for.">
 <meta property="og:url" content="https://eritech.studio/tools/wine-pairing/shellfish/">
 <meta property="og:image" content="https://eritech.studio/assets/og/wine-pairing-shellfish.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
 main{max-width:680px;margin:0 auto;padding:0 20px 40px}
 .crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
-.crumb a,a:visited{color:var(--muted);text-decoration:none}
+.crumb a,.crumb a:visited{color:var(--muted);text-decoration:none}
 .crumb a:hover{color:var(--accent)}
 .crumb span{margin:0 8px}
 h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
@@ -56,36 +56,47 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
 .more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
 @media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
-.more-tools a,a:visited{text-decoration:none}
+.more-tools a,.more-tools a:visited{text-decoration:none}
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-footer a,a:visited{color:var(--muted)}
+footer a,footer a:visited{color:var(--muted)}
 .faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 .worked td{padding:4px 0;border-bottom:1px solid var(--line)}
 .worked{border-collapse:collapse;width:100%;margin:0 0 14px}
 .worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
 .more-tools .d{display:block;color:var(--muted);font-size:.9rem}
-.sheet .sheet-title{font-size:1.1rem;margin:0 0 14px}
+.sheet .sheet-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;margin:0 0 4px}
+.chipbar{position:sticky;top:0;z-index:2;background:var(--surface);margin:0 -22px;padding:10px 22px}
 .chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
-.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem}
+.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem;white-space:nowrap}
 .chips a:hover{border-color:var(--accent)}
 .chips a[aria-current=page],.chips a[aria-current=page]:visited{background:var(--line);border-color:var(--accent);color:var(--accent)}
-.answer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-.answer .opening{color:var(--muted);font-size:.92rem;margin:0 0 2px}
-.answer .whisper{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.65rem;line-height:1.3;margin:0 0 6px}
+@media(max-width:600px){
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -22px;padding:0 22px}
+.chips::-webkit-scrollbar{display:none}
+.chips li{flex:none}
+}
+.answer{margin-top:8px;padding-top:18px;border-top:1px solid var(--line)}
+.answer.in{animation:wp-in .14s ease-out}
+@keyframes wp-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.answer.in{animation:none}}
+.answer .pairing-line{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:normal;color:var(--accent);font-size:1.45rem;line-height:1.3;margin:0 0 6px}
 .answer .prompt{color:var(--muted);margin:0}
-.wines h3{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:20px 0 4px}
-.wines ul{list-style:none;padding:0;margin:0}
-.wines li{padding:6px 0;border-bottom:1px solid var(--line)}
-.wines li:last-child{border-bottom:none}
-.wines .w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem;margin-left:4px}
+.wines h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:22px 0 2px}
 .wines .type-w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);margin:0 0 4px}
-.wines ul.regions{margin-top:2px}
-.wines ul.regions li{border:none;padding:2px 0 0 14px;font-size:.92rem}
+.ledger{list-style:none;padding:0;margin:0}
+.ledger li{padding:10px 0 11px;border-bottom:1px solid var(--line);break-inside:avoid}
+.ledger .g{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;color:var(--text)}
+.ledger .gw{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem}
+.ledger .rg{display:block;font-size:.86rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.ledger .rg b{font-weight:normal;color:var(--text)}
+.ledger .rg i{font-family:Georgia,"Times New Roman",serif}
+@media(min-width:640px){.ledger{columns:2;column-gap:28px}}
+.explainer h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Shellfish", "item": "https://eritech.studio/tools/wine-pairing/shellfish/"}]}, {"@type": "WebPage", "name": "What wine goes with shellfish?", "url": "https://eritech.studio/tools/wine-pairing/shellfish/", "description": "For the shellfish, a crisp white with salt in it. The wine types and grapes that suit shellfish, and why they work.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Shellfish", "item": "https://eritech.studio/tools/wine-pairing/shellfish/"}]}, {"@type": "WebPage", "name": "What wine goes with shellfish?", "url": "https://eritech.studio/tools/wine-pairing/shellfish/", "description": "For the shellfish, a crisp white with salt in it: Pinot Noir, Chardonnay, Sauvignon Blanc and 12 more grapes, with the regions to look for.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "inLanguage": "en-GB", "dateModified": "2026-10-11", "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
 </script>
 </head>
 <body>
@@ -95,7 +106,8 @@ footer a,a:visited{color:var(--muted)}
 <h1>What wine goes with shellfish?</h1>
 </header>
 <section class="calc sheet" aria-labelledby="sheet-title">
-<h2 class="sheet-title" id="sheet-title">Pair with a dish</h2>
+<p class="sheet-title" id="sheet-title">Pair with a dish</p>
+<div class="chipbar">
 <ul class="chips">
 <li><a href="/tools/wine-pairing/red-meat/">Red meat</a></li>
 <li><a href="/tools/wine-pairing/lamb/">Lamb</a></li>
@@ -110,61 +122,55 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/wine-pairing/cheese/">Cheese</a></li>
 <li><a href="/tools/wine-pairing/dessert/">Dessert</a></li>
 </ul>
-<div class="answer">
-<p class="opening">For the shellfish</p>
-<p class="whisper">a crisp white with salt in it</p>
+</div>
+<div class="answer" id="answer" aria-live="polite">
+<h2 class="pairing-line">For the shellfish — a crisp white with salt in it</h2>
 <div class="wines">
 <h3>White</h3>
 <p class="type-w">a dry white, served cold</p>
-<ul>
-<li><strong>Chardonnay</strong> <span class="w">a white with some weight to it</span><ul class="regions">
-<li>Chablis · Chardonnay <span class="w">a Chablis, lean and stony</span></li>
-<li>Burgundy · Chardonnay <span class="w">a white Burgundy with some weight</span></li>
-</ul></li>
-<li><strong>Sauvignon Blanc</strong> <span class="w">a crisp, green-edged white</span><ul class="regions">
-<li>Sancerre · Sauvignon Blanc <span class="w">a Sancerre, flinty and dry</span></li>
-<li>Marlborough · Sauvignon Blanc <span class="w">a Marlborough Sauvignon, loud and green</span></li>
-</ul></li>
-<li><strong>Pinot Grigio</strong> <span class="w">a light, clean white</span></li>
-<li><strong>Viognier</strong> <span class="w">a perfumed, full white</span></li>
-<li><strong>Semillon</strong> <span class="w">a waxy white that ages well</span></li>
-<li><strong>Albarino</strong> <span class="w">a white with salt in it</span><ul class="regions">
-<li>Rías Baixas · Albarino <span class="w">an Albariño with the Atlantic in it</span></li>
-</ul></li>
-<li><strong>Verdejo</strong> <span class="w">a crisp, herbal white</span></li>
-<li><strong>Assyrtiko</strong> <span class="w">a dry white, taut and saline</span><ul class="regions">
-<li>Santorini · Assyrtiko <span class="w">a Santorini white, volcanic and saline</span></li>
-</ul></li>
-<li><strong>Vermentino</strong> <span class="w">a coastal, herby white</span></li>
-<li><strong>Melon de Bourgogne</strong> <span class="w">a bone-dry white off its lees</span><ul class="regions">
-<li>Muscadet · Melon de Bourgogne <span class="w">a Muscadet, bone-dry and briny</span></li>
-</ul></li>
-<li><strong>Godello</strong> <span class="w">a textured, mineral white</span></li>
-<li><strong>Greco</strong> <span class="w">a firm, mineral white</span></li>
-<li><strong>Emir</strong> <span class="w">a crisp Cappadocian white</span></li>
-<li><strong>Vinho Verde</strong> <span class="w">a Vinho Verde, light and spritzy</span></li>
+<ul class="ledger">
+<li><span class="g">Chardonnay</span> <span class="gw">a white with some weight to it</span><span class="rg"><b>Chablis</b> <i>a Chablis, lean and stony</i> · <b>Burgundy</b> <i>a white Burgundy with some weight</i></span></li>
+<li><span class="g">Sauvignon Blanc</span> <span class="gw">a crisp, green-edged white</span><span class="rg"><b>Sancerre</b> <i>a Sancerre, flinty and dry</i> · <b>Marlborough</b> <i>a Marlborough Sauvignon, loud and green</i></span></li>
+<li><span class="g">Pinot Grigio</span> <span class="gw">a light, clean white</span></li>
+<li><span class="g">Viognier</span> <span class="gw">a perfumed, full white</span></li>
+<li><span class="g">Semillon</span> <span class="gw">a waxy white that ages well</span></li>
+<li><span class="g">Albarino</span> <span class="gw">a white with salt in it</span><span class="rg"><b>Rías Baixas</b> <i>an Albariño with the Atlantic in it</i></span></li>
+<li><span class="g">Verdejo</span> <span class="gw">a crisp, herbal white</span></li>
+<li><span class="g">Assyrtiko</span> <span class="gw">a dry white, taut and saline</span><span class="rg"><b>Santorini</b> <i>a Santorini white, volcanic and saline</i></span></li>
+<li><span class="g">Vermentino</span> <span class="gw">a coastal, herby white</span></li>
+<li><span class="g">Melon de Bourgogne</span> <span class="gw">a bone-dry white off its lees</span><span class="rg"><b>Muscadet</b> <i>a Muscadet, bone-dry and briny</i></span></li>
+<li><span class="g">Godello</span> <span class="gw">a textured, mineral white</span></li>
+<li><span class="g">Greco</span> <span class="gw">a firm, mineral white</span></li>
+<li><span class="g">Emir</span> <span class="gw">a crisp Cappadocian white</span></li>
+<li><span class="g">Vinho Verde</span> <span class="gw">a Vinho Verde, light and spritzy</span></li>
 </ul>
 <h3>Rosé</h3>
-<ul>
-<li><strong>Provence</strong> <span class="w">a pale Provence rosé, cold</span></li>
+<ul class="ledger">
+<li><span class="g">Provence</span> <span class="gw">a pale Provence rosé, cold</span></li>
 </ul>
 <h3>Sparkling</h3>
 <p class="type-w">something with bubbles in it</p>
-<ul>
-<li><strong>Pinot Noir</strong> <span class="w">a sparkling with a red grape's weight</span></li>
-<li><strong>Champagne</strong> <span class="w">something with bubbles and bread in it</span></li>
+<ul class="ledger">
+<li><span class="g">Pinot Noir</span> <span class="gw">a sparkling with a red grape's weight</span></li>
+<li><span class="g">Champagne</span> <span class="gw">something with bubbles and bread in it</span></li>
 </ul>
 <h3>Fortified</h3>
-<ul>
-<li><strong>Palomino</strong> <span class="w">a dry sherry, served cold</span></li>
-<li><strong>Jerez</strong> <span class="w">a sherry, from fino to oloroso</span></li>
+<ul class="ledger">
+<li><span class="g">Palomino</span> <span class="gw">a dry sherry, served cold</span></li>
+<li><span class="g">Jerez</span> <span class="gw">a sherry, from fino to oloroso</span></li>
 </ul>
 </div>
 </div>
 </section>
 <section class="explainer">
 <h2>Why these wines work with shellfish</h2>
-<p>Shellfish tastes of the sea, and the wines that suit it best taste as though they were made within sight of it: a crisp white with salt in it. Oysters, mussels, clams, prawns and crab are sweet, briny and delicate, so you want high acidity, little or no oak and a mineral, almost saline edge. Muscadet is the classic with oysters, bone-dry and briny after resting on its lees. Albarino from Rías Baixas, Assyrtiko from Santorini, Vermentino and Vinho Verde come from coastlines too, and that salinity shows in the glass. Chablis, lean and stony, is the textbook choice for a seafood platter. Sauvignon Blanc from Sancerre or Marlborough suits shellfish with herbs, garlic or a sharp dressing. Richer preparations change the picture. Lobster, scallops seared in butter or crab in a creamy sauce want more body, a white Burgundy, a Semillon or a perfumed Viognier, while a dry, cold sherry is a remarkable match for prawns and anything fried in batter. Sparkling wine works across the board because its bubbles and acidity scrub the palate clean between mouthfuls; Champagne with oysters is a cliché because it is right. Red wine is the one thing to keep away, since tannin and the iodine in shellfish together taste of metal.</p>
+<p>Shellfish tastes of the sea, and the wines that suit it best taste as though they were made within sight of it: a crisp white with salt in it. Oysters, mussels, clams, prawns and crab are sweet, briny and delicate, so you want high acidity, little or no oak and a mineral, almost saline edge.</p>
+<h3>With oysters</h3>
+<p>Muscadet is the classic with oysters, bone-dry and briny after resting on its lees. Albariño from Rías Baixas, Assyrtiko from Santorini, Vermentino and Vinho Verde come from coastlines too, and that salinity shows in the glass. Chablis, lean and stony, is the textbook choice for a seafood platter, and Champagne with oysters is a cliché because it is right.</p>
+<h3>With prawns, mussels and clams</h3>
+<p>Sauvignon Blanc from Sancerre or Marlborough suits shellfish with herbs, garlic or a sharp dressing, and a dry, cold sherry is a remarkable match for prawns and anything fried in batter. Sparkling wine works across the board because its bubbles and acidity scrub the palate clean between mouthfuls.</p>
+<h3>With lobster, scallops and crab</h3>
+<p>Richer preparations change the picture. Lobster, scallops seared in butter or crab in a creamy sauce want more body, a white Burgundy, a Semillon or a perfumed Viognier, much as a buttery piece of <a href="/tools/wine-pairing/fish/">fish</a> does. Red wine is the one thing to keep away, since tannin and the iodine in shellfish together taste of metal.</p>
 </section>
 <section class="app-block">
 <p>This is the same filter <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>&rsquo;s Tonight screen uses to pick from what you already own.</p>
@@ -184,33 +190,46 @@ footer a,a:visited{color:var(--muted)}
 </footer>
 <script>
 (function(){
-if(!window.fetch||!window.DOMParser||!history.pushState)return;
-var cache={};
-var swapped=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
-function chip(e){return e.target.closest?e.target.closest('.chips a'):null}
-function get(u){
-return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()})
-.catch(function(err){delete cache[u];throw err}))}
+var bar=document.querySelector('.chipbar');
+if(!bar||!window.fetch||!window.DOMParser||!history.pushState)return;
+var PAIR='/tools/wine-pairing/',cache={};
+var heads=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
+var parts=['.crumb','h1','.explainer','.app-block','.more-tools'];
+history.scrollRestoration='manual';
+function link(e){var a=e.target.closest?e.target.closest('a'):null;return a&&a.getAttribute('href').indexOf(PAIR)===0?a:null}
+function get(u){return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()}).catch(function(err){delete cache[u];throw err}))}
+function mark(path){var on=null;bar.querySelectorAll('a').forEach(function(c){if(c.getAttribute('href')===path){c.setAttribute('aria-current','page');on=c}else c.removeAttribute('aria-current')});return on}
+function reveal(c){var ul=c.closest('.chips'),x=c.offsetLeft-ul.offsetLeft;
+if(x<ul.scrollLeft)ul.scrollLeft=x-22;else if(x+c.offsetWidth>ul.scrollLeft+ul.clientWidth)ul.scrollLeft=x+c.offsetWidth-ul.clientWidth+22}
 function swap(doc){
 document.title=doc.title;
-swapped.forEach(function(sel){var a=document.head.querySelector(sel),b=doc.head.querySelector(sel);if(a&&b)a.replaceWith(b)});
-document.querySelector('.crumb').replaceWith(doc.querySelector('.crumb'));
-document.querySelector('main').replaceWith(doc.querySelector('main'))}
-function go(u,push){
+heads.forEach(function(s){var a=document.head.querySelector(s),b=doc.head.querySelector(s);if(a&&b)a.replaceWith(b)});
+parts.forEach(function(s){var a=document.querySelector(s),b=doc.querySelector(s);if(a&&b)a.replaceWith(b)});
+var ans=document.getElementById('answer');
+ans.innerHTML=doc.getElementById('answer').innerHTML;
+ans.classList.remove('in');void ans.offsetWidth;ans.classList.add('in')}
+function go(u,push,y){
+var path=new URL(u,location.href).pathname,c=mark(path);
+if(c)reveal(c);
 get(u).then(function(t){
-swap(new DOMParser().parseFromString(t,'text/html'));
-if(!push)return;
-history.pushState(null,'',u);
-var c=document.querySelector('.chips a[href="'+new URL(u).pathname+'"]');
-if(c)c.focus({preventScroll:true})})
-.catch(function(){location.href=u})}
+var doc=new DOMParser().parseFromString(t,'text/html');
+if(!doc.getElementById('answer'))throw new Error('shape');
+if(push){history.replaceState({y:scrollY},'');history.pushState({y:0},'',u)}
+swap(doc);
+if(push&&c)c.focus({preventScroll:true});
+if(y!=null){scrollTo(0,y);return}
+var top=document.getElementById('answer').getBoundingClientRect().top;
+if(top<bar.offsetHeight)scrollBy(0,top-bar.offsetHeight)})
+.catch(function(){location.assign(u)})}
 document.addEventListener('click',function(e){
-var a=chip(e);
+var a=link(e);
 if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
 e.preventDefault();
 if(a.href!==location.href)go(a.href,true)});
-['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=chip(e);if(a)get(a.href)})});
-window.addEventListener('popstate',function(){go(location.href,false)});
+['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=link(e);if(a)get(a.href)})});
+window.addEventListener('popstate',function(e){go(location.href,false,e.state&&e.state.y||0)});
+var first=bar.querySelector('[aria-current]');
+if(first)reveal(first);
 })();
 </script>
 </body>

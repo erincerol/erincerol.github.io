@@ -90,10 +90,13 @@ def _wrap(d, text, font):
     lines.append(cur)
     return lines
 
-def og_image(fname, title, pal, kicker="Free tool  ·  eritech.studio/tools", sub=None):
+def og_image(fname, title, pal, kicker="Free tool  ·  eritech.studio/tools", sub=None, bar=True, rule=False):
     img = Image.new("RGB", (1200, 630), pal["bg"])
     d = ImageDraw.Draw(img)
-    d.rectangle([0, 0, 22, 630], fill=pal["accent"])
+    if bar:
+        d.rectangle([0, 0, 22, 630], fill=pal["accent"])
+    if rule:
+        d.rectangle([90, 490, 1110, 491], fill=pal["line"])
     lines = _wrap(d, title, TITLE_FONT)
     sub_lines = _wrap(d, sub, WHISPER_FONT) if sub else []
     y = 315 - (len(lines) * 96 + len(sub_lines) * 58 + (24 if sub_lines else 0)) // 2 - 40

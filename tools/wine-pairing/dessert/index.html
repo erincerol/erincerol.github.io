@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What wine goes with dessert? | Eritech Studios</title>
-<meta name="description" content="For the pudding, something sweeter than the pudding. The wine types and grapes that suit dessert, and why they work.">
+<title>What wine goes with dessert and chocolate? | Eritech Studios</title>
+<meta name="description" content="For the pudding, something sweeter than the pudding: Muscat and Pedro Ximenez, with the regions to look for.">
 <link rel="canonical" href="https://eritech.studio/tools/wine-pairing/dessert/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="What wine goes with dessert?">
-<meta property="og:description" content="For the pudding, something sweeter than the pudding. The wine types and grapes that suit dessert, and why they work.">
+<meta property="og:title" content="What wine goes with dessert and chocolate?">
+<meta property="og:description" content="For the pudding, something sweeter than the pudding: Muscat and Pedro Ximenez, with the regions to look for.">
 <meta property="og:url" content="https://eritech.studio/tools/wine-pairing/dessert/">
 <meta property="og:image" content="https://eritech.studio/assets/og/wine-pairing-dessert.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
 main{max-width:680px;margin:0 auto;padding:0 20px 40px}
 .crumb{max-width:680px;margin:0 auto;padding:18px 20px;font-size:.9rem;color:var(--muted)}
-.crumb a,a:visited{color:var(--muted);text-decoration:none}
+.crumb a,.crumb a:visited{color:var(--muted);text-decoration:none}
 .crumb a:hover{color:var(--accent)}
 .crumb span{margin:0 8px}
 h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.25;margin:10px 0 6px}
@@ -56,46 +56,58 @@ input[type=number],input[type=date],select{width:100%;padding:11px 12px;font-siz
 .badges .soon{display:inline-block;padding:10px 16px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.92rem}
 .more-tools ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
 @media(max-width:540px){.more-tools ul{grid-template-columns:1fr}.row{flex-direction:column;gap:0}}
-.more-tools a,a:visited{text-decoration:none}
+.more-tools a,.more-tools a:visited{text-decoration:none}
 .more-tools a:hover{text-decoration:underline}
 footer{max-width:680px;margin:30px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-footer a,a:visited{color:var(--muted)}
+footer a,footer a:visited{color:var(--muted)}
 .faq h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 .worked td{padding:4px 0;border-bottom:1px solid var(--line)}
 .worked{border-collapse:collapse;width:100%;margin:0 0 14px}
 .worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
 .more-tools .d{display:block;color:var(--muted);font-size:.9rem}
-.sheet .sheet-title{font-size:1.1rem;margin:0 0 14px}
+.sheet .sheet-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;margin:0 0 4px}
+.chipbar{position:sticky;top:0;z-index:2;background:var(--surface);margin:0 -22px;padding:10px 22px}
 .chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
-.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem}
+.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;color:var(--text);text-decoration:none;font-size:.92rem;white-space:nowrap}
 .chips a:hover{border-color:var(--accent)}
 .chips a[aria-current=page],.chips a[aria-current=page]:visited{background:var(--line);border-color:var(--accent);color:var(--accent)}
-.answer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-.answer .opening{color:var(--muted);font-size:.92rem;margin:0 0 2px}
-.answer .whisper{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.65rem;line-height:1.3;margin:0 0 6px}
+@media(max-width:600px){
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -22px;padding:0 22px}
+.chips::-webkit-scrollbar{display:none}
+.chips li{flex:none}
+}
+.answer{margin-top:8px;padding-top:18px;border-top:1px solid var(--line)}
+.answer.in{animation:wp-in .14s ease-out}
+@keyframes wp-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.answer.in{animation:none}}
+.answer .pairing-line{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:normal;color:var(--accent);font-size:1.45rem;line-height:1.3;margin:0 0 6px}
 .answer .prompt{color:var(--muted);margin:0}
-.wines h3{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:20px 0 4px}
-.wines ul{list-style:none;padding:0;margin:0}
-.wines li{padding:6px 0;border-bottom:1px solid var(--line)}
-.wines li:last-child{border-bottom:none}
-.wines .w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem;margin-left:4px}
+.wines h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:22px 0 2px}
 .wines .type-w{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);margin:0 0 4px}
-.wines ul.regions{margin-top:2px}
-.wines ul.regions li{border:none;padding:2px 0 0 14px;font-size:.92rem}
+.ledger{list-style:none;padding:0;margin:0}
+.ledger li{padding:10px 0 11px;border-bottom:1px solid var(--line);break-inside:avoid}
+.ledger .g{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;color:var(--text)}
+.ledger .gw{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:.95rem}
+.ledger .rg{display:block;font-size:.86rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.ledger .rg b{font-weight:normal;color:var(--text)}
+.ledger .rg i{font-family:Georgia,"Times New Roman",serif}
+@media(min-width:640px){.ledger{columns:2;column-gap:28px}}
+.explainer h3{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;margin:22px 0 6px}
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Dessert", "item": "https://eritech.studio/tools/wine-pairing/dessert/"}]}, {"@type": "WebPage", "name": "What wine goes with dessert?", "url": "https://eritech.studio/tools/wine-pairing/dessert/", "description": "For the pudding, something sweeter than the pudding. The wine types and grapes that suit dessert, and why they work.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Wine Pairing Finder", "item": "https://eritech.studio/tools/wine-pairing/"}, {"@type": "ListItem", "position": 4, "name": "Dessert", "item": "https://eritech.studio/tools/wine-pairing/dessert/"}]}, {"@type": "WebPage", "name": "What wine goes with dessert and chocolate?", "url": "https://eritech.studio/tools/wine-pairing/dessert/", "description": "For the pudding, something sweeter than the pudding: Muscat and Pedro Ximenez, with the regions to look for.", "isPartOf": {"@id": "https://eritech.studio/tools/wine-pairing/"}, "inLanguage": "en-GB", "dateModified": "2026-10-11", "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}]}
 </script>
 </head>
 <body>
 <nav class="crumb"><a href="/">Eritech Studios</a><span>/</span><a href="/tools/">Free tools</a><span>/</span><a href="/tools/wine-pairing/">Wine Pairing Finder</a></nav>
 <main>
 <header>
-<h1>What wine goes with dessert?</h1>
+<h1>What wine goes with dessert and chocolate?</h1>
 </header>
 <section class="calc sheet" aria-labelledby="sheet-title">
-<h2 class="sheet-title" id="sheet-title">Pair with a dish</h2>
+<p class="sheet-title" id="sheet-title">Pair with a dish</p>
+<div class="chipbar">
 <ul class="chips">
 <li><a href="/tools/wine-pairing/red-meat/">Red meat</a></li>
 <li><a href="/tools/wine-pairing/lamb/">Lamb</a></li>
@@ -110,33 +122,37 @@ footer a,a:visited{color:var(--muted)}
 <li><a href="/tools/wine-pairing/cheese/">Cheese</a></li>
 <li><a href="/tools/wine-pairing/dessert/" aria-current="page">Dessert</a></li>
 </ul>
-<div class="answer">
-<p class="opening">For the pudding</p>
-<p class="whisper">something sweeter than the pudding</p>
+</div>
+<div class="answer" id="answer" aria-live="polite">
+<h2 class="pairing-line">For the pudding — something sweeter than the pudding</h2>
 <div class="wines">
 <h3>Dessert</h3>
 <p class="type-w">something sweet, served cold</p>
-<ul>
-<li><strong>Muscat</strong> <span class="w">a sweet, floral glass</span></li>
-<li><strong>Sauternes</strong> <span class="w">a Sauternes, golden and sweet</span></li>
-<li><strong>Tokaj</strong> <span class="w">a Tokaji Aszú, sweet and bright</span></li>
+<ul class="ledger">
+<li><span class="g">Muscat</span> <span class="gw">a sweet, floral glass</span></li>
+<li><span class="g">Sauternes</span> <span class="gw">a Sauternes, golden and sweet</span></li>
+<li><span class="g">Tokaj</span> <span class="gw">a Tokaji Aszú, sweet and bright</span></li>
 </ul>
 <h3>Fortified</h3>
 <p class="type-w">something fortified, a small glass</p>
-<ul>
-<li><strong>Muscat</strong> <span class="w">a dark, sticky fortified</span></li>
-<li><strong>Pedro Ximenez</strong> <span class="w">a dark, syrupy fortified</span><ul class="regions">
-<li>Jerez · Pedro Ximenez <span class="w">a PX, black and syrupy</span></li>
-</ul></li>
-<li><strong>Douro</strong> <span class="w">a Port, dark and sweet</span></li>
-<li><strong>Madeira</strong> <span class="w">a Madeira, tangy and long</span></li>
+<ul class="ledger">
+<li><span class="g">Muscat</span> <span class="gw">a dark, sticky fortified</span></li>
+<li><span class="g">Pedro Ximenez</span> <span class="gw">a dark, syrupy fortified</span><span class="rg"><b>Jerez</b> <i>a PX, black and syrupy</i></span></li>
+<li><span class="g">Douro</span> <span class="gw">a Port, dark and sweet</span></li>
+<li><span class="g">Madeira</span> <span class="gw">a Madeira, tangy and long</span></li>
 </ul>
 </div>
 </div>
 </section>
 <section class="explainer">
-<h2>Why these wines work with dessert</h2>
-<p>The most important rule in dessert pairing is also the simplest: the wine should be something sweeter than the pudding. If the dessert is sweeter than the wine, the wine tastes thin, sour and oddly bitter; if the wine is sweeter, it tastes rich and balanced, and the dessert seems lighter. That is why the list here is short and made up entirely of sweet and fortified wines. Sauternes and Tokaji Aszú, both made from grapes concentrated by noble rot, have the honeyed richness and the bright acidity to suit fruit tarts, crème brûlée and anything with apricot or almond. Sweet Muscat, floral and grapey, is lovely with fruit puddings and lighter, creamy desserts. Chocolate is the hardest thing to pair, because it is bitter and coats the mouth, and it needs a wine with real power: a Port from the Douro, a dark, sticky fortified Muscat or a Madeira. Sticky toffee pudding, Christmas pudding and anything with dried fruit or caramel meet their match in Pedro Ximenez, black and syrupy; some people pour it straight over vanilla ice cream, and it works. Serve sweet wines cold and in small glasses. Their intensity means a little goes a long way, and a single bottle can see a table of six through pudding.</p>
+<h2>Why these wines work with dessert and chocolate</h2>
+<p>The most important rule in dessert pairing is also the simplest: the wine should be something sweeter than the pudding. If the dessert is sweeter than the wine, the wine tastes thin, sour and oddly bitter; if the wine is sweeter, it tastes rich and balanced, and the dessert seems lighter. That is why the list here is short and made up entirely of sweet and fortified wines.</p>
+<h3>With fruit tarts and crème brûlée</h3>
+<p>Sauternes and Tokaji Aszú, both made from grapes concentrated by noble rot, have the honeyed richness and the bright acidity to suit fruit tarts, crème brûlée and anything with apricot or almond. Sweet Muscat, floral and grapey, is lovely with fruit puddings and lighter, creamy desserts.</p>
+<h3>With chocolate</h3>
+<p>Chocolate is the hardest thing to pair, because it is bitter and coats the mouth, and it needs a wine with real power: a Port from the Douro, a dark, sticky fortified Muscat or a Madeira.</p>
+<h3>With sticky toffee and Christmas pudding</h3>
+<p>Sticky toffee pudding, Christmas pudding and anything with dried fruit or caramel meet their match in Pedro Ximénez, black and syrupy; some people pour it straight over vanilla ice cream, and it works. Serve sweet wines cold and in small glasses. Their intensity means a little goes a long way, and a single bottle can see a table of six through pudding. The same bottles do fine work with blue <a href="/tools/wine-pairing/cheese/">cheese</a>.</p>
 </section>
 <section class="app-block">
 <p>This is the same filter <strong><a href="/apps/cellar-book/">Cellar Book</a></strong>&rsquo;s Tonight screen uses to pick from what you already own.</p>
@@ -156,33 +172,46 @@ footer a,a:visited{color:var(--muted)}
 </footer>
 <script>
 (function(){
-if(!window.fetch||!window.DOMParser||!history.pushState)return;
-var cache={};
-var swapped=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
-function chip(e){return e.target.closest?e.target.closest('.chips a'):null}
-function get(u){
-return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()})
-.catch(function(err){delete cache[u];throw err}))}
+var bar=document.querySelector('.chipbar');
+if(!bar||!window.fetch||!window.DOMParser||!history.pushState)return;
+var PAIR='/tools/wine-pairing/',cache={};
+var heads=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
+var parts=['.crumb','h1','.explainer','.app-block','.more-tools'];
+history.scrollRestoration='manual';
+function link(e){var a=e.target.closest?e.target.closest('a'):null;return a&&a.getAttribute('href').indexOf(PAIR)===0?a:null}
+function get(u){return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()}).catch(function(err){delete cache[u];throw err}))}
+function mark(path){var on=null;bar.querySelectorAll('a').forEach(function(c){if(c.getAttribute('href')===path){c.setAttribute('aria-current','page');on=c}else c.removeAttribute('aria-current')});return on}
+function reveal(c){var ul=c.closest('.chips'),x=c.offsetLeft-ul.offsetLeft;
+if(x<ul.scrollLeft)ul.scrollLeft=x-22;else if(x+c.offsetWidth>ul.scrollLeft+ul.clientWidth)ul.scrollLeft=x+c.offsetWidth-ul.clientWidth+22}
 function swap(doc){
 document.title=doc.title;
-swapped.forEach(function(sel){var a=document.head.querySelector(sel),b=doc.head.querySelector(sel);if(a&&b)a.replaceWith(b)});
-document.querySelector('.crumb').replaceWith(doc.querySelector('.crumb'));
-document.querySelector('main').replaceWith(doc.querySelector('main'))}
-function go(u,push){
+heads.forEach(function(s){var a=document.head.querySelector(s),b=doc.head.querySelector(s);if(a&&b)a.replaceWith(b)});
+parts.forEach(function(s){var a=document.querySelector(s),b=doc.querySelector(s);if(a&&b)a.replaceWith(b)});
+var ans=document.getElementById('answer');
+ans.innerHTML=doc.getElementById('answer').innerHTML;
+ans.classList.remove('in');void ans.offsetWidth;ans.classList.add('in')}
+function go(u,push,y){
+var path=new URL(u,location.href).pathname,c=mark(path);
+if(c)reveal(c);
 get(u).then(function(t){
-swap(new DOMParser().parseFromString(t,'text/html'));
-if(!push)return;
-history.pushState(null,'',u);
-var c=document.querySelector('.chips a[href="'+new URL(u).pathname+'"]');
-if(c)c.focus({preventScroll:true})})
-.catch(function(){location.href=u})}
+var doc=new DOMParser().parseFromString(t,'text/html');
+if(!doc.getElementById('answer'))throw new Error('shape');
+if(push){history.replaceState({y:scrollY},'');history.pushState({y:0},'',u)}
+swap(doc);
+if(push&&c)c.focus({preventScroll:true});
+if(y!=null){scrollTo(0,y);return}
+var top=document.getElementById('answer').getBoundingClientRect().top;
+if(top<bar.offsetHeight)scrollBy(0,top-bar.offsetHeight)})
+.catch(function(){location.assign(u)})}
 document.addEventListener('click',function(e){
-var a=chip(e);
+var a=link(e);
 if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
 e.preventDefault();
 if(a.href!==location.href)go(a.href,true)});
-['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=chip(e);if(a)get(a.href)})});
-window.addEventListener('popstate',function(){go(location.href,false)});
+['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=link(e);if(a)get(a.href)})});
+window.addEventListener('popstate',function(e){go(location.href,false,e.state&&e.state.y||0)});
+var first=bar.querySelector('[aria-current]');
+if(first)reveal(first);
 })();
 </script>
 </body>
