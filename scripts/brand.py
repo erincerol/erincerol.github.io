@@ -15,7 +15,7 @@ DOMAIN = "https://eritech.studio"
 BRAND = "Eritech Studios"
 ORG_ID = DOMAIN + "/#organization"
 ORG_REF = {"@type": "Organization", "@id": ORG_ID, "name": BRAND, "url": DOMAIN + "/"}
-SITE_LASTMOD = "2026-09-25"
+SITE_LASTMOD = "2026-10-11"
 
 PREMIUM_NOTE = "Premium your way: a subscription, or a one-time purchase that&rsquo;s yours forever"
 PREMIUM_OFFER = {"@type": "Offer", "price": "0", "priceCurrency": "GBP",
@@ -77,23 +77,33 @@ OG_DIR = os.path.join(REPO, "assets", "og")
 os.makedirs(OG_DIR, exist_ok=True)
 TITLE_FONT = ImageFont.truetype("/System/Library/Fonts/Supplemental/Georgia Bold.ttf", 78)
 SUB_FONT = ImageFont.truetype("/System/Library/Fonts/Supplemental/Georgia.ttf", 34)
+WHISPER_FONT = ImageFont.truetype("/System/Library/Fonts/Supplemental/Georgia Italic.ttf", 44)
 
-def og_image(fname, title, pal, kicker="Free tool  ·  eritech.studio/tools"):
-    img = Image.new("RGB", (1200, 630), pal["bg"])
-    d = ImageDraw.Draw(img)
-    d.rectangle([0, 0, 22, 630], fill=pal["accent"])
-    words, lines, cur = title.split(), [], ""
+def _wrap(d, text, font):
+    words, lines, cur = text.split(), [], ""
     for w in words:
         t = (cur + " " + w).strip()
-        if d.textlength(t, font=TITLE_FONT) > 1010:
+        if d.textlength(t, font=font) > 1010:
             lines.append(cur); cur = w
         else:
             cur = t
     lines.append(cur)
-    y = 315 - (len(lines) * 96) // 2 - 40
+    return lines
+
+def og_image(fname, title, pal, kicker="Free tool  ·  eritech.studio/tools", sub=None):
+    img = Image.new("RGB", (1200, 630), pal["bg"])
+    d = ImageDraw.Draw(img)
+    d.rectangle([0, 0, 22, 630], fill=pal["accent"])
+    lines = _wrap(d, title, TITLE_FONT)
+    sub_lines = _wrap(d, sub, WHISPER_FONT) if sub else []
+    y = 315 - (len(lines) * 96 + len(sub_lines) * 58 + (24 if sub_lines else 0)) // 2 - 40
     for ln in lines:
         d.text((90, y), ln, font=TITLE_FONT, fill=pal["text"])
         y += 96
+    y += 24
+    for ln in sub_lines:
+        d.text((90, y), ln, font=WHISPER_FONT, fill=pal["accent"])
+        y += 58
     d.text((90, 520), kicker, font=SUB_FONT, fill=pal["muted"])
     img.save(os.path.join(OG_DIR, fname), "PNG")
     print("wrote assets/og/" + fname)
@@ -115,7 +125,7 @@ APPS = [
          tools=["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
     dict(slug="cellar-book", web_accent="#722F37", name="Cellar Book", full="Cellar Book: Wine Cellar Log", palette="cellar",
          app_id="6796370046", pkg="com.eritech.cellarbook", privacy="cellar-book.html", category="LifestyleApplication",
-         tools=["wine-drink-window-calculator", "wine-cellar-value-calculator"]),
+         tools=["wine-drink-window-calculator", "wine-cellar-value-calculator", "wine-pairing"]),
     dict(slug="leaflet", web_accent="#2E7D32", name="Leaflet", full="Leaflet: Plant Care & Watering", palette="leaflet",
          app_id="6796375617", pkg="com.eritech.leaflet", privacy="leaflet.html", category="LifestyleApplication",
          tools=["plant-watering-calculator"]),

@@ -109,6 +109,7 @@ TOOL_META = {
     "espresso-ratio-calculator": ("Espresso Ratio Calculator", "Dose, yield, ratio — enter any two, solve the third."),
     "coffee-freshness-calculator": ("Coffee Freshness Calculator", "Roast date in, peak drinking window out."),
     "wine-drink-window-calculator": ("Wine Drink Window Calculator", "Style and vintage in — ageing, ready, or fading."),
+    "wine-pairing": ("Wine Pairing Finder", "Pick what's for dinner — the wines that sit well with it."),
     "plant-watering-calculator": ("Plant Watering Calculator", "Watering intervals by species, season and light."),
     "uk-return-rights-checker": ("UK Return Rights Checker", "Which legal return or refund window you're in."),
     "packing-list-generator": ("Packing List Generator", "Trip length and climate in — a list with quantities."),

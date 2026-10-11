@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS, ACCENT_BY_APP,
                    BRAND, ORG_REF, SITE_LASTMOD, plain_text, jsonld_script, breadcrumb,
                    play_badge, ios_badge, og_image)
+import gen_pairings
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -1438,6 +1439,7 @@ $('outsub').textContent=balls+' × '+Math.round(bw)+' g — '+size(bw)+' each, a
 # ---------------------------------------------------------------- build pages
 
 TOOL_TITLES = {p["slug"]: p["og_title"] for p in PAGES}
+TOOL_TITLES[gen_pairings.SLUG] = gen_pairings.TITLE
 
 def related_section(current_slug):
     gname, slugs = next((g, s) for g, _, _, s in GROUPS if current_slug in s)
@@ -1503,7 +1505,7 @@ GROUPS = [
     ("Travel", "The Travel Binder", ACCENT_BY_APP["The Travel Binder"], ["packing-list-generator", "japan-trip-cost-calculator"]),
     ("Baking", "The Bake Log", ACCENT_BY_APP["The Bake Log"], ["sourdough-hydration-calculator", "bakers-percentage-calculator", "starter-feeding-ratio-calculator", "dough-temperature-calculator", "pizza-dough-calculator"]),
     ("Coffee", "Kohii", ACCENT_BY_APP["Kohii"], ["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
-    ("Wine", "Cellar Book", ACCENT_BY_APP["Cellar Book"], ["wine-drink-window-calculator", "wine-cellar-value-calculator"]),
+    ("Wine", "Cellar Book", ACCENT_BY_APP["Cellar Book"], ["wine-drink-window-calculator", "wine-cellar-value-calculator", gen_pairings.SLUG]),
     ("Plants", "Leaflet", ACCENT_BY_APP["Leaflet"], ["plant-watering-calculator"]),
     ("Consumer rights", "Warranty Box", ACCENT_BY_APP["Warranty Box"], ["uk-return-rights-checker"]),
 ]
@@ -1523,10 +1525,17 @@ DESCS = {
     "wine-cellar-value-calculator": "Count by tier — total value, average per bottle, replacement figure.",
     "packing-list-generator": "Trip length, climate and style in — a categorised list with quantities out.",
     "japan-trip-cost-calculator": "Nights and travel style in — a line-by-line budget, per person and per day.",
+    gen_pairings.SLUG: gen_pairings.SUBLINE,
 }
 
 for p in PAGES:
     build_page(p)
+
+SHARED_CSS = TEMPLATE.split("<style>\n", 1)[1].split("@@EXTRA_CSS@@</style>", 1)[0]
+PAIRING_RELATED = ('<h2>More wine tools</h2>\n<ul class="cluster">\n' + "\n".join(
+    '<li><a href="/tools/' + s + '/">' + TOOL_TITLES[s] + '</a><span class="d">' + DESCS[s] + '</span></li>'
+    for s in ["wine-drink-window-calculator", "wine-cellar-value-calculator"]) + '\n</ul>')
+pairing_urls = gen_pairings.build(SHARED_CSS, PAIRING_RELATED)
 
 groups_html = ""
 for gname, app, accent, slugs in GROUPS:
@@ -1612,6 +1621,7 @@ print("wrote robots.txt")
 urls = [DOMAIN + "/", DOMAIN + "/apps/", DOMAIN + "/tools/"]
 urls += [DOMAIN + "/apps/" + a["slug"] + "/" for a in APPS]
 urls += [DOMAIN + "/tools/" + p["slug"] + "/" for p in PAGES]
+urls += pairing_urls
 LASTMOD = os.environ.get("SITEMAP_DATE", SITE_LASTMOD)
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for u in urls:
