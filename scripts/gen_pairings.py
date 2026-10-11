@@ -225,6 +225,36 @@ EXTRA_CSS = """.sheet .sheet-title{font-size:1.1rem;margin:0 0 14px}
 .wines ul.regions li{border:none;padding:2px 0 0 14px;font-size:.92rem}
 """
 
+SWITCH_JS = """(function(){
+if(!window.fetch||!window.DOMParser||!history.pushState)return;
+var cache={};
+var swapped=['link[rel=canonical]','meta[name=description]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]','meta[property="og:image"]','script[type="application/ld+json"]'];
+function chip(e){return e.target.closest?e.target.closest('.chips a'):null}
+function get(u){
+return cache[u]||(cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()})
+.catch(function(err){delete cache[u];throw err}))}
+function swap(doc){
+document.title=doc.title;
+swapped.forEach(function(sel){var a=document.head.querySelector(sel),b=doc.head.querySelector(sel);if(a&&b)a.replaceWith(b)});
+document.querySelector('.crumb').replaceWith(doc.querySelector('.crumb'));
+document.querySelector('main').replaceWith(doc.querySelector('main'))}
+function go(u,push){
+get(u).then(function(t){
+swap(new DOMParser().parseFromString(t,'text/html'));
+if(!push)return;
+history.pushState(null,'',u);
+var c=document.querySelector('.chips a[href="'+new URL(u).pathname+'"]');
+if(c)c.focus({preventScroll:true})})
+.catch(function(){location.href=u})}
+document.addEventListener('click',function(e){
+var a=chip(e);
+if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+e.preventDefault();
+if(a.href!==location.href)go(a.href,true)});
+['pointerover','pointerdown'].forEach(function(t){document.addEventListener(t,function(e){var a=chip(e);if(a)get(a.href)})});
+window.addEventListener('popstate',function(){go(location.href,false)});
+})();"""
+
 TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -277,6 +307,9 @@ TEMPLATE = """<!DOCTYPE html>
 <p>&copy; 2026 @@BRAND@@ &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
+<script>
+@@SWITCH_JS@@
+</script>
 </body>
 </html>
 """
@@ -412,7 +445,7 @@ def render(shared_css, pal, *, url, tab_title, og_title, meta_desc, og, crumb, h
         ("@@CRUMB@@", crumb), ("@@H1@@", text(h1)), ("@@SHEET_TITLE@@", SHEET_TITLE), ("@@CHIPS@@", chips),
         ("@@ANSWER@@", answer), ("@@EXPLAINER_TITLE@@", explainer_title), ("@@EXPLAINER@@", explainer),
         ("@@APP_BLOCK@@", app_block(campaign)), ("@@RELATED@@", related),
-        ("@@DOMAIN@@", DOMAIN), ("@@BRAND@@", BRAND),
+        ("@@DOMAIN@@", DOMAIN), ("@@BRAND@@", BRAND), ("@@SWITCH_JS@@", SWITCH_JS),
     ]:
         page = page.replace(k, v)
     out = os.path.join(REPO, url[len(DOMAIN) + 1:], "index.html")
@@ -520,5 +553,5 @@ def check(families):
             fail(f["id"] + " meta description is " + str(len(desc)) + " characters")
         if '<meta property="og:image" content="' + DOMAIN + '/assets/og/' + SLUG + '-' + f["id"] + '.png">' not in page:
             fail(f["id"] + " og:image")
-        if "<script>" in page:
-            fail(f["id"] + " carries an inline script")
+        if page.count("<script>") != 1 or SWITCH_JS not in page:
+            fail(f["id"] + " is missing the chip switcher or carries another inline script")
