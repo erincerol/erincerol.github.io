@@ -1,6 +1,6 @@
 ---
 app: Leaflet
-updated: 2026-10-07
+updated: 2026-10-19
 ---
 
 At Eri Tech Studios, we take your privacy seriously. Leaflet keeps your plant journal on your device. This policy explains what is stored locally and the limited third-party services the app uses. The only things that ever leave your device are anonymous crash diagnostics, anonymous usage analytics and, in the free version, what the advertising software collects, all described below; none of it includes anything you have typed or photographed.
@@ -24,6 +24,10 @@ Care reminders are scheduled locally on your device. No notification data is sen
 ## Backups
 
 Leaflet lets you export your plant journal to a backup file and restore it later. These backup files are created and stored only where you choose to save them. We never receive, access, or transmit them.
+
+## Pet safety
+
+The pet safety notes on plant pages come from the ASPCA's lists of plants that are toxic and non-toxic to cats and dogs. The list is bundled inside the app, so looking a plant up sends nothing anywhere.
 
 ## Crash reporting
 

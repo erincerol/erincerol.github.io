@@ -21,6 +21,10 @@
       "body": "Leaflet lets you export your plant journal to a backup file and restore it later. These backup files are created and stored only where you choose to save them. We never receive, access, or transmit them."
     },
     {
+      "heading": "Pet safety",
+      "body": "The pet safety notes on plant pages come from the ASPCA's lists of plants that are toxic and non-toxic to cats and dogs. The list is bundled inside the app, so looking a plant up sends nothing anywhere."
+    },
+    {
       "heading": "Crash reporting",
       "body": "Leaflet uses Firebase Crashlytics to collect anonymous crash diagnostics (device model, OS version, and the technical state of the app at the moment of a crash). No personal information, plant data, notes, or photos are ever transmitted. Crash reports exist solely so we can fix defects."
     },
@@ -45,5 +49,5 @@
       "body": "For questions or concerns, contact: admin@eritech.studio"
     }
   ],
-  "updated": "2026-10-07"
+  "updated": "2026-10-19"
 }
