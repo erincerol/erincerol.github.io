@@ -2,11 +2,19 @@
   "sections": [
     {
       "heading": "Your trip stays on your phone",
-      "body": "The Travel Binder is a fully local app. Your trips, flights, hotels, bookings, confirmation codes, places, packing lists, checklists, notes and documents are stored only on your device, in a database no one else can reach. There is no account, no login, no server and no cloud sync. We cannot see, access, or recover your data — including if you lose the device."
+      "body": "The Travel Binder is a fully local app. Your trips, flights, hotels, bookings, confirmation codes, places, packing lists, checklists, notes, documents and loyalty numbers are stored only on your device, in a database no one else can reach. There is no account, no login, no server and no cloud sync. We cannot see, access, or recover your data — including if you lose the device."
     },
     {
       "heading": "Documents and photos",
       "body": "When you attach a photo or a PDF — a passport scan, an insurance certificate, a rail pass, a booking confirmation — the app opens your camera or file picker only at the moment you choose the file. The file is then copied into the app's own storage on your device. Attachments are never uploaded, scanned, or read by us."
+    },
+    {
+      "heading": "Bookings you share in",
+      "body": "You can share a booking confirmation, a PDF, a screenshot, an email file or a boarding pass into the app from another app, import one from your files, or scan a printed one with the camera. On iPhone and iPad the Travel Binder share extension receives only the item you choose to share and hands it to the app inside your device; it reads nothing else. The app reads the item on your phone with a set of fixed rules (and, for a PDF, a picture or a scan, text recognition that runs on the device: Apple's Vision on iPhone and iPad, and on Android Google's ML Kit text recognition model, which is bundled inside the app and works without a connection), shows you what it found, and saves nothing until you tap Add. The text is never sent anywhere, never seen by us, and never used to train anything. On Android, ML Kit may send Google anonymous figures about how the feature performs and is used, never the picture or the words in it. A shared PDF or picture is kept with the booking as its ticket; a shared email is not kept. The app never reads your inbox."
+    },
+    {
+      "heading": "Docs lock",
+      "body": "If you turn on Lock Docs, the app asks your device to confirm it is you (Face ID, Touch ID, a fingerprint, your face or your passcode) before it shows a trip's documents. That check is done entirely by your device's operating system: the app only learns whether it succeeded, and never receives or stores your face, fingerprint or passcode."
     },
     {
       "heading": "Maps",
@@ -49,5 +57,5 @@
       "body": "Questions about this policy are welcome at admin@eritech.studio."
     }
   ],
-  "updated": "2026-10-06"
+  "updated": "2026-10-19"
 }
