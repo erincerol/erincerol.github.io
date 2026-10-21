@@ -330,13 +330,13 @@ GUIDE_TEMPLATE = """<!DOCTYPE html>
 GUIDES = {
 ("cellar-book", "from-cellartracker"): dict(
     h1="Moving from CellarTracker to Cellar Book",
-    tab="Moving from CellarTracker to Cellar Book — Import Your Cellar | Eritech Studios",
+    tab="CellarTracker Import — Move Your Cellar to Cellar Book | Eritech Studios",
     lede="Your CellarTracker list comes across in one import, read on your phone, with a preview before anything is saved.",
-    desc="Bring your CellarTracker cellar into Cellar Book: export the list, import it on your phone, and check a preview before anything is written.",
+    desc="Export your CellarTracker list as a CSV, import it into Cellar Book on your phone, and check a preview before anything is written. No account.",
     note="Free to download &middot; Import and export are part of Cellar Book Premium, a one-time purchase or a monthly subscription",
-    body="""<h2>Four steps</h2>
+    body="""<h2>How to import a CellarTracker export</h2>
 <ol class="steps">
-<li><strong>Export from CellarTracker.</strong> Open My Cellar and export the list. The Export button gives a comma-separated file; the xlquery export is tab-separated. Either works.</li>
+<li><strong>Export from CellarTracker.</strong> Open My Cellar and export the list. The Export button gives a comma-separated file (CSV); the xlquery export is tab-separated. Either works.</li>
 <li><strong>Get the file onto your phone.</strong> Save it to Files or Google Drive, or email it to yourself.</li>
 <li><strong>Import it in Cellar Book.</strong> Go to <span class="path">Settings &rarr; Spreadsheets</span> &rarr; Import from CSV or CellarTracker, and choose the file.</li>
 <li><strong>Check the preview, then tap Import.</strong> Cellar Book recognises a CellarTracker export by its columns and shows what it will do before writing anything: how many wines and lots it will add, and the rows that come in with a gap or are skipped. Nothing is written until you tap Import.</li>

@@ -130,7 +130,8 @@ CELLAR_TONIGHT_SHELF_PPID = "5c62f941-daf9-4164-baa7-f7ab12a6df70"
 def cellar_block(campaign, built=True, ppid=None):
     return (("<p>This calculator is built into <strong><a href=\"/apps/cellar-book/\">Cellar Book</a></strong>, which tracks " if built else "<p>A free web tool from the makers of <strong><a href=\"/apps/cellar-book/\">Cellar Book</a></strong>, which tracks ") +
             'drink windows on every bottle in your cellar — see what is ageing, ready or fading at a glance, with label photos, tasting '
-            'notes on the 100-point scale and an offline map of your collection&rsquo;s regions.</p>'
+            'notes on the 100-point scale and an offline map of your collection&rsquo;s regions. Keeping your cellar in CellarTracker? '
+            '<a href="/apps/cellar-book/from-cellartracker/">It can come across in one import</a>.</p>'
             '<div class="badges">' + ios_badge("6796370046", campaign, ppid=ppid) +
             play_badge("com.eritech.cellarbook", campaign) + '</div>')
 
