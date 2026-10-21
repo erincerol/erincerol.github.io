@@ -15,7 +15,7 @@ DOMAIN = "https://eritech.studio"
 BRAND = "Eritech Studios"
 ORG_ID = DOMAIN + "/#organization"
 ORG_REF = {"@type": "Organization", "@id": ORG_ID, "name": BRAND, "url": DOMAIN + "/"}
-SITE_LASTMOD = "2026-10-11"
+SITE_LASTMOD = "2026-10-21"
 
 PREMIUM_NOTE = "Premium your way: a subscription, or a one-time purchase that&rsquo;s yours forever"
 PREMIUM_OFFER = {"@type": "Offer", "price": "0", "priceCurrency": "GBP",
@@ -128,7 +128,8 @@ APPS = [
          tools=["coffee-ratio-calculator", "espresso-ratio-calculator", "coffee-freshness-calculator"]),
     dict(slug="cellar-book", web_accent="#722F37", name="Cellar Book", full="Cellar Book: Wine Cellar Log", palette="cellar",
          app_id="6796370046", pkg="com.eritech.cellarbook", privacy="cellar-book.html", category="LifestyleApplication",
-         tools=["wine-drink-window-calculator", "wine-cellar-value-calculator", "wine-pairing"]),
+         tools=["wine-drink-window-calculator", "wine-cellar-value-calculator", "wine-pairing"],
+         guides=["from-cellartracker"]),
     dict(slug="leaflet", web_accent="#2E7D32", name="Leaflet", full="Leaflet: Plant Care & Watering", palette="leaflet",
          app_id="6796375617", pkg="com.eritech.leaflet", privacy="leaflet.html", category="LifestyleApplication",
          tools=["plant-watering-calculator"]),

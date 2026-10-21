@@ -9,7 +9,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS,
                    BRAND, ORG_REF, PREMIUM_NOTE, PREMIUM_OFFER, plain_text, jsonld_script, breadcrumb,
-                   play_badge, ios_badge, og_image)
+                   play_badge, ios_badge, og_image, SITE_LASTMOD)
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -191,6 +191,7 @@ CONTENT = {
 <p>Structure sets that window. Tannin, acidity and sugar are preservatives, which is why a Barolo can improve for two decades while most supermarket reds are best within a year of release, and why vintage Port is barely awake at fifteen years. Producer and vintage move it further. There is a free <a href="/tools/wine-drink-window-calculator/">wine drink window calculator</a> here that gives a sensible range for a style and year.</p>
 <h2>A collection outgrows memory faster than you expect</h2>
 <p>Thirty bottles is roughly where a cellar stops being something you can hold in your head. After that you are guessing about what is in the back of the rack, buying duplicates of things you already have, and pulling the wrong bottle on the night it matters. A label photo solves recognition far better than a typed name, because that is how you actually remember wine.</p>
+<p>If your cellar already lives in CellarTracker, it can come across in one import: <a href="/apps/cellar-book/from-cellartracker/">moving from CellarTracker to Cellar Book</a> shows how.</p>
 <p>When the question is what to open with dinner, Cellar Book&rsquo;s Tonight screen narrows your own bottles to the ones that suit the dish. The same pairings are on the web in the free <a href="/tools/wine-pairing/">wine pairing finder</a>: what goes with <a href="/tools/wine-pairing/lamb/">lamb</a>, <a href="/tools/wine-pairing/fish/">fish</a>, <a href="/tools/wine-pairing/cheese/">cheese</a> or <a href="/tools/wine-pairing/spicy/">spicy food</a>.</p>
 <h2>Yours alone</h2>
 <p>What you own and what you paid is nobody else's business. Cellar Book keeps all of it on your device &mdash; no account, no cloud, no marketplace quietly learning your buying habits.</p>"""),
@@ -274,6 +275,127 @@ for app in APPS:
     open(os.path.join(d, "index.html"), "w").write(html)
     print("wrote apps/%s/index.html" % app["slug"])
     og_image("app-%s.png" % app["slug"], app["name"], pal, kicker="eritech.studio")
+
+# ---------------------------------------------------------------- guides
+
+STYLE = TEMPLATE[TEMPLATE.index("<style>\n"):TEMPLATE.index("</style>") + len("</style>")]
+
+GUIDE_TEMPLATE = """<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@@TAB_TITLE@@</title>
+<meta name="description" content="@@META_DESC@@">
+<link rel="canonical" href="@@URL@@">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="@@BRAND@@">
+<meta property="og:title" content="@@OG_TITLE@@">
+<meta property="og:description" content="@@META_DESC@@">
+<meta property="og:url" content="@@URL@@">
+<meta property="og:image" content="@@DOMAIN@@/assets/og/@@OG@@">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=@@APPID@@, app-argument=@@URL@@">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+@@CF@@
+@@STYLE@@
+<style>
+.steps{margin:0 0 14px;padding-left:22px}
+.steps li{margin-bottom:12px;padding-left:4px}
+.steps li::marker{font-family:Georgia,"Times New Roman",serif;color:var(--accent)}
+.path{white-space:nowrap}
+.close{margin-top:34px}
+</style>
+@@JSONLD@@
+</head>
+<body>
+<nav class="crumb"><a href="/">@@BRAND@@</a><span>/</span><a href="/apps/">Apps</a><span>/</span><a href="/apps/@@SLUG@@/">@@NAME@@</a></nav>
+<main>
+<h1>@@H1@@</h1>
+<p class="lede">@@LEDE@@</p>
+<div class="badges">@@BADGES@@</div>
+<p class="note">@@NOTE@@</p>
+@@BODY@@
+</main>
+<footer>
+<p><a href="/">@@BRAND@@</a> &middot; <a href="/apps/">All apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
+</footer>
+</body>
+</html>
+"""
+
+GUIDES = {
+("cellar-book", "from-cellartracker"): dict(
+    h1="Moving from CellarTracker to Cellar Book",
+    tab="Moving from CellarTracker to Cellar Book — Import Your Cellar | Eritech Studios",
+    lede="Your CellarTracker list comes across in one import, read on your phone, with a preview before anything is saved.",
+    desc="Bring your CellarTracker cellar into Cellar Book: export the list, import it on your phone, and check a preview before anything is written.",
+    note="Free to download &middot; Import and export are part of Cellar Book Premium, a one-time purchase or a monthly subscription",
+    body="""<h2>Four steps</h2>
+<ol class="steps">
+<li><strong>Export from CellarTracker.</strong> Open My Cellar and export the list. The Export button gives a comma-separated file; the xlquery export is tab-separated. Either works.</li>
+<li><strong>Get the file onto your phone.</strong> Save it to Files or Google Drive, or email it to yourself.</li>
+<li><strong>Import it in Cellar Book.</strong> Go to <span class="path">Settings &rarr; Spreadsheets</span> &rarr; Import from CSV or CellarTracker, and choose the file.</li>
+<li><strong>Check the preview, then tap Import.</strong> Cellar Book recognises a CellarTracker export by its columns and shows what it will do before writing anything: how many wines and lots it will add, and the rows that come in with a gap or are skipped. Nothing is written until you tap Import.</li>
+</ol>
+<div class="feat">
+<h2 style="margin-top:0">What comes across</h2>
+<ul>
+<li>Producer, wine name and vintage</li>
+<li>Bottle count: Quantity, or one bottle per row in the per-bottle Inventory export</li>
+<li>Region (appellation, sub-region or region) and country</li>
+<li>Grape and type</li>
+<li>Price, in the app currency</li>
+<li>Location and Bin, as the rack</li>
+<li>The drink window, from BeginConsume and EndConsume</li>
+<li>Purchase date, when the export has it</li>
+</ul>
+</div>
+<h2>What stays behind</h2>
+<p>Notes and community scores are not in CellarTracker&rsquo;s list export, so there is nothing to read. Photos are not in a spreadsheet either. Spirits, beer, sake, cider and other rows that are not wine are skipped, and the preview lists them.</p>
+<h2>An import only adds</h2>
+<p>A wine already in your cellar gains a new lot and is never rewritten, and nothing is deleted. It also means importing the same file twice adds its bottles twice, so import each file once.</p>
+<h2>Read on your phone</h2>
+<p>The file is read on your phone. Nothing is uploaded, and there is no account to make.</p>
+<h2>Taking it back out</h2>
+<p>Cellar Book exports your cellar as a spreadsheet too: <code>cellar.csv</code> and <code>tastings.csv</code> in a zip, ready to open in Numbers, Excel or Google Sheets.</p>
+<p class="close">More about <a href="/apps/cellar-book/">Cellar Book</a>, the wine cellar tracker this guide is for.</p>"""),
+}
+
+for (app_slug, guide_slug), g in GUIDES.items():
+    app = next(a for a in APPS if a["slug"] == app_slug)
+    assert guide_slug in app.get("guides", [])
+    pal = PALETTES[app["palette"]]
+    app_url = DOMAIN + "/apps/" + app_slug + "/"
+    url = app_url + guide_slug + "/"
+    og = "app-%s-%s.png" % (app_slug, guide_slug)
+    campaign = ("%s_%s" % (app_slug, guide_slug)).replace("-", "_")
+    badges = ios_badge(app["app_id"], campaign, prefix="guide") + play_badge(app["pkg"], campaign, medium="guide")
+    ld = jsonld_script({"@context": "https://schema.org", "@graph": [
+        {"@type": "WebPage", "name": plain_text(g["h1"]), "description": g["desc"], "url": url,
+         "inLanguage": "en-GB", "dateModified": SITE_LASTMOD, "publisher": ORG_REF,
+         "about": {"@type": "SoftwareApplication", "name": app["name"], "url": app_url}},
+        breadcrumb((BRAND, DOMAIN + "/"), ("Apps", DOMAIN + "/apps/"), (app["name"], app_url),
+                   (plain_text(g["h1"]), url))]})
+    style = STYLE
+    for k in ("BG", "SURFACE", "TEXT", "MUTED", "ACCENT", "LINE", "ON"):
+        style = style.replace("@@%s@@" % k, pal[k.lower()])
+    html = GUIDE_TEMPLATE
+    for k, v in [("@@STYLE@@", style), ("@@JSONLD@@", ld), ("@@CF@@", CF_SNIPPET), ("@@BRAND@@", BRAND),
+                 ("@@TAB_TITLE@@", g["tab"]), ("@@META_DESC@@", g["desc"]), ("@@OG_TITLE@@", plain_text(g["h1"])),
+                 ("@@URL@@", url), ("@@DOMAIN@@", DOMAIN), ("@@OG@@", og), ("@@APPID@@", app["app_id"]),
+                 ("@@SLUG@@", app_slug), ("@@NAME@@", app["name"]), ("@@H1@@", g["h1"]), ("@@LEDE@@", g["lede"]),
+                 ("@@BADGES@@", badges), ("@@NOTE@@", g["note"]), ("@@BODY@@", g["body"])]:
+        html = html.replace(k, v)
+    assert "@@" not in html and len(g["desc"]) < 155 and "!" not in plain_text(g["body"])
+    d = os.path.join(REPO, "apps", app_slug, guide_slug)
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, "index.html"), "w").write(html)
+    print("wrote apps/%s/%s/index.html" % (app_slug, guide_slug))
+    og_image(og, plain_text(g["h1"]), pal, kicker="Guide  ·  eritech.studio")
 
 # ---------------------------------------------------------------- /apps/ index
 

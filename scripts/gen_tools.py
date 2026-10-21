@@ -1620,6 +1620,7 @@ print("wrote robots.txt")
 
 urls = [DOMAIN + "/", DOMAIN + "/apps/", DOMAIN + "/tools/"]
 urls += [DOMAIN + "/apps/" + a["slug"] + "/" for a in APPS]
+urls += [DOMAIN + "/apps/" + a["slug"] + "/" + g + "/" for a in APPS for g in a.get("guides", [])]
 urls += [DOMAIN + "/tools/" + p["slug"] + "/" for p in PAGES]
 urls += pairing_urls
 LASTMOD = os.environ.get("SITEMAP_DATE", SITE_LASTMOD)
