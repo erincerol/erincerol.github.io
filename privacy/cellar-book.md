@@ -1,15 +1,15 @@
 ---
 app: Cellar Book
-updated: 2026-10-06
+updated: 2026-10-19
 ---
 
 ## Your data stays with you
 
-Your wine collection, tasting notes, and photographs are stored only on your device. There is no account and no cloud sync, and we never upload them anywhere — we cannot see, access, or recover them. The only things that ever leave your device are anonymous crash diagnostics, anonymous usage analytics and, in the free version, the advertising data described below; none of it includes anything you have typed or photographed.
+Your wine collection, tasting notes, and photographs are stored only on your device. There is no account and no cloud sync, and we never upload them anywhere — we cannot see, access, or recover them. The only things that ever leave your device are anonymous crash diagnostics, anonymous usage analytics and, in the free version, the advertising data described below; none of it includes anything you have typed or photographed. Scanning a label to fill in a bottle is read on your device: the camera frame is never saved, and no image or text from it leaves your device.
 
-## Backups
+## Backups and spreadsheets
 
-When you export a backup, the file is handed to the app or destination you choose through your device's share sheet. Where that file goes — and who can read it — is entirely under your control.
+When you export a backup or a spreadsheet, the file is handed to the app or destination you choose through your device's share sheet. Where that file goes — and who can read it — is entirely under your control. A spreadsheet you import is read on your device; nothing from it is uploaded.
 
 ## Crash reporting
 
