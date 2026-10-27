@@ -10,7 +10,19 @@
     },
     {
       "heading": "Bookings you share in",
-      "body": "You can share a booking confirmation, a PDF, a screenshot, an email file or a boarding pass into the app from another app, import one from your files, or scan a printed one with the camera. On iPhone and iPad the Travel Binder share extension receives only the item you choose to share and hands it to the app inside your device; it reads nothing else. The app reads the item on your phone with a set of fixed rules (and, for a PDF, a picture or a scan, text recognition that runs on the device: Apple's Vision on iPhone and iPad, and on Android Google's ML Kit text recognition model, which is bundled inside the app and works without a connection), shows you what it found, and saves nothing until you tap Add. The text is never sent anywhere, never seen by us, and never used to train anything. On Android, ML Kit may send Google anonymous figures about how the feature performs and is used, never the picture or the words in it. A shared PDF or picture is kept with the booking as its ticket; a shared email is not kept. The app never reads your inbox."
+      "body": "You can share a booking confirmation, a PDF, a screenshot, an email file or a boarding pass into the app from another app, import one from your files, or scan a printed one with the camera. On iPhone and iPad the Travel Binder share extension receives only the item you choose to share and hands it to the app inside your device; it reads nothing else. The app reads the item on your phone with a set of fixed rules (and, for a PDF, a picture or a scan, text recognition that runs on the device: Apple's Vision on iPhone and iPad, and on Android Google's ML Kit text recognition model, which Google Play services downloads once, when the app is installed, and shares with other apps; from then on it works without a connection), shows you what it found, and saves nothing until you tap Add. The text is never sent anywhere, never seen by us, and never used to train anything. On Android, ML Kit may send Google anonymous figures about how the feature performs and is used, never the picture or the words in it. A shared PDF or picture is kept with the booking as its ticket; a shared email is not kept. An audio file or voice memo you share in is kept in that trip's Docs as it is. The app never reads your inbox."
+    },
+    {
+      "heading": "Voice notes",
+      "body": "If you record a voice note, the app asks for the microphone the first time and uses it only while you are recording. The recording is stored in the app's own storage on your device, like your other documents; it is never uploaded or heard by us. You can decline the microphone, or revoke it later in your system settings, and the rest of the app carries on working."
+    },
+    {
+      "heading": "Weather",
+      "body": "For a trip that starts within the next ten days, the app fetches a short daily forecast for the places on its route, about once a day: from Apple Weather on iPhone and iPad, and from the Norwegian Meteorological Institute (MET Norway, api.met.no) on Android. Each request carries only a place's coordinates — never the trip, its name, its dates or anything else you entered — and is governed by that provider's privacy policy. Sunrise and sunset are worked out on your device. You can switch the forecast off in Settings → Forecast, and the app then makes no weather requests at all."
+    },
+    {
+      "heading": "Country facts and phrases",
+      "body": "With Premium, Fill in writes a country's emergency numbers, plugs and driving side, and a phrase list for its language, into a note. All of it is bundled inside the app (country facts from Wikidata, released into the public domain), so filling a note sends nothing. When you tap a phrase to hear it, your device's own voices speak it on the device."
     },
     {
       "heading": "Docs lock",
@@ -18,11 +30,19 @@
     },
     {
       "heading": "Maps",
-      "body": "Your pins are coordinates saved in your own trip and drawn by the app, so they appear correctly with no connection at all. Background map imagery is different: those tiles come from your device's map provider — Apple Maps on iOS, Google Maps on Android — and fetching them requires a connection to that provider, governed by their privacy policy rather than this one.\nTyping coordinates directly, or pasting a full map link, is read on your device and sends nothing. A short map link (maps.app.goo.gl) is opened once, when you add it, to read where it points. For a stay, finding its town from a pasted link asks your phone's built-in map service, which sends that pin's coordinates to Apple or Google. The towns you add to a route are looked up in a list bundled inside the app (town data © GeoNames, used under CC BY 4.0), so choosing a destination sends nothing anywhere.\nNone of these requests carries your trip. Each one sees a map area, a link or a single pin — never your itinerary, your bookings, or your other pins. Nothing else about your places leaves the device.\nThe Atlas, the route diagram on a finished trip, and every share card are drawn by the app from your own data with no map imagery whatsoever, so nothing you share is ever assembled by, or routed through, a map provider.\nIf you tap Directions, a single destination is handed to your own maps app and you leave The Travel Binder entirely. From that point onward that app's privacy policy applies rather than this one.\nThe app does not ask for location permission, does not use your device's location, and does not record your movements."
+      "body": "Your pins are coordinates saved in your own trip and drawn by the app, so they appear correctly with no connection at all. Background map imagery is different: those tiles come from your device's map provider — Apple Maps on iOS, Google Maps on Android — and fetching them requires a connection to that provider, governed by their privacy policy rather than this one.\nTyping coordinates directly, or pasting a full map link, is read on your device and sends nothing. A short map link (maps.app.goo.gl) is opened once, when you add it, to read where it points. For a stay, finding its town from a pasted link asks your phone's built-in map service, which sends that pin's coordinates to Apple or Google. The towns you add to a route are looked up in a list bundled inside the app (town data © GeoNames, used under CC BY 4.0), so choosing a destination sends nothing anywhere.\nNone of these requests carries your trip. Each one sees a map area, a link or a single pin — never your itinerary, your bookings, or your other pins. Nothing else about your places leaves the device.\nThe Atlas, the route diagram on a finished trip, and every share card are drawn by the app from your own data with no map imagery whatsoever, so nothing you share is ever assembled by, or routed through, a map provider.\nIf you tap Directions, a single destination is handed to your own maps app and you leave The Travel Binder entirely. From that point onward that app's privacy policy applies rather than this one.\nOn iPhone and iPad, when you type where an entry is, the app may suggest matching places: the words you type, and the approximate location of that day's place on your route, are sent to Apple Maps to find them. The Android app does not search for places as you type. Nothing is sent until you have typed three letters, and nothing about the rest of your trip goes with it.\nThe app does not ask for location permission, does not use your device's location, and does not record your movements."
     },
     {
       "heading": "Reminders",
       "body": "Checklist due dates and trip-day reminders are scheduled locally by your device. Nothing about a reminder is sent to any server. You can decline the notification permission, or revoke it later in your system settings, and the rest of the app carries on working."
+    },
+    {
+      "heading": "Calendar",
+      "body": "With Premium you can add a trip's bookings to your device's calendar. The app asks for calendar access the first time, writes each booking as an event in your default calendar, and keeps a reference to the events it created so it can update or remove them later; it does not read your other events. If your calendar is synced (for example with iCloud or Google), that sync is done by your calendar provider under its own privacy policy. You can remove the events from the export sheet, or revoke calendar access in your system settings."
+    },
+    {
+      "heading": "Widget and live card",
+      "body": "The home-screen widget and the countdown card on your lock screen show your next trip and departure from a small file the app writes on your device. They read nothing else and send nothing anywhere. A departure's confirmation code and cost are never shown on them."
     },
     {
       "heading": "Exports and sharing",
@@ -57,5 +77,5 @@
       "body": "Questions about this policy are welcome at admin@eritech.studio."
     }
   ],
-  "updated": "2026-10-19"
+  "updated": "2026-10-21"
 }
