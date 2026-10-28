@@ -1,0 +1,88 @@
+PRESETS = {
+    "japan-winter": dict(
+        lede="A fortnight in Japan between December and February: layers for cold streets and heated trains, and what changes when the trip heads into snow.",
+        explainer=[
+            ("Two climates on one trip",
+             "Tokyo, Kyoto and Osaka in winter are mostly dry and bright, at about 2&ndash;12&nbsp;&deg;C by day. The harder part is indoors: trains, department stores and restaurants are heated well past what a coat is for, so wear layers you can open or carry rather than one thick one. Hokkaido and the Japan Alps are another matter. Sapporo, Takayama and Shirakawa-go sit well below freezing, with snow and packed ice underfoot. For those legs, switch the form to <strong>Freezing</strong> and pack shoes with deep, grippy soles; city trainers slide."),
+            ("Shoes that come off",
+             "You will take your shoes off more often than you expect: temple halls, ryokan, restaurants with tatami seating. Laced winter boots turn every visit into a wait at the step, so choose a pair you can slip off and on standing up, and pack socks you are happy to be seen in."),
+            ("Buy the base layers there",
+             "Thin heat-retaining base layers, Uniqlo&rsquo;s Heattech among them, are sold in every city and usually cost less than at home. Pack one set and buy more there. Convenience stores also sell disposable heat pads (kairo) that sit in a pocket or stick inside a layer for a cold evening at a shrine."),
+            ("Money, trains and rubbish",
+             "Load an IC card &mdash; Suica, PASMO or ICOCA &mdash; for trains, buses and convenience stores. Suica and PASMO can live in an iPhone&rsquo;s Wallet; on Android it depends on the handset. Still carry cash, and top it up at 7-Eleven or post-office ATMs, which take foreign cards. An eSIM is simpler than a pocket wifi unless several people share one connection. Coin lockers at large stations hold a day bag. Public bins are rare, so keep a small bag for rubbish."),
+        ],
+        faqs=[
+            ("Do I need snow boots for Japan in December?",
+             "Not for Tokyo, Kyoto or Osaka, where snow is unusual and the pavements stay dry for much of the winter; water-resistant walking shoes cover it. If the trip includes Hokkaido, the Japan Alps or a ski resort, pack insulated boots with a deep tread, or buy slip-on ice grips when you arrive &mdash; shops in snowy areas stock them through the season."),
+            ("Do I need cash in Japan?",
+             "Yes, though less than you might think. Cards and IC cards work at stations, chains and convenience stores in the cities. Small restaurants, shrine offerings, temple stamp offices, rural buses and some ryokan still take cash only. Withdraw at 7-Eleven or Japan Post ATMs, which accept foreign cards, and keep some coins for offerings and older coin lockers."),
+        ],
+    ),
+    "japan-spring": dict(
+        lede="Ten nights in Japan in March or April, packed for rain, pollen and cool evenings under the blossom.",
+        explainer=[
+            ("Changeable, and often wet",
+             "Spring in Japan moves quickly. Early March can feel like winter and late April like early summer, and one week can mix bright days with steady rain. Plan around a long-sleeved top, a light jumper and a packable insulated layer that fits in the day bag, so an evening under the blossom does not end early. Sitting still at a hanami spot after dark is colder than walking."),
+            ("Pollen",
+             "Cedar pollen season runs from about February into April, and some travellers who never get hay fever at home find they do in Japan. Masks are normal on trains and sold in every convenience store and pharmacy. Bring antihistamines you know suit you. Decongestants containing pseudoephedrine are restricted in Japan, so check before packing any."),
+            ("Sakura crowds and Golden Week",
+             "The blossom opens in the south first and works north, usually reaching Tokyo and Kyoto in late March or early April and holding at its peak for about a week. Forecasts are published weeks ahead. Kyoto rooms for those weeks go early, so book once the dates are fixed and keep a refundable option. Golden Week, a run of public holidays from the end of April into early May, fills trains and hotels across the country: reserve shinkansen seats and rooms well ahead, or plan around it."),
+            ("Small things that save time",
+             "An eSIM is simpler than a pocket wifi unless several people share one connection. Add Suica or PASMO to an iPhone&rsquo;s Wallet (on Android it depends on the handset), or buy an IC card at the station. Carry some cash for shrines and small restaurants, from 7-Eleven or post-office ATMs. Large stations have coin lockers for a day bag, and public bins are rare, so keep a small bag for rubbish."),
+        ],
+        faqs=[
+            ("When is cherry blossom season in Japan?",
+             "It depends on the city and the year. Okinawa blooms first, in winter; Tokyo, Kyoto and Osaka usually reach full bloom between late March and early April; northern Honshu follows in mid to late April, and Hokkaido around late April to early May. Each place holds its peak for roughly a week, so follow the published forecasts and leave a few flexible days rather than fixing one."),
+            ("Should I wear a mask in Japan in spring?",
+             "Nobody will expect you to, and nobody will notice if you do. During cedar pollen season many people wear one on trains and outdoors, and masks are sold in every convenience store and pharmacy. If pollen affects you at home, pack the antihistamines you already use; if it never has, a box of masks bought on arrival covers the chance that Japanese cedar pollen is different."),
+        ],
+    ),
+}
+
+ESPRESSO = dict(
+    lede="Taste tells you what is wrong; the grinder, the scale and the puck are how you fix it. Find the symptom, make one change, pull again.",
+    table=[
+        ("Sour, sharp and fast", "Slow the flow so water spends longer in the coffee", "Grind finer"),
+        ("Bitter, harsh and slow", "Speed the flow up", "Grind coarser"),
+        ("Sour and bitter at once", "Even out the puck; the grind is not the problem", "Fix distribution and tamp"),
+        ("Thin and watery, time in range", "Less water through the same coffee", "Shorter ratio (yield down)"),
+        ("Balanced but too intense", "More water through the same coffee", "Longer ratio (yield up)"),
+        ("Flat or hollow with a light roast", "Hotter water to extract more", "Temperature up"),
+    ],
+    rows=[
+        ("Sour and fast",
+         "A shot that runs well under 25 seconds and tastes sharp, salty or thin has not extracted enough: the water got through before it dissolved the sugars. Grind finer in small steps. Resistance rises, the shot slows, and sweetness arrives before bitterness does."),
+        ("Bitter and slow",
+         "Harsh, drying, ashy shots that drip on past 35 seconds have extracted too much. Grind coarser by one step. If a slow shot still tastes sour, the grind is already fine enough and the puck is the problem, which is the next row."),
+        ("Sour and bitter together",
+         "Sharp and harsh in the same sip means part of the puck over-extracted while the rest barely extracted: water is channelling through cracks or loose patches. No grind setting fixes that. Break up clumps with a needle tool, level the bed before tamping, and tamp flat rather than hard."),
+        ("Thin and watery",
+         "If the time is in range but the shot has no body, stop it earlier: 36&nbsp;g &rarr; 32&nbsp;g gives 1:1.8 and noticeably more texture. If the basket has room, half a gram more dose does a similar job, but it also slows the shot, so treat it as the second option."),
+        ("Too intense",
+         "Sweet, balanced and simply too strong is a good problem. Let more water through rather than grinding coarser: a few grams of extra yield thins the body and opens the flavour without pushing the shot back towards sour. Go 2&ndash;4&nbsp;g at a time."),
+        ("Flat with a light roast",
+         "Light roasts are dense and resist extraction. If the shot is in range yet tastes hollow or vaguely sour, raise the brew temperature by one or two degrees, if your machine allows it. Without temperature control, a longer ratio such as 1:2.5 does similar work."),
+    ],
+    one_thing=[
+        "Change one variable per shot and nothing else. Grind, dose, yield and temperature all move the taste, and they interact: grind finer and dose up together, and you cannot tell which helped and which hurt. One change, one shot, one note.",
+        "Keep the beans, the dose and the basket fixed while you dial in. Taste every shot before it goes down the sink, and when one result looks odd, pull a second at the same settings before reacting to it.",
+    ],
+    worked_intro="Here is a typical session with a fresh bag of medium roast. The starting recipe is the standard 18&nbsp;g in, 36&nbsp;g out, a 1:2 ratio, which ran in 28 seconds on the first attempt. Each shot changes exactly one thing.",
+    worked=[
+        ("Shot 1", "18&nbsp;g &rarr; 36&nbsp;g, 28&nbsp;s", "Sweet in the middle, with a sharp, sour edge on the finish.", "Grind one step finer."),
+        ("Shot 2", "18&nbsp;g &rarr; 36&nbsp;g, 33&nbsp;s", "The sourness has gone, but it is bitter and drying. One step overshot.", "Grind half a step coarser."),
+        ("Shot 3", "18&nbsp;g &rarr; 36&nbsp;g, 30&nbsp;s", "Sweet and balanced, but heavy and a little too intense.", "Raise the yield to 40&nbsp;g (1:2.2)."),
+        ("Shot 4", "18&nbsp;g &rarr; 40&nbsp;g, 32&nbsp;s", "Clearer and still sweet, with a longer finish.", "Nothing. Log the recipe."),
+    ],
+    worked_outro="The final recipe is 18&nbsp;g in, 40&nbsp;g out in 32 seconds: a 1:2.2 normale. The grind did the coarse work in shots 1 to 3 and the ratio did the fine-tuning in shot 4; the extra two seconds came from the extra four grams, not from the grinder. As the bag ages over the next couple of weeks it will tend to run faster, so start each morning from the last logged shot and expect to grind a little finer.",
+    faqs=[
+        ("Why is my espresso sour?",
+         "Sourness usually means under-extraction: the water passed through too quickly to dissolve the sugars that balance the acids. If the shot also ran fast, grind finer. If the time was normal, try a longer ratio, or a slightly higher temperature for a light roast. Sour and bitter in the same sip points to channelling rather than grind."),
+        ("Why is my espresso bitter?",
+         "Harsh, drying bitterness usually means over-extraction, often from a grind that is too fine and a shot that runs long. Grind one step coarser, or shorten the ratio a little. Some bitterness is simply the roast: a dark roast at 1:2 can taste bitter however well it is pulled, and suits a shorter ratio or a slightly cooler brew."),
+        ("How long should an espresso shot take?",
+         "For 18&nbsp;g in and 36&nbsp;g out, about 25 to 32 seconds is the usual window. Longer ratios take a little longer at the same grind, which is why the worked example lands at 32 seconds for 40&nbsp;g. Treat the clock as a check on consistency from shot to shot, and let taste make the decision."),
+        ("What ratio should I use for espresso?",
+         "Start at 1:2, such as 18&nbsp;g in and 36&nbsp;g out, which sits in the middle of the normale range of 1:1.5 to 1:2.5. Below 1:1.5 is a ristretto, thicker and more intense; beyond 1:2.5 is a lungo, lighter and more extracted. Light roasts often suit 1:2.2 to 1:2.5, and dark roasts and milk drinks can suit 1:1.8."),
+    ],
+)

@@ -66,6 +66,17 @@ footer a,footer a:visited{color:var(--muted)}
 .worked td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .more-tools ul.cluster{grid-template-columns:1fr;margin-bottom:6px}
 .more-tools .d{display:block;color:var(--muted);font-size:.9rem}
+.pick{margin:0 0 18px}
+.pick-title{font-size:.85rem;color:var(--muted);margin:0 0 8px}
+.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips a,.chips a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--text);text-decoration:none;font-size:.92rem;white-space:nowrap}
+.chips a:hover{border-color:var(--accent)}
+.chips a[aria-current=page],.chips a[aria-current=page]:visited{background:var(--line);border-color:var(--accent);color:var(--accent)}
+@media(max-width:600px){
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -20px;padding:0 20px}
+.chips::-webkit-scrollbar{display:none}
+.chips li{flex:none}
+}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Eritech Studios", "item": "https://eritech.studio/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://eritech.studio/tools/"}, {"@type": "ListItem", "position": 3, "name": "Plant Watering Calculator", "item": "https://eritech.studio/tools/plant-watering-calculator/"}]}, {"@type": "WebApplication", "name": "Plant Watering Calculator", "url": "https://eritech.studio/tools/plant-watering-calculator/", "description": "How often to water a Monstera, Pothos, snake plant and more — interval estimates by species, season and light. Free, no signup.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@type": "Organization", "@id": "https://eritech.studio/#organization", "name": "Eritech Studios", "url": "https://eritech.studio/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How often should I water a Monstera?", "acceptedAnswer": {"@type": "Answer", "text": "As a starting point, every 7–10 days in spring and summer in medium light, every 6–8 days in a bright window, and as little as every 15–21 days in a dim room in winter. The soil has the final say: water when the top 2–5 cm is dry, water thoroughly until it runs from the drainage holes, then empty the saucer."}}, {"@type": "Question", "name": "How often should I water a snake plant?", "acceptedAnswer": {"@type": "Answer", "text": "Less often than almost anything else on the list. The calculator starts at every 14–21 days in the growing season in medium light, stretching to roughly every 29–44 days in winter in low light. Snake plants store water in their leaves and rot easily, so wait until the pot is dry all the way through, not just at the surface."}}, {"@type": "Question", "name": "Should I water houseplants less in winter?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for almost all of them. Shorter days mean slower growth, so the soil takes much longer to dry and the same routine that suited summer leaves roots sitting wet. The exception is a pot close to a radiator, which can dry out faster than you would expect — one more reason to check the soil rather than follow the calendar."}}, {"@type": "Question", "name": "How do I know if I am overwatering a plant?", "acceptedAnswer": {"@type": "Answer", "text": "Yellowing lower leaves while the soil is still damp are the classic sign. Others include a sour or musty smell from the pot, soft or darkening stems at the base, fungus gnats hovering over the surface, and a plant that wilts even though the soil is wet — which usually means the roots are already damaged. Let the pot dry out well before watering again."}}, {"@type": "Question", "name": "Does the pot change how often I need to water?", "acceptedAnswer": {"@type": "Answer", "text": "Considerably, and the calculator does not account for it. Unglazed terracotta is porous and dries faster than plastic or glazed ceramic; a small pot dries faster than a large one; and a pot without drainage holes holds water at the bottom where you cannot see it. Adjust the interval for your own pots and let the soil guide you."}}]}]}
@@ -78,6 +89,23 @@ footer a,footer a:visited{color:var(--muted)}
 <h1>Plant Watering Calculator</h1>
 <p class="lede">A starting interval for your plant, adjusted for the season and the light it actually gets.</p>
 </header>
+<nav class="pick" aria-label="By plant">
+<p class="pick-title">By plant</p>
+<ul class="chips">
+<li><a href="/tools/plant-watering-calculator/monstera/">Monstera</a></li>
+<li><a href="/tools/plant-watering-calculator/pothos/">Pothos</a></li>
+<li><a href="/tools/plant-watering-calculator/snake-plant/">Snake plant</a></li>
+<li><a href="/tools/plant-watering-calculator/zz-plant/">ZZ plant</a></li>
+<li><a href="/tools/plant-watering-calculator/fiddle-leaf-fig/">Fiddle leaf fig</a></li>
+<li><a href="/tools/plant-watering-calculator/pilea/">Pilea</a></li>
+<li><a href="/tools/plant-watering-calculator/alocasia/">Alocasia</a></li>
+<li><a href="/tools/plant-watering-calculator/calathea/">Calathea</a></li>
+<li><a href="/tools/plant-watering-calculator/peace-lily/">Peace lily</a></li>
+<li><a href="/tools/plant-watering-calculator/spider-plant/">Spider plant</a></li>
+<li><a href="/tools/plant-watering-calculator/succulents/">Succulents and cacti</a></li>
+<li><a href="/tools/plant-watering-calculator/ferns/">Ferns</a></li>
+</ul>
+</nav>
 <section class="calc" aria-label="Calculator">
 <div class="field"><label for="species">Plant</label>
 <select id="species">

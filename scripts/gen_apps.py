@@ -7,7 +7,7 @@ that app's subject, linking out to the free calculators on the same theme.
 """
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS,
+from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS, GUIDES,
                    BRAND, ORG_REF, PREMIUM_NOTE, PREMIUM_OFFER, plain_text, jsonld_script, breadcrumb,
                    play_badge, ios_badge, og_image, SITE_LASTMOD)
 
@@ -87,11 +87,11 @@ footer a,footer a:visited{color:var(--muted);text-decoration:underline;text-unde
 <ul class="tools">
 @@TOOLS@@
 </ul>
-<h2>Privacy</h2>
+@@GUIDES@@<h2>Privacy</h2>
 <p>Everything you enter in @@NAME@@ stays on your device, with no account and no cloud sync. Anonymous crash reports and usage statistics help us improve the app; the full <a href="/privacy-policies/@@PRIVACY@@">privacy policy</a> lists exactly what is collected.</p>
 </main>
 <footer>
-<p><a href="/">@@BRAND@@</a> &middot; <a href="/apps/">All apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p><a href="/">@@BRAND@@</a> &middot; <a href="/apps/">All apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 </body>
@@ -239,6 +239,15 @@ CONTENT = {
 
 os.makedirs(os.path.join(REPO, "apps"), exist_ok=True)
 
+def guides_html(app_slug):
+    mine = [g for g in GUIDES if g["app"] == app_slug]
+    if not mine:
+        return ""
+    return ('<h2>Guides</h2>\n<ul class="tools">\n' + "\n".join(
+        '<li><a href="/guides/%s/"><strong>%s</strong><span>%s</span></a></li>' % (g["slug"], g["h1"], g["blurb"])
+        for g in mine) + '\n</ul>\n')
+
+
 for app in APPS:
     c = CONTENT[app["slug"]]
     pal = PALETTES[app["palette"]]
@@ -267,7 +276,7 @@ for app in APPS:
                  ("@@MUTED@@", pal["muted"]), ("@@ACCENT@@", pal["accent"]), ("@@LINE@@", pal["line"]),
                  ("@@ON@@", pal["on"]), ("@@H1@@", c["h1"]), ("@@LEDE@@", c["lede"]),
                  ("@@BADGES@@", badges), ("@@INTRO@@", c["intro"]), ("@@FEATURES@@", feats),
-                 ("@@BODY@@", c["body"]), ("@@TOOLS@@", tools)]:
+                 ("@@BODY@@", c["body"]), ("@@TOOLS@@", tools), ("@@GUIDES@@", guides_html(app["slug"]))]:
         html = html.replace(k, v)
 
     d = os.path.join(REPO, "apps", app["slug"])
@@ -320,7 +329,7 @@ GUIDE_TEMPLATE = """<!DOCTYPE html>
 @@BODY@@
 </main>
 <footer>
-<p><a href="/">@@BRAND@@</a> &middot; <a href="/apps/">All apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p><a href="/">@@BRAND@@</a> &middot; <a href="/apps/">All apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 </body>
@@ -453,7 +462,7 @@ footer a,footer a:visited{color:#6F6857;text-decoration:underline;text-underline
 @@ROWS@@
 </ul>
 <footer>
-<p><a href="/">Eritech Studios</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p><a href="/">Eritech Studios</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 </footer>
 </body>
 </html>

@@ -6,6 +6,8 @@ from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS, ACCENT_BY_APP,
                    BRAND, ORG_REF, SITE_LASTMOD, plain_text, jsonld_script, breadcrumb,
                    play_badge, ios_badge, og_image)
 import gen_pairings
+import gen_items
+import gen_guides
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -19,7 +21,7 @@ TEMPLATE = """<!DOCTYPE html>
 <meta property="og:title" content="@@OG_TITLE@@">
 <meta property="og:description" content="@@META_DESC@@">
 <meta property="og:url" content="@@DOMAIN@@/tools/@@SLUG@@/">
-<meta property="og:image" content="@@DOMAIN@@/assets/og/@@SLUG@@.png">
+<meta property="og:image" content="@@DOMAIN@@/assets/og/@@OG@@.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -79,17 +81,17 @@ footer a,footer a:visited{color:var(--muted)}
 @@JSONLD@@
 </head>
 <body>
-<nav class="crumb"><a href="/">@@BRAND@@</a><span>/</span><a href="/tools/">Free tools</a></nav>
+<nav class="crumb"><a href="/">@@BRAND@@</a><span>/</span><a href="/tools/">Free tools</a>@@CRUMB_EXTRA@@</nav>
 <main>
 <header>
 <h1>@@H1@@</h1>
 <p class="lede">@@LEDE@@</p>
 </header>
-<section class="calc" aria-label="Calculator">
+@@CHIPS@@<section class="calc" aria-label="Calculator">
 @@CALC_HTML@@
 </section>
 @@EXPLAINER@@
-@@DEPTH@@
+@@SEE_ALSO@@@@DEPTH@@
 @@FAQ@@
 <section class="app-block">
 @@APP_BLOCK@@
@@ -156,6 +158,92 @@ def warranty_block(campaign):
             play_badge("com.eritech.warrantybox", campaign) + '</div>')
 
 # ---------------------------------------------------------------- pages
+
+PLANT_SPECIES = [
+    ("monstera", "Monstera deliciosa", "a Monstera", 7, 10),
+    ("pothos", "Pothos", "a pothos", 7, 10),
+    ("snake-plant", "Snake plant (Sansevieria)", "a snake plant", 14, 21),
+    ("zz-plant", "ZZ plant", "a ZZ plant", 14, 21),
+    ("fiddle-leaf-fig", "Fiddle leaf fig", "a fiddle leaf fig", 7, 10),
+    ("pilea", "Pilea peperomioides", "a Pilea", 7, 10),
+    ("alocasia", "Alocasia", "an Alocasia", 5, 7),
+    ("calathea", "Calathea / prayer plant", "a Calathea", 5, 7),
+    ("peace-lily", "Peace lily", "a peace lily", 5, 7),
+    ("spider-plant", "Spider plant", "a spider plant", 7, 10),
+    ("succulents", "Succulents &amp; cacti", "succulents and cacti", 14, 28),
+    ("ferns", "Ferns", "ferns", 3, 5),
+]
+
+WINE_STYLES = [
+    ("barolo", "Barolo / Barbaresco", "Barolo", 8, 25),
+    ("bordeaux", "Bordeaux — classed growth red", "classed-growth Bordeaux", 8, 30),
+    ("bordeaux-everyday", "Bordeaux — everyday red", "everyday red Bordeaux", 3, 10),
+    ("red-burgundy", "Red Burgundy — village / premier cru", "red Burgundy", 4, 12),
+    ("napa-cabernet", "Napa Valley Cabernet", "Napa Cabernet", 5, 20),
+    ("northern-rhone-syrah", "Northern Rh&ocirc;ne Syrah", "Northern Rh&ocirc;ne Syrah", 5, 20),
+    ("rioja-gran-reserva", "Rioja Gran Reserva", "Rioja Gran Reserva", 8, 25),
+    ("chianti-classico-riserva", "Chianti Classico Riserva", "Chianti Classico Riserva", 5, 15),
+    ("white-burgundy", "White Burgundy", "white Burgundy", 3, 10),
+    ("german-riesling", "German Riesling (Kabinett / Sp&auml;tlese)", "German Riesling", 3, 20),
+    ("vintage-champagne", "Vintage Champagne", "vintage Champagne", 8, 20),
+    ("vintage-port", "Vintage Port", "vintage Port", 15, 40),
+    (None, "Everyday red", None, 1, 5),
+    (None, "Everyday white / ros&eacute;", None, 0, 2),
+]
+
+def _options(rows, selected):
+    return "".join('<option value="{},{}"{}>{}</option>\n'.format(lo, hi, " selected" if slug == selected else "", label)
+                   for slug, label, _, lo, hi in rows)
+
+def plant_calc(selected):
+    return ('<div class="field"><label for="species">Plant</label>\n<select id="species">\n' +
+            _options(PLANT_SPECIES, selected) + PLANT_CALC_TAIL)
+
+def drink_window_calc(selected):
+    return ('<div class="row">\n<div class="field"><label for="style">Wine style</label>\n<select id="style">\n' +
+            _options(WINE_STYLES, selected) + DRINK_WINDOW_CALC_TAIL)
+
+PLANT_CALC_TAIL = '</select></div>\n<div class="row">\n<div class="field"><label for="season">Season</label>\n<select id="season">\n<option value="1" selected>Spring / summer (growing)</option>\n<option value="1.3">Autumn</option>\n<option value="1.6">Winter (dormant)</option>\n</select></div>\n<div class="field"><label for="light">Light</label>\n<select id="light">\n<option value="0.8">Bright, near a window</option>\n<option value="1" selected>Medium, a few metres in</option>\n<option value="1.3">Low light</option>\n</select></div>\n</div>\n<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>\n<p class="note">Always confirm with the soil: water when the top 2–5&nbsp;cm is dry, whatever the calendar says.</p>'
+
+DRINK_WINDOW_CALC_TAIL = '</select></div>\n<div class="field"><label for="vintage">Vintage</label><input type="number" id="vintage" value="2019" min="1900" max="2100" inputmode="numeric"></div>\n</div>\n<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>\n<p class="note">Windows are broad guides for well-made, well-stored examples of each style — producer, vintage quality and storage all shift them.</p>'
+
+ESPRESSO_CALC_HTML = """<div class="seg" id="mode">
+<button class="on" data-m="yield" type="button">Solve for yield</button>
+<button data-m="dose" type="button">Solve for dose</button>
+<button data-m="ratio" type="button">Solve for ratio</button>
+</div>
+<div class="row">
+<div class="field"><label for="dose">Dose — dry coffee in (g)</label><input type="number" id="dose" value="18" min="0" step="0.1" inputmode="decimal"></div>
+<div class="field"><label for="yield">Yield — espresso out (g)</label><input type="number" id="yield" value="36" min="0" step="0.1" inputmode="decimal"></div>
+<div class="field"><label for="ratio">Ratio — 1 :</label><input type="number" id="ratio" value="2" min="0.5" step="0.1" inputmode="decimal"></div>
+</div>
+<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
+<p class="note">Weigh the liquid espresso on a scale under the cup — volume and crema lie, grams don&rsquo;t.</p>"""
+
+ESPRESSO_CALC_JS = """function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
+var mode='yield';
+function style(r){
+if(r<1.5)return 'a ristretto — concentrated, heavy body';
+if(r<=2.5)return 'a normale — the classic modern range';
+return 'a lungo — lighter body, higher extraction'}
+function setDim(){['dose','yield','ratio'].forEach(function(k){
+var solved=(k===mode);$(k).disabled=solved;$(k).style.opacity=solved?0.55:1})}
+function calc(){
+var d=num('dose'),y=num('yield'),r=num('ratio');
+if(mode==='yield'){y=d*r;$('yield').value=Math.round(y*10)/10;
+$('out').textContent=(Math.round(y*10)/10)+' g out'}
+else if(mode==='dose'){d=r>0?y/r:0;$('dose').value=Math.round(d*10)/10;
+$('out').textContent=(Math.round(d*10)/10)+' g in'}
+else{r=d>0?y/d:0;$('ratio').value=Math.round(r*100)/100;
+$('out').textContent='1 : '+(Math.round(r*100)/100)}
+var rr=d>0?y/d:0;
+$('outsub').textContent=Math.round(d*10)/10+' g in \\u2192 '+Math.round(y*10)/10+' g out ('+(Math.round(rr*100)/100)+') — '+style(rr)+'.'}
+document.querySelectorAll('#mode button').forEach(function(b){b.addEventListener('click',function(){
+mode=b.dataset.m;
+document.querySelectorAll('#mode button').forEach(function(x){x.classList.toggle('on',x===b)});
+setDim();calc()})});
+setDim();"""
 
 PAGES = []
 
@@ -493,42 +581,8 @@ PAGES.append(dict(
     meta_desc="Solve espresso dose, yield or brew ratio from the other two — with ristretto, normale and lungo ranges explained. Free, no signup.",
     h1="Espresso Ratio Calculator",
     lede="Dose, yield, ratio — enter any two and solve the third.",
-    calc_html="""<div class="seg" id="mode">
-<button class="on" data-m="yield" type="button">Solve for yield</button>
-<button data-m="dose" type="button">Solve for dose</button>
-<button data-m="ratio" type="button">Solve for ratio</button>
-</div>
-<div class="row">
-<div class="field"><label for="dose">Dose — dry coffee in (g)</label><input type="number" id="dose" value="18" min="0" step="0.1" inputmode="decimal"></div>
-<div class="field"><label for="yield">Yield — espresso out (g)</label><input type="number" id="yield" value="36" min="0" step="0.1" inputmode="decimal"></div>
-<div class="field"><label for="ratio">Ratio — 1 :</label><input type="number" id="ratio" value="2" min="0.5" step="0.1" inputmode="decimal"></div>
-</div>
-<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
-<p class="note">Weigh the liquid espresso on a scale under the cup — volume and crema lie, grams don&rsquo;t.</p>""",
-    calc_js="""function $(i){return document.getElementById(i)}
-function num(i){var v=parseFloat($(i).value);return isNaN(v)?0:v}
-var mode='yield';
-function style(r){
-if(r<1.5)return 'a ristretto — concentrated, heavy body';
-if(r<=2.5)return 'a normale — the classic modern range';
-return 'a lungo — lighter body, higher extraction'}
-function setDim(){['dose','yield','ratio'].forEach(function(k){
-var solved=(k===mode);$(k).disabled=solved;$(k).style.opacity=solved?0.55:1})}
-function calc(){
-var d=num('dose'),y=num('yield'),r=num('ratio');
-if(mode==='yield'){y=d*r;$('yield').value=Math.round(y*10)/10;
-$('out').textContent=(Math.round(y*10)/10)+' g out'}
-else if(mode==='dose'){d=r>0?y/r:0;$('dose').value=Math.round(d*10)/10;
-$('out').textContent=(Math.round(d*10)/10)+' g in'}
-else{r=d>0?y/d:0;$('ratio').value=Math.round(r*100)/100;
-$('out').textContent='1 : '+(Math.round(r*100)/100)}
-var rr=d>0?y/d:0;
-$('outsub').textContent=Math.round(d*10)/10+' g in \\u2192 '+Math.round(y*10)/10+' g out ('+(Math.round(rr*100)/100)+') — '+style(rr)+'.'}
-document.querySelectorAll('#mode button').forEach(function(b){b.addEventListener('click',function(){
-mode=b.dataset.m;
-document.querySelectorAll('#mode button').forEach(function(x){x.classList.toggle('on',x===b)});
-setDim();calc()})});
-setDim();""",
+    calc_html=ESPRESSO_CALC_HTML,
+    calc_js=ESPRESSO_CALC_JS,
     explainer="""<section>
 <h2>Dose, yield, ratio</h2>
 <p>Three numbers define an espresso recipe. The <strong>dose</strong> is the dry coffee in the basket, the <strong>yield</strong> is the liquid espresso in the cup, and the <strong>brew ratio</strong> is yield divided by dose. A modern standard shot is 18&nbsp;g in, 36&nbsp;g out — a 1:2 ratio — in somewhere around 25 to 32 seconds. Fix any two and the third follows, which is exactly what this calculator does.</p>
@@ -650,28 +704,7 @@ PAGES.append(dict(
     meta_desc="Enter a wine style and vintage and get its likely drinking window — still ageing, ready now, at peak, or fading. Free, no signup.",
     h1="Wine Drink Window Calculator",
     lede="When should you open that bottle? Pick the style, enter the vintage, and see where it sits today.",
-    calc_html="""<div class="row">
-<div class="field"><label for="style">Wine style</label>
-<select id="style">
-<option value="8,25" selected>Barolo / Barbaresco</option>
-<option value="8,30">Bordeaux — classed growth red</option>
-<option value="3,10">Bordeaux — everyday red</option>
-<option value="4,12">Red Burgundy — village / premier cru</option>
-<option value="5,20">Napa Valley Cabernet</option>
-<option value="5,20">Northern Rh&ocirc;ne Syrah</option>
-<option value="8,25">Rioja Gran Reserva</option>
-<option value="5,15">Chianti Classico Riserva</option>
-<option value="3,10">White Burgundy</option>
-<option value="3,20">German Riesling (Kabinett / Sp&auml;tlese)</option>
-<option value="8,20">Vintage Champagne</option>
-<option value="15,40">Vintage Port</option>
-<option value="1,5">Everyday red</option>
-<option value="0,2">Everyday white / ros&eacute;</option>
-</select></div>
-<div class="field"><label for="vintage">Vintage</label><input type="number" id="vintage" value="2019" min="1900" max="2100" inputmode="numeric"></div>
-</div>
-<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
-<p class="note">Windows are broad guides for well-made, well-stored examples of each style — producer, vintage quality and storage all shift them.</p>""",
+    calc_html=drink_window_calc(WINE_STYLES[0][0]),
     calc_js="""function $(i){return document.getElementById(i)}
 function calc(){
 var v=parseInt($('vintage').value,10);
@@ -734,37 +767,7 @@ PAGES.append(dict(
     meta_desc="How often to water a Monstera, Pothos, snake plant and more — interval estimates by species, season and light. Free, no signup.",
     h1="Plant Watering Calculator",
     lede="A starting interval for your plant, adjusted for the season and the light it actually gets.",
-    calc_html="""<div class="field"><label for="species">Plant</label>
-<select id="species">
-<option value="7,10" selected>Monstera deliciosa</option>
-<option value="7,10">Pothos</option>
-<option value="14,21">Snake plant (Sansevieria)</option>
-<option value="14,21">ZZ plant</option>
-<option value="7,10">Fiddle leaf fig</option>
-<option value="7,10">Pilea peperomioides</option>
-<option value="5,7">Alocasia</option>
-<option value="5,7">Calathea / prayer plant</option>
-<option value="5,7">Peace lily</option>
-<option value="7,10">Spider plant</option>
-<option value="14,28">Succulents &amp; cacti</option>
-<option value="3,5">Ferns</option>
-</select></div>
-<div class="row">
-<div class="field"><label for="season">Season</label>
-<select id="season">
-<option value="1" selected>Spring / summer (growing)</option>
-<option value="1.3">Autumn</option>
-<option value="1.6">Winter (dormant)</option>
-</select></div>
-<div class="field"><label for="light">Light</label>
-<select id="light">
-<option value="0.8">Bright, near a window</option>
-<option value="1" selected>Medium, a few metres in</option>
-<option value="1.3">Low light</option>
-</select></div>
-</div>
-<div class="result"><div class="big" id="out">&mdash;</div><div class="sub" id="outsub"></div></div>
-<p class="note">Always confirm with the soil: water when the top 2–5&nbsp;cm is dry, whatever the calendar says.</p>""",
+    calc_html=plant_calc(PLANT_SPECIES[0][0]),
     calc_js="""function $(i){return document.getElementById(i)}
 function calc(){
 var p=$('species').value.split(','),s=parseFloat($('season').value),l=parseFloat($('light').value);
@@ -1463,8 +1466,9 @@ def faq_section(faqs):
 
 def page_jsonld(p):
     url = DOMAIN + "/tools/" + p["slug"] + "/"
+    trail = [(BRAND, DOMAIN + "/"), ("Free tools", DOMAIN + "/tools/")] + ([p["parent"]] if p.get("parent") else [])
     graph = [
-        breadcrumb((BRAND, DOMAIN + "/"), ("Free tools", DOMAIN + "/tools/"), (p["og_title"], url)),
+        breadcrumb(*trail, (p["og_title"], url)),
         {"@type": "WebApplication", "name": p["og_title"], "url": url,
          "description": plain_text(p["meta_desc"]), "applicationCategory": "UtilitiesApplication",
          "operatingSystem": "Any", "browserRequirements": "Requires JavaScript",
@@ -1482,7 +1486,9 @@ def build_page(p):
     html = TEMPLATE
     for k, v in [
         ("@@TAB_TITLE@@", p["tab_title"]), ("@@META_DESC@@", p["meta_desc"]),
-        ("@@OG_TITLE@@", p["og_title"]), ("@@SLUG@@", p["slug"]), ("@@DOMAIN@@", DOMAIN),
+        ("@@OG_TITLE@@", p["og_title"]), ("@@SLUG@@", p["slug"]), ("@@OG@@", p.get("og", p["slug"])),
+        ("@@DOMAIN@@", DOMAIN), ("@@CRUMB_EXTRA@@", p.get("crumb_extra", "")), ("@@CHIPS@@", p.get("chips", "")),
+        ("@@SEE_ALSO@@", p.get("see_also", "")),
         ("@@CF@@", CF_SNIPPET), ("@@JSONLD@@", page_jsonld(p)), ("@@BRAND@@", BRAND),
         ("@@BG@@", pal["bg"]), ("@@SURFACE@@", pal["surface"]), ("@@TEXT@@", pal["text"]),
         ("@@MUTED@@", pal["muted"]), ("@@ACCENT@@", pal["accent"]), ("@@LINE@@", pal["line"]),
@@ -1490,7 +1496,7 @@ def build_page(p):
         ("@@H1@@", p["h1"]), ("@@LEDE@@", p["lede"]),
         ("@@CALC_HTML@@", p["calc_html"]), ("@@EXPLAINER@@", p["explainer"]),
         ("@@DEPTH@@", p.get("depth", "")), ("@@FAQ@@", faq_section(p.get("faqs"))),
-        ("@@APP_BLOCK@@", p["app_block"]), ("@@RELATED@@", related_section(p["slug"])),
+        ("@@APP_BLOCK@@", p["app_block"]), ("@@RELATED@@", related_section(p.get("related_slug", p["slug"]))),
         ("@@CALC_JS@@", p["calc_js"]), ("@@EXTRA_CSS@@", p.get("extra_css", "")),
     ]:
         html = html.replace(k, v)
@@ -1499,6 +1505,7 @@ def build_page(p):
     with open(os.path.join(out_dir, "index.html"), "w") as f:
         f.write(html)
     print("wrote tools/" + p["slug"] + "/index.html")
+    return html
 
 # ---------------------------------------------------------------- tools index
 
@@ -1529,14 +1536,28 @@ DESCS = {
     gen_pairings.SLUG: gen_pairings.SUBLINE,
 }
 
+ITEM_GROUPS = gen_items.build({p["slug"]: p for p in PAGES}, PLANT_SPECIES, plant_calc, WINE_STYLES, drink_window_calc)
+ITEMS_BY_PARENT = {pages[0]["related_slug"]: (label, pages) for label, pages in ITEM_GROUPS.items()}
+ITEM_PAGES = [p for _, pages in ITEM_GROUPS.items() for p in pages]
+
 for p in PAGES:
     build_page(p)
+for p in ITEM_PAGES:
+    gen_items.check(p, build_page(p))
 
 SHARED_CSS = TEMPLATE.split("<style>\n", 1)[1].split("@@EXTRA_CSS@@</style>", 1)[0]
 PAIRING_RELATED = ('<h2>More wine tools</h2>\n<ul class="cluster">\n' + "\n".join(
     '<li><a href="/tools/' + s + '/">' + TOOL_TITLES[s] + '</a><span class="d">' + DESCS[s] + '</span></li>'
     for s in ["wine-drink-window-calculator", "wine-cellar-value-calculator"]) + '\n</ul>')
 pairing_urls = gen_pairings.build(SHARED_CSS, PAIRING_RELATED)
+guide_urls = gen_guides.build(SHARED_CSS, TOOL_TITLES, DESCS, ESPRESSO_CALC_HTML, ESPRESSO_CALC_JS)
+
+def item_details(parent_slug):
+    if parent_slug not in ITEMS_BY_PARENT:
+        return ""
+    label, pages = ITEMS_BY_PARENT[parent_slug]
+    return ('<details class="items"><summary>' + label + '</summary><ul>' + "".join(
+        '<li><a href="/tools/' + p["slug"] + '/">' + p["chip_label"] + '</a></li>' for p in pages) + '</ul></details>')
 
 groups_html = ""
 for gname, app, accent, slugs in GROUPS:
@@ -1544,7 +1565,7 @@ for gname, app, accent, slugs in GROUPS:
                     gname + ' <span class="app">from ' + app + '</span></h2>\n<ul>\n')
     for s in slugs:
         groups_html += ('<li><a href="/tools/' + s + '/"><strong>' + TOOL_TITLES[s] + '</strong>'
-                        '<span>' + DESCS[s] + '</span></a></li>\n')
+                        '<span>' + DESCS[s] + '</span></a>' + item_details(s) + '</li>\n')
     groups_html += '</ul>\n</section>\n'
 
 tools_index = """<!DOCTYPE html>
@@ -1586,6 +1607,12 @@ li a::after{content:"";position:absolute;right:17px;top:50%;width:7px;height:7px
 li a:hover::after{transform:translate(4px,-50%) rotate(-45deg);opacity:1}
 li a strong{display:block;color:#1F1A15;font-size:1.02rem}
 li a span{font-size:.9rem;color:#8A8074}
+details.items{margin:6px 0 4px 4px}
+details.items summary{display:inline-flex;align-items:center;min-height:44px;cursor:pointer;font-size:.9rem;color:#6F6857}
+details.items ul{display:flex;flex-wrap:wrap;gap:6px;padding:2px 0 8px}
+details.items li{margin:0}
+details.items li a,details.items li a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border:1px solid #E9E3D9;border-radius:9px;font-size:.88rem}
+details.items li a::after{content:none}
 footer{margin-top:50px;font-size:.85rem;color:#998F83;border-top:1px solid #E9E3D9;padding-top:20px}
 footer a,footer a:visited{color:#998F83}
 </style>
@@ -1596,7 +1623,7 @@ footer a,footer a:visited{color:#998F83}
 <p class="subtitle">Small, fast, free calculators from the apps we build. No signup, nothing gated.</p>
 @@GROUPS@@
 <footer>
-<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 </footer>
 </body>
 </html>
@@ -1624,6 +1651,8 @@ urls += [DOMAIN + "/apps/" + a["slug"] + "/" for a in APPS]
 urls += [DOMAIN + "/apps/" + a["slug"] + "/" + g + "/" for a in APPS for g in a.get("guides", [])]
 urls += [DOMAIN + "/tools/" + p["slug"] + "/" for p in PAGES]
 urls += pairing_urls
+urls += [DOMAIN + "/tools/" + p["slug"] + "/" for p in ITEM_PAGES]
+urls += guide_urls
 LASTMOD = os.environ.get("SITEMAP_DATE", SITE_LASTMOD)
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for u in urls:
@@ -1637,6 +1666,8 @@ print("wrote sitemap.xml (" + str(len(urls)) + " urls)")
 
 for p in PAGES:
     og_image(p["slug"] + ".png", p["og_title"], PALETTES[p["palette"]])
+for p in ITEM_PAGES:
+    og_image(p["og"] + ".png", p["og_title"], PALETTES[p["palette"]])
 og_image("tools.png", "Free Tools & Calculators", dict(bg="#FAF7F2", accent="#7A3B24", text="#1F1A15", muted="#998F83"))
 
 print("done")

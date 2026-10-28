@@ -39,6 +39,12 @@ li a::after{content:"";position:absolute;right:17px;top:50%;width:7px;height:7px
 li a:hover::after{transform:translate(4px,-50%) rotate(-45deg);opacity:1}
 li a strong{display:block;color:#1F1A15;font-size:1.02rem}
 li a span{font-size:.9rem;color:#8A8074}
+details.items{margin:6px 0 4px 4px}
+details.items summary{display:inline-flex;align-items:center;min-height:44px;cursor:pointer;font-size:.9rem;color:#6F6857}
+details.items ul{display:flex;flex-wrap:wrap;gap:6px;padding:2px 0 8px}
+details.items li{margin:0}
+details.items li a,details.items li a:visited{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border:1px solid #E9E3D9;border-radius:9px;font-size:.88rem}
+details.items li a::after{content:none}
 footer{margin-top:50px;font-size:.85rem;color:#998F83;border-top:1px solid #E9E3D9;padding-top:20px}
 footer a,footer a:visited{color:#998F83}
 </style>
@@ -50,7 +56,7 @@ footer a,footer a:visited{color:#998F83}
 <section class="group" style="--acc:#22314A">
 <h2><span class="dot"></span>Travel <span class="app">from The Travel Binder</span></h2>
 <ul>
-<li><a href="/tools/packing-list-generator/"><strong>Packing List Generator</strong><span>Trip length, climate and style in — a categorised list with quantities out.</span></a></li>
+<li><a href="/tools/packing-list-generator/"><strong>Packing List Generator</strong><span>Trip length, climate and style in — a categorised list with quantities out.</span></a><details class="items"><summary>Presets</summary><ul><li><a href="/tools/packing-list-generator/japan-winter/">Japan in winter</a></li><li><a href="/tools/packing-list-generator/japan-spring/">Japan in spring</a></li></ul></details></li>
 <li><a href="/tools/japan-trip-cost-calculator/"><strong>Japan Trip Cost Calculator</strong><span>Nights and travel style in — a line-by-line budget, per person and per day.</span></a></li>
 </ul>
 </section>
@@ -75,7 +81,7 @@ footer a,footer a:visited{color:#998F83}
 <section class="group" style="--acc:#722F37">
 <h2><span class="dot"></span>Wine <span class="app">from Cellar Book</span></h2>
 <ul>
-<li><a href="/tools/wine-drink-window-calculator/"><strong>Wine Drink Window Calculator</strong><span>Style and vintage in — ageing, ready, at peak or fading out.</span></a></li>
+<li><a href="/tools/wine-drink-window-calculator/"><strong>Wine Drink Window Calculator</strong><span>Style and vintage in — ageing, ready, at peak or fading out.</span></a><details class="items"><summary>By style</summary><ul><li><a href="/tools/wine-drink-window-calculator/barolo/">Barolo</a></li><li><a href="/tools/wine-drink-window-calculator/bordeaux/">Classed-growth Bordeaux</a></li><li><a href="/tools/wine-drink-window-calculator/bordeaux-everyday/">Everyday red Bordeaux</a></li><li><a href="/tools/wine-drink-window-calculator/red-burgundy/">Red Burgundy</a></li><li><a href="/tools/wine-drink-window-calculator/napa-cabernet/">Napa Cabernet</a></li><li><a href="/tools/wine-drink-window-calculator/northern-rhone-syrah/">Northern Rh&ocirc;ne Syrah</a></li><li><a href="/tools/wine-drink-window-calculator/rioja-gran-reserva/">Rioja Gran Reserva</a></li><li><a href="/tools/wine-drink-window-calculator/chianti-classico-riserva/">Chianti Classico Riserva</a></li><li><a href="/tools/wine-drink-window-calculator/white-burgundy/">White Burgundy</a></li><li><a href="/tools/wine-drink-window-calculator/german-riesling/">German Riesling</a></li><li><a href="/tools/wine-drink-window-calculator/vintage-champagne/">Vintage Champagne</a></li><li><a href="/tools/wine-drink-window-calculator/vintage-port/">Vintage Port</a></li></ul></details></li>
 <li><a href="/tools/wine-cellar-value-calculator/"><strong>Wine Cellar Value Calculator</strong><span>Count by tier — total value, average per bottle, replacement figure.</span></a></li>
 <li><a href="/tools/wine-pairing/"><strong>Wine Pairing Finder</strong><span>Pick what's for dinner — the wines that sit well with it.</span></a></li>
 </ul>
@@ -83,7 +89,7 @@ footer a,footer a:visited{color:#998F83}
 <section class="group" style="--acc:#2E7D32">
 <h2><span class="dot"></span>Plants <span class="app">from Leaflet</span></h2>
 <ul>
-<li><a href="/tools/plant-watering-calculator/"><strong>Plant Watering Calculator</strong><span>Watering intervals by species, season and light.</span></a></li>
+<li><a href="/tools/plant-watering-calculator/"><strong>Plant Watering Calculator</strong><span>Watering intervals by species, season and light.</span></a><details class="items"><summary>By plant</summary><ul><li><a href="/tools/plant-watering-calculator/monstera/">Monstera</a></li><li><a href="/tools/plant-watering-calculator/pothos/">Pothos</a></li><li><a href="/tools/plant-watering-calculator/snake-plant/">Snake plant</a></li><li><a href="/tools/plant-watering-calculator/zz-plant/">ZZ plant</a></li><li><a href="/tools/plant-watering-calculator/fiddle-leaf-fig/">Fiddle leaf fig</a></li><li><a href="/tools/plant-watering-calculator/pilea/">Pilea</a></li><li><a href="/tools/plant-watering-calculator/alocasia/">Alocasia</a></li><li><a href="/tools/plant-watering-calculator/calathea/">Calathea</a></li><li><a href="/tools/plant-watering-calculator/peace-lily/">Peace lily</a></li><li><a href="/tools/plant-watering-calculator/spider-plant/">Spider plant</a></li><li><a href="/tools/plant-watering-calculator/succulents/">Succulents and cacti</a></li><li><a href="/tools/plant-watering-calculator/ferns/">Ferns</a></li></ul></details></li>
 </ul>
 </section>
 <section class="group" style="--acc:#2F6E9E">
@@ -94,7 +100,7 @@ footer a,footer a:visited{color:#998F83}
 </section>
 
 <footer>
-<p>&copy; 2026 Eritech Studios &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 </footer>
 </body>
 </html>

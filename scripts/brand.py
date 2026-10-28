@@ -15,7 +15,7 @@ DOMAIN = "https://eritech.studio"
 BRAND = "Eritech Studios"
 ORG_ID = DOMAIN + "/#organization"
 ORG_REF = {"@type": "Organization", "@id": ORG_ID, "name": BRAND, "url": DOMAIN + "/"}
-SITE_LASTMOD = "2026-10-21"
+SITE_LASTMOD = "2026-10-28"
 
 PREMIUM_NOTE = "Premium your way: a subscription, or a one-time purchase that&rsquo;s yours forever"
 PREMIUM_OFFER = {"@type": "Offer", "price": "0", "priceCurrency": "GBP",
@@ -139,3 +139,14 @@ APPS = [
 ]
 
 ACCENT_BY_APP = {a["name"]: a["web_accent"] for a in APPS}
+
+GUIDES = [
+    dict(slug="dial-in-espresso", app="kohii", published="2026-10-28",
+         h1="How to dial in espresso: sour, bitter, and what to change",
+         blurb="Sour, bitter or thin &mdash; what each taste means and which one thing to change next.",
+         tools=["espresso-ratio-calculator", "coffee-ratio-calculator", "coffee-freshness-calculator"]),
+    dict(slug="return-windows", app="warranty-box", published="2026-10-28",
+         h1="How long do you have to return something? Return windows by retailer (UK &amp; US)",
+         blurb="The legal baseline in the UK and US, and each big retailer&rsquo;s own window, with sources.",
+         tools=["uk-return-rights-checker"]),
+]
