@@ -2,7 +2,7 @@
   "sections": [
     {
       "heading": "Your trip stays on your phone",
-      "body": "The Travel Binder is a fully local app. Your trips, flights, hotels, bookings, confirmation codes, places, packing lists, checklists, notes, documents and loyalty numbers are stored only on your device, in a database no one else can reach. There is no account, no login, no server and no cloud sync. We cannot see, access, or recover your data — including if you lose the device."
+      "body": "The Travel Binder is a fully local app. Your trips, flights, hotels, bookings, confirmation codes, places, packing lists, checklists, notes, documents and loyalty numbers are stored only on your device, in a database no one else can reach. There is no account, no login, no server of ours and no cloud sync. We cannot see, access, or recover your data — including if you lose the device. The app can keep its own backup in your iCloud Drive or Google Drive, described below; that copy is yours, not ours."
     },
     {
       "heading": "Documents and photos",
@@ -49,6 +49,10 @@
       "body": "Exporting your trip — as PDF, Markdown, JSON, CSV or a trip bundle — produces a file that is handed to whichever app or destination you pick from your device's share sheet. Where that file then goes, and who can read it, is entirely your decision. We never receive a copy.\nShare cards are images you generate and send yourself. Because a booking reference on a public post is a genuine leak, confirmation codes are replaced with dots on every share card by default, and costs are left off unless you deliberately switch them on."
     },
     {
+      "heading": "Backups to your own cloud",
+      "body": "The app backs up your trips automatically to your own cloud storage, so a new or reset device can bring them back. On iPhone and iPad the backup goes to the app's own folder in your iCloud Drive; it is not shown in the Files app. On Android it goes to a hidden app folder in your Google Drive, after you choose Back up and allow it on Google's own screen; the app asks only for access to that hidden folder, which it alone can read, and never to your other files or to your Google account details.\nEach backup is a single file holding your trips with their documents, photos, voice notes and covers, plus your lists, loyalty programmes and stamps. Each backup also carries a small summary — the date, the app version, how many trips, bookings, places and files it holds, and each trip's name and dates — so the app can list your backups and show what is in them. The sample trip is never included. The app keeps the three newest backups from each device and removes older ones.\nThe backup travels from your device straight to Apple or Google; we never receive a copy, and it is stored under their privacy policies like your other files there. Restoring always adds trips beside the ones you already have and never changes or removes anything. You can turn automatic backup off in Settings, which stops uploads. To delete the backups themselves, use iOS Settings → your name → iCloud → Manage Storage → The Travel Binder, or Google Drive → Settings → Manage apps → The Travel Binder → Delete hidden app data. Deleting the app does not delete these backups."
+    },
+    {
       "heading": "Crash reporting",
       "body": "The Travel Binder uses Firebase Crashlytics to collect anonymous crash diagnostics: device model, operating system version, and the technical state of the app at the moment it failed. No personal information, trip data, documents, photos, or coordinates are ever included. Crash reports exist solely so we can find and fix defects."
     },
@@ -66,7 +70,7 @@
     },
     {
       "heading": "Your data, your call",
-      "body": "Everything in the app is yours. You can export it in open formats at any time, and deleting the app removes every trip, document and photo it held from your device. There is no central copy to request, correct, or erase, because one was never made."
+      "body": "Everything in the app is yours. You can export it in open formats at any time, and deleting the app removes every trip, document and photo it held from your device; backups in your own iCloud Drive or Google Drive stay until you delete them there. There is no central copy of ours to request, correct, or erase, because one was never made."
     },
     {
       "heading": "Changes to this policy",
@@ -77,5 +81,5 @@
       "body": "Questions about this policy are welcome at admin@eritech.studio."
     }
   ],
-  "updated": "2026-10-21"
+  "updated": "2026-10-28"
 }
