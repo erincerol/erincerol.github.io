@@ -1,15 +1,23 @@
 ---
 app: Cellar Book
-updated: 2026-10-19
+updated: 2026-10-30
 ---
 
 ## Your data stays with you
 
-Your wine collection, tasting notes, and photographs are stored only on your device. There is no account and no cloud sync, and we never upload them anywhere — we cannot see, access, or recover them. The only things that ever leave your device are anonymous crash diagnostics, anonymous usage analytics and, in the free version, the advertising data described below; none of it includes anything you have typed or photographed. Scanning a label to fill in a bottle is read on your device: the camera frame is never saved, and no image or text from it leaves your device.
+Your wine collection, tasting notes, and photographs are stored only on your device. There is no account, no server of ours and no cloud sync, and we never upload them to us — we cannot see, access, or recover them. The app can keep its own backup in your iCloud Drive or Google Drive, described below; that copy is yours, not ours. The only things that ever leave your device are anonymous crash diagnostics, anonymous usage analytics and, in the free version, the advertising data described below; none of it includes anything you have typed or photographed. Scanning a label to fill in a bottle is read on your device: the camera frame is never saved, and no image or text from it leaves your device.
 
 ## Backups and spreadsheets
 
 When you export a backup or a spreadsheet, the file is handed to the app or destination you choose through your device's share sheet. Where that file goes — and who can read it — is entirely under your control. A spreadsheet you import is read on your device; nothing from it is uploaded.
+
+## Backups to your own cloud
+
+Cellar Book backs up your cellar automatically to your own cloud storage, so a new or reset device can bring it back. On iPhone and iPad the backup goes to the app's own folder in your iCloud Drive; it is not shown in the Files app. On Android it goes to a hidden app folder in your Google Drive, after you choose Back up and allow it on Google's own screen; the app asks only for access to that hidden folder, which it alone can read, and never to your other files or to your Google account details.
+
+Each backup is a single file holding your whole cellar — your wines, bottles, tastings, notes, scores and prices — with its label photos. Each backup also carries a small summary — the date, the app version, your device's name, a random code that tells your devices apart, and how many wines, tastings and photos it holds — so the app can list your backups and show what is in them. The app keeps the three newest backups from each device and removes older ones.
+
+The backup travels from your device straight to Apple or Google; we never receive a copy, and it is stored under their privacy policies like your other files there. Restoring a backup replaces the cellar on that device with the one in the backup. You can turn automatic backup off in Settings, which stops new backups. To delete the backups themselves, use iOS Settings → your name → iCloud → Manage Storage → Cellar Book, or Google Drive → Settings → Manage apps → Cellar Book → Delete hidden app data. Deleting the app does not delete these backups.
 
 ## Crash reporting
 
