@@ -1,15 +1,29 @@
 ---
 app: The Bake Log
-updated: 2026-10-08
+updated: 2026-11-05
 ---
 
 ## Data Collection
 
-Your baking data — recipes, bakes, feedings, starters and photos — is stored only on your device and never leaves it. The app does send anonymous, aggregated usage and crash diagnostics to help us improve it, and in the free version the advertising software collects what it needs to show ads; see the Usage Analytics, Crash Reporting and Advertising sections below. None of it includes anything you have typed or photographed. We keep no account and no central record of your content.
+Your baking data — recipes, bakes, feedings, starters and photos — is stored only on your device. There is no account and no server of ours, and we never upload it to us — we cannot see, access, or recover it. The app can keep its own backup in your iCloud Drive or Google Drive, described below; that copy is yours, not ours. The app does send anonymous, aggregated usage and crash diagnostics to help us improve it, and in the free version the advertising software collects what it needs to show ads; see the Usage Analytics, Crash Reporting and Advertising sections below. None of it includes anything you have typed or photographed. We keep no account and no central record of your content.
 
 ## What Data Is Stored
 
-Your recipes, bake sessions, and starter logs are stored in a local SQLite database on your device. This data never leaves your phone.
+Your recipes, bake sessions, and starter logs are stored in a local SQLite database on your device. This data never reaches us; the only copies away from your phone are the backups you keep, described below.
+
+## Backups to Your Own Cloud
+
+The Bake Log backs up your journal automatically to your own cloud storage, so a new or reset device can bring it back. On iPhone and iPad the backup goes to the app's own folder in your iCloud Drive; it is not shown in the Files app. On Android it goes to a hidden app folder in your Google Drive, after you choose Back Up or Connect Google Drive and allow it on Google's own screen (or, if you have already allowed it on another device, as soon as you sign in on this one with the same Google account); the app asks only for access to that hidden folder, which it alone can read, and never to your other files or to your Google account details.
+
+Each backup is a single file holding your whole journal — your starters and their feedings, your recipes, your bakes with their ratings and notes, and your Baker's Marks — with its photos. Each backup also carries a small summary — the date, the app version, your device's name, a random code that tells your devices apart, and how many starters, recipes, bakes, feedings and photos it holds — so the app can list your backups and show what is in them. The app keeps the three newest backups from each device and removes older ones.
+
+The backup travels from your device straight to Apple or Google; we never receive a copy, and it is stored under their privacy policies like your other files there. Restoring a backup replaces the journal on that device with the one in the backup. You can turn automatic backup off in Settings, which stops new backups. To delete the backups themselves, use iOS Settings → your name → iCloud → Manage Storage → The Bake Log, or Google Drive → Settings → Manage apps → The Bake Log → Delete hidden app data. Deleting the app does not delete these backups.
+
+On Android, the system's own device backup now holds only The Bake Log's journal database and its settings; your photos travel only inside the cloud backup above.
+
+## Backup Files
+
+When you save a backup file, it is handed to the app or destination you choose through your device's share sheet. Where that file goes, and who can read it, is entirely under your control. We never receive a copy.
 
 ## Usage Analytics
 
@@ -35,7 +49,7 @@ Purchases are processed through Google Play (Android) or Apple App Store (iOS). 
 
 ## Your Rights
 
-All your data is yours. You can export or delete it anytime by uninstalling the app. We have no central record of your data.
+All your data is yours. You can export it anytime, and uninstalling the app deletes it from your device; backups in your own iCloud Drive or Google Drive stay until you delete them there. We have no central record of your data.
 
 ## Contact
 
