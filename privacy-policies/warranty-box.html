@@ -56,21 +56,30 @@ a:hover {
 </head>
 <body>
 <h1>Privacy Policy</h1>
-<div class="date">Last Updated: 2026-10-06</div>
+<div class="date">Last Updated: 2026-11-05</div>
 
 <h2>Data Collection & Local Storage</h2>
 <p>- <strong>In-App Purchases:</strong> Warranty Box Premium — a one-time unlock or a monthly subscription — is processed by the Apple App Store or Google Play. We never see or store your payment details. The app asks your app store whether your purchase or subscription is active so it can unlock Premium, and a subscription is managed or cancelled from your App Store or Google Play account.
-- <strong>Local Storage:</strong> All warranty items, images, and receipts are saved entirely on your device. We do not have servers and do not sync or read your data.</p>
+- <strong>Local Storage:</strong> All warranty items, images, and receipts are saved on your device. We do not have servers and do not sync or read your data. The app can keep its own backup in your iCloud Drive or Google Drive, described below; that copy is yours, not ours.</p>
 
 <h2>Camera & Photo Library Access</h2>
-<p>We request access to your device's camera and photo library so you can attach receipts and product images to your items. These photos never leave your device.</p>
+<p>We request access to your device's camera and photo library so you can attach receipts and product images to your items. These photos are never sent to us. They leave your device only inside your own backups, described below.</p>
+
+<h2>Backups to Your Own Cloud</h2>
+<p>Warranty Box backs up your vault automatically to your own cloud storage, so a new or reset device can bring it back. On iPhone and iPad the backup goes to the app's own folder in your iCloud Drive; it is not shown in the Files app. On Android it goes to a hidden app folder in your Google Drive, after you choose Back up and allow it on Google's own screen (or, if you have already allowed it for the same Google account, when the app finds your backup after a reinstall); the app asks only for access to that hidden folder, which it alone can read, and never to your other files or to your Google account details.
+Each backup is a single file holding your whole vault — your products, stores, prices, dates, notes and your currency setting — with their photos, receipts and documents. Each backup also carries a small summary — the date, the app version, your device's name, a random code that tells your devices apart, and how many products and files it holds — so the app can list your backups and show what is in them. The app keeps the three newest backups from each device and removes older ones.
+The backup travels from your device straight to Apple or Google; we never receive a copy, and it is stored under their privacy policies like your other files there. Restoring a backup replaces the vault on that device with the one in the backup. You can turn automatic backup off in More → Backups, which stops new backups. To delete the backups themselves, use iOS Settings → your name → iCloud → Manage Storage → WarrantyBox, or Google Drive → Settings → Manage apps → Warranty Box → Delete hidden app data. Deleting the app does not delete these backups.
+On Android, the system's own device backup holds only Warranty Box's vault database and its settings; your photos and receipts travel only inside the cloud backup above.</p>
+
+<h2>Backup Files</h2>
+<p>Export Vault saves the same backup as a file and hands it to the app or place you choose through your device's share sheet. Where that file goes, and who can read it, is entirely under your control. We never receive a copy.</p>
 
 <h2>Crash Reporting</h2>
 <p>To ensure a reliable experience, we use automated diagnostic tools.
-- <strong>Crash Reporting:</strong> We use Firebase Crashlytics to monitor app stability. It automatically collects anonymous crash logs to help us fix bugs. No personally identifiable information (PII) is collected. Crash reporting is separate from usage analytics (below) and is covered by our legitimate interest in keeping the app working.</p>
+- <strong>Crash Reporting:</strong> We use Firebase Crashlytics to monitor app stability. It automatically collects anonymous crash logs to help us fix bugs. No personally identifiable information (PII) is collected. Crash reporting is separate from usage analytics (below) and is covered by our legitimate interest in keeping the app working. When a backup or restore fails, the report says only which step failed and, at most, the backup's size; never a product, a file name, a folder path or anything inside the backup.</p>
 
 <h2>Usage Analytics</h2>
-<p>Warranty Box uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, whether Premium is active and when a subscription ends or resumes, the app version, your device model, and your coarse region (country level). It never records anything you type or photograph: not a product name, a store, a note, a serial number, a receipt, or a photo.</p>
+<p>Warranty Box uses Google Analytics for Firebase to understand which features are used, so we can improve the app. It records anonymous, pseudonymous signals only — which screens you open, how often core features are used, whether Premium is active and when a subscription ends or resumes, the app version, your device model, and your coarse region (country level). It never records anything you type or photograph: not a product name, a store, a note, a serial number, a receipt, or a photo. For backups it records only that a backup destination was set up (iCloud Drive or Google Drive) and that a backup was restored or exported; never what a backup holds, its file names or where it is stored.</p>
 
 <h2>Advertising</h2>
 <p>From version 1.2.51, the free version shows a single banner advertisement at the bottom of the Vault and Active lists, and never as a full-screen ad. Versions 1.2.0 to 1.2.50 show no advertisements and contain no advertising software. Versions 1.1 and earlier show a banner served by Google AdMob, which may collect device identifiers to serve ads, after asking for consent where the law requires it (changeable from Manage Ad Consent).
