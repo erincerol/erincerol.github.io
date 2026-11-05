@@ -1,25 +1,35 @@
 ---
 app: Kohii
-updated: 2026-10-06
+updated: 2026-10-31
 ---
 
 At Eri Tech Studios, we take your privacy seriously. Kohii ("The Barista Log") is a fully offline app designed to keep your coffee data completely private. This policy explains what is stored on your device and the limited third-party services the app uses.
 
 ## Data Collection
 
-Kohii stores all your coffee data locally on your device. There is no account, login, or cloud sync, and your beans, brews, notes, and photos never leave your phone. The only things that ever leave your device are anonymous crash diagnostics, anonymous usage analytics and, in the free version, the advertising data described under Ads below — none of them includes anything you have typed or photographed.
+Kohii stores all your coffee data locally on your device. There is no account, no login and no server of ours, and we never receive your beans, brews, notes or photos — we cannot see, access, or recover them. The app can keep its own backup in your iCloud Drive or Google Drive, described under Backups to your own cloud below; that copy is yours, not ours. Apart from that backup, the only things that ever leave your device are anonymous crash diagnostics, anonymous usage analytics and, in the free version, the advertising data described under Ads below — none of them includes anything you have typed or photographed.
 
 ## What Data Is Stored
 
-Your bean bags, brew logs, ratings, and tasting notes are stored in a local SQLite database on your device. This data never leaves your phone unless you choose to export a backup file yourself.
+Your bean bags, brew logs, ratings, and tasting notes are stored in a local SQLite database on your device. It leaves your phone only inside a backup: the automatic one to your own cloud, or a backup file you choose to save yourself.
 
 ## Photos & Camera
 
-If you add a photo to a bean or a brew, the app accesses your camera or photo library only at the moment you choose an image. Photos you select are copied into the app's local storage on your device and are never uploaded anywhere.
+If you add a photo to a bean or a brew, the app accesses your camera or photo library only at the moment you choose an image. Photos you select are copied into the app's local storage on your device. They are never uploaded to us; the only copy that leaves your device is inside your own backup.
 
 ## Backups
 
-Kohii lets you export your coffee log to a backup file and restore it later. These backup files are created and stored only where you choose to save them on your device. We never receive, access, or transmit them.
+Kohii lets you save your coffee log to a backup file and restore it later. The file is handed to the app or destination you choose through your device's share sheet; where it goes, and who can read it, is entirely under your control. We never receive, access, or transmit it.
+
+## Backups to your own cloud
+
+Kohii backs up your journal automatically to your own cloud storage, so a new or reset device can bring it back. On iPhone and iPad the backup goes to the app's own folder in your iCloud Drive; it is not shown in the Files app. On Android it goes to a hidden app folder in your Google Drive, after you choose Back Up and allow it on Google's own screen; the app asks only for access to that hidden folder, which it alone can read, and never to your other files or to your Google account details.
+
+Each backup is a single file holding your whole journal — your coffees, bags, brews, ratings, notes and prices — with its photos. Each backup also carries a small summary — the date, the app version, your device's name, a random code that tells your devices apart, and how many coffees, brews and photos it holds — so the app can list your backups and show what is in them. The app keeps the three newest backups from each device and removes older ones.
+
+The backup travels from your device straight to Apple or Google; we never receive a copy, and it is stored under their privacy policies like your other files there. Restoring a backup replaces the journal on that device with the one in the backup. You can turn automatic backup off in Settings, which stops new backups. To delete the backups themselves, use iOS Settings → your name → iCloud → Manage Storage → Kohii, or Google Drive → Settings → Manage apps → Kohii → Delete hidden app data. Deleting the app does not delete these backups.
+
+On Android, the system's own device backup now holds only Kohii's journal database and its settings; your photos travel only inside the cloud backup above.
 
 ## Crash reporting
 
