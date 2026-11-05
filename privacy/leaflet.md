@@ -1,21 +1,21 @@
 ---
 app: Leaflet
-updated: 2026-10-19
+updated: 2026-11-05
 ---
 
-At Eri Tech Studios, we take your privacy seriously. Leaflet keeps your plant journal on your device. This policy explains what is stored locally and the limited third-party services the app uses. The only things that ever leave your device are anonymous crash diagnostics, anonymous usage analytics and, in the free version, what the advertising software collects, all described below; none of it includes anything you have typed or photographed.
+At Eri Tech Studios, we take your privacy seriously. Leaflet keeps your plant journal on your device. It can also keep its own backup in your iCloud Drive or Google Drive, described below; that copy is yours, not ours. This policy explains what is stored locally and the limited third-party services the app uses. The only things that ever leave your device for anyone other than you are anonymous crash diagnostics, anonymous usage analytics and, in the free version, what the advertising software collects, all described below; none of it includes anything you have typed or photographed.
 
 ## Data Collection
 
-Leaflet stores your plants, care schedules, care history, growth measurements, notes, and photos locally on your device. We do not collect, transmit, or store any of that on our servers. There is no account, login, or cloud sync.
+Leaflet stores your plants, care schedules, care history, growth measurements, notes, and photos locally on your device. We do not collect, transmit, or store any of that on our servers. There is no account, login, or cloud sync; the only copy that leaves your device is the backup in your own iCloud Drive or Google Drive, described under Backups.
 
 ## What Data Is Stored
 
-Your plants, care schedules, care history, growth measurements, and notes are stored in a local SQLite database on your device. This data never leaves your phone unless you choose to export a backup file yourself.
+Your plants, care schedules, care history, growth measurements, and notes are stored in a local SQLite database on your device. This data never leaves your phone except in a backup: one you export yourself, or the automatic backup to your own iCloud Drive or Google Drive.
 
 ## Photos & Camera
 
-If you add a photo to a plant or a journal entry, the app accesses your camera or photo library only at the moment you choose an image. Photos you select are copied into the app's local storage on your device and are never uploaded anywhere.
+If you add a photo to a plant or a journal entry, the app accesses your camera or photo library only at the moment you choose an image. Photos you select are copied into the app's local storage on your device. They are never uploaded to us; they travel only inside your backups, described below.
 
 ## Notifications
 
@@ -23,7 +23,13 @@ Care reminders are scheduled locally on your device. No notification data is sen
 
 ## Backups
 
-Leaflet lets you export your plant journal to a backup file and restore it later. These backup files are created and stored only where you choose to save them. We never receive, access, or transmit them.
+When you save a backup file, it is handed to the app or destination you choose through your device's share sheet. Where that file goes, and who can read it, is entirely under your control.
+
+Leaflet also backs up your journal automatically to your own cloud storage, so a new or reset device can bring it back. On iPhone and iPad the backup goes to the app's own folder in your iCloud Drive; it is not shown in the Files app. On Android it goes to a hidden app folder in your Google Drive, after you choose to back up and allow it on Google's own screen; the app asks only for access to that hidden folder, which it alone can read, and never to your other files or to your Google account details.
+
+Each backup is a single file holding your whole journal — your plants, care schedules, care history, growth measurements and notes — with its photos. Each backup also carries a small summary — the date, the app version, your device's name, a random code that tells your devices apart, and how many plants, journal entries and photos it holds — so the app can list your backups and show what is in them. The app keeps the three newest backups from each device and removes older ones.
+
+The backup travels from your device straight to Apple or Google; we never receive a copy, and it is stored under their privacy policies like your other files there. Restoring a backup replaces the journal on that device with the one in the backup. You can turn automatic backup off in Settings, which stops new backups. To delete the backups themselves, use iOS Settings → your name → iCloud → Manage Storage → Leaflet, or Google Drive → Settings → Manage apps → Leaflet → Delete hidden app data. Deleting the app does not delete these backups.
 
 ## Pet safety
 
@@ -55,7 +61,7 @@ The one-time Premium purchase is processed through Google Play (Android) or the 
 
 ## Your Rights
 
-All your data is yours. You can export it anytime from within the app, or delete it entirely by uninstalling the app. We have no central record of your data.
+All your data is yours. You can export it anytime from within the app, and deleting the app removes your plants, journal and photos from your device; backups in your own iCloud Drive or Google Drive stay until you delete them there. We have no central record of your data.
 
 ## Contact
 
