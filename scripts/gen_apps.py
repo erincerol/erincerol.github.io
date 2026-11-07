@@ -94,6 +94,17 @@ footer a,footer a:visited{color:var(--muted);text-decoration:underline;text-unde
 <p><a href="/">@@BRAND@@</a> &middot; <a href="/apps/">All apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
+<script>
+(function(){
+var q=new URLSearchParams(location.search),src=q.get("utm_source");
+if(!src)return;
+var ios=document.querySelector(".badge-appstore"),play=document.querySelector(".badge-play");
+if(ios){var a=new URL(ios.href);a.searchParams.set("ct",(src+"_@@SLUG_U@@").slice(0,40));ios.href=a.href}
+if(play){var p=new URL(play.href),r=new URLSearchParams();
+["utm_source","utm_medium","utm_campaign"].forEach(function(k){var v=q.get(k);if(v)r.set(k,v)});
+p.searchParams.set("referrer",r.toString());play.href=p.href}
+})();
+</script>
 </body>
 </html>
 """
@@ -270,7 +281,7 @@ for app in APPS:
     html = TEMPLATE
     for k, v in [("@@JSONLD@@", ld), ("@@BRAND@@", BRAND), ("@@PREMIUM@@", PREMIUM_NOTE),
                  ("@@TAB_TITLE@@", c["tab"]), ("@@META_DESC@@", c["desc"]), ("@@NAME@@", app["name"]),
-                 ("@@SLUG@@", app["slug"]), ("@@DOMAIN@@", DOMAIN), ("@@CF@@", CF_SNIPPET),
+                 ("@@SLUG@@", app["slug"]), ("@@SLUG_U@@", app["slug"].replace("-", "_")), ("@@DOMAIN@@", DOMAIN), ("@@CF@@", CF_SNIPPET),
                  ("@@APPID@@", app["app_id"]), ("@@PKG@@", app["pkg"]), ("@@PRIVACY@@", app["privacy"]),
                  ("@@BG@@", pal["bg"]), ("@@SURFACE@@", pal["surface"]), ("@@TEXT@@", pal["text"]),
                  ("@@MUTED@@", pal["muted"]), ("@@ACCENT@@", pal["accent"]), ("@@LINE@@", pal["line"]),
