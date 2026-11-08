@@ -99,7 +99,7 @@ footer a,footer a:visited{color:var(--muted);text-decoration:underline;text-unde
 var q=new URLSearchParams(location.search),src=q.get("utm_source");
 if(!src)return;
 var ios=document.querySelector(".badge-appstore"),play=document.querySelector(".badge-play");
-var content=q.get("utm_content"),ct=content?(src+"_"+content).toLowerCase().replace(/[^a-z0-9]/g,"_"):src+"_@@SLUG_U@@";
+var content=q.get("utm_content"),ct=content?(src+"_"+content).toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,""):src+"_@@SLUG_U@@";
 if(ios){var a=new URL(ios.href);a.searchParams.set("ct",ct.slice(0,40));ios.href=a.href}
 if(play){var p=new URL(play.href),r=new URLSearchParams();
 ["utm_source","utm_medium","utm_campaign","utm_content"].forEach(function(k){var v=q.get(k);if(v)r.set(k,v)});
