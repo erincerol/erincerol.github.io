@@ -147,7 +147,7 @@ def leaflet_block(campaign, built=True):
 def travelbinder_block(campaign):
     return ('<p>This tool comes from <strong><a href="/apps/travel-binder/">The Travel Binder</a></strong> — a fully offline binder for flights, '
             'hotels, bookings, documents, packing and checklists, with the whole trip on one map. '
-            'No account, no cloud, no AI.</p>'
+            'No account, no server of ours, no AI.</p>'
             '<div class="badges">' + ios_badge("6797601401", campaign) +
             play_badge("com.eritech.travelbinder", campaign) + '</div>')
 

@@ -141,7 +141,7 @@ function generateHtml(app, sections, updated) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy - ${app.app}</title>
 <link rel="canonical" href="https://eritech.studio/privacy-policies/${app.slug}.html">
-<meta name="description" content="Privacy policy for ${app.app} by Eri Tech Studio. Fully offline — your data stays on your device. No account, no cloud, no tracking.">
+<meta name="description" content="Privacy policy for ${app.app} by Eri Tech Studio. Your data stays on your device and in your own backup. No account, no server of ours.">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">

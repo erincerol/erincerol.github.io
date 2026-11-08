@@ -88,7 +88,7 @@ footer a,footer a:visited{color:var(--muted);text-decoration:underline;text-unde
 @@TOOLS@@
 </ul>
 @@GUIDES@@<h2>Privacy</h2>
-<p>Everything you enter in @@NAME@@ stays on your device, with no account and no cloud sync. Anonymous crash reports and usage statistics help us improve the app; the full <a href="/privacy-policies/@@PRIVACY@@">privacy policy</a> lists exactly what is collected.</p>
+<p>Everything you enter in @@NAME@@ stays on your device, with no account and no server of ours. The only copy that leaves it is the app's backup in your own iCloud Drive or Google Drive, which we never see. Anonymous crash reports and usage statistics help us improve the app; the full <a href="/privacy-policies/@@PRIVACY@@">privacy policy</a> lists exactly what is collected.</p>
 </main>
 <footer>
 <p><a href="/">@@BRAND@@</a> &middot; <a href="/apps/">All apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
@@ -183,7 +183,7 @@ CONTENT = {
 <h2>The deadline is the part that gets missed</h2>
 <p>Almost nobody forgets that an appliance has a warranty. What they miss is that it ended last month. Return windows are measured in days and warranties in years, so both fail the same way &mdash; silently, with no prompt. Reminders before the window closes are the entire value, which is why the app schedules them per item.</p>
 <h2>Your receipts never leave the device</h2>
-<p>Receipts carry your name, your card's last digits and where you shop. That is exactly the sort of thing that should not sit on someone else's server, so it does not: everything is stored locally, with no account and no sync.</p>"""),
+<p>Receipts carry your name, your card's last digits and where you shop. That is exactly the sort of thing that should not sit on an app maker's server, so it never reaches ours: everything is stored locally, with no account, and the backup goes to your own iCloud Drive or Google Drive.</p>"""),
 
 "cellar-book": dict(
     h1="Cellar Book &mdash; a private wine cellar tracker",
@@ -205,7 +205,7 @@ CONTENT = {
 <p>If your cellar already lives in CellarTracker, it can come across in one import: <a href="/apps/cellar-book/from-cellartracker/">moving from CellarTracker to Cellar Book</a> shows how.</p>
 <p>When the question is what to open with dinner, Cellar Book&rsquo;s Tonight screen narrows your own bottles to the ones that suit the dish. The same pairings are on the web in the free <a href="/tools/wine-pairing/">wine pairing finder</a>: what goes with <a href="/tools/wine-pairing/lamb/">lamb</a>, <a href="/tools/wine-pairing/fish/">fish</a>, <a href="/tools/wine-pairing/cheese/">cheese</a> or <a href="/tools/wine-pairing/spicy/">spicy food</a>.</p>
 <h2>Yours alone</h2>
-<p>What you own and what you paid is nobody else's business. Cellar Book keeps all of it on your device &mdash; no account, no cloud, no marketplace quietly learning your buying habits.</p>"""),
+<p>What you own and what you paid is nobody else's business. Cellar Book keeps all of it on your device &mdash; no account, no server of ours, no marketplace quietly learning your buying habits.</p>"""),
 
 "leaflet": dict(
     h1="Leaflet &mdash; plant care that remembers",
@@ -236,7 +236,7 @@ CONTENT = {
               "Packing lists and checklists with reminders before you travel",
               "Passports, insurance and rail passes kept in a document pocket",
               "Exports to PDF, Markdown, JSON and CSV — your plans are never locked in",
-              "No account, no cloud, works in aeroplane mode"],
+              "No account, works in aeroplane mode"],
     intro="<p>The moment you most need your itinerary is the moment you have no signal, no roaming and four percent battery. The Travel Binder was built out of a real trip run from a hand-made file of notes, and it assumes the network will not be there.</p>",
     body="""<h2>Offline is the feature, not a fallback</h2>
 <p>Travel apps tend to treat connectivity as a given and offline as a degraded mode &mdash; and several put offline access behind a subscription, which is a strange thing to charge for at the exact moment the app is least able to help you. Landing in a new country is reliably the worst-connected hour of any trip: no local SIM yet, airport wifi behind a captive portal, and a queue where somebody wants to see your booking. Everything here is stored on the device, so the binder opens the same whether or not anything is reachable.</p>
@@ -429,12 +429,12 @@ index = """<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our Apps &mdash; Private, Offline Logbooks | Eritech Studios</title>
-<meta name="description" content="Six fully offline apps for iOS and Android — coffee, sourdough, warranties, wine, plants and travel. No account, no cloud.">
+<meta name="description" content="Six fully offline apps for iOS and Android — coffee, sourdough, warranties, wine, plants and travel. No account, no server of ours.">
 <link rel="canonical" href="@@DOMAIN@@/apps/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Eritech Studios">
 <meta property="og:title" content="Our Apps — Eritech Studios">
-<meta property="og:description" content="Six fully offline logbook apps for iOS and Android. No account, no cloud.">
+<meta property="og:description" content="Six fully offline logbook apps for iOS and Android. No account, no server of ours.">
 <meta property="og:url" content="@@DOMAIN@@/apps/">
 <meta property="og:image" content="@@DOMAIN@@/assets/brand/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
