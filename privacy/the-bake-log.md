@@ -53,4 +53,4 @@ All your data is yours. You can export it anytime, and uninstalling the app dele
 
 ## Contact
 
-For questions or concerns, contact: admin@eritech.studio
+For questions or concerns, contact: contact@eritech.studio
