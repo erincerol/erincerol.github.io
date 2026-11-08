@@ -61,4 +61,4 @@ All your data is yours. You can export it anytime from within the app, or delete
 
 ## Contact
 
-For questions or concerns, contact: admin@eritech.studio
+For questions or concerns, contact: contact@eritech.studio

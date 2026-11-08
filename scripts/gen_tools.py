@@ -101,7 +101,7 @@ footer a,footer a:visited{color:var(--muted)}
 </section>
 </main>
 <footer>
-<p>&copy; 2026 @@BRAND@@ &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 @@BRAND@@ &middot; <a href="mailto:contact@eritech.studio">contact@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>
@@ -1623,7 +1623,7 @@ footer a,footer a:visited{color:#998F83}
 <p class="subtitle">Small, fast, free calculators from the apps we build. No signup, nothing gated.</p>
 @@GROUPS@@
 <footer>
-<p>&copy; 2026 Eritech Studios &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 Eritech Studios &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:contact@eritech.studio">contact@eritech.studio</a></p>
 </footer>
 </body>
 </html>

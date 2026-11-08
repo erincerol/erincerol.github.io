@@ -47,4 +47,4 @@ Cellar Book Premium — a one-time unlock or a monthly subscription — is proce
 
 ## Contact
 
-Questions about this policy are welcome at admin@eritech.studio.
+Questions about this policy are welcome at contact@eritech.studio.

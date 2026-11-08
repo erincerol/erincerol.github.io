@@ -82,7 +82,7 @@ TEMPLATE = """<!DOCTYPE html>
 </section>
 </main>
 <footer>
-<p><a href="/">@@BRAND@@</a> &middot; <a href="/apps/">Apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p><a href="/">@@BRAND@@</a> &middot; <a href="/apps/">Apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:contact@eritech.studio">contact@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 @@SCRIPT@@</body>
@@ -334,7 +334,7 @@ footer a,footer a:visited{color:#6F6857;text-decoration:underline;text-underline
 @@ROWS@@
 </ul>
 <footer>
-<p><a href="/">Eritech Studios</a> &middot; <a href="/apps/">Apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p><a href="/">Eritech Studios</a> &middot; <a href="/apps/">Apps</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="mailto:contact@eritech.studio">contact@eritech.studio</a></p>
 </footer>
 </body>
 </html>

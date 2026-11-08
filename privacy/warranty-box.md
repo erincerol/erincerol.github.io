@@ -52,4 +52,4 @@ We may update this policy periodically. Any changes will be reflected directly w
 
 ## Contact Us
 
-If you have any questions or suggestions about our Privacy Policy, contact us at admin@eritech.studio.
+If you have any questions or suggestions about our Privacy Policy, contact us at contact@eritech.studio.

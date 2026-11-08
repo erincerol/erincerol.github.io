@@ -434,7 +434,7 @@ TEMPLATE = """<!DOCTYPE html>
 </section>
 </main>
 <footer>
-<p>&copy; 2026 @@BRAND@@ &middot; <a href="mailto:admin@eritech.studio">admin@eritech.studio</a></p>
+<p>&copy; 2026 @@BRAND@@ &middot; <a href="mailto:contact@eritech.studio">contact@eritech.studio</a></p>
 <p>Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc.</p>
 </footer>
 <script>

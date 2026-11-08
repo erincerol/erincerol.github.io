@@ -107,4 +107,4 @@ If this policy changes, the revised version will appear on this page with a new 
 
 ## Contact
 
-Questions about this policy are welcome at admin@eritech.studio.
+Questions about this policy are welcome at contact@eritech.studio.
