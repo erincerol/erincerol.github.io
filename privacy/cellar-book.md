@@ -1,11 +1,11 @@
 ---
 app: Cellar Book
-updated: 2026-10-31
+updated: 2026-11-05
 ---
 
 ## Your data stays with you
 
-Your wine collection, tasting notes, and photographs are stored only on your device. There is no account, no server of ours and no cloud sync, and we never upload them to us — we cannot see, access, or recover them. The app can keep its own backup in your iCloud Drive or Google Drive, described below; that copy is yours, not ours. The only things that ever leave your device are anonymous crash diagnostics, anonymous usage analytics and, in the free version, the advertising data described below; none of it includes anything you have typed or photographed. Scanning a label to fill in a bottle is read on your device: the camera frame is never saved, and no image or text from it leaves your device.
+Your wine collection, tasting notes, and photographs are stored only on your device. There is no account, no server of ours and no cloud sync, and we never upload them to us — we cannot see, access, or recover them. The app can keep its own backup in your iCloud Drive or Google Drive, described below; that copy is yours, not ours. The only things that ever leave your device are anonymous crash diagnostics, anonymous usage analytics, on Android the text-recognition figures described next and, in the free version, the advertising data described below; none of it includes anything you have typed or photographed. Scanning a label to fill in a bottle, and finding the label in a photo to make its thumbnail, use text recognition that runs on your device: Apple's Vision on iPhone and iPad, and on Android Google's ML Kit text recognition model, which Google Play services downloads once, when the app is installed, and shares with other apps; from then on it works without a connection. The camera frame is never saved, and no image or text from it leaves your device. On Android, ML Kit may send Google anonymous figures about how the feature performs and is used, never the picture or the words in it.
 
 ## Backups and spreadsheets
 
