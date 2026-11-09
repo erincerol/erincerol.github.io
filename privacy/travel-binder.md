@@ -1,6 +1,6 @@
 ---
 app: The Travel Binder
-updated: 2026-10-28
+updated: 2026-11-09
 ---
 
 ## Your trip stays on your phone
@@ -90,6 +90,8 @@ From version 1.2.58, the free version shows a single banner advertisement. It ap
 Ads are served through Appodeal, an advertising mediation platform, and the ad networks it works with (including AppLovin, BidMachine, Digital Turbine, InMobi, ironSource, Liftoff, Mintegral, myTarget and Unity Ads). To choose, show and measure ads, they may collect your device's advertising identifier, your coarse location (derived from your IP address), your device type and operating system, and which ads you see and tap. None of your trips, documents, photos or notes is ever shared with them.
 
 Before any ad is requested, you are asked for your consent choices where the law requires it (for example in the EEA, the UK and Switzerland). On iPhone and iPad, Apple's tracking prompt then asks whether ads may use your activity across other companies' apps and websites. If you decline either, ads are still shown, but they are not personalised. You can change your consent choices at any time from Settings → Manage Ad Consent, and your tracking choice in your device's Settings. Appodeal's own policy is at https://appodeal.com/privacy-policy.
+
+**Measuring our own ads.** From version 1.3.70, the app includes Meta's measurement software so that when someone installs it after seeing one of our Instagram or Facebook ads, Meta can tell us the ad worked. It reports that the app was installed and opened, your device type and operating system, your coarse location (from your IP address) and your device's advertising identifier; on iPhone and iPad the identifier is sent only if you allowed tracking. It never receives your trips, documents, photos, notes or purchases. It starts only after the consent choices above, and never in the Premium app. Meta's policy is at https://www.facebook.com/privacy/policy.
 
 Premium — the one-time unlock or the monthly subscription — removes advertising entirely: the ad software is not started at all.
 
