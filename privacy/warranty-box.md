@@ -1,12 +1,13 @@
 ---
 app: Warranty Box
-updated: 2026-11-05
+updated: 2026-11-08
 ---
 
 ## Data Collection & Local Storage
 
 - **In-App Purchases:** Warranty Box Premium — a one-time unlock or a monthly subscription — is processed by the Apple App Store or Google Play. We never see or store your payment details. The app asks your app store whether your purchase or subscription is active so it can unlock Premium, and a subscription is managed or cancelled from your App Store or Google Play account.
 - **Local Storage:** All warranty items, images, and receipts are saved on your device. We do not have servers and do not sync or read your data. The app can keep its own backup in your iCloud Drive or Google Drive, described below; that copy is yours, not ours.
+- **Reading a Receipt:** If you choose Read a Receipt, the receipt is read on your device to suggest a store, date and price. The text that is read is used only for those suggestions and is discarded when you leave the form; it is never stored and never leaves your device. On Android the reading is done by Google's ML Kit, which runs on your phone and sends Google diagnostic information about the feature (your device model and operating system, the app version, a random identifier for this installation, and performance and error figures); it never sends the receipt or its text.
 
 ## Camera & Photo Library Access
 
