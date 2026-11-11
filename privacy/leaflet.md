@@ -1,6 +1,6 @@
 ---
 app: Leaflet
-updated: 2026-11-05
+updated: 2026-11-11
 ---
 
 At Eri Tech Studios, we take your privacy seriously. Leaflet keeps your plant journal on your device. It can also keep its own backup in your iCloud Drive or Google Drive, described below; that copy is yours, not ours. This policy explains what is stored locally and the limited third-party services the app uses. The only things that ever leave your device for anyone other than you are anonymous crash diagnostics, anonymous usage analytics and, in the free version, what the advertising software collects, all described below; none of it includes anything you have typed or photographed.
@@ -35,6 +35,10 @@ The backup travels from your device straight to Apple or Google; we never receiv
 
 The pet safety notes on plant pages come from the ASPCA's lists of plants that are toxic and non-toxic to cats and dogs. The list is bundled inside the app, so looking a plant up sends nothing anywhere.
 
+## Species suggestions
+
+When you add a plant with a photo, Leaflet can suggest which plants in its catalogue the photo most resembles, and can read a plant label if one is in the picture. Both happen on your device: a small recognition model bundled inside the app looks at the photo, and text recognition reads the label (Apple's Vision on iPhone and iPad; on Android, Google's ML Kit text recognition and the runtime that runs the model, which Google Play services downloads once and shares with other apps; from then on they work without a connection). The photo is never uploaded or sent anywhere for this, any text read from it is used only to match a plant name and is not kept, and nothing about the suggestion is sent to us. On Android, Google Play services may send Google anonymous figures about how these components perform, never the picture or the words in it. You can ignore the suggestions and type any name. The photographers whose iNaturalist pictures taught the model are credited in the app, under Settings.
+
 ## Crash reporting
 
 Leaflet uses Firebase Crashlytics to collect anonymous crash diagnostics (device model, OS version, and the technical state of the app at the moment of a crash). No personal information, plant data, notes, or photos are ever transmitted. Crash reports exist solely so we can fix defects.
@@ -53,11 +57,13 @@ Ads are served through Appodeal, an advertising mediation platform, and the ad n
 
 Before any ad is requested, you are asked for your consent choices where the law requires it (for example in the EEA, the UK and Switzerland). On iPhone and iPad, Apple's tracking prompt then asks whether ads may use your activity across other companies' apps and websites. If you decline either, ads are still shown, but they are not personalised. You can change your consent choices at any time from Settings → Privacy options, and your tracking choice in your device's Settings. Appodeal's own policy is at https://appodeal.com/privacy-policy.
 
+**Measuring our own ads.** From version 1.2.62, the app includes Meta's measurement software so that when someone installs it after seeing one of our Instagram or Facebook ads, Meta can tell us the ad worked. It reports that the app was installed and opened, your device type and operating system, your coarse location (from your IP address) and your device's advertising identifier; on iPhone and iPad the identifier is sent only if you allowed tracking. It never receives your plants, care notes, photos or purchases. It starts only after the consent choices above, and never in the Premium app. Meta's policy is at https://www.facebook.com/privacy/policy.
+
 Premium — the one-time unlock or the monthly subscription — removes advertising entirely: the ad software is not started at all.
 
 ## In-App Purchases
 
-The one-time Premium purchase is processed through Google Play (Android) or the Apple App Store (iOS). We do not handle or store any payment data directly.
+Premium, whether the one-time unlock or the monthly subscription, is processed through Google Play (Android) or the Apple App Store (iOS). We do not handle or store any payment data directly. A subscription is managed and cancelled in your store account.
 
 ## Your Rights
 
