@@ -6,7 +6,7 @@ import os
 import re
 import sys
 
-from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS, BRAND, ORG_REF, SITE_LASTMOD, GUIDES, plain_text,
+from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS, BRAND, ORG_REF, SITE_LASTMOD, GUIDES, APP_GUIDES, plain_text, fit_title,
                    jsonld_script, breadcrumb, ios_badge, play_badge, og_image)
 import content_guides
 import content_returns
@@ -269,7 +269,9 @@ def words(fragment):
 
 
 def tab_title(g):
-    return html.escape(plain_text(g["h1"]) + " | " + BRAND, quote=False)
+    if "tab" in g:
+        return html.escape(g["tab"], quote=False)
+    return fit_title(html.escape(plain_text(g["h1"]) + " | " + BRAND, quote=False))
 
 
 def check(g, url, page, campaign, meta):
@@ -340,10 +342,6 @@ footer a,footer a:visited{color:#6F6857;text-decoration:underline;text-underline
 </html>
 """
 
-APP_GUIDES = {
-    ("cellar-book", "from-cellartracker"): ("Moving from CellarTracker to Cellar Book",
-                                            "Bring your CellarTracker list across in one import, with a preview first."),
-}
 
 
 def build_index():

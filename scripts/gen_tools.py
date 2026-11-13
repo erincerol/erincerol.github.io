@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Generate eritech.studio /tools/ calculator pages, OG images, robots.txt and sitemap.xml."""
-import os, sys
+import datetime, os, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS, ACCENT_BY_APP,
-                   BRAND, ORG_REF, SITE_LASTMOD, plain_text, jsonld_script, breadcrumb,
+                   BRAND, ORG_REF, SITE_LASTMOD, plain_text, fit_title, guide_links, jsonld_script, breadcrumb,
                    play_badge, ios_badge, og_image)
 import gen_pairings
 import gen_items
@@ -494,6 +494,7 @@ $('outsub').textContent='Feed '+Math.round(k)+' g starter to make '+Math.round(t
 
 PAGES.append(dict(
     slug="coffee-ratio-calculator",
+    see_also='<p>Pulling espresso rather than brewing filter? <a href="/guides/dial-in-espresso/">How to dial in espresso</a> covers the ratios, and what to change when a shot tastes sour or bitter.</p>\n',
     palette="kohii",
     tab_title="Coffee to Water Ratio Calculator — Free & Instant | Eritech Studios",
     og_title="Coffee Ratio Calculator",
@@ -575,6 +576,7 @@ $('f-coffee').hidden=(mode!=='c2w');$('f-water').hidden=(mode==='c2w');calc()})}
 
 PAGES.append(dict(
     slug="espresso-ratio-calculator",
+    see_also='<p>Shot still sour or bitter at the right ratio? <a href="/guides/dial-in-espresso/">How to dial in espresso: sour, bitter, and what to change</a> shows which of grind, dose and yield to move first.</p>\n',
     palette="kohii",
     tab_title="Espresso Ratio Calculator — Free & Instant | Eritech Studios",
     og_title="Espresso Ratio Calculator",
@@ -817,6 +819,7 @@ $('outsub').textContent='A starting point, not a rule — check the soil before 
 
 PAGES.append(dict(
     slug="uk-return-rights-checker",
+    see_also='<p>Many shops give longer than the law requires. See <a href="/guides/return-windows/">return windows by retailer in the UK and US</a>, with each store&rsquo;s own policy and its source.</p>\n',
     palette="warranty",
     tab_title="UK Return Rights Checker — Free & Instant | Eritech Studios",
     og_title="UK Return Rights Checker",
@@ -1485,7 +1488,7 @@ def build_page(p):
     pal = PALETTES[p["palette"]]
     html = TEMPLATE
     for k, v in [
-        ("@@TAB_TITLE@@", p["tab_title"]), ("@@META_DESC@@", p["meta_desc"]),
+        ("@@TAB_TITLE@@", fit_title(p["tab_title"])), ("@@META_DESC@@", p["meta_desc"]),
         ("@@OG_TITLE@@", p["og_title"]), ("@@SLUG@@", p["slug"]), ("@@OG@@", p.get("og", p["slug"])),
         ("@@DOMAIN@@", DOMAIN), ("@@CRUMB_EXTRA@@", p.get("crumb_extra", "")), ("@@CHIPS@@", p.get("chips", "")),
         ("@@SEE_ALSO@@", p.get("see_also", "")),
@@ -1567,6 +1570,9 @@ for gname, app, accent, slugs in GROUPS:
         groups_html += ('<li><a href="/tools/' + s + '/"><strong>' + TOOL_TITLES[s] + '</strong>'
                         '<span>' + DESCS[s] + '</span></a>' + item_details(s) + '</li>\n')
     groups_html += '</ul>\n</section>\n'
+groups_html += ('<section class="group" style="--acc:#7A3B24">\n<h2><span class="dot"></span>Guides</h2>\n<ul>\n' + "".join(
+    '<li><a href="' + href + '"><strong>' + title + '</strong><span>' + blurb + '</span></a></li>\n'
+    for href, title, blurb in guide_links()) + '</ul>\n</section>\n')
 
 tools_index = """<!DOCTYPE html>
 <html lang="en">
@@ -1653,10 +1659,23 @@ urls += [DOMAIN + "/tools/" + p["slug"] + "/" for p in PAGES]
 urls += pairing_urls
 urls += [DOMAIN + "/tools/" + p["slug"] + "/" for p in ITEM_PAGES]
 urls += guide_urls
-LASTMOD = os.environ.get("SITEMAP_DATE", SITE_LASTMOD)
+def page_file(url):
+    return os.path.join(url[len(DOMAIN) + 1:], "index.html")
+
+
+def lastmod(url):
+    path = page_file(url)
+    changed = subprocess.run(["git", "diff", "--quiet", "HEAD", "--", path], cwd=REPO).returncode != 0
+    committed = subprocess.run(["git", "log", "-1", "--format=%cs", "--", path], cwd=REPO,
+                               capture_output=True, text=True, check=True).stdout.strip()
+    if changed or not committed:
+        return datetime.date.today().isoformat()
+    return committed
+
+
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for u in urls:
-    sm += "  <url><loc>" + u + "</loc><lastmod>" + LASTMOD + "</lastmod></url>\n"
+    sm += "  <url><loc>" + u + "</loc><lastmod>" + lastmod(u) + "</lastmod></url>\n"
 sm += "</urlset>\n"
 with open(os.path.join(REPO, "sitemap.xml"), "w") as f:
     f.write(sm)

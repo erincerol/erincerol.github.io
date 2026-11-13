@@ -8,7 +8,7 @@ import re
 import subprocess
 
 from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, BRAND, ORG_REF, SITE_LASTMOD, jsonld_script, breadcrumb,
-                   play_badge, ios_badge, og_image)
+                   play_badge, ios_badge, og_image, fit_title)
 
 SOURCE_REPO = "erincerol/cellar-book"
 SOURCE_PATH = "ios/Modules/ReferenceData/Sources/ReferenceData/Resources/wine_pairings.json"
@@ -596,7 +596,7 @@ def render(shared_css, pal, *, url, tab_title, og_title, meta_desc, og, crumb, h
         ("@@CSS@@", shared_css), ("@@EXTRA_CSS@@", EXTRA_CSS),
         ("@@BG@@", pal["bg"]), ("@@SURFACE@@", pal["surface"]), ("@@TEXT@@", pal["text"]),
         ("@@MUTED@@", pal["muted"]), ("@@ACCENT@@", pal["accent"]), ("@@LINE@@", pal["line"]), ("@@ON@@", pal["on"]),
-        ("@@TAB_TITLE@@", attr(tab_title)), ("@@META_DESC@@", attr(meta_desc)), ("@@OG_TITLE@@", attr(og_title)),
+        ("@@TAB_TITLE@@", attr(fit_title(tab_title))), ("@@META_DESC@@", attr(meta_desc)), ("@@OG_TITLE@@", attr(og_title)),
         ("@@URL@@", url), ("@@OG@@", og), ("@@CF@@", CF_SNIPPET), ("@@JSONLD@@", jsonld),
         ("@@CRUMB@@", crumb), ("@@H1@@", text(h1)), ("@@SHEET_TITLE@@", SHEET_TITLE), ("@@CHIPS@@", chips),
         ("@@ANSWER@@", answer), ("@@EXPLAINER_TITLE@@", explainer_title), ("@@EXPLAINER@@", explainer),
@@ -702,7 +702,7 @@ def check(families):
         h1 = re.search(r"<h1>(.*?)</h1>", page).group(1)
         if h1 != text("What wine goes with " + dish(f) + "?"):
             fail(f["id"] + " h1 " + h1)
-        if '<title>' + h1 + ' | ' + BRAND + '</title>' not in page:
+        if '<title>' + fit_title(h1 + ' | ' + BRAND) + '</title>' not in page:
             fail(f["id"] + " title does not match the h1")
         if '<link rel="canonical" href="' + url + '">' not in page or '<meta property="og:url" content="' + url + '">' not in page:
             fail(f["id"] + " canonical")

@@ -4,7 +4,7 @@ import html
 import math
 import re
 
-from brand import DOMAIN, SITE_LASTMOD, BRAND, ios_badge, play_badge, plain_text
+from brand import DOMAIN, SITE_LASTMOD, BRAND, TITLE_LIMIT, TITLE_SUFFIX, ios_badge, play_badge, plain_text, fit_title
 import content_guides
 import content_plants
 import content_wine
@@ -124,6 +124,13 @@ def parent_crumb(parent):
     return '<span>/</span><a href="/tools/' + parent["slug"] + '/">' + parent["og_title"] + '</a>'
 
 
+def drink_window_title(question):
+    title = fit_title(question + " Drinking window by vintage" + TITLE_SUFFIX)
+    if len(title) > TITLE_LIMIT:
+        return question + " Drinking window"
+    return title
+
+
 def item_page(parent, slug, **kw):
     page = dict(slug=parent["slug"] + "/" + slug, og=parent["slug"] + "-" + slug, palette=parent["palette"],
                 calc_js=parent["calc_js"], related_slug=parent["slug"], crumb_extra=parent_crumb(parent),
@@ -207,8 +214,9 @@ def wine_pages(parent, styles, drink_window_calc, families):
         question = "When should I drink " + name + "?"
         links = " or ".join('<a href="/tools/' + gen_pairings.SLUG + '/' + fid + '/">' + phrases[fid] + '</a>'
                             for fid in WINE_PAIRINGS[slug])
+        sibling = '\n<p>' + c["sibling"] + '</p>' if "sibling" in c else ""
         explainer = sections(c["explainer"] + [
-            ("Which vintages are ready", vintages_paragraph(name, lo, hi))]) + (
+            ("Which vintages are ready", vintages_paragraph(name, lo, hi))]) + sibling + (
             '\n<p>Planning the meal? See what goes with ' + links + ' in the <a href="/tools/' + gen_pairings.SLUG +
             '/">wine pairing finder</a>, or how the windows are set on the <a href="/tools/' + parent["slug"] +
             '/">drink window calculator</a>.</p>')
@@ -216,7 +224,7 @@ def wine_pages(parent, styles, drink_window_calc, families):
                 "in their window in %d. Check yours free." % (lo, hi, YEAR - hi, YEAR - lo, YEAR))
         campaign = "drink_window_" + slug.replace("-", "_")
         pages.append(item_page(
-            parent, slug, tab_title=plain_text(question) + " Drinking window by vintage | " + BRAND,
+            parent, slug, tab_title=drink_window_title(plain_text(question)),
             og_title=plain_text(question), h1=question, lede=c["lede"], meta_desc=meta,
             calc_html=fill_result(drink_window_calc(slug), "Drink %d – %d" % (vintage + lo, vintage + hi),
                                   wine_verdict(vintage, lo, hi)),

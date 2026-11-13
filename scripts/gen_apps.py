@@ -9,7 +9,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from brand import (REPO, DOMAIN, CF_SNIPPET, PALETTES, APPS, GUIDES,
                    BRAND, ORG_REF, PREMIUM_NOTE, PREMIUM_OFFER, plain_text, jsonld_script, breadcrumb,
-                   play_badge, ios_badge, og_image, SITE_LASTMOD)
+                   play_badge, ios_badge, og_image, SITE_LASTMOD, fit_title, guide_links)
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -110,6 +110,11 @@ p.searchParams.set("referrer",r.toString());play.href=p.href}
 </html>
 """
 
+ITEM_LINKS = {
+    "leaflet": ["plant-watering-calculator/monstera", "plant-watering-calculator/pothos", "plant-watering-calculator/snake-plant"],
+    "travel-binder": ["packing-list-generator/japan-winter", "packing-list-generator/japan-spring"],
+}
+
 TOOL_META = {
     "sourdough-hydration-calculator": ("Sourdough Hydration Calculator", "Flour, water and starter in — true hydration % out."),
     "bakers-percentage-calculator": ("Baker's Percentage Calculator", "Scale any bread formula from flour or dough weight."),
@@ -125,6 +130,11 @@ TOOL_META = {
     "plant-watering-calculator": ("Plant Watering Calculator", "Watering intervals by species, season and light."),
     "uk-return-rights-checker": ("UK Return Rights Checker", "Which legal return or refund window you're in."),
     "packing-list-generator": ("Packing List Generator", "Trip length and climate in — a list with quantities."),
+    "plant-watering-calculator/monstera": ("How often should I water a Monstera?", "Every 7–10 days in spring and summer, once the top 5 cm is dry."),
+    "plant-watering-calculator/pothos": ("How often should I water a pothos?", "Every 7–10 days in spring and summer, once the top third is dry."),
+    "plant-watering-calculator/snake-plant": ("How often should I water a snake plant?", "Every 14–21 days in spring and summer, and only when the pot is dry."),
+    "packing-list-generator/japan-winter": ("Japan packing list for December", "Fourteen nights, December to February: layers, slip-off shoes, IC card and cash."),
+    "packing-list-generator/japan-spring": ("Japan packing list for cherry blossom season", "Ten nights in March or April: light layers, rain cover and a pollen mask."),
     "japan-trip-cost-calculator": ("Japan Trip Cost Calculator", "Nights and style in — a line-by-line budget."),
 }
 
@@ -268,7 +278,7 @@ for app in APPS:
     feats = "\n".join("<li>%s</li>" % f for f in c["features"])
     tools = "\n".join(
         '<li><a href="/tools/%s/"><strong>%s</strong><span>%s</span></a></li>' % (t, TOOL_META[t][0], TOOL_META[t][1])
-        for t in app["tools"])
+        for t in app["tools"] + ITEM_LINKS.get(app["slug"], []))
 
     store_urls = ["https://apps.apple.com/app/id" + app["app_id"],
                   "https://play.google.com/store/apps/details?id=" + app["pkg"]]
@@ -281,7 +291,7 @@ for app in APPS:
 
     html = TEMPLATE
     for k, v in [("@@JSONLD@@", ld), ("@@BRAND@@", BRAND), ("@@PREMIUM@@", PREMIUM_NOTE),
-                 ("@@TAB_TITLE@@", c["tab"]), ("@@META_DESC@@", c["desc"]), ("@@NAME@@", app["name"]),
+                 ("@@TAB_TITLE@@", fit_title(c["tab"])), ("@@META_DESC@@", c["desc"]), ("@@NAME@@", app["name"]),
                  ("@@SLUG@@", app["slug"]), ("@@SLUG_U@@", app["slug"].replace("-", "_")), ("@@DOMAIN@@", DOMAIN), ("@@CF@@", CF_SNIPPET),
                  ("@@APPID@@", app["app_id"]), ("@@PKG@@", app["pkg"]), ("@@PRIVACY@@", app["privacy"]),
                  ("@@BG@@", pal["bg"]), ("@@SURFACE@@", pal["surface"]), ("@@TEXT@@", pal["text"]),
@@ -406,7 +416,7 @@ for (app_slug, guide_slug), g in GUIDES.items():
         style = style.replace("@@%s@@" % k, pal[k.lower()])
     html = GUIDE_TEMPLATE
     for k, v in [("@@STYLE@@", style), ("@@JSONLD@@", ld), ("@@CF@@", CF_SNIPPET), ("@@BRAND@@", BRAND),
-                 ("@@TAB_TITLE@@", g["tab"]), ("@@META_DESC@@", g["desc"]), ("@@OG_TITLE@@", plain_text(g["h1"])),
+                 ("@@TAB_TITLE@@", fit_title(g["tab"])), ("@@META_DESC@@", g["desc"]), ("@@OG_TITLE@@", plain_text(g["h1"])),
                  ("@@URL@@", url), ("@@DOMAIN@@", DOMAIN), ("@@OG@@", og), ("@@APPID@@", app["app_id"]),
                  ("@@SLUG@@", app_slug), ("@@NAME@@", app["name"]), ("@@H1@@", g["h1"]), ("@@LEDE@@", g["lede"]),
                  ("@@BADGES@@", badges), ("@@NOTE@@", g["note"]), ("@@BODY@@", g["body"])]:
@@ -462,6 +472,7 @@ li a::after{content:"";position:absolute;right:17px;top:50%;width:7px;height:7px
 li a:hover::after{transform:translate(4px,-50%) rotate(-45deg);opacity:1}
 li a strong{display:block;color:#1F1A15;font-size:1.05rem;font-family:Georgia,serif}
 li a span{font-size:.92rem;color:#6F6857}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;color:#1F1A15;margin:38px 0 14px}
 footer{margin-top:44px;padding-top:20px;border-top:1px solid #E9E3D9;color:#6F6857;font-size:.85rem}
 footer a,footer a:visited{color:#6F6857;text-decoration:underline;text-underline-offset:2px}
 </style>
@@ -473,7 +484,7 @@ footer a,footer a:visited{color:#6F6857;text-decoration:underline;text-underline
 <ul>
 @@ROWS@@
 </ul>
-<footer>
+@@GUIDE_ROWS@@<footer>
 <p><a href="/">Eritech Studios</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="/guides/">Guides</a> &middot; <a href="mailto:contact@eritech.studio">contact@eritech.studio</a></p>
 </footer>
 </body>
@@ -484,6 +495,9 @@ apps_itemlist = ('<script type="application/ld+json">\n'
     + ",".join('{"@type":"ListItem","position":%d,"name":"%s","url":"%s/apps/%s/"}' % (i + 1, a["name"], DOMAIN, a["slug"])
                for i, a in enumerate(APPS)) + ']}\n</script>')
 index = (index.replace("@@DOMAIN@@", DOMAIN).replace("@@CF@@", CF_SNIPPET)
-         .replace("@@ROWS@@", rows).replace("@@ITEMLIST@@", apps_itemlist))
+         .replace("@@ROWS@@", rows).replace("@@ITEMLIST@@", apps_itemlist)
+         .replace("@@GUIDE_ROWS@@", '<h2>Guides</h2>\n<ul>\n' + "".join(
+             '<li><a href="%s"><span class="app-text"><strong>%s</strong><span>%s</span></span></a></li>\n' % link
+             for link in guide_links()) + '</ul>\n'))
 open(os.path.join(REPO, "apps", "index.html"), "w").write(index)
 print("wrote apps/index.html")

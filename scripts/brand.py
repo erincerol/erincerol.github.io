@@ -22,6 +22,16 @@ PREMIUM_OFFER = {"@type": "Offer", "price": "0", "priceCurrency": "GBP",
                  "description": "Free to download. Premium is available as a subscription or a one-time purchase."}
 
 
+TITLE_LIMIT = 65
+TITLE_SUFFIX = " | " + BRAND
+
+
+def fit_title(title):
+    if title.endswith(TITLE_SUFFIX) and len(html.unescape(title)) > TITLE_LIMIT:
+        return title[:-len(TITLE_SUFFIX)]
+    return title
+
+
 def plain_text(fragment):
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", fragment))).strip()
 
@@ -147,6 +157,19 @@ GUIDES = [
          tools=["espresso-ratio-calculator", "coffee-ratio-calculator", "coffee-freshness-calculator"]),
     dict(slug="return-windows", app="warranty-box", published="2026-10-28",
          h1="How long do you have to return something? Return windows by retailer (UK &amp; US)",
+         tab="How long do you have to return something? UK & US by retailer",
          blurb="The legal baseline in the UK and US, and each big retailer&rsquo;s own window, with sources.",
          tools=["uk-return-rights-checker"]),
 ]
+
+
+APP_GUIDES = {
+    ("cellar-book", "from-cellartracker"): ("Moving from CellarTracker to Cellar Book",
+                                            "Bring your CellarTracker list across in one import, with a preview first."),
+}
+
+
+def guide_links():
+    links = [("/guides/%s/" % g["slug"], g["h1"], g["blurb"]) for g in GUIDES]
+    links += [("/apps/%s/%s/" % key, title, blurb) for key, (title, blurb) in APP_GUIDES.items()]
+    return links

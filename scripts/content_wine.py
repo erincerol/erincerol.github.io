@@ -17,6 +17,7 @@ STYLES = {
         ],
     ),
     "bordeaux": dict(
+        sibling='Most Bordeaux is not classed growth. A Bordeaux AOC, Bordeaux Sup&eacute;rieur or petit-ch&acirc;teau red is made to drink within a few years and has its own page: <a href="/tools/wine-drink-window-calculator/bordeaux-everyday/">everyday red Bordeaux drinking window</a>.',
         lede="A classed-growth claret is built on Cabernet tannin and new oak, and few reds repay long cellaring as reliably.",
         explainer=[
             ("Why it needs time",
@@ -34,6 +35,7 @@ STYLES = {
         ],
     ),
     "bordeaux-everyday": dict(
+        sibling='A classed growth from the M&eacute;doc, Graves or Saint-&Eacute;milion, or a top Pomerol, ages for decades and has its own page: <a href="/tools/wine-drink-window-calculator/bordeaux/">classed-growth Bordeaux drinking window</a>.',
         lede="Bordeaux AOC, Bordeaux Sup&eacute;rieur and petit-ch&acirc;teau reds are made to be drunk within a few years, and most show their best in the first half of the window.",
         explainer=[
             ("What sets the window",
